@@ -51,9 +51,17 @@
         </section>
         
         <!-- Bagian Lacak Kiriman akan kita buat di tahap selanjutnya -->
-        <section id="lacak" style="display:none;">
+        <section id="lacak">
             <h2>Lacak Kiriman Anda</h2>
-            <!-- Konten pelacakan akan ada di sini -->
+            <form id="form-lacak">
+                <input type="text" id="nomor-resi-lacak" placeholder="Masukkan Nomor Resi" required>
+                <button type="submit">Lacak</button>
+            </form>
+            
+            <!-- Area ini untuk menampilkan hasil pencarian -->
+            <div id="hasil-lacak">
+                <!-- Hasil akan ditampilkan di sini oleh JavaScript -->
+            </div>
         </section>
     </main>
 
