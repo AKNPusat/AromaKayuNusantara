@@ -3,13 +3,13 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
+    background: #ecf1ff;
     color: #333;
 }
 
 header {
-    background: #004d40;
-    color: #fff;
+    background: #0b0463;
+    color: #d4e0f6;
     padding: 1rem 0;
     text-align: center;
 }
@@ -22,7 +22,7 @@ header .logo {
 nav {
     display: flex;
     justify-content: center;
-    background: #00796b;
+    background: #0b0463;
     padding: 0.5rem;
 }
 
@@ -34,7 +34,7 @@ nav a {
 }
 
 nav a:hover {
-    background: #004d40;
+    background: #0b0463;
 }
 
 main {
@@ -44,7 +44,7 @@ main {
 }
 
 section {
-    background: #fff;
+    background: #eff1ff;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
@@ -52,7 +52,7 @@ section {
 }
 
 h2 {
-    color: #004d40;
+    color: #0b0463;
     border-bottom: 2px solid #00796b;
     padding-bottom: 10px;
 }
@@ -76,8 +76,8 @@ form input, form textarea {
 }
 
 form button {
-    background: #00796b;
-    color: #fff;
+    background: #0b0463;
+    color: #eff1ff;
     padding: 12px;
     border: none;
     border-radius: 4px;
@@ -87,7 +87,7 @@ form button {
 }
 
 form button:hover {
-    background: #004d40;
+    background: #0b0463;
 }
 
 footer {
