@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT. Aroma Kayu Nusantara - Tracking & Inventory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <img src="https://i.imgur.com/9lS8o2U.png" alt="Logo Aroma Kayu Nusantara" class="logo">
+        <h1>PT. AROMA KAYU NUSANTARA</h1>
+        <p>The aroma of Indonesian Agarwood scents the world</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#input-resi">Input Resi Baru</a>
+        <a href="#lacak">Lacak Kiriman</a>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Selamat Datang di Sistem Informasi Kami</h2>
+            <p>PT. Aroma Kayu Nusantara adalah perusahaan yang berfokus pada perdagangan kayu gaharu berkualitas tinggi dari Papua. Kami memastikan setiap proses, dari pengumpulan hingga pengiriman, dilakukan dengan standar terbaik.</p>
+            <p>Untuk menjamin pengiriman yang aman dan tepat waktu dari Papua ke Probolinggo dan Jakarta, kami bermitra dengan <strong>Bina Multi Transindo Logistik</strong> sebagai mitra logistik terpercaya kami.</p>
+        </section>
+
+        <section id="input-resi">
+            <h2>Input Data Pengiriman Baru</h2>
+            <form id="form-resi">
+                <h3>Informasi Pengiriman</h3>
+                <input type="text" id="nomor-resi" placeholder="Nomor Resi (Contoh: 20250017)" required>
+                <input type="date" id="tanggal-kirim" required>
+                
+                <h3>Detail Pengirim & Penerima</h3>
+                <input type="text" id="nama-pengirim" placeholder="Nama Pengirim (Contoh: Imin - Bifo)" required>
+                <input type="text" id="telp-pengirim" placeholder="No. Telp Pengirim" required>
+                <input type="text" id="nama-penerima" placeholder="Nama Penerima (Contoh: Olie)" required>
+                <input type="text" id="telp-penerima" placeholder="No. Telp Penerima" required>
+                
+                <h3>Detail Barang (Isi Sesuai Pengakuan di Nota)</h3>
+                <p>Pisahkan setiap jenis barang dengan koma. Contoh: 1A(1), TGS(1), DMDAS(5)</p>
+                <textarea id="isi-barang" rows="4" placeholder="Contoh: 1A(1), TGS(1), DMDAS(5), CMP" required></textarea>
+                <input type="number" id="jumlah-koli" placeholder="Jumlah Koli (Contoh: 10)" required>
+                <input type="number" id="berat-barang" placeholder="Total Berat (kg) (Opsional)">
+
+                <button type="submit">Simpan Data Resi</button>
+            </form>
+        </section>
+        
+        <!-- Bagian Lacak Kiriman akan kita buat di tahap selanjutnya -->
+        <section id="lacak" style="display:none;">
+            <h2>Lacak Kiriman Anda</h2>
+            <!-- Konten pelacakan akan ada di sini -->
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 PT. Aroma Kayu Nusantara. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Script untuk Firebase (akan diisi nanti) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    
+    <!-- Script lokal kita -->
+    <script src="script.js"></script>
+</body>
+</html>
