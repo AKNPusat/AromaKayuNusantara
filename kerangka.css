@@ -1,64 +1,91 @@
-/* Kerangka Dasar & Warna Utama */
+/* Kerangka Dasar & Warna Utama (Revisi Desain AKN) */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font lebih modern */
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #eef2f5; /* Latar belakang abu-abu muda */
-    color: #333;
+    background-color: #f4f4f4; /* Latar belakang abu-abu netral */
+    color: #333333; /* Warna tulisan hitam gelap */
 }
+
+/* --- HEADER (Mirip Pertamina Style) --- */
 header {
-    background-color: #0d244f; /* Biru Sangat Tua */
+    background-color: #050240; /* Biru Navy Sangat Tua */
     color: white;
-    padding: 1rem 0;
+    padding: 20px 0;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
+
 header img.logo {
-    width: 80px;
-    margin-bottom: 10px;
+    height: 90px; /* Logo lebih besar dan dominan */
+    width: auto;
 }
+
+/* --- NAVIGASI (Menu) --- */
 nav {
     display: flex;
     justify-content: center;
-    background-color: #1976D2; /* Biru Menu */
-    padding: 0.75rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background-color: #e1b660; /* Emas/Kuning Mustard */
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+
 nav a {
-    color: white;
-    padding: 0.5rem 1rem;
+    color: #050240; /* Teks menu warna biru tua */
+    padding: 8px 15px;
     text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    font-weight: 600; /* Teks lebih tebal */
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0 5px;
+    border-radius: 5px;
 }
+
 nav a:hover, nav a.active {
-    background-color: #0d47a1; /* Biru Tua saat hover/aktif */
-    border-radius: 4px;
+    background-color: #050240; /* Latar belakang biru tua saat aktif/hover */
+    color: white; /* Teks putih saat aktif/hover */
 }
+
+/* --- KONTEN UTAMA --- */
 main {
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    max-width: 1100px; /* Lebih lebar */
+    margin: 30px auto;
+    padding: 30px;
+    background-color: white; /* Konten utama tetap putih agar mudah dibaca */
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
     border-radius: 8px;
 }
+
 h2 {
-    color: #0d47a1;
-    border-bottom: 2px solid #1976D2;
+    color: #050240; /* Judul warna biru tua */
+    border-bottom: 3px solid #e1b660; /* Garis bawah warna emas */
     padding-bottom: 10px;
+    margin-top: 0;
 }
+
+/* --- FOOTER --- */
 footer {
     text-align: center;
-    padding: 20px;
-    margin-top: 30px;
-    background: #333;
-    color: #fff;
+    padding: 25px 0;
+    margin-top: 40px;
+    background-color: #050240; /* Biru Navy Sangat Tua */
+    color: #ffffff;
 }
+
+footer p {
+    margin: 5px 0;
+    color: #ccc;
+}
+
 /* Style untuk halaman profil & kegiatan */
 .gallery-container img {
     width: 100%;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 4px;
+    max-width: 800px; /* Batasi lebar gambar agar tidak terlalu besar */
+    display: block;
+    margin: 0 auto 30px auto; /* Tengahkan gambar dan beri jarak antar gambar */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border: 1px solid #ddd;
 }
