@@ -1,8 +1,12 @@
+/* =================================================================== */
+/* KODE CSS VERSI FINAL - Aroma Kayu Nusantara (Gaya Korporat) */
+/* =================================================================== */
+
 /* --- Pengaturan Dasar & Font --- */
 :root {
     --primary-blue: #00529B; /* Biru korporat */
     --text-dark: #212529;
-    --text-light: #6c757d;
+    --text-light: #f8f9fa; /* Warna teks terang untuk latar gelap */
 }
 body {
     font-family: 'Montserrat', sans-serif;
@@ -18,13 +22,32 @@ body {
     padding: 0 2rem;
 }
 
-/* --- Header Atas (Top Bar) --- */
+/* --- Posisi Header di Atas Video --- */
+body {
+    padding-top: 104px; /* Beri ruang di atas untuk header. Sesuaikan 104px jika perlu */
+}
+.top-header, .main-header {
+    position: fixed; /* Kunci: Header tetap di atas saat scroll */
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
 .top-header {
-    background-color: #f8f9fa;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
     padding: 0.5rem 0;
     font-size: 0.8rem;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
+.main-header {
+    top: 37px; /* Letakkan di bawah top-header */
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* --- Style Link Header Atas (Internal) --- */
 .top-links-right { margin-left: auto; }
 .top-links-right a {
     color: var(--text-light);
@@ -32,62 +55,34 @@ body {
     margin-left: 1.5rem;
     transition: color 0.2s;
 }
-.top-links-right a:hover { color: var(--primary-blue); }
+.top-links-right a:hover { color: #ffffff; }
 
-/* --- Header Utama --- */
-.main-header {
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    /* --- Struktur Layout Utama --- */
-.site-wrapper {
-    position: relative;
-}
-.top-header, .main-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
-.top-header {
-    background-color: rgba(0, 0, 0, 0.2); /* Sedikit transparan */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.top-links-right a {
-    color: #f0f0f0; /* Teks lebih terang agar terlihat */
-}
-.main-header {
-    top: 37px; /* Letakkan di bawah top-header (sesuaikan jika perlu) */
-    background-color: rgba(255, 255, 255, 0.9); /* Latar putih sedikit transparan */
-    backdrop-filter: blur(5px); /* Efek blur seperti iOS */
-}
-main {
-    position: relative;
-    z-index: 1;
-}
-    z-index: 1000;
-}
+/* --- Style Header Utama & Logo --- */
 .logo { height: 45px; }
+.header-search {
+    padding-left: 1rem;
+    color: #555;
+    cursor: pointer;
+}
+.header-search svg { width: 24px; height: 24px; fill: currentColor; }
 
 /* --- Navigasi & Dropdown --- */
 .main-nav { display: flex; align-items: center; }
-.nav-item {
-    position: relative; /* Penting untuk posisi dropdown */
-}
+.nav-item { position: relative; }
 .nav-link {
     display: block;
     padding: 1.5rem 1rem;
     text-decoration: none;
     color: var(--text-dark);
-    font-weight: 700;
+    font-weight: 700; /* Teks lebih tebal */
     transition: color 0.2s;
 }
 .nav-item:hover .nav-link { color: var(--primary-blue); }
 
 .dropdown-menu {
-    display: none; /* Sembunyikan dropdown secara default */
+    display: none;
     position: absolute;
-    top: 100%; /* Muncul tepat di bawah menu utama */
+    top: 100%;
     left: 0;
     background-color: white;
     min-width: 220px;
@@ -98,7 +93,6 @@ main {
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-/* INI KUNCINYA: Tampilkan dropdown saat .nav-item di-hover */
 .nav-item:hover .dropdown-menu {
     display: block;
     opacity: 1;
@@ -112,38 +106,43 @@ main {
     font-size: 0.9rem;
     white-space: nowrap;
 }
-.dropdown-menu a:hover { background-color: #f8f9fa; }
-.header-search {
-    padding-left: 1rem;
-    color: var(--text-light);
-    cursor: pointer;
-}
-.header-search svg { width: 24px; height: 24px; fill: currentColor; }
-
+.dropdown-menu a:hover { background-color: #f1f1f1; }
 
 /* --- Hero Section dengan Video --- */
+main {
+    padding-top: 0; /* Hapus padding atas dari main */
+}
 .hero-section {
     position: relative;
-    height: 85vh;
+    height: calc(100vh - 104px); /* Tinggi video = tinggi layar - tinggi header */
     overflow: hidden;
 }
 .video-background {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: -2;
+    top: 50%; left: 50%;
+    width: 100%; height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }
 .video-background iframe {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Pastikan video menutupi seluruh area */
+    width: 100vw;
+    height: 56.25vw; /* 100 * 9 / 16 (rasio 16:9) */
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
 }
 .hero-overlay {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 30, 80, 0.5); /* Lapisan gelap agar teks terbaca */
-    z-index: -1;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 20, 60, 0.4);
+    z-index: 2;
 }
 .hero-content {
+    position: relative;
+    z-index: 3;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -151,25 +150,23 @@ main {
     align-items: center;
     text-align: center;
     color: white;
-    padding: 2rem;
 }
 .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
     margin: 0;
 }
 .hero-content p {
     font-size: 1.25rem;
     max-width: 600px;
     margin-top: 1rem;
-    opacity: 0.9;
 }
 .cta-button {
     display: inline-flex;
     align-items: center;
     border: 2px solid white;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
     color: white;
     padding: 0.75rem 1.75rem;
     border-radius: 50px;
@@ -178,11 +175,8 @@ main {
     margin-top: 2rem;
     transition: all 0.3s;
 }
-.cta-button:hover {
-    background: white;
-    color: var(--primary-blue);
-}
+.cta-button:hover { background: white; color: black; }
 .cta-button svg { width: 18px; height: 18px; fill: currentColor; margin-right: 0.5rem; }
 
 /* --- Footer --- */
-.main-footer { text-align: center; padding: 2rem; background: #212529; color: #adb5bd; }
+.main-footer { text-align: center; padding: 2rem; background: #212529; color: #adb5bd; position: relative; z-index: 5; }
