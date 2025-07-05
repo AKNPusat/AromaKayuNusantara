@@ -1,91 +1,237 @@
-/* Kerangka Dasar & Warna Utama (Revisi Desain AKN) */
+/* --- Pengaturan Dasar & Font Modern --- */
+:root {
+    --primary-color: #0d47a1; /* Biru AKN */
+    --secondary-color: #e1b660; /* Emas AKN */
+    --dark-color: #050240; /* Biru Navy */
+    --text-color: #333;
+    --light-gray: #f4f4f4;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font lebih modern */
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f4; /* Latar belakang abu-abu netral */
-    color: #333333; /* Warna tulisan hitam gelap */
+    color: var(--text-color);
+    background-color: #fff;
 }
 
-/* --- HEADER (Mirip Pertamina Style) --- */
-header {
-    background-color: #050240; /* Biru Navy Sangat Tua */
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-header img.logo {
-    height: 90px; /* Logo lebih besar dan dominan */
-    width: auto;
-}
-
-/* --- NAVIGASI (Menu) --- */
-nav {
-    display: flex;
-    justify-content: center;
-    background-color: #e1b660; /* Emas/Kuning Mustard */
-    padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/* --- Header & Navigasi (Gaya Pertamina) --- */
+.main-header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-nav a {
-    color: #050240; /* Teks menu warna biru tua */
-    padding: 8px 15px;
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.logo {
+    height: 60px;
+}
+
+.main-nav a {
     text-decoration: none;
-    font-weight: 600; /* Teks lebih tebal */
-    transition: background-color 0.3s, color 0.3s;
-    margin: 0 5px;
-    border-radius: 5px;
+    color: var(--text-color);
+    font-weight: 600;
+    margin: 0 15px;
+    position: relative;
+    padding-bottom: 5px;
 }
 
-nav a:hover, nav a.active {
-    background-color: #050240; /* Latar belakang biru tua saat aktif/hover */
-    color: white; /* Teks putih saat aktif/hover */
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
 }
 
-/* --- KONTEN UTAMA --- */
-main {
-    max-width: 1100px; /* Lebih lebar */
-    margin: 30px auto;
-    padding: 30px;
-    background-color: white; /* Konten utama tetap putih agar mudah dibaca */
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    border-radius: 8px;
+.main-nav a:hover::after, .main-nav a.active::after {
+    width: 100%;
 }
 
-h2 {
-    color: #050240; /* Judul warna biru tua */
-    border-bottom: 3px solid #e1b660; /* Garis bawah warna emas */
-    padding-bottom: 10px;
-    margin-top: 0;
+.nav-cta {
+    background-color: var(--primary-color);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
 }
 
-/* --- FOOTER --- */
-footer {
+.nav-cta:hover {
+    background-color: var(--dark-color);
+}
+.nav-cta::after { display: none; } /* Hilangkan garis bawah untuk tombol CTA */
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    height: 70vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 25px 0;
-    margin-top: 40px;
-    background-color: #050240; /* Biru Navy Sangat Tua */
-    color: #ffffff;
+    background-size: cover;
+    background-position: center;
 }
 
-footer p {
-    margin: 5px 0;
-    color: #ccc;
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(13, 71, 161, 0.7), rgba(5, 2, 64, 0.7)); /* Gradasi warna biru */
 }
 
-/* Style untuk halaman profil & kegiatan */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    opacity: 0.9;
+}
+
+/* --- Section Styling --- */
+.intro-section {
+    padding: 60px 0;
+    background-color: var(--light-gray);
+    margin-top: -80px; /* Card menjorok ke atas hero section */
+    position: relative;
+    z-index: 5;
+}
+
+.intro-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #cfae58;
+    transform: translateY(-2px);
+}
+
+.services-section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--dark-color);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    background-color: white;
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.service-icon {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--dark-color);
+    color: #a9a9a9;
+    padding-top: 60px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+.footer-logo {
+    height: 50px;
+    margin-bottom: 15px;
+}
+.footer-links h4, .footer-contact h4 {
+    color: white;
+    margin-bottom: 15px;
+}
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-links li {
+    margin-bottom: 10px;
+}
+.footer-links a {
+    color: #a9a9a9;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-links a:hover {
+    color: white;
+}
+.footer-bottom {
+    border-top: 1px solid #2a2a5e;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+/* --- Halaman Profil --- */
 .gallery-container img {
     width: 100%;
-    max-width: 800px; /* Batasi lebar gambar agar tidak terlalu besar */
-    display: block;
-    margin: 0 auto 30px auto; /* Tengahkan gambar dan beri jarak antar gambar */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 4px;
 }
