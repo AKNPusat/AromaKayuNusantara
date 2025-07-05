@@ -1,69 +1,79 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Resi - AKN</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Input Resi Baru - PT. Aroma Kayu Nusantara</title>
+    <!-- ... (Bagian head sama seperti halaman lain) ... -->
+    <link rel="stylesheet" href="kerangka.css">
+    <link rel="stylesheet" href="form.css"> <!-- Kita buat CSS khusus untuk form -->
 </head>
 <body>
-    <header>
-        <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20i</a>
-            <a href="surat_jalan.html">Surat Jalan</a>
-            <a href="stok.html">Stok</a>
-            <a href="lacak.html">Lacak Kiriman</a>
-        </nav>
+    <div id="app-wrapper">
+        <div id="header-placeholder"></div>
         <main>
-            <h1>Input Data Pengiriman Baru</h1>
-            <form id="form-resi" class="data-form">
-                <h3>Informasi Pengiriman</h3>
-                <div class="form-row">
-                    <div class="form-group"><label>Nomor Resi</label><input type="text" id="nomor-resi" required></div>
-                    <div class="form-group"><label>Tanggal Kirim</label><input type="date" id="tanggal-kirim" required></div>
-kayu.png" alt="Logo AKN" class="logo">
-        <h1>PT. AROMA KAYU NUSANTARA</h1>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="input_resi.html">Input Resi</a>
-        <a href="lacak_kiriman.html">Lacak Kiriman</a>
-    </nav>
-    <main>
-        <section>
-            <h2>Input Data Pengiriman Baru</h2>
-            <form id="form-resi">
-                <h3>Informasi Pengiriman</h3>
-                <input type="text" id="nomor-resi" placeholder="Nomor Resi" required>
-                <input type="date" id="tanggal-kirim" required>
-                <h3>Detail Pengirim & Penerima</h3>
-                <input type="text" id="nama-pengirim" placeholder="Nama Pengirim" required>
-                <input type="text" id="telp-pengirim" placeholder="No. Telp Pengirim" required>
-                <input type="text" id="nama-penerima" placeholder="                </div>
-                <h3>Detail Pengirim & Penerima</h3>
-                <div class="form-row">
-                    <div class="form-group"><label>Nama Pengirim</label><input type="text" id="nama-pengirim" required></div>
-                    <div class="form-group"><label>No. Telp Pengirim</label><input type="text" id="telp-pengirim" required></div>
-                </div>
-                 <div class="form-row">
-                    <div class="form-group"><label>Nama Penerima</label><input type="text" id="nama-penerima" required></div>
-                    <div class="form-group"><label>No. Telp Penerima</label><input type="text" id="telp-penerima" required></div>
-                </div>
-                <h3>Detail Barang</h3>
-                 <div class="form-group"><label>Isi Sesuai Pengakuan</label><textarea id="isi-barang" rows="3" required></textarea></div>
-                <div class="form-row">
-                    <div class="form-group"><Nama Penerima" required>
-                <input type="text" id="telp-penerima" placeholder="No. Telp Penerima" required>
-                <h3>Detail Barang</h3>
-                <textarea id="isi-barang" rows="4" placeholder="Deskripsi Barang (Contoh: 1A(1), TGS(1))" required></textarea>
-                <input type="number" id="jumlah-koli" placeholder="Jumlah Koli" required>
-                <input type="number" id="berat-barang" placeholder="Total Berat (kg)">
-                <button type="submit">Simpan Data Resi</button>
-            </form>
-        </section>
-    </main>
-    <footer><p>© 2024 PT. Aroma Kayu Nusantara</p></footer>
+            <div class="page-content">
+                <h1 class="page-title">Input Data Pengiriman Baru</h1>
+                
+                <form id="form-resi" class="data-form">
+                    <h3>Informasi Pengiriman</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nomor-resi">Nomor Resi</label>
+                            <input type="text" id="nomor-resi" placeholder="Contoh: 20250017" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tanggal-kirim">Tanggal Kirim</label>
+                            <input type="date" id="tanggal-kirim" required>
+                        </div>
+                    </div>
+                    
+                    <h3>Detail Pengirim & Penerima</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nama-pengirim">Nama Pengirim</label>
+                            <input type="text" id="nama-pengirim" placeholder="Contoh: Imin - Bifo" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="telp-pengirim">No. Telp Pengirim</label>
+                            <input type="text" id="telp-pengirim" required>
+                        </div>
+                    </div>
+                     <div class="form-row">
+                        <div class="form-group">
+                            <label for="nama-penerima">Nama Penerima</label>
+                            <input type="text" id="nama-penerima" placeholder="Contoh: Olie" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="telp-penerima">No. Telp Penerima</label>
+                            <input type="text" id="telp-penerima" required>
+                        </div>
+                    </div>
+                    
+                    <h3>Detail Barang</h3>
+                     <div class="form-group">
+                        <label for="isi-barang">Isi Sesuai Pengakuan (Pisahkan dengan koma)</label>
+                        <textarea id="isi-barang" rows="3" placeholder="Contoh: 1A(1), TGS(1), DMDAS(5), CMP" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="jumlah-koli">Jumlah Koli</label>
+                            <input type="number" id="jumlah-koli" placeholder="Contoh: 10" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="berat-barang">Total Berat (kg) (Opsional)</label>
+                            <input type="number" id="berat-barang">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">Simpan Data Resi</button>
+                </form>
+            </div>
+        </main>
+        <div id="footer-placeholder"></div>
+    </div>
+    <!-- Masukkan script Firebase di sini -->
     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
-    <script src="script.js"></script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script> <!-- Script khusus untuk form -->
 </body>
 </html>
