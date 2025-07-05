@@ -7,9 +7,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="top-links-right">
                     <a href="input_resi.html">Input Resi</a>
                     <a href="surat_jalan.html">Surat Jalan</a>
-                    <a href="stok.html">Stok & Manajemen</a>
+                    <a href="stok.html">Stok</a>
+                     <!-- Menu Manajemen dengan Dropdown -->
+                    <div class="nav-item-top">
+                        <a href="#" class="nav-link-top">Manajemen</a>
+                        <div class="dropdown-menu-top">
+                            <a href="laporan_keuangan.html">Laporan Keuangan</a>
+                            <a href="invoice.html">Invoice</a>
+                    </div>
                 </div>
-            </div>
         </div>
         <header class="main-header">
             <div class="header-container">
