@@ -38,8 +38,33 @@ body {
 .main-header {
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    position: sticky;
+    /* --- Struktur Layout Utama --- */
+.site-wrapper {
+    position: relative;
+}
+.top-header, .main-header {
+    position: absolute;
     top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.top-header {
+    background-color: rgba(0, 0, 0, 0.2); /* Sedikit transparan */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.top-links-right a {
+    color: #f0f0f0; /* Teks lebih terang agar terlihat */
+}
+.main-header {
+    top: 37px; /* Letakkan di bawah top-header (sesuaikan jika perlu) */
+    background-color: rgba(255, 255, 255, 0.9); /* Latar putih sedikit transparan */
+    backdrop-filter: blur(5px); /* Efek blur seperti iOS */
+}
+main {
+    position: relative;
+    z-index: 1;
+}
     z-index: 1000;
 }
 .logo { height: 45px; }
