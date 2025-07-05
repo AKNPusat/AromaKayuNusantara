@@ -1,5 +1,4 @@
-// --- app.js Versi Final (Perbaikan #3) ---
-
+// -- app.js VERSI FINAL (Perbaikan #5) --
 document.addEventListener("DOMContentLoaded", function() {
     
     // --- Bagian yang akan di-inject ---
@@ -28,13 +27,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 <nav class="main-nav">
                     <div class="nav-item">
                         <a href="#" class="nav-link">Tentang Kami</a>
-                        <div class="dropdown-menu">
-                            <a href="sekilas.html">Sekilas AKN</a>
-                            <a href="visi-misi.html">Visi & Misi</a>
-                        </div>
+                        <div class="dropdown-menu"><a href="sekilas.html">Sekilas AKN</a><a href="visi-misi.html">Visi & Misi</a></div>
                     </div>
-                    <div class="nav-item"><a href="#" class="nav-link">Bisnis Kami</a></div>
-                    <div class="nav-item"><a href="#" class="nav-link">Media & Informasi</a></div>
+                    <div class="nav-item"><a href="bisnis.html" class="nav-link">Bisnis Kami</a></div>
+                    <div class="nav-item"><a href="media.html" class="nav-link">Media & Informasi</a></div>
                 </nav>
             </div>
         </header>
@@ -51,11 +47,24 @@ document.addEventListener("DOMContentLoaded", function() {
     const mainHeader = document.querySelector('.main-header');
     if (mainHeader) {
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                mainHeader.classList.add('scrolled');
-            } else {
-                mainHeader.classList.remove('scrolled');
-            }
+            if (window.scrollY > 50) mainHeader.classList.add('scrolled');
+            else mainHeader.classList.remove('scrolled');
         });
+    }
+
+    // --- Script Efek Ketik ---
+    const titleElement = document.getElementById('hero-title');
+    if (titleElement) {
+        const textToType = "Energi Gaharu untuk Dunia";
+        let i = 0;
+        titleElement.innerHTML = '';
+        function typeWriter() {
+            if (i < textToType.length) {
+                titleElement.innerHTML += textToType.charAt(i);
+                i++;
+                setTimeout(typeWriter, 120);
+            }
+        }
+        typeWriter();
     }
 });
