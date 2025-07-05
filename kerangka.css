@@ -68,7 +68,7 @@ main {
 .main-nav { display: flex; align-items: center; }
 .nav-item { position: relative; }
 .nav-link {
-    display: block; padding: 1.5rem 0.6rem; text-decoration: none;
+    display: block; padding: 1.5rem 0.8rem; text-decoration: none;
     color: white; /* Teks menu putih saat transparan */
     font-weight: 700; transition: color 0.2s;
 }
