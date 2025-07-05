@@ -1,74 +1,50 @@
 <!DOCTYPE html>
-label>Jumlah Koli</label><input type="number" id="jumlah-koli" required></div>
-                    <div class="form-group"><label>Total Berat (kg)</label><input type="number" id="berat-barang"></div>
-                </div>
-                <button type="submit" class="submit-button">Simpan Data Resi</button>
-            </form>
-        </main>
-        <footer class="main-footer"><p>© 2024 PT. Aroma Kayu Nusantara</p></footer>
-        <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
-        <script src="form-handler.js"></script>
-    </body>
-    </html>
-    ```
-
-#### **Langkah 4: Perbaiki `form-handler.js`**
-
-1.  Buka `form-handler.js`. Hapus semua isinya.
-2.  Ganti dengan kode ini (kode ini SAMA seperti yang terakhir berhasil, tapi saya sertakan lagi untuk kepastian):
-    ```javascript
-    // -- form-handler.js VERSI STABIL --<html lang="id">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lacak Kiriman - AKN</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Lacak Kiriman - PT. Aroma Kayu Nusantara</title>
+    <!-- Link ke Font dan CSS sama seperti halaman lain -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="kerangka.css">
+    <link rel="stylesheet" href="form.css"> <!-- Kita pakai style form yang sama -->
 </head>
 <body>
-    <header>
-        <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" alt="Logo AKN" class="logo">
-        <h1>PT. AROMA KAYU NUSANTARA</h1>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="input_resi.html">Input Resi</a>
-        <a href="lacak_kiriman.html">Lacak Kiriman</a>
-    </nav>
-    <main>
-        <section>
-            <h2>Lacak Kiriman Anda</h2>
-            <form id="form-lacak">
-                <input type="text" id="nomor-resi-lacak" placeholder="Masukkan Nomor Resi" required>
-                <button type="submit">Lacak</button>
-            </form>
-            <div id="hasil-lacak"></div>
-        </section>
-    </main>
-    <footer><p>© 2024 PT. Aroma Kayu Nusantara</p></footer>
-    <script src="https
-    document.addEventListener("DOMContentLoaded", function() {
-        const firebaseConfig = {
-            apiKey: "AIzaSyDDJpU3mzKY2s-pihTz0XmL1BcrfTS_vRQ",
-            authDomain: "aroma-kayu-nusantara.firebaseapp.com",
-            projectId: "aroma-kayu-nusantara",
-            storageBucket: "aroma-kayu-nusantara.firebasestorage.app",
-            messagingSenderId: "519933206110",
-            appId: "1:519933206110:web:1620a50af9f88c56f2decf"
-        };
-        if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
+    <div id="app-wrapper">
+        <!-- Header akan dimuat oleh app.js -->
+        <div id="header-placeholder"></div>
 
-        const formResi = document.getElementById('form-resi');
-        if (formResi) {
-            formResi.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const nomorResi = document.getElementById('nomor-resi').value;
-                db.collection("shipments").doc(nomorResi).set({
-                    nomorResi: nomorResi,
-                    tanggalKirim: document.getElementById('tanggal-kirim').value,
-                    pengirim: { nama: document.getElementById('nama-pengirim').value, telepon: document.getElementById('telp-pengirim').value://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+        <main>
+            <div class="page-content">
+                <h1 class="page-title">Lacak Kiriman Anda</h1>
+                
+                <form id="form-lacak" class="data-form">
+                    <div class="form-group">
+                        <label for="nomor-resi-lacak">Masukkan Nomor Resi</label>
+                        <input type="text" id="nomor-resi-lacak" placeholder="Ketik nomor resi di sini..." required>
+                    </div>
+                    <button type="submit" class="submit-button">Lacak</button>
+                </form>
+
+                <hr style="margin: 2rem 0; border: 0; border-top: 1px solid #eee;">
+
+                <!-- Area ini untuk menampilkan hasil pencarian -->
+                <div id="hasil-lacak">
+                    <p>Silakan masukkan nomor resi dan klik "Lacak" untuk melihat status kiriman.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer akan dimuat oleh app.js -->
+        <div id="footer-placeholder"></div>
+    </div>
+    
+    <!-- Masukkan script Firebase di sini -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
-    <script src="script.js"></script>
+    <script src="app.js"></script>
+    <script src="form-handler.js"></script> <!-- Script ini akan kita update -->
 </body>
 </html>
