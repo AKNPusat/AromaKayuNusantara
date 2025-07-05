@@ -1,110 +1,163 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT. Aroma Kayu Nusantara - Powering Indonesian Agarwood Globally</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="kerangka.css">
-</head>
-<body>
+/* --- Pengaturan Dasar & Font --- */
+:root {
+    --primary-blue: #00529B; /* Biru korporat */
+    --text-dark: #212529;
+    --text-light: #6c757d;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    color: var(--text-dark);
+}
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
 
-    <!-- Header Atas (Top Bar) -->
-    <div class="top-header">
-        <div class="header-container">
-            <div class="top-links-left">
-                <!-- Bisa diisi nanti jika perlu -->
-            </div>
-            <div class="top-links-right">
-                <a href="input_resi.html">Input Resi</a>
-                <a href="surat_jalan.html">Surat Jalan</a>
-                <a href="stok.html">Stok & Manajemen</a>
-            </div>
-        </div>
-    </div>
+/* --- Header Atas (Top Bar) --- */
+.top-header {
+    background-color: #f8f9fa;
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #e9ecef;
+}
+.top-links-right { margin-left: auto; }
+.top-links-right a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    transition: color 0.2s;
+}
+.top-links-right a:hover { color: var(--primary-blue); }
 
-    <!-- Header Utama (Public) -->
-    <header class="main-header">
-        <div class="header-container">
-            <a href="index.html" class="logo-link">
-                <img src="https://i.imgur.com/8Yv6ZcD.png" alt="Logo PT. Aroma Kayu Nusantara" class="logo">
-            </a>
-            <nav class="main-nav">
-                <!-- Menu "Tentang Kami" -->
-                <div class="nav-item">
-                    <a href="#" class="nav-link">Tentang Kami</a>
-                    <div class="dropdown-menu">
-                        <a href="sekilas-akn.html">Sekilas AKN</a>
-                        <a href="tonggak-sejarah.html">Tonggak Sejarah</a>
-                        <a href="visi-misi.html">Visi, Misi, & Tata Nilai</a>
-                        <a href="makna-logo.html">Makna Logo</a>
-                        <a href="direksi.html">Direktur Utama</a>
-                        <a href="komisaris.html">Komisaris Utama</a>
-                    </div>
-                </div>
-                <!-- Menu "Bisnis Kami" -->
-                <div class="nav-item">
-                    <a href="#" class="nav-link">Bisnis Kami</a>
-                    <div class="dropdown-menu">
-                        <a href="bisnis-akn1.html">AKN 1</a>
-                        <a href="bisnis-akn2.html">AKN 2</a>
-                        <a href="bisnis-akn3.html">AKN 3</a>
-                    </div>
-                </div>
-                <!-- Menu "Media & Informasi" -->
-                <div class="nav-item">
-                    <a href="#" class="nav-link">Media & Informasi</a>
-                     <div class="dropdown-menu">
-                        <a href="newsroom.html">AKN News Room</a>
-                        <a href="publikasi.html">Publikasi</a>
-                        <a href="kegiatan.html">Kegiatan</a>
-                    </div>
-                </div>
-                <!-- Menu "Mitra AKN" -->
-                <div class="nav-item">
-                    <a href="#" class="nav-link">Mitra AKN</a>
-                     <div class="dropdown-menu">
-                        <a href="firma.html">Firma AKN</a>
-                        <a href="bmt.html">Bina Multi Transindo</a>
-                    </div>
-                </div>
-                <!-- Menu "Keberlanjutan" -->
-                <div class="nav-item">
-                     <a href="keberlanjutan.html" class="nav-link">Keberlanjutan</a>
-                </div>
-            </nav>
-            <div class="header-search">
-                <svg viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
-            </div>
-        </div>
-    </header>
+/* --- Header Utama --- */
+.main-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.logo { height: 45px; }
 
-    <main>
-        <!-- Hero Section dengan Video Background -->
-        <section class="hero-section">
-            <div class="video-background">
-                <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1&mute=1&loop=1&playlist=ScMzIvxBSi4&controls=0&modestbranding=1&rel=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>
-            </div>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1>Energi Gaharu untuk Dunia</h1>
-                <p>Memimpin transformasi industri hasil hutan non-kayu yang inovatif dan berkelanjutan.</p>
-                <a href="#video-popup" class="cta-button">
-                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    Putar Video
-                </a>
-            </div>
-        </section>
-        
-        <!-- Konten selanjutnya akan kita letakkan di sini -->
-        
-    </main>
+/* --- Navigasi & Dropdown --- */
+.main-nav { display: flex; align-items: center; }
+.nav-item {
+    position: relative; /* Penting untuk posisi dropdown */
+}
+.nav-link {
+    display: block;
+    padding: 1.5rem 1rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 700;
+    transition: color 0.2s;
+}
+.nav-item:hover .nav-link { color: var(--primary-blue); }
 
-    <footer class="main-footer">
-        <p>© 2024 PT. Aroma Kayu Nusantara. All Rights Reserved.</p>
-    </footer>
+.dropdown-menu {
+    display: none; /* Sembunyikan dropdown secara default */
+    position: absolute;
+    top: 100%; /* Muncul tepat di bawah menu utama */
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 0.5rem 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+/* INI KUNCINYA: Tampilkan dropdown saat .nav-item di-hover */
+.nav-item:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+.dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+.dropdown-menu a:hover { background-color: #f8f9fa; }
+.header-search {
+    padding-left: 1rem;
+    color: var(--text-light);
+    cursor: pointer;
+}
+.header-search svg { width: 24px; height: 24px; fill: currentColor; }
 
-</body>
-</html>
+
+/* --- Hero Section dengan Video --- */
+.hero-section {
+    position: relative;
+    height: 85vh;
+    overflow: hidden;
+}
+.video-background {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -2;
+}
+.video-background iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Pastikan video menutupi seluruh area */
+}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 30, 80, 0.5); /* Lapisan gelap agar teks terbaca */
+    z-index: -1;
+}
+.hero-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+.hero-content p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.75rem 1.75rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 2rem;
+    transition: all 0.3s;
+}
+.cta-button:hover {
+    background: white;
+    color: var(--primary-blue);
+}
+.cta-button svg { width: 18px; height: 18px; fill: currentColor; margin-right: 0.5rem; }
+
+/* --- Footer --- */
+.main-footer { text-align: center; padding: 2rem; background: #212529; color: #adb5bd; }
