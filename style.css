@@ -1,192 +1,41 @@
-/* --- Pengaturan Dasar & Font --- */
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.7;
-    margin: 0;
-    color: #444;
-    background-color: #f9f9f9;
-}
+/* style.css - VERSI STABIL */
+body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; color: #333; }
+header { background: #0d244f; color: white; padding: 1rem 0; text-align: center; }
+header .logo { height: 60px; }
+nav { display: flex; justify-content: center; background: #1976D2; }
+nav a { color: white; padding: 1rem; text-decoration: none; font-weight: bold; }
+nav a:hover { background: #0d47a1; }
+main { max-width: 800px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; }
+section { margin-bottom: 20px; }
+h2 { color: #0d244f; border-bottom: 2px solid #1976D2; padding-bottom: 10px; }
+form { display: flex; flex-direction: },
+                    penerima: { nama: document.getElementById('nama-penerima').value, telepon: document.getElementById('telp-penerima').value },
+                    detailBarang: { deskripsi: document.getElementById('isi-barang').value, jumlahKoli: parseInt(document.getElementById('jumlah-koli').value), beratKg: parseFloat(document.getElementById('berat-barang').value) || 0 },
+                    status: "Data Dibuat",
+                    lokasiTerkini: "Kantor Papua",
+                    riwayatStatus: [{ status: "Data Dibuat", lokasi: "Kantor Papua", timestamp: firebase.firestore.FieldValue.serverTimestamp() }]
+                }).then(() => {
+                    alert(`Data untuk resi ${nomorResi} berhasil disimpan!`);
+                    formResi.reset();
+                }).catch((error) => {
+                    alert("Gagal menyimpan data.");
+                });
+            });
+        }
+    });
+    ```
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Merriweather', serif;
-    font-weight: 700;
-}
+#### **Langkah 5: Hapus File yang Membuat Kacau**
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+Untuk memastikan tidak ada lagi yang bentrok, hapus file `app.js`.
+1.  Klik file **`app.js`** di repository Anda.
+2.  Klik ikon tong sampah 🗑️ untuk menghapusnya.
 
-/* --- Header & Navigasi --- */
-.main-header {
-    background-color: white;
-    padding: 15px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    padding: 10px 50px;
-}
-
-.logo-container img {
-    height: 60px;
-}
-
-.main-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    margin-left: 25px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.main-nav a:hover, .main-nav a:focus {
-    color: #0d47a1; /* Biru Tua */
-    border-bottom: 2px solid #0d47a1;
-}
-
-/* --- Bagian Hero (Jumbotron) --- */
-.hero-section {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/2s4oX3e.jpg'); /* Gambar Gedung dari PDF */
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 120px 20px;
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 30px auto;
-}
-
-.cta-button {
-    background-color: #fbc02d; /* Warna Emas */
-    color: #333;
-    padding: 15px 35px;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.cta-button:hover {
-    background-color: #f9a825;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-/* --- Bagian Tentang & Kemitraan --- */
-.about-section, .partners-section {
-    padding: 80px 0;
-}
-
-.about-section {
-    background-color: #ffffff;
-}
-
-.about-section h2, .partners-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #0d47a1; /* Biru Tua */
-}
-
-.partners-section .subtitle {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 50px auto;
-    color: #666;
-}
-
-.about-content {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    margin-top: 50px;
-}
-
-.about-text {
-    flex: 1;
-}
-
-.about-image {
-    flex: 1;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* --- Grid Mitra --- */
-.partners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 30px;
-    text-align: center;
-}
-
-.partner-item {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-}
-
-.partner-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-.partner-item img {
-    height: 70px;
-    margin-bottom: 15px;
-    /* Menjaga rasio aspek gambar logo */
-    object-fit: contain;
-}
-
-.partner-item span {
-    font-weight: 600;
-    color: #333;
-}
-
-/* --- Footer --- */
-.main-footer {
-    background-color: #0d244f; /* Biru Sangat Tua */
-    color: #e0e0e0;
-    padding: 40px 0;
-    font-size: 0.9rem;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.footer-info {
-    flex-basis: 60%;
-}
-.footer-info p {
-    margin: 5px 0;
-}
-
-.footer-legal {
-    flex-basis: 35%;
-    text-align: right;
-}
+### **Langkah Anda Sekarang**
+1.  Ganti isi dari `kerangka.css`, `index.html`, `input_resi.html`, dan `form-handler.js` dengan kode di atas.
+2.  Hapus file `app.js`.
+3.  T column; gap: 15px; }
+input, textarea { padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; }
+button { background: #00529B; color: white; padding: 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; }
+#hasil-lacak { margin-top: 20px; padding: 15px; background-color: #eef2f5; border-left: 5px solid #1976D2; }
+footer { text-align: center; padding: 20px; background: #333; color: white; margin-top: 30px; }
