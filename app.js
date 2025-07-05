@@ -1,7 +1,7 @@
-// -- app.js VERSI FINAL (Perbaikan #5) --
+// -- app.js - KEMBALI KE VERSI STABIL --
 document.addEventListener("DOMContentLoaded", function() {
     
-    // --- Bagian yang akan di-inject ---
+    // --- TEMPLATE HEADER & FOOTER ---
     const headerHTML = `
         <div class="top-header">
             <div class="header-container">
@@ -37,13 +37,13 @@ document.addEventListener("DOMContentLoaded", function() {
     `;
     const footerHTML = `<footer class="main-footer"><p>© 2024 PT. Aroma Kayu Nusantara</p></footer>`;
 
-    // --- Proses Inject ---
+    // --- PROSES MEMASUKKAN HEADER & FOOTER ---
     const headerPlaceholder = document.getElementById('header-placeholder');
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if(headerPlaceholder) headerPlaceholder.innerHTML = headerHTML;
     if(footerPlaceholder) footerPlaceholder.innerHTML = footerHTML;
 
-    // --- Script Scroll ---
+    // --- EFEK SCROLL PADA HEADER ---
     const mainHeader = document.querySelector('.main-header');
     if (mainHeader) {
         window.addEventListener('scroll', function() {
@@ -52,19 +52,17 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // --- Script Efek Ketik ---
-    const titleElement = document.getElementById('hero-title');
-    if (titleElement) {
-        const textToType = "Energi Gaharu untuk Dunia";
-        let i = 0;
-        titleElement.innerHTML = '';
-        function typeWriter() {
-            if (i < textToType.length) {
-                titleElement.innerHTML += textToType.charAt(i);
-                i++;
-                setTimeout(typeWriter, 120);
-            }
-        }
-        typeWriter();
+    // --- KODE FIREBASE & FORM HANDLER (DISATUKAN DI SINI) ---
+    const formResi = document.getElementById('form-resi');
+    if (formResi) {
+        const firebaseConfig = { /* ... Masukkan firebaseConfig Anda di sini ... */ };
+        if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        
+        formResi.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // ... (logika simpan data form resi) ...
+            alert('Fungsi simpan resi aktif!');
+        });
     }
 });
