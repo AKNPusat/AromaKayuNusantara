@@ -3,32 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT. Aroma Kayu Nusantara</title>
-    <link rel="stylesheet" href="kerangka.css"> <!-- Pakai CSS Kerangka -->
+    <title>PT. Aroma Kayu Nusantara - Indonesian Agarwood Exporter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="kerangka.css">
 </head>
 <body>
-    <header>
-        <img src="https://i.imgur.com/8Yv6ZcD.png" alt="Logo PT. Aroma Kayu Nusantara" class="logo">
-        
+
+    <!-- Header dengan latar belakang putih, seperti Pertamina -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img src="https://i.imgur.com/8Yv6ZcD.png" alt="Logo PT. Aroma Kayu Nusantara" class="logo">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="profil.html">Profil Perusahaan</a>
+                <a href="kegiatan.html">Kegiatan</a>
+                <a href="kontak.html">Kontak</a>
+                <a href="lacak.html" class="nav-cta">Lacak Kiriman</a>
+            </nav>
+        </div>
     </header>
-    <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="profil.html">Profil Perusahaan</a>
-        <a href="input_resi.html">Input Resi</a>
-        <a href="surat_jalan.html">Surat Jalan</a>
-        <a href="firma.html">Firma AKN</a>
-        <a href="kegiatan.html">Kegiatan</a>
-        <a href="lacak.html">Lacak Kiriman</a>
-        <a href="kontak.html">Kontak</a>
-    </nav>
+
     <main>
-        <h2>Selamat Datang di Sistem Informasi Kami</h2>
-        <p>Selamat datang di portal resmi PT. Aroma Kayu Nusantara. Kami adalah perusahaan yang berfokus pada perdagangan kayu gaharu berkualitas tinggi dari Papua, memastikan setiap proses dari hulu hingga hilir dilakukan dengan standar terbaik untuk pasar domestik dan global.</p>
-        <p>Silakan gunakan menu navigasi di atas untuk mengakses informasi yang Anda butuhkan, mulai dari profil perusahaan, melacak kiriman, hingga informasi kontak kami.</p>
+        <!-- Hero Section dengan Gambar Besar -->
+        <section class="hero-section" style="background-image: url('https://i.imgur.com/2s4oX3e.jpg');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Aroma Gaharu Nusantara, Harumkan Dunia</h1>
+                <p>Menjadi pemimpin industri gaharu global dengan komitmen pada kualitas, inovasi, dan keberlanjutan.</p>
+            </div>
+        </section>
+
+        <!-- Bagian Pengenalan dalam bentuk Card -->
+        <section class="intro-section">
+            <div class="container">
+                <div class="intro-card">
+                    <h2>Komitmen Kami pada Kualitas</h2>
+                    <p>Dari hutan Papua hingga pasar dunia, PT. Aroma Kayu Nusantara memastikan setiap produk gaharu melewati proses seleksi dan pengolahan dengan standar tertinggi. Kami menggabungkan kearifan lokal dengan teknologi modern untuk menghasilkan produk gaharu terbaik.</p>
+                    <a href="profil.html" class="btn-primary">Jelajahi Profil Kami</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Bagian Layanan atau Fokus Bisnis dalam bentuk 3 Kartu -->
+        <section class="services-section">
+            <div class="container">
+                <h2 class="section-title">Fokus Bisnis Kami</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="https://i.imgur.com/o6tSjHh.png" alt="Ikon Perdagangan" class="service-icon">
+                        <h3>Perdagangan Hulu-Hilir</h3>
+                        <p>Mengelola seluruh rantai pasok, dari pembibitan, panen, hingga distribusi produk akhir gaharu.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://i.imgur.com/nJhWp6a.png" alt="Ikon Energi Terbarukan" class="service-icon">
+                        <h3>Energi Terbarukan</h3>
+                        <p>Mengembangkan potensi biomassa dari industri kehutanan sebagai sumber energi bersih.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://i.imgur.com/xVd2gV8.png" alt="Ikon Manajemen Karbon" class="service-icon">
+                        <h3>Manajemen Karbon</h3>
+                        <p>Berperan aktif dalam program penyerapan karbon melalui pengelolaan hutan yang berkelanjutan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>Bermitra dengan: Kadin Kota Probolinggo, Kadin Kab. Probolinggo, Pemda, BKSDA, BMT Logistik, dan lainnya.</p>
-        <p>© 2024 PT. Aroma Kayu Nusantara. All Rights Reserved.</p>
+
+    <!-- Footer yang lebih modern -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <img src="https://i.imgur.com/8Yv6ZcD.png" alt="Logo Footer" class="footer-logo">
+                <p>PT. Aroma Kayu Nusantara adalah pelopor dalam industri gaharu yang berkelanjutan di Indonesia.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigasi</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="profil.html">Profil Perusahaan</a></li>
+                    <li><a href="kegiatan.html">Kegiatan</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Hubungi Kami</h4>
+                <p>Jl. Anggrek No. 110, Probolinggo<br>
+                aromakayunusantarpusat@gmail.com<br>
+                +62 813 3338 0091</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 PT. Aroma Kayu Nusantara. All Rights Reserved.</p>
+        </div>
     </footer>
+
 </body>
 </html>
