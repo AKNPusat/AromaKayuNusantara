@@ -1,89 +1,125 @@
 /* =================================================================== */
-/* KODE CSS FINAL (Perbaikan #Terakhir - Penyesuaian Detail) */
+/* KODE CSS FINAL (Perbaikan Semua Masalah Tampilan) */
 /* =================================================================== */
 
-:root { --primary-blue: #00529B; --text-dark: #212529; }
+:root {
+    --primary-blue: #00529B;
+    --text-dark: #212529;
+    --text-light: #f8f9fa;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    padding-top: 131px; /* Disesuaikan: 38px + 93px */
+    padding-top: 131px; /* Total Tinggi Header: 38px + 93px */
     background-color: #f5f5f5;
 }
-main { margin-top: -131px; }
-.header-container {
-    max-width: 1400px; margin: 0 auto; display: flex;
-    justify-content: space-between; align-items: center;
-    padding: 0 2rem; height: 100%;
+
+main {
+    margin-top: -131px; /* Tarik konten ke atas di belakang header */
+    min-height: 70vh;
 }
 
-/* --- Header Atas (Internal) --- */
-.top-header {
-    position: fixed; top: 0; left: 0; width: 100%; z-index: 1001;
-    background-color: transparent; /* Jadi transparan juga */
-    height: 38px; font-size: 0.8rem;
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 100%;
+}
+
+/* --- Pengaturan Header --- */
+.top-header, .main-header {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
     transition: background-color 0.3s ease;
 }
-.top-links-right { display: flex; align-items: center; gap: 1.5rem; margin-left: auto; height: 100%; }
-.top-links-right > a, .nav-link-top {
-    color: white; /* Teks putih di awal */
-    text-decoration: none;
-    font-weight: 600; /* Dibuat BOLD */
+
+.top-header {
+    top: 0;
+    height: 38px;
+    background-color: transparent; /* Awalnya transparan */
+    font-size: 0.9rem;
 }
 
-/* --- Header Utama (Publik) --- */
 .main-header {
-    position: fixed; top: 38px; left: 0; width: 100%; z-index: 1000;
-    height: 93px; /* Disesuaikan untuk logo 85px */
-    background-color: transparent;
-    transition: all 0.3s ease;
+    top: 38px;
+    height: 93px;
+    background-color: transparent; /* Awalnya transparan */
 }
-.logo { height: 85px; } /* UKURAN LOGO DIPERBESAR */
 
-/* --- Kondisi Header Saat Scroll atau di Halaman Form --- */
-.main-header.scrolled, body.form-page .main-header {
+/* --- Style Header saat di-scroll atau di Halaman Form --- */
+.main-header.scrolled {
     background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8px);
 }
+
 body.form-page .top-header {
     background-color: #f8f9fa; /* Latar solid di halaman form */
     border-bottom: 1px solid #e9ecef;
 }
-body.form-page .top-links-right > a, body.form-page .nav-link-top { color: #555; } /* Teks gelap di halaman form */
-body.form-page .nav-link { color: var(--text-dark); } /* Teks gelap di halaman form */
 
-/* --- Navigasi & Dropdown --- */
-.main-nav { display: flex; align-items: center; height: 100%; }
-.nav-item { position: relative; height: 100%; display: flex; align-items: center; }
-.nav-link {
-    color: white; font-weight: 700; text-decoration: none;
-    padding: 0 2rem; /* Jarak antar menu diperlebar */
-    font-size: 1rem; /* Ukuran tulisan diperbesar sedikit */
+body.form-page .main-header {
+    background-color: white; /* Header utama solid di halaman form */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.main-header.scrolled .nav-link { color: var(--text-dark); }
-.dropdown-menu, .dropdown-menu-top { /* ... (style dropdown tidak berubah) ... */ }
-.nav-item-top { position: relative; }
+
+/* --- Style Link & Logo --- */
+.top-links-right { display: flex; align-items: center; gap: 1.5rem; margin-left: auto; height: 100%; }
+.top-links-right > a, .nav-link-top {
+    color: white; /* Teks putih saat transparan */
+    text-decoration: none;
+    font-weight: 600;
+}
+body.form-page .top-links-right > a, body.form-page .nav-link-top {
+    color: #555; /* Teks gelap di halaman form */
+}
+
+.logo { height: 85px; }
+.main-nav { display: flex; align-items: center; height: 100%; }
+.nav-link {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0 2rem;
+    font-size: 1rem;
+}
+.main-header.scrolled .nav-link, body.form-page .nav-link {
+    color: var(--text-dark); /* Teks gelap saat scroll/di form */
+}
+
+/* --- Dropdown --- */
+.nav-item, .nav-item-top { position: relative; display: flex; align-items: center; height: 100%; }
 .nav-link-top { cursor: pointer; }
-.dropdown-menu-top { /* ... (style dropdown tidak berubah) ... */ }
-/* (Sisa kode CSS sama seperti sebelumnya, tidak perlu diubah) */
-.dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background-color: white; min-width: 200px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 5px; padding: 0.5rem 0; opacity: 0; transform: translateY(10px); transition: all 0.2s ease-out; }
-.nav-item:hover .dropdown-menu { display: block; opacity: 1; transform: translateY(0); }
-.dropdown-menu a { display: block; padding: 10px 20px; color: var(--text-dark); text-decoration: none; }
-.dropdown-menu-top { display: none; position: absolute; top: 120%; right: 0; background-color: white; min-width: 180px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border: 1px solid #ddd; border-radius: 5px; z-index: 1; }
-.nav-item-top:hover .dropdown-menu-top { display: block; }
-.dropdown-menu-top a { display: block; padding: 10px 15px; color: var(--text-dark); text-decoration: none; }
+.dropdown-menu, .dropdown-menu-top {
+    display: none; position: absolute; background-color: white;
+    min-width: 200px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 5px; padding: 0.5rem 0; opacity: 0;
+    transform: translateY(10px); transition: all 0.2s ease-out;
+}
+.nav-item:hover .dropdown-menu, .nav-item-top:hover .dropdown-menu-top { display: block; opacity: 1; transform: translateY(0); }
+.dropdown-menu { top: 100%; left: 0; }
+.dropdown-menu-top { top: 100%; right: 0; border: 1px solid #ddd; }
+.dropdown-menu a, .dropdown-menu-top a { display: block; padding: 10px 20px; color: var(--text-dark); text-decoration: none; }
+.dropdown-menu a:hover, .dropdown-menu-top a:hover { background-color: #f5f5f5; }
+
+/* --- Sisa Kode --- */
 .hero-section { position: relative; height: 100vh; overflow: hidden; }
 .video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
 .video-background iframe { width: 100%; height: 100%; object-fit: cover; transform: scale(1.5); }
 .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 20, 60, 0.4); z-index: -1; }
 .hero-content { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; position: relative; }
-h1.hero-title, #hero-title { font-size: 3.5rem; }
 .page-content { background-color: white; padding: 2rem; max-width: 1100px; margin: 2rem auto; border-radius: 8px; }
 .page-title { color: var(--primary-blue); border-bottom: 2px solid #eee; padding-bottom: 1rem; }
 .main-footer { background-color: #222; color: #aaa; text-align: center; padding: 2rem; position: relative; }
-.data-form h3 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
+.data-form h3 { margin-top: 2rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-group { display: flex; flex-direction: column; margin-bottom: 1rem; }
-.form-group label { margin-bottom: 0.5rem; font-weight: 600; }
-.form-group input, .form-group textarea { padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; }
-.submit-button { background-color: var(--primary-blue); color: white; padding: 0.8rem 1.5rem; border: none; border-radius: 4px; cursor: pointer; }
+.form-group label { margin-bottom: 0.5rem; }
+.form-group input, .form-group textarea { padding: 0.75rem; border: 1px solid #ccc; }
+.submit-button { background-color: var(--primary-blue); color: white; padding: 0.8rem 1.5rem; border: none; cursor: pointer; }
