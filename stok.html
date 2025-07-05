@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Manajemen Stok Gudang - PT. Aroma Kayu Nusantara</title>
+    <!-- ... (Bagian head sama seperti halaman lain) ... -->
+    <link rel="stylesheet" href="kerangka.css">
+    <link rel="stylesheet" href="stok.css"> <!-- Kita buat CSS khusus untuk halaman stok -->
+</head>
+<body>
+    <div id="app-wrapper">
+        <div id="header-placeholder"></div>
+
+        <main>
+            <div class="page-content">
+                <h1 class="page-title">Dashboard Stok Gudang</h1>
+                
+                <div id="ringkasan-total-stok">
+                    <!-- Ringkasan total stok akan dimuat di sini -->
+                    <p>Memuat ringkasan stok...</p>
+                </div>
+
+                <hr>
+
+                <h2>Rincian Stok per Resi</h2>
+                <div id="daftar-stok-resi">
+                    <p>Memuat data stok per resi...</p>
+                    <!-- Daftar stok per resi akan dimuat di sini -->
+                </div>
+
+            </div>
+        </main>
+        
+        <div id="footer-placeholder"></div>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="app.js"></script>
+    <script src="stok-handler.js"></script> <!-- Script BARU khusus untuk halaman ini -->
+</body>
+</html>
