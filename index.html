@@ -3,102 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT. Aroma Kayu Nusantara - Indonesian Agarwood Exporter</title>
+    <title>PT. Aroma Kayu Nusantara - Powering Indonesian Agarwood Globally</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="kerangka.css">
 </head>
 <body>
 
-    <!-- Header dengan latar belakang putih, seperti Pertamina -->
+    <!-- Header Atas (Top Bar) untuk Internal/Admin -->
+    <div class="top-header">
+        <div class="header-container">
+            <div class="internal-links">
+                <a href="input_resi.html">Input Resi</a>
+                <a href="surat_jalan.html">Surat Jalan</a>
+                <a href="stok.html">Stok & Manajemen</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Utama (Public) -->
     <header class="main-header">
         <div class="header-container">
             <a href="index.html" class="logo-link">
                 <img src="https://i.imgur.com/8Yv6ZcD.png" alt="Logo PT. Aroma Kayu Nusantara" class="logo">
             </a>
             <nav class="main-nav">
-                <a href="index.html" class="active">Home</a>
-                <a href="profil.html">Profil Perusahaan</a>
-                <a href="kegiatan.html">Kegiatan</a>
-                <a href="kontak.html">Kontak</a>
-                <a href="lacak.html" class="nav-cta">Lacak Kiriman</a>
+                <!-- Menu "Tentang Kami" dengan Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">Tentang Kami</a>
+                    <div class="dropdown-content">
+                        <a href="sekilas-akn.html">Sekilas AKN</a>
+                        <a href="tonggak-sejarah.html">Tonggak Sejarah</a>
+                        <a href="visi-misi.html">Visi, Misi, & Tata Nilai</a>
+                        <a href="makna-logo.html">Makna Logo</a>
+                        <a href="direksi.html">Direktur Utama</a>
+                        <a href="komisaris.html">Komisaris Utama</a>
+                    </div>
+                </div>
+                <!-- Menu "Bisnis Kami" dengan Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">Bisnis Kami</a>
+                    <div class="dropdown-content">
+                        <a href="bisnis-akn1.html">AKN 1</a>
+                        <a href="bisnis-akn2.html">AKN 2</a>
+                        <a href="bisnis-akn3.html">AKN 3</a>
+                    </div>
+                </div>
+                <!-- Menu "Media & Informasi" dengan Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">Media & Informasi</a>
+                    <div class="dropdown-content">
+                        <a href="newsroom.html">AKN News Room</a>
+                        <a href="publikasi.html">Publikasi</a>
+                        <a href="kegiatan.html">Kegiatan</a>
+                    </div>
+                </div>
+                <!-- Menu "Mitra AKN" dengan Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">Mitra AKN</a>
+                    <div class="dropdown-content">
+                        <a href="firma.html">Firma AKN</a>
+                        <a href="bmt.html">Bina Multi Transindo</a>
+                    </div>
+                </div>
+                <!-- Menu "Keberlanjutan" (link biasa) -->
+                <div class="nav-item">
+                     <a href="keberlanjutan.html" class="nav-link">Keberlanjutan</a>
+                </div>
             </nav>
+            <div class="header-search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section dengan Gambar Besar -->
-        <section class="hero-section" style="background-image: url('https://i.imgur.com/2s4oX3e.jpg');">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1>Aroma Gaharu Nusantara, Harumkan Dunia</h1>
-                <p>Menjadi pemimpin industri gaharu global dengan komitmen pada kualitas, inovasi, dan keberlanjutan.</p>
+        <!-- Hero Section dengan Video Background -->
+        <section class="hero-section">
+            <div class="video-background">
+                <!-- GANTI src DENGAN LINK EMBED YOUTUBE ANDA -->
+                <iframe 
+                    src="https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1&mute=1&loop=1&playlist=ScMzIvxBSi4&controls=0&showinfo=0&autohide=1&modestbranding=1" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+                </iframe>
             </div>
-        </section>
-
-        <!-- Bagian Pengenalan dalam bentuk Card -->
-        <section class="intro-section">
-            <div class="container">
-                <div class="intro-card">
-                    <h2>Komitmen Kami pada Kualitas</h2>
-                    <p>Dari hutan Papua hingga pasar dunia, PT. Aroma Kayu Nusantara memastikan setiap produk gaharu melewati proses seleksi dan pengolahan dengan standar tertinggi. Kami menggabungkan kearifan lokal dengan teknologi modern untuk menghasilkan produk gaharu terbaik.</p>
-                    <a href="profil.html" class="btn-primary">Jelajahi Profil Kami</a>
-                </div>
+            <div class="hero-content">
+                <h1>Energi Gaharu untuk Dunia</h1>
+                <p>Memimpin transformasi industri hasil hutan non-kayu yang inovatif dan berkelanjutan.</p>
+                <a href="#video-popup" class="cta-button">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></svg>
+                    Putar Video
+                </a>
             </div>
         </section>
         
-        <!-- Bagian Layanan atau Fokus Bisnis dalam bentuk 3 Kartu -->
-        <section class="services-section">
-            <div class="container">
-                <h2 class="section-title">Fokus Bisnis Kami</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <img src="https://i.imgur.com/o6tSjHh.png" alt="Ikon Perdagangan" class="service-icon">
-                        <h3>Perdagangan Hulu-Hilir</h3>
-                        <p>Mengelola seluruh rantai pasok, dari pembibitan, panen, hingga distribusi produk akhir gaharu.</p>
-                    </div>
-                    <div class="service-card">
-                        <img src="https://i.imgur.com/nJhWp6a.png" alt="Ikon Energi Terbarukan" class="service-icon">
-                        <h3>Energi Terbarukan</h3>
-                        <p>Mengembangkan potensi biomassa dari industri kehutanan sebagai sumber energi bersih.</p>
-                    </div>
-                    <div class="service-card">
-                        <img src="https://i.imgur.com/xVd2gV8.png" alt="Ikon Manajemen Karbon" class="service-icon">
-                        <h3>Manajemen Karbon</h3>
-                        <p>Berperan aktif dalam program penyerapan karbon melalui pengelolaan hutan yang berkelanjutan.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Bagian selanjutnya (kartu, berita, dll) akan kita tambahkan di sini nanti -->
+        
     </main>
 
-    <!-- Footer yang lebih modern -->
     <footer class="main-footer">
-        <div class="container footer-grid">
-            <div class="footer-about">
-                <img src="https://i.imgur.com/8Yv6ZcD.png" alt="Logo Footer" class="footer-logo">
-                <p>PT. Aroma Kayu Nusantara adalah pelopor dalam industri gaharu yang berkelanjutan di Indonesia.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Navigasi</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="profil.html">Profil Perusahaan</a></li>
-                    <li><a href="kegiatan.html">Kegiatan</a></li>
-                    <li><a href="kontak.html">Kontak</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Hubungi Kami</h4>
-                <p>Jl. Anggrek No. 110, Probolinggo<br>
-                aromakayunusantarpusat@gmail.com<br>
-                +62 813 3338 0091</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2024 PT. Aroma Kayu Nusantara. All Rights Reserved.</p>
-        </div>
+        <p>© 2024 PT. Aroma Kayu Nusantara. All Rights Reserved.</p>
     </footer>
 
 </body>
