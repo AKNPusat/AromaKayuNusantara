@@ -2,15 +2,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // --- 1. Memuat Header dan Footer secara Dinamis ---
     const headerHTML = `
-        <div class="top-header">
-            <div class="header-container">
-                <div class="top-links-right">
-                    <a href="input_resi.html">Input Resi</a>
-                    <a href="surat_jalan.html">Surat Jalan</a>
-                    <a href="stok.html">Stok & Manajemen</a>
-                </div>
-            </div>
+        <div class="top-links-right">
+    <a href="input_resi.html">Input Resi</a>
+    <a href="surat_jalan.html">Surat Jalan</a>
+    <a href="stok.html">Stok</a>
+    <!-- Menu Manajemen dengan Dropdown -->
+    <div class="nav-item">
+        <a href="#" class="nav-link-top">Manajemen</a>
+        <div class="dropdown-menu-top">
+            <a href="laporan_keuangan.html">Laporan Keuangan</a>
+            <a href="invoice.html">Invoice</a>
         </div>
+    </div>
+</div>
         <header class="main-header">
             <div class="header-container">
                 <a href="index.html" class="logo-link">
@@ -64,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
                      <a href="lacak.html" class="nav-link">Lacak Kiriman</a>
                 </div>
             </nav>
-// ...
+
                 </nav>
                 <div class="header-search">
                      <svg fill="currentColor" viewBox="0 0 24 24" style="width:24px;height:24px;"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
