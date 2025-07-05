@@ -1,50 +1,121 @@
-/* kerangka.css - KEMBALI KE VERSI STABIL */
-:root { --primary-blue: #00529B; --text-dark: #212529; }
-body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: #f5f5f5; }
-main { padding-top: 104px; }
-.header-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; height: 100%; }
-.top-header, .main-header { position: fixed; left: 0; width: 100%; z-index: 1000; }
+/* =================================================================== */
+/* KODE CSS FINAL - Aroma Kayu Nusantara (Gaya Korporat) */
+/* =================================================================== */
+
+/* --- Pengaturan Dasar & Font --- */
+:root {
+    --primary-blue: #00529B; /* Biru korporat */
+    --text-dark: #212529;
+    --text-light: #f8f9fa; /* Warna teks terang untuk latar gelap */
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    color: var(--text-dark);
+    background-color: #f5f5f5;
+}
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+main {
+    padding-top: 115px; /* Beri ruang di atas untuk header (sedikit lebih besar) */
+}
+
+/* --- Posisi Header di Atas Halaman (FIXED) --- */
+.top-header, .main-header {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
 .top-header {
-    top: 0; background-color: #f8f9fa; border-bottom: 1px solid #e9ecef;
-    height: 38px; font-size: 0.8rem;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .main-header {
-    top: 38px; background-color: transparent; height: 66px;
-    transition: all 0.3s ease;
+    top: 38px; /* Letakkan di bawah top-header */
+    background-color: transparent; /* Jadi transparan di awal */
+    box-shadow: none;
 }
+/* Style header SAAT di-scroll */
 .main-header.scrolled {
     background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
-.top-links-right { display: flex; align-items: center; gap: 1.5rem; margin-left: auto; height: 100%; }
-.top-links-right > a, .nav-link-top { color: #555; text-decoration: none; }
-.logo { height: 50px; }
-.main-nav { display: flex; align-items: center; height: 100%; }
-.nav-item { position: relative; height: 100%; display: flex; align-items: center; }
-.nav-link { color: white; font-weight: 700; text-decoration: none; padding: 0 1rem; }
-.main-header.scrolled .nav-link { color: var(--text-dark); }
-.dropdown-menu, .dropdown-menu-top { display: none; position: absolute; background-color: white; min-width: 200px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 5px; padding: 0.5rem 0; opacity: 0; transform: translateY(10px); transition: all 0.2s ease-out; }
-.nav-item:hover .dropdown-menu, .nav-item-top:hover .dropdown-menu-top { display: block; opacity: 1; transform: translateY(0); }
-.dropdown-menu { top: 100%; left: 0; }
-.dropdown-menu-top { top: 120%; right: 0; border: 1px solid #ddd; }
-.dropdown-menu a, .dropdown-menu-top a { display: block; padding: 12px 20px; color: var(--text-dark); text-decoration: none; }
-.nav-item-top { position: relative; }
-.nav-link-top { cursor: pointer; }
-.hero-section { position: relative; height: 100vh; overflow: hidden; margin-top: -104px; }
-.video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
-.video-background iframe { width: 100%; height: 100%; object-fit: cover; transform: scale(1.5); }
-.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 20, 60, 0.4); z-index: -1; }
-.hero-content { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; position: relative; }
-h1.hero-title { font-size: 3.5rem; text-shadow: 1px 1px 8px rgba(0,0,0,0.5); }
-.page-content { background-color: white; padding: 2rem; max-width: 1100px; margin: 2rem auto; border-radius: 8px; }
-.page-title { color: var(--primary-blue); border-bottom: 2px solid #eee; padding-bottom: 1rem; }
-.main-footer { background-color: #222; color: #aaa; text-align: center; padding: 2rem; }
-/* Form CSS */
-.data-form h3 { margin-top: 2rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-group { display: flex; flex-direction: column; margin-bottom: 1rem; }
-.form-group label { margin-bottom: 0.5rem; font-weight: 600; }
-.form-group input, .form-group textarea { padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; }
-.submit-button { background-color: var(--primary-blue); color: white; padding: 0.8rem 1.5rem; border: none; border-radius: 4px; cursor: pointer; }
-#hasil-lacak { margin-top: 2rem; }
+
+/* --- Style Link Header --- */
+.top-links-right { margin-left: auto; }
+.top-links-right a { color: var(--text-light); text-decoration: none; margin-left: 1.5rem; transition: color 0.2s; }
+.top-links-right a:hover { color: #ffffff; }
+
+/* === INI PERUBAHANNYA === */
+.logo { 
+    height: 65px; /* Logo diperbesar */
+}
+/* ========================= */
+
+.header-search { padding-left: 1rem; color: white; cursor: pointer; }
+.main-header.scrolled .header-search { color: #555; }
+.header-search svg { width: 24px; height: 24px; fill: currentColor; }
+
+/* --- Navigasi & Dropdown --- */
+.main-nav { display: flex; align-items: center; }
+.nav-item { position: relative; }
+.nav-link {
+    display: block; padding: 1.5rem 1rem; text-decoration: none;
+    color: white; /* Teks menu putih saat transparan */
+    font-weight: 700; transition: color 0.2s;
+}
+.main-header.scrolled .nav-link { color: var(--text-dark); /* Teks menu jadi gelap saat di-scroll */ }
+.nav-item:hover .nav-link { color: var(--primary-blue); }
+
+.dropdown-menu {
+    display: none; position: absolute; top: 100%; left: 0;
+    background-color: white; min-width: 220px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px; padding: 0.5rem 0; opacity: 0;
+    transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.nav-item:hover .dropdown-menu { display: block; opacity: 1; transform: translateY(0); }
+.dropdown-menu a { display: block; padding: 0.75rem 1.5rem; text-decoration: none; color: var(--text-dark); font-size: 0.9rem; white-space: nowrap; }
+.dropdown-menu a:hover { background-color: #f1f1f1; }
+
+/* --- Hero Section & Konten --- */
+.hero-section, .page-content, .gallery-grid, .contact-grid, .main-footer {
+    position: relative;
+    z-index: 5;
+}
+.hero-section {
+    height: 90vh; overflow: hidden; margin-top: -115px; /* Disesuaikan dengan padding-top body */
+}
+.video-background {
+    position: absolute; top: 50%; left: 50%; width: 100%; height: 100%;
+    transform: translate(-50%, -50%); z-index: 1;
+}
+.video-background iframe {
+    width: 120vw; height: 67.5vw; min-width: 100%; min-height: 100%;
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+.hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 20, 60, 0.4); z-index: 2;
+}
+.hero-content {
+    position: relative; z-index: 3; height: 100%;
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: center; text-align: center; color: white;
+}
+.hero-content h1 { font-size: 3.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.6); margin: 0; }
+.page-content { max-width: 1100px; margin: 2rem auto; padding: 2rem; background-color: white; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+.page-title { color: var(--primary-blue); border-bottom: 3px solid #ddd; padding-bottom: 1rem; margin-bottom: 2rem; }
+.main-footer { text-align: center; padding: 2rem; background: #212529; color: #adb5bd; }
