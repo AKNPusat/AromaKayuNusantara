@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Buat Surat Jalan - PT. Aroma Kayu Nusantara</title>
+    <!-- ... (Bagian head sama seperti halaman lain) ... -->
+    <link rel="stylesheet" href="kerangka.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div id="app-wrapper">
+        <div id="header-placeholder"></div>
+
+        <main>
+            <div class="page-content">
+                <h1 class="page-title">Buat Surat Jalan</h1>
+                
+                <!-- Tahap 1: Cari Resi -->
+                <div id="tahap-1-cari-resi">
+                    <form id="form-cari-surat-jalan" class="data-form">
+                        <div class="form-group">
+                            <label for="nomor-resi-sj">Masukkan Nomor Resi untuk Membuat Surat Jalan</label>
+                            <input type="text" id="nomor-resi-sj" placeholder="Ketik nomor resi..." required>
+                        </div>
+                        <button type="submit" class="submit-button">Cari Resi</button>
+                    </form>
+                </div>
+
+                <hr style="margin: 2rem 0; border: 0; border-top: 1px solid #eee;">
+
+                <!-- Tahap 2: Detail Barang & Form Pengambilan -->
+                <div id="tahap-2-detail-barang" style="display: none;">
+                    <h3>Detail Barang dari Resi <span id="nomor-resi-display"></span></h3>
+                    <p><strong>Deskripsi Asli:</strong> <span id="deskripsi-asli"></span></p>
+                    
+                    <h4>Stok Saat Ini di Gudang:</h4>
+                    <div id="stok-barang-container">
+                        <!-- Stok barang akan ditampilkan di sini oleh JavaScript -->
+                    </div>
+
+                    <form id="form-pengambilan-barang">
+                        <h4>Form Pengambilan Barang</h4>
+                        <p>Masukkan jumlah barang yang akan diambil. Biarkan 0 jika tidak diambil.</p>
+                        <div id="input-pengambilan-container">
+                            <!-- Input untuk setiap item akan dibuat di sini oleh JavaScript -->
+                        </div>
+                        <div class="form-group">
+                            <label for="nama-pengambil">Nama Pengambil</label>
+                            <input type="text" id="nama-pengambil" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="kendaraan-pengambil">No. Kendaraan</label>
+                            <input type="text" id="kendaraan-pengambil" required>
+                        </div>
+                        <button type="submit" class="submit-button">Buat & Print Surat Jalan</button>
+                    </form>
+                </div>
+
+            </div>
+        </main>
+        
+        <div id="footer-placeholder"></div>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="app.js"></script>
+    <script src="surat-jalan-handler.js"></script> <!-- Script BARU khusus untuk halaman ini -->
+</body>
+</html>
