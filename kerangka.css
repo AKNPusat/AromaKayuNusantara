@@ -1,5 +1,5 @@
 /* =================================================================== */
-/* KODE CSS FINAL VERSI 3 - PERBAIKAN TOTAL */
+/* KODE CSS FINAL VERSI 4 - PERBAIKAN TOTAL LAYOUT HEADER */
 /* =================================================================== */
 
 :root {
@@ -10,12 +10,12 @@
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    padding-top: 104px; /* Ruang untuk 2 header yang fixed */
+    padding-top: 104px; /* Ruang untuk header fixed */
     background-color: #f5f5f5;
 }
 
 main {
-    margin-top: -104px; /* Konten dimulai di belakang header */
+    margin-top: -104px;
 }
 
 .header-container {
@@ -25,6 +25,7 @@ main {
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+    height: 100%;
 }
 
 /* --- Header Atas (Internal) --- */
@@ -33,34 +34,36 @@ main {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1001; /* Lapisan paling atas */
+    z-index: 1001;
     background-color: #f8f9fa;
     border-bottom: 1px solid #e9ecef;
-    padding: 0.5rem 0;
+    height: 38px; /* Tinggi header atas */
     font-size: 0.8rem;
 }
 
+/* === KUNCI PERBAIKAN #1: Pengaturan Flexbox === */
 .top-links-right {
     display: flex;
     align-items: center;
+    gap: 1.5rem; /* Jarak antar menu atas */
     margin-left: auto;
+    height: 100%;
 }
-
-.top-links-right > a { /* Target link langsung, bukan yang di dropdown */
+.top-links-right a {
     color: #555;
     text-decoration: none;
-    margin-left: 1.5rem;
 }
 
 /* --- Header Utama (Publik) --- */
 .main-header {
     position: fixed;
-    top: 38px; /* Di bawah top-header */
+    top: 38px;
     left: 0;
     width: 100%;
     z-index: 1000;
     background-color: transparent;
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    height: 66px; /* Tinggi header utama */
 }
 
 .main-header.scrolled {
@@ -69,72 +72,65 @@ main {
     backdrop-filter: blur(5px);
 }
 
-.logo { height: 65px; }
-.header-search { color: white; }
-.main-header.scrolled .header-search { color: #555; }
-.header-search svg { width: 24px; height: 24px; fill: currentColor; }
+.logo { height: 50px; /* Ukuran logo di dalam header */ }
 
-/* --- Navigasi Utama & Dropdown --- */
-.main-nav { display: flex; align-items: center; }
-.nav-item { position: relative; }
+/* --- Navigasi & Dropdown --- */
+.main-nav, .nav-item, .top-links-right .nav-item-top {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 .nav-link {
-    display: block;
-    padding: 1.8rem 0.8rem; /* Padding disesuaikan */
     color: white;
     font-weight: 700;
     text-decoration: none;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 .main-header.scrolled .nav-link { color: var(--text-dark); }
 .nav-item:hover .nav-link { color: var(--primary-blue); }
 
+.nav-item { position: relative; }
 .dropdown-menu {
     display: none; position: absolute; top: 100%; left: 0;
     background-color: white; min-width: 220px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border-radius: 5px; opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.2s ease-out;
+    transform: translateY(10px); transition: all 0.2s ease-out;
 }
 .nav-item:hover .dropdown-menu { display: block; opacity: 1; transform: translateY(0); }
 .dropdown-menu a { display: block; padding: 12px 20px; color: var(--text-dark); text-decoration: none; }
 .dropdown-menu a:hover { background-color: #f5f5f5; }
 
-/* --- Dropdown di Header Atas --- */
+/* === KUNCI PERBAIKAN #2: Dropdown Atas === */
 .nav-item-top { position: relative; }
 .nav-link-top {
-    color: #555;
-    text-decoration: none;
-    cursor: pointer;
-    padding: 8px 0; /* Memberi area klik */
+    color: #555; text-decoration: none; cursor: pointer;
+    display: flex; align-items: center; height: 100%;
 }
+.nav-item-top:hover .nav-link-top { color: var(--primary-blue); }
+
 .dropdown-menu-top {
-    display: none; position: absolute; top: 140%; right: 0; /* Posisikan di bawah */
+    display: none; position: absolute; top: 100%; right: 0;
     background-color: white; min-width: 180px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    border: 1px solid #ddd;
-    border-radius: 5px; z-index: 1002;
+    border: 1px solid #ddd; border-radius: 5px; z-index: 1;
 }
 .nav-item-top:hover .dropdown-menu-top { display: block; }
 .dropdown-menu-top a { display: block; padding: 10px 15px; color: var(--text-dark); text-decoration: none; }
 .dropdown-menu-top a:hover { background-color: #f5f5f5; }
 
-
-/* --- Hero Section & Konten Lain --- */
-.hero-section {
-    position: relative;
-    height: 100vh;
-    background-color: #333; /* Warna fallback jika video gagal dimuat */
-    overflow: hidden;
-}
-.page-content {
-    background-color: white;
-    padding: 2rem;
-}
-.main-footer {
-    background-color: #222;
-    color: #aaa;
-    text-align: center;
-    padding: 2rem;
-    position: relative;
-    z-index: 10;
-}
+/* ... (Sisa kode CSS sama seperti sebelumnya, untuk hero, content, footer, dll) ... */
+.header-search { color: white; }
+.main-header.scrolled .header-search { color: #555; }
+.header-search svg { width: 24px; height: 24px; fill: currentColor; }
+.hero-section { position: relative; height: 100vh; background-color: #333; overflow: hidden; }
+.video-background { position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; transform: translate(-50%, -50%); z-index: -1; }
+.video-background iframe { width: 120vw; height: 67.5vw; min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 20, 60, 0.4); z-index: 0; }
+.hero-content { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; position: relative; z-index: 1; }
+.hero-content h1 { font-size: 3.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.6); margin: 0; }
+.page-content { background-color: white; padding: 2rem; position: relative; z-index: 2; }
+.main-footer { background-color: #222; color: #aaa; text-align: center; padding: 2rem; position: relative; z-index: 2; }
