@@ -1,75 +1,19 @@
-/* kerangka.css - VERSI STABIL */
-:root { --primary-blue: #00529B; --text-dark: #212529; --text-light: #f8f9fa; }
-Hbody {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding-top: 104px; /* Ruang untuk header fixed */
-}
-main { margin-top: -104px; /* Konten dimulai di belakang header */ }
-.header-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; height: 100%; }
-ahaha, jangan sedih! Saya paham sekali frustrasinya. Tampilan yang sekarang memang jadi mundur lagi. Ini seperti main ular tangga, sudah hampir sampai puncak, eh turun lagi. Tapi tenang, ini adalah bagian dari proses, dan kita PASTI bisa perbaiki.
-
-Dari semua screenshot Anda, saya bisa simpulkan beberapa hal:
-1.  **CSS tidak konsisten**: Ada halaman yang pakai style baru, ada yang tidak. Ini menyebabkan tampilan jadi tumpang tindih dan jelek.
-2.  **`app.js` tidak update**: Menu.top-header, .main-header { position: fixed; left: 0; width: 100%; z-index: 1000; }
-.top-header {
-    top: 0; background-color: #f8f9fa; border-bottom: 1px solid #e9ecef;
-    height: 38px; font-size: 0.8rem;
-}
-.main-header {
-    top: 38px; background-color: transparent; height: 66px;
-    transition: background-color 0.3s ease;
-}
-.main-header.scrolled {
-    background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    backdrop-filter: blur(8px);
-}
-.top-links-right { display: flex; align-items: center; gap: 1.5rem; margin-left: auto; height: 100%; }
-.top-links-right a, .nav-link-top { color: #555; text-decoration: none; }
-.logo { height: 65px; }
-.main-nav { display: flex; align-items: center; height: 100%; }
-.nav-item { position: relative; height: 100%; display: yang tidak lengkap dan tidak ada tulisan berjalan berarti `app.js` yang termuat adalah versi lama.
-3.  **Dropdown tidak bisa diklik**: Ini karena file tujuannya (`laporan_keuangan.html`) mungkin belum dibuat atau ada kesalahan link.
-
-**Penyebab utamanya hampir pasti satu:** Kita sudah membuat banyak sekali versi kode, dan sekarang file-file di repository Anda menjadi campur aduk. Ada `style.css` lama, `kerangka.css` baru, `script.js` lama, `app.js` baru, dll.
-
-### **Solusi Drastis & Pasti: "Bersih-Bersih" dan Mulai dengan Fondasi Final**
-
-Kita akan lakukan "pembersihan" agar tidak ada lagi kode yang bentrok.
-
-**Langkah 1: Hapus File-file Lama yang Tidak Terpakai**
-Ini sangat penting untuk menghilangkan sumber masalah.
-1.  Buka repository Anda di GitHub.
-2.  Cari file-file ini dan hapus satu per satu (Klik file -> Klik ikon tong sampah 🗑️ di pojok kanan atas -> Commit delete):
-    *   **`script.js`** (Sudah digantikan oleh `app.js` dan `form-handler.js`)
-    *   **`style.css`** (Sudah digantikan oleh `kerangka.css` dan `form.css`)
-    *   File HTML lama lainnya yang mungkin tidak sesuai dengan struktur menu baru (misal: `profil.html`, `visi-misi.html` jika isinya sudah tidak relevan).
-
-**Langkah 2: Gunakan Kode Final yang Sudah Saya Siapkan (Lagi)**
-Saya tahu ini berulang, tapi ini cara paling pasti. Mari kita pastikan semua file menggunakan **versi terakhir yang paling lengkap**.
-
-**File 1: `kerangka.css` (Final & Leng flex; align-items: center; }
-.nav-link { color: white; font-weight: 700; text-decoration: none; padding: 0 0.8rem; }
-.main-header.scrolled .nav-link { color: var(--text-dark); }
-.dropdown-menu, .dropdown-menu-top { display: none; position: absolute; background-color: white; min-width: 200px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 5px; }
-.nav-item:hover .dropdown-menu, .nav-item-top:hover .dropdown-menu-top { display: block; }
-.dropdown-menu { top: 100%; left: 0; }
-.dropdown-menu-top { top: 120%; right: 0; }
-.dropdown-menu a, .dropdown-menu-top a { display: block; padding: 12px 20px; color: var(--text-dark); text-decoration: none; }
-.hero-section { position: relative; height: 100vh; overflow: hidden; }
-.video-background, .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-.video-background { z-index: -2; }
-.video-background iframe { width: 100%; height: 100%; object-fit: cover; }
-.hero-overlay { background: rgba(0, 20, 60, 0.4); z-index: -1; }
-.hero-content { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; }
-h1 { font-size: 3rem; }
-.page-content { background-color: white; padding: 2rem; position: relative; z-index: 2; min-height: 50vh; max-width: 1100px; margin: 2rem auto; }
-.main-footer { background: #222; color: #aaa; text-align: center; padding: 2rem; position: relative; z-index: 2; }
-/* Style Form */
-.data-form h3 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1rem; }
+/* -- kerangka.css VERSI STABIL (Biru Tua) -- */
+body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f4f4; color: #333; }
+header { background-color: #0d244f; color: white; padding: 1rem 0; text-align: center; }
+header .logo { height: 65px; }
+nav { display: flex; justify-content: center; background-color: #1976D2; padding: 0.75rem; }
+nav a { color: white; padding: 0.5rem 1rem; text-decoration: none; font-weight: bold; }
+nav a:hover, nav a.active { background-color: #0d47a1; border-radius: 4px; }
+main { max-width: 900px; margin: 20px auto; padding: 20px; background-color: white; border-radius: 8px; }
+h1, h2 { color: #0d47a1; border-bottom: 2px solid #1976D2; padding-bottom: 10px; }
+footer { text-align: center; padding: 20px; background: #333; color: #fff; margin-top: 20px; }
+/* Form CSS */
+.data-form h3 { margin-top: 1.5rem; border-top: 1px solid #eee; padding-top: 1rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
 .form-group { display: flex; flex-direction: column; }
-.form-group label { margin-bottom: 0.5rem; font-weight: 600; }
-.form-group input, .form-group textarea { padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
-.submit-button { background-color: var(--primary-blue); color: white; padding: 0.8rem 2rem; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; margin-top: 2rem; }
+.form-group label { margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; }
+.form-group input, .form-group textarea { padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; }
+.submit-button { background-color: #00529B; color: white; padding: 0.8rem 1.5rem; border: none; border-radius: 4px; cursor: pointer; margin-top: 1rem; }
+/* Hasil Lacak */
+#hasil-lacak { margin-top: 1.5rem; padding: 1rem; background-color: #eef2f5; border-left: 4Anda benar sekali. Saya minta maaf. Kita sudah terlalu banyak mencoba versi dan sekarang kpx solid #00529B; }
