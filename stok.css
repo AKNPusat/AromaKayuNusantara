@@ -1,0 +1,51 @@
+/* Style untuk Halaman Stok */
+.stok-item {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid var(--primary-blue);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.stok-item h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.stok-item ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+#ringkasan-total-stok {
+    background-color: #e7f3ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+#ringkasan-total-stok h3 {
+    margin-top: 0;
+}
+
+.ringkasan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.ringkasan-item {
+    background-color: white;
+    padding: 0.8rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.ringkasan-item span {
+    font-weight: 700;
+    color: var(--primary-blue);
+}
