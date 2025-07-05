@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="header-container">
                 <a href="index.html" class="logo-link">
                     <!-- GANTI DENGAN LINK LOGO PNG TRANSPARAN ANDA -->
-                    <img src="https://i.imgur.com/8Yv6ZcD.png" alt="Logo PT. Aroma Kayu Nusantara" class="logo">
+                    <img src="https://github.com/AKNPusat/AromaKayuNusantara/commit/f1aefa4404a1950a09bcee398914efd334d62c95" alt="Logo PT. Aroma Kayu Nusantara" class="logo">
                 </a>
                 <nav class="main-nav">
                     <!-- Menu "Tentang Kami" -->
