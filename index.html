@@ -26,6 +26,7 @@
     </div>
 
     <!-- Header Utama (Public) -->
+    <div class="site-wrapper">
     <header class="main-header">
         <div class="header-container">
             <a href="index.html" class="logo-link">
@@ -89,7 +90,7 @@
             </div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h1>Energi Gaharu untuk Dunia</h1>
+                <h1 id="hero-title"></h1>
                 <p>Memimpin transformasi industri hasil hutan non-kayu yang inovatif dan berkelanjutan.</p>
                 <a href="#video-popup" class="cta-button">
                     <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -105,6 +106,25 @@
     <footer class="main-footer">
         <p>© 2024 PT. Aroma Kayu Nusantara. All Rights Reserved.</p>
     </footer>
+    </div> <!-- Penutup .site-wrapper -->
+    <!-- Script untuk Efek Teks Berjalan -->
+<script>
+    const titleElement = document.getElementById('hero-title');
+    const textToType = "Energi Gaharu untuk Dunia";
+    let index = 0;
 
+    function type() {
+        if (index < textToType.length) {
+            titleElement.innerHTML += textToType.charAt(index);
+            index++;
+            setTimeout(type, 150); // Kecepatan mengetik (ms)
+        }
+    }
+    
+    // Mulai efek setelah halaman dimuat
+    window.onload = function() {
+        type();
+    };
+</script>
 </body>
 </html>
