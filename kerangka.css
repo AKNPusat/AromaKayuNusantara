@@ -38,12 +38,14 @@ main {
     top: 0;
     background-color: rgba(0, 0, 0, 0.4);
     padding: 0.3rem 0;
-    font-size: 0.5rem;
+    font-size: 0.6rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .main-header {
     top: 38px;
     background-color: transparent; /* Jadi transparan di awal */
+    padding: 0.5rem 0;
+    font-size: 1rem;
     box-shadow: none;
 }
 /* Style header SAAT di-scroll */
