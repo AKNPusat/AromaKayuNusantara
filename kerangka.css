@@ -46,7 +46,7 @@ main {
     box-shadow: none; /* Tidak ada bayangan di awal */
     padding: 1rem 0;
     font-size: 1rem;
-    backdrop-filter: blur(8px);
+    backdrop-filter: none;
     -webkit-backdrop-filter: none;
 }
 /* --- Style Link Header Atas (Internal) --- */
