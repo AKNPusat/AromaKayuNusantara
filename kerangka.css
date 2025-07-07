@@ -44,10 +44,10 @@ main {
     top: 38px; /* Letakkan di bawah top-header */
     background-color: transparent; /* Jadi transparan di awal */
     box-shadow: none; /* Tidak ada bayangan di awal */
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     font-size: 1rem;
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: none;
 }
 /* --- Style Link Header Atas (Internal) --- */
 .top-links-right { margin-left: auto; }
