@@ -127,3 +127,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 0);
     
 });
+// --- 3. Efek Header Transparan saat Scroll ---
+const mainHeader = document.querySelector('.main-header');
+if (mainHeader) {
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) { // Jika scroll lebih dari 50px
+            mainHeader.classList.add('scrolled');
+        } else {
+            mainHeader.classList.remove('scrolled');
+        }
+    });
+}
