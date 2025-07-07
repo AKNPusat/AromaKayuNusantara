@@ -35,15 +35,15 @@ main {
 }
 .top-header {
     top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: transparent; /* Jadi transparan  */
     padding: 0.5rem 0;
     font-size: 0.8rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .main-header {
     top: 38px; /* Letakkan di bawah top-header */
-    background-color: transparent; /* Jadi transparan di awal */
-    box-shadow: none; /* Tidak ada bayangan di awal */
+    background-color: transparent; /* Jadi transparan  */
+    box-shadow: none; /* Tidak ada bayangan  */
     padding: 1rem 0;
     font-size: 1rem;
     backdrop-filter: none;
