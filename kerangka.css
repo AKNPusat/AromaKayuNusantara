@@ -58,7 +58,7 @@ main {
 
 /* --- Style Link Header --- */
 .top-links-right { margin-left: auto; }
-.top-links-right a { color: var(--text-light); text-decoration: none; margin-left: 1.5rem; transition: color 0.2s; }
+.top-links-right a { color: var(--text-light); text-decoration: none; margin-left: 1rem; transition: color 0.2s; }
 .top-links-right a:hover { color: #ffffff; }
 
 .logo { height: 85px; }
@@ -84,7 +84,7 @@ main {
     transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .nav-item:hover .dropdown-menu { display: block; opacity: 1; transform: translateY(0); }
-.dropdown-menu a { display: block; padding: 0.75rem 1.5rem; text-decoration: none; color: var(--text-dark); font-size: 0.9rem; white-space: nowrap; }
+.dropdown-menu a { display: block; padding: 0.75rem 1.5rem; text-decoration: none; color: var(--text-dark); font-size: 0.5rem; white-space: nowrap; }
 .dropdown-menu a:hover { background-color: #f1f1f1; }
 
 /* --- Hero Section & Konten --- */
