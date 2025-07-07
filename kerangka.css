@@ -18,7 +18,7 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Elemen mulai dari kiri */
     align-items: center;
     padding: 0 2rem;
 }
@@ -42,29 +42,39 @@ main {
 }
 .main-header {
     top: 38px; /* Letakkan di bawah top-header */
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: transparent; /* Jadi transparan di awal */
+    box-shadow: none; /* Tidak ada bayangan di awal */
+    padding: 1rem 0;
+    font-size: 1rem;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
-
 /* --- Style Link Header Atas (Internal) --- */
 .top-links-right { margin-left: auto; }
 .top-links-right a {
     color: var(--text-light);
     text-decoration: none;
-    margin-left: 1.5rem;
     transition: color 0.2s;
+    margin-left: auto;
+    display: flex; /* Pastikan ini ada */
+    align-items: center;
+    white-space: nowrap; /* KUNCI: Mencegah menu turun */
+}
+.top-links-right a {
+    /* ... kode lama biarkan saja ... */
+}
 }
 .top-links-right a:hover { color: #ffffff; }
 
 /* --- Style Header Utama & Logo --- */
-.logo { height: 45px; }
+.logo { height: 85px; }
 .header-search { padding-left: 1rem; color: #555; cursor: pointer; }
 .header-search svg { width: 24px; height: 24px; fill: currentColor; }
 
 /* --- Navigasi & Dropdown --- */
 .main-nav { display: flex; align-items: center; }
+margin-left: 2rem; /* Beri jarak dari logo */
+    white-space: nowrap; /* KUNCI: Mencegah menu turun */
 .nav-item { position: relative; }
 .nav-link {
     display: block;
