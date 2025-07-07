@@ -29,7 +29,7 @@ main {
     top: 0;
     height: 38px;
     background-color: transparent; /* Jadi transparan */
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: none; /* Tidak ada bayangan di awal */
     font-size: 1rem;
 }
 .main-header {
@@ -41,7 +41,7 @@ main {
 }
 .main-header.scrolled {
    background-color: transparent;/* Jadi transparan */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: none; /* Tidak ada bayangan di awal */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
