@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <!-- Menu "Keberlanjutan" -->
                     <div class="nav-item">
                          <a href="keberlanjutan.html" class="nav-link">Keberlanjutan</a>
-                    </div>
+                        </div>
                     </div>
                     <!-- Menu "Keberlanjutan" -->
                     <div class="nav-item">
