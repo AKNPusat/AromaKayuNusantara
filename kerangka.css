@@ -18,12 +18,12 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
-    justify-content: flex-start; /* Elemen mulai dari kiri */
+    justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
 }
 main {
-    padding-top: 104px; /* Beri ruang di atas untuk header */
+    padding-top: 115px; /* Beri ruang di atas untuk header (sedikit lebih besar)  */
 }
 
 /* --- Posisi Header di Atas Halaman --- */
@@ -55,10 +55,8 @@ main {
     color: var(--text-light);
     text-decoration: none;
     transition: color 0.2s;
-    margin-left: auto;
-    display: flex; /* Pastikan ini ada */
-    align-items: center;
-    white-space: nowrap; /* KUNCI: Mencegah menu turun */
+    margin-left: 1.5rem;    
+    align-items: center;   
 }
 .top-links-right a {
     /* ... kode lama biarkan saja ... */
