@@ -42,12 +42,17 @@ main {
 }
 .main-header {
     top: 38px; /* Letakkan di bawah top-header */
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: transparent; /* Jadi transparan di awal */
+    box-shadow: none; /* Tidak ada bayangan di awal */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
-
+    .main-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
 /* --- Style Link Header Atas (Internal) --- */
 .top-links-right { margin-left: auto; }
 .top-links-right a {
