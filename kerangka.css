@@ -56,7 +56,7 @@ main {
     color: #555; /* Teks gelap agar terbaca */
     text-decoration: none;
 }
-.logo { height: 50px; }
+.logo { height: 85px; }
 .main-nav { display: flex; align-items: center; height: 100%; }
 .nav-item { position: relative; height: 100%; display: flex; align-items: center; }
 .nav-link {
