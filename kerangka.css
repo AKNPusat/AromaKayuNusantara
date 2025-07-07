@@ -23,7 +23,7 @@ body {
     padding: 0 2rem;
 }
 main {
-    padding-top: 104px; /* Beri ruang di atas untuk header */
+    padding-top: 100px; /* Beri ruang di atas untuk header */
 }
 
 /* --- Posisi Header di Atas Halaman (FIXED) --- */
@@ -42,10 +42,10 @@ main {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .main-header {
-    top: 38px;
+    top: 36px;
     background-color: transparent; /* Jadi transparan di awal */
     padding: 0.4rem 0;
-    font-size: 1rem;
+    font-size: 0.8rem;
     box-shadow: none;
 }
 /* Style header SAAT di-scroll */
