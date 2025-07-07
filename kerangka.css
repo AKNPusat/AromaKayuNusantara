@@ -30,7 +30,7 @@ main {
     height: 38px;
     background-color: transparent; /* Jadi transparan */
     border-bottom: 1px solid #e9ecef;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 .main-header {
     top: 38px; /* Tepat di bawah top-header */
@@ -63,7 +63,7 @@ main {
     color: white; /* Teks putih saat transparan */
     font-weight: 800;
     text-decoration: none;
-    padding: 0 2rem;
+    padding: 1.5rem;
 }
 .main-header.scrolled .nav-link { color: var(--text-dark); /* Jadi gelap saat scroll */ }
 .dropdown-menu, .dropdown-menu-top { display: none; position: absolute; background-color: white; min-width: 200px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 5px; padding: 0.5rem 0; }
