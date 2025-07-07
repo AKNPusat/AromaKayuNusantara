@@ -37,8 +37,8 @@ main {
 .top-header {
     top: 0;
     background-color: rgba(0, 0, 0, 0.4);
-    padding: 0.5rem 0;
-    font-size: 0.8rem;
+    padding: 0.3rem 0;
+    font-size: 0.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .main-header {
@@ -68,8 +68,8 @@ main {
 .main-nav { display: flex; align-items: center; }
 .nav-item { position: relative; }
 .nav-link {
-    display: block; padding: 1.5rem 1rem; text-decoration: none;
-    color: white; /* Teks menu putih saat transparan */
+    display: block; padding: 1rem 0.8rem; text-decoration: none;
+    color: #050240; /* Teks menu putih saat transparan */
     font-weight: 700; transition: color 0.2s;
 }
 .main-header.scrolled .nav-link { color: var(--text-dark); /* Teks menu jadi gelap saat di-scroll */ }
