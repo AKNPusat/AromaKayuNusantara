@@ -14,14 +14,26 @@ document.addEventListener("DOMContentLoaded", function() {
         <header class="main-header">
             <div class="header-container">
                 <a href="index.html" class="logo-link">
-                    <img src="https://i.imgur.com/8Yv6ZcD.png" alt="Logo PT. Aroma Kayu Nusantara" class="logo">
+                    <!-- GANTI DENGAN LINK LOGO PNG TRANSPARAN ANDA -->
+                    <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/f1aefa4404a1950a09bcee398914efd334d62c95/logo%20AROMA%20kayu.png" class="logo">
                 </a>
                 <nav class="main-nav">
-                    <div class="nav-item"><a href="tentang.html" class="nav-link">Tentang Kami</a></div>
-                    <div class="nav-item"><a href="bisnis.html" class="nav-link">Bisnis Kami</a></div>
-                    <div class="nav-item"><a href="media.html" class="nav-link">Media & Informasi</a></div>
-                    <div class="nav-item"><a href="mitra.html" class="nav-link">Mitra AKN</a></div>
-                    <div class="nav-item"><a href="keberlanjutan.html" class="nav-link">Keberlanjutan</a></div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">Tentang Kami</a>
+                        <div class="dropdown-menu">
+                            <a href="sekilas-akn.html">Sekilas AKN</a>
+                            <a href="visi-misi.html">Visi & Misi</a>
+                            <a href="direksi.html">Manajemen</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">Media & Informasi</a>
+                        <div class="dropdown-menu">
+                            <a href="kegiatan.html">Kegiatan</a>
+                            <a href="publikasi.html">Publikasi</a>
+                        </div>
+                    </div>
+                    <!-- Tambahkan menu lain di sini jika perlu -->
                 </nav>
                 <div class="header-search">
                      <svg fill="currentColor" viewBox="0 0 24 24" style="width:24px;height:24px;"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
@@ -35,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
         </footer>
     `;
 
-    // Cek apakah placeholder ada, lalu masukkan HTML
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
         headerPlaceholder.innerHTML = headerHTML;
@@ -46,32 +57,33 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-    // --- 2. Efek Teks Berjalan (Hanya jika ada di halaman) ---
+    // --- 2. Efek Teks Berjalan ---
     const titleElement = document.getElementById('hero-title');
     if (titleElement) {
-        const textToType = "Energi Gaharu untuk Dunia";
+        const textToType = "Energi Gaharu untuk Nusantara";
         let index = 0;
-        titleElement.innerHTML = ''; // Kosongkan dulu
-
+        titleElement.innerHTML = '';
         function type() {
             if (index < textToType.length) {
                 titleElement.innerHTML += textToType.charAt(index);
                 index++;
-                setTimeout(type, 120); // Kecepatan mengetik
+                setTimeout(type, 120);
             }
         }
-        type(); // Mulai mengetik
+        type();
+    }
+    
+
+    // --- 3. Efek Header Transparan saat Scroll ---
+    const mainHeader = document.querySelector('.main-header');
+    if (main-header) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                mainHeader.classList.add('scrolled');
+            } else {
+                mainHeader.classList.remove('scrolled');
+            }
+        });
     }
     
 });
-// --- 3. Efek Header Transparan saat Scroll ---
-const mainHeader = document.querySelector('.main-header');
-if (mainHeader) {
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) { // Jika scroll lebih dari 50px
-            mainHeader.classList.add('scrolled');
-        } else {
-            mainHeader.classList.remove('scrolled');
-        }
-    });
-}
