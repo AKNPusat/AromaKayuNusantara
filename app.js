@@ -7,14 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="top-links-right">
                     <a href="input_resi.html">Input Resi</a>
                     <a href="surat_jalan.html">Surat Jalan</a>
-                    <a href="stok.html">Stok</a>
-                     <nav class="main-nav">
-                    <!-- Menu "Manajemen" -->
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">Manajemen</a>
-                        <div class="dropdown-menu">
-                            <a href="laporan_keuangan.html">Lamporan Keuangan</a>
-                            <a href="invoice.html">Invoice</a>
+                    <a href="stok.html">Stok</a>                     
                 </div>           
         </div>
         <header class="main-header">
@@ -65,11 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <!-- Menu "Keberlanjutan" -->
                     <div class="nav-item">
                          <a href="keberlanjutan.html" class="nav-link">Keberlanjutan</a>
-                        </div>
-                    </div>
-                    <!-- Menu "Lacak Resi" -->
-                    <div class="nav-item">
-                         <a href="lacak.html" class="nav-link">Lacak Resi</a>
+                        </div>                  
                     </div>
                 </nav>
                 <div class="header-search">
