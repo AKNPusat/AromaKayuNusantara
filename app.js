@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="top-links-right">
                     <a href="input_resi.html">Input Resi</a>
                     <a href="surat_jalan.html">Surat Jalan</a>
-                    <a href="stok.html">Stok & Manajemen</a>
+                    <a href="stok.html">Stok</a>                
+                    <a href="stok.html"Manajemen</a>
                 </div>
             </div>
         </div>
