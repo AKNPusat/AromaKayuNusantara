@@ -45,7 +45,7 @@ main {
     background-color: transparent; /* Jadi transparan di awal */
     box-shadow: none; /* Tidak ada bayangan di awal */
     padding: 1.5rem 0;
-    font-size: 1.5rem;
+    font-size: 1rem;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
@@ -60,7 +60,7 @@ main {
 .top-links-right a:hover { color: #ffffff; }
 
 /* --- Style Header Utama & Logo --- */
-.logo { height: 65px; }
+.logo { height: 85px; }
 .header-search { padding-left: 1rem; color: #555; cursor: pointer; }
 .header-search svg { width: 24px; height: 24px; fill: currentColor; }
 
