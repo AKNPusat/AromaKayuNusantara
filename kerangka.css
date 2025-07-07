@@ -18,7 +18,7 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Elemen mulai dari kiri */
     align-items: center;
     padding: 0 2rem;
 }
@@ -54,8 +54,15 @@ main {
 .top-links-right a {
     color: var(--text-light);
     text-decoration: none;
-    margin-left: 1.5rem;
     transition: color 0.2s;
+    margin-left: auto;
+    display: flex; /* Pastikan ini ada */
+    align-items: center;
+    white-space: nowrap; /* KUNCI: Mencegah menu turun */
+}
+.top-links-right a {
+    /* ... kode lama biarkan saja ... */
+}
 }
 .top-links-right a:hover { color: #ffffff; }
 
@@ -66,6 +73,8 @@ main {
 
 /* --- Navigasi & Dropdown --- */
 .main-nav { display: flex; align-items: center; }
+margin-left: 2rem; /* Beri jarak dari logo */
+    white-space: nowrap; /* KUNCI: Mencegah menu turun */
 .nav-item { position: relative; }
 .nav-link {
     display: block;
