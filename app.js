@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                     <!-- Menu "Lacak Resi" -->
                     <div class="nav-item">
-                         <a href="keberlanjutan.html" class="nav-link">Lacak Resi</a>
+                         <a href="lacak.html" class="nav-link">Lacak Resi</a>
                     </div>
                 </nav>
                 <div class="header-search">
