@@ -30,8 +30,7 @@ main {
     position: fixed;
     left: 0;
     width: 100%;
-    z-index: 1000;
-    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    z-index: 1000;    
 }
 .top-header {
     top: 0;
@@ -41,7 +40,7 @@ main {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .main-header {
-    top: 36px;
+    top: 34px;
     background-color: transparent; /* Jadi transparan di awal */
     padding: 0.4rem 0;
     font-size: 0.8rem;
