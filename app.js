@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             <a href="invoice.html">Invoice</a>
                         </div>
                     </div>
+                    <a href="register.html" class="register-button">Registrasi Member</a>
                 </div>
             </div>
         </div>
