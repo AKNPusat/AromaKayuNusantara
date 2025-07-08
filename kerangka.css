@@ -13,7 +13,7 @@ body {
     margin: 0;
     color: var(--text-dark);
     background-color: #f5f5f5;
-}
+  }
 .header-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -22,7 +22,7 @@ body {
     padding: 0 2rem;
 }
 main {
-    padding-top: 100px; /* Beri ruang di atas untuk header */
+    padding-top: 95px; /* Beri ruang di atas untuk header */
 }
 
 /* --- Posisi Header di Atas Halaman (FIXED) --- */
@@ -37,11 +37,11 @@ main {
     top: 0;
     background-color: rgba(0, 0, 0, 0.4);
     padding: 0.3rem 0;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .main-header {
-    top: 36px;
+    top: 34px;
     background-color: transparent; /* Jadi transparan di awal */
     padding: 0.4rem 0;
     font-size: 0.8rem;
@@ -57,8 +57,15 @@ main {
 
 /* --- Style Link Header --- */
 .top-links-right { margin-left: auto; }
-.top-links-right a { color: var(--text-light); text-decoration: none; margin-left: 1rem; transition: color 0.2s; }
+.top-links-right a { color: var(--text-light); text-decoration: none; margin-left: 1rem; transition: color 0.2s;  padding: 4px 8px;}
 .top-links-right a:hover { color: #ffffff; }
+/* Dropdown untuk menu atas */
+.dropdown-menu-top {
+    display: none; position: absolute; top: 100%; right: 0; /* Align ke kanan */
+    background-color: white; min-width: 180px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 4px; padding: 0.5rem 0;
+}
 
 .logo { height: 85px; }
 .header-search { padding-left: 1rem; color: #555; cursor: pointer; }
@@ -71,7 +78,7 @@ main {
 .nav-link {
     display: block; padding: 1rem 0.8rem; text-decoration: none;
     color: #050240; /* Teks menu putih saat transparan */
-    font-weight: 700; transition: color 0.2s;
+    font-weight: 600; transition: color 0.2s;
 }
 .main-header.scrolled .nav-link { color: var(--text-dark); /* Teks menu jadi gelap saat di-scroll */ }
 .nav-item:hover .nav-link { color: var(--primary-blue); }
