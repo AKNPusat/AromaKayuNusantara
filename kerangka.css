@@ -18,8 +18,9 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     display: flex;    
+    justify-content: space-between; /* KUNCI: Mendorong elemen ke ujung */
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 main {
     padding-top: 75px; /* Beri ruang di atas untuk header */
