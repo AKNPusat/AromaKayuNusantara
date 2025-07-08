@@ -78,12 +78,12 @@ main {
 .header-search svg { width: 24px; height: 24px; fill: currentColor; }
 
 /* --- Navigasi & Dropdown --- */
-.main-nav { display: flex; align-items: center; }
+.main-nav { display: flex; flex-direction: row; align-items: center;gap: 1rem; }
 .nav-item { position: relative; }
 .nav-link {
     display: block; padding: 1.2rem 0.8rem; text-decoration: none;
     color: #050240; /* Teks menu putih saat transparan */
-    font-weight: 600; transition: font-size: 0.9rem; color 0.2s;
+    font-weight: 600; transition: font-size: 0.3rem; color 0.2s;
 }
 .main-header.scrolled .nav-link { color: var(--text-dark); /* Teks menu jadi gelap saat di-scroll */ }
 .nav-item:hover .nav-link { color: var(--primary-blue); }
@@ -96,7 +96,7 @@ main {
     transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .nav-item:hover .dropdown-menu-top { display: block; opacity: 1; transform: translateY(0); }
-.dropdown-menu-top a { display: block; padding: 0.65rem 1rem; text-decoration: none; color: var(--text-dark); font-size: 0.5rem; white-space: nowrap; }
+.dropdown-menu-top a { display: block; padding: 0.65rem 1rem; text-decoration: none; color: var(--text-dark); font-size: 0.75rem; white-space: nowrap; }
 .dropdown-menu-top a:hover { background-color: #f1f1f1; }
 
 .dropdown-menu {
