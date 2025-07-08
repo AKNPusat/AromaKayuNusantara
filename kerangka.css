@@ -56,7 +56,7 @@ main {
 }
 
 /* --- Style Link Header --- */
-.top-links-right { margin-left: auto;isplay: flex; align-items: center; white-space: nowrap; }
+.top-links-right { margin-left: auto; display: flex; align-items: center; white-space: nowrap; }
 .top-links-right a { color: var(--text-light); text-decoration: none; margin-left: 1rem; transition: color 0.2s; }
 .top-links-right a:hover { color: #ffffff; }
 
