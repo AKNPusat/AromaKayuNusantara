@@ -63,7 +63,8 @@ main {
 .header-search { padding-left: 1rem; color: #555; cursor: pointer; }
 .main-header.scrolled .header-search { color: #555; }
 .header-search svg { width: 24px; height: 24px; fill: currentColor; }
-
+.dropdown-menu-top {
+    display: none; position: absolute; top: 100%; right: 0;
 /* --- Navigasi & Dropdown --- */
 .main-nav { display: flex; align-items: center; }
 .nav-item { position: relative; }
