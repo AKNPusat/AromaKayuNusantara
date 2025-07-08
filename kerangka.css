@@ -22,7 +22,7 @@ body {
     padding: 0 2rem;
 }
 main {
-    padding-top: 100px; /* Beri ruang di atas untuk header */
+    padding-top: 95px; /* Beri ruang di atas untuk header */
 }
 
 /* --- Posisi Header di Atas Halaman (FIXED) --- */
@@ -71,7 +71,7 @@ main {
 .nav-link {
     display: block; padding: 1rem 0.8rem; text-decoration: none;
     color: #050240; /* Teks menu putih saat transparan */
-    font-weight: 700; transition: color 0.2s;
+    font-weight: 600; transition: color 0.2s;
 }
 .main-header.scrolled .nav-link { color: var(--text-dark); /* Teks menu jadi gelap saat di-scroll */ }
 .nav-item:hover .nav-link { color: var(--primary-blue); }
