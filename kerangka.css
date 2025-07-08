@@ -89,8 +89,9 @@ main {
 
 .dropdown-menu-top {
     display: none; position: absolute; top: 100%; right: 0; /* KUNCI: Dropdown akan rata kanan dengan menu */
-    background-color: white; min-width: 180px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: white; min-width: 150px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 4px; padding: 0.5rem 0; opacity: 0;
+    z-index: 1011; /* Di atas segalanya */
     transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .nav-item:hover .dropdown-menu-top { display: block; opacity: 1; transform: translateY(0); }
@@ -99,7 +100,7 @@ main {
 
 .dropdown-menu {
     display: none; position: absolute; top: 100%; left: 0;
-    background-color: white; min-width: 210px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: white; min-width: 200px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 4px; padding: 0.5rem 0; opacity: 0;
     transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease;
 }
