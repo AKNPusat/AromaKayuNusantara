@@ -59,12 +59,6 @@ main {
 .top-links-right { margin-left: auto;isplay: flex; align-items: center; white-space: nowrap; }
 .top-links-right a .top-links-right .nav-link-top{ color: var(--text-light); text-decoration: none; margin-left: 1rem; transition: color 0.2s;padding: 4px 8px; }
 .top-links-right a:hover { color: #ffffff; }
-/* Dropdown untuk menu atas */
-.dropdown-menu-top {
-    display: none; position: absolute; top: 100%; right: 0; /* Align ke kanan */
-    background-color: white; min-width: 180px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border-radius: 4px; padding: 0.5rem 0;
 
 .logo { height: 85px; }
 .header-search { padding-left: 1rem; color: #555; cursor: pointer; }
