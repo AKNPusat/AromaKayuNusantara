@@ -98,14 +98,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // --- 2. Efek Teks Berjalan ---
     const titleElement = document.getElementById('hero-title');
     if (titleElement) {
-        const textToType = "Energi Gaharu untuk Nusantara";
+        const textToType = "Investasi Gaharu untuk Nusantara";
         let index = 0;
         titleElement.innerHTML = '';
         function type() {
             if (index < textToType.length) {
                 titleElement.innerHTML += textToType.charAt(index);
                 index++;
-                setTimeout(type, 120);
+                setTimeout(type, 100);
             }
         }
         type();
