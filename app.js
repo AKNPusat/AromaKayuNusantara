@@ -30,12 +30,12 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="nav-item">
                         <a href="#" class="nav-link">Tentang Kami</a>
                         <div class="dropdown-menu">
-                            <a href="sekilas-akn.html">Sekilas AKN</a>
-                            <a href="tonggak-sejarah.html">Tonggak Sejarah</a>
-                            <a href="visi-misi.html">Visi, Misi, & Tata Nilai</a>
-                            <a href="makna-logo.html">Makna Logo</a>
-                            <a href="direksi.html">Direktur Utama</a>
-                            <a href="komisaris.html">Komisaris Utama</a>
+                            <div class="dropdown-menu">
+                                <a href="tentang-kami.html#sekilas-akn">Sekilas AKN</a>
+                                <a href="tentang-kami.html#tonggak-sejarah">Tonggak Sejarah</a>
+                                <a href="tentang-kami.html#visi-misi">Visi, Misi, & Tata Nilai</a>
+                                <a href="tentang-kami.html#makna-logo">Makna Logo</a>
+                                <a href="tentang-kami.html#direksi">Manajemen</a>
                         </div>
                     </div>
                     <!-- Menu "Bisnis Kami" -->
