@@ -41,9 +41,9 @@ main {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .main-header {
-    top: 34px;
+    top: 36px;
     background-color: transparent; /* Jadi transparan di awal */
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
     font-size: 0.8rem;
     box-shadow: none;
 }
@@ -57,7 +57,7 @@ main {
 
 /* --- Style Link Header --- */
 .top-links-right { margin-left: auto;isplay: flex; align-items: center; white-space: nowrap; }
-.top-links-right a .top-links-right .nav-link-top{ color: var(--text-light); text-decoration: none; margin-left: 1rem; transition: color 0.2s;padding: 4px 8px; }
+.top-links-right a { color: var(--text-light); text-decoration: none; margin-left: 1rem; transition: color 0.2s; }
 .top-links-right a:hover { color: #ffffff; }
 
 .logo { height: 85px; }
