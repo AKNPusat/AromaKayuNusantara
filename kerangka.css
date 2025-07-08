@@ -22,7 +22,7 @@ body {
     padding: 0 2rem;
 }
 main {
-    padding-top: 95px; /* Beri ruang di atas untuk header */
+    padding-top: 85px; /* Beri ruang di atas untuk header */
 }
 
 /* --- Posisi Header di Atas Halaman (FIXED) --- */
@@ -38,6 +38,18 @@ main {
     padding: 0.3rem 0;
     font-size: 0.6rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+/* Tombol Registrasi Member (BARU) */
+.register-button {
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 50px;
+    font-weight: 600;
+    padding: 4px 12px !important; /* Paksa padding agar tidak sama */
+}
+.register-button:hover {
+    background-color: white !important;
+    color: var(--text-dark) !important;
+    border-color: white;
 }
 .main-header {
     top: 34px;
@@ -121,7 +133,7 @@ main {
     display: flex; flex-direction: column; justify-content: center;
     align-items: center; text-align: center; color: white;
 }
-.hero-content h1 { font-size: 3.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.6); margin: 0; }
+.hero-content h1 { font-size: 4.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.6); margin: 0; }
 .page-content { max-width: 1100px; margin: 2rem auto; padding: 2rem; background-color: white; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
 .page-title { color: var(--primary-blue); border-bottom: 3px solid #ddd; padding-bottom: 1rem; margin-bottom: 2rem; }
 .main-footer { text-align: center; padding: 2rem; background: #212529; color: #adb5bd; }
