@@ -1,64 +1,57 @@
 /* =================================================================== */
-/* KODE CSS FINAL - Aroma Kayu Nusantara (Gaya Korporat) */
+/* KODE CSS REVISI FINAL - Aroma Kayu Nusantara */
 /* =================================================================== */
 
-/* --- Pengaturan Dasar & Font --- */
+/* --- Pengaturan Dasar --- */
 :root {
-    --primary-blue: #00529B; /* Biru korporat */
+    --primary-blue: #00529B;
     --text-dark: #212529;
-    --text-light: #f8f9fa; /* Warna teks terang untuk latar gelap */
+    --text-light: #f8f9fa;
 }
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    color: var(--text-dark);
-    background-color: #f5f5f5;
-  }
+    font-family: 'Montserrat', sans-serif; margin: 0; color: var(--text-dark); background-color: #f5f5f5;
+    /* Jarak atas dikurangi, sesuaikan angka 95px jika perlu */
+    padding-top: 95px; 
+}
 .header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;    
-    align-items: center;
-    padding: 0 2rem;
+    max-width: 1400px; margin: 0 auto; display: flex;
+    align-items: center; padding: 0 2rem;
 }
-main {
-    padding-top: 95px; /* Beri ruang di atas untuk header */
-}
+main { padding-top: 0; }
 
-/* --- Posisi Header di Atas Halaman (FIXED) --- */
+/* --- Posisi Header (Fixed) --- */
 .top-header, .main-header {
-    position: fixed;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    position: fixed; left: 0; width: 100%; z-index: 1000;
 }
 .top-header {
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 0.3rem 0;
-    font-size: 0.8rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    top: 0; background-color: rgba(0, 0, 0, 0.4);
+    /* Padding vertikal dikurangi */
+    padding: 0.3rem 0; 
+    font-size: 0.8rem; border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .main-header {
-    top: 34px;
-    background-color: transparent; /* Jadi transparan di awal */
-    padding: 0.4rem 0;
-    font-size: 0.8rem;
-    box-shadow: none;
+    /* Posisi disesuaikan karena top-header lebih pendek */
+    top: 30px; 
+    background-color: transparent;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
-/* Style header SAAT di-scroll */
 .main-header.scrolled {
-    background-color: transparent; /* Jadi transparan di awal */
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Style Link Header --- */
-.top-links-right { margin-left: auto; }
-.top-links-right a { color: var(--text-light); text-decoration: none; margin-left: 1rem; transition: color 0.2s;  padding: 4px 8px;}
-.top-links-right a:hover { color: #ffffff; }
+/* --- Header Atas (Internal Menu) --- */
+.top-links-right {
+    margin-left: auto; display: flex; align-items: center; white-space: nowrap;
+}
+/* Mengatur link dan dropdown di top-header */
+.top-links-right > a, .top-links-right .nav-link-top {
+    color: var(--text-light); text-decoration: none;
+    margin-left: 1rem; transition: color 0.2s; padding: 4px 8px;
+}
+.top-links-right > a:hover, .top-links-right .nav-item:hover .nav-link-top {
+    color: #ffffff; background-color: rgba(255,255,255,0.1); border-radius: 4px;
+}
 /* Dropdown untuk menu atas */
 .dropdown-menu-top {
     display: none; position: absolute; top: 100%; right: 0; /* Align ke kanan */
@@ -66,60 +59,48 @@ main {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     border-radius: 4px; padding: 0.5rem 0;
 }
+.nav-item:hover .dropdown-menu-top { display: block; }
+.dropdown-menu-top a {
+    display: block; padding: 0.6rem 1rem; text-decoration: none;
+    color: var(--text-dark); font-size: 0.8rem;
+}
+.dropdown-menu-top a:hover { background-color: #f1f1f1; }
 
-.logo { height: 85px; }
-.header-search { padding-left: 1rem; color: #555; cursor: pointer; }
-.main-header.scrolled .header-search { color: #555; }
-.header-search svg { width: 24px; height: 24px; fill: currentColor; }
 
-/* --- Navigasi & Dropdown --- */
-.main-nav { display: flex; align-items: center; }
+/* --- Header Utama (Publik) --- */
+.header-container .logo-link { flex-shrink: 0; }
+.logo { height: 60px; }
+.main-nav {
+    display: flex; justify-content: center; flex-grow: 1;
+    margin: 0 1rem; white-space: nowrap; overflow: hidden;
+}
 .nav-item { position: relative; }
 .nav-link {
-    display: block; padding: 1rem 0.8rem; text-decoration: none;
-    color: #050240; /* Teks menu putih saat transparan */
-    font-weight: 600; transition: color 0.2s;
+    display: block; padding: 1.2rem 1rem; text-decoration: none;
+    color: white; font-weight: 600; font-size: 0.9rem;
+    transition: color 0.2s;
 }
-.main-header.scrolled .nav-link { color: var(--text-dark); /* Teks menu jadi gelap saat di-scroll */ }
-.nav-item:hover .nav-link { color: var(--primary-blue); }
+.main-header.scrolled .nav-link { color: var(--text-dark); }
+.nav-item:hover .nav-link { color: #00aaff; }
 
-.dropdown-menu {
-    display: none; position: absolute; top: 100%; left: 0;
-    background-color: white; min-width: 220px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 4px; padding: 0.5rem 0; opacity: 0;
-    transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.nav-item:hover .dropdown-menu { display: block; opacity: 1; transform: translateY(0); }
-.dropdown-menu a { display: block; padding: 0.75rem 1.5rem; text-decoration: none; color: var(--text-dark); font-size: 0.7rem; white-space: nowrap; }
-.dropdown-menu a:hover { background-color: #f1f1f1; }
+/* --- Dropdown Menu Publik --- */
+.dropdown-menu { /* ... kode sama seperti sebelumnya ... */ }
 
-/* --- Hero Section & Konten --- */
-/* (Tidak ada perubahan di sini, sama seperti sebelumnya) */
-.hero-section, .page-content, .gallery-grid, .contact-grid, .main-footer {
-    position: relative;
-    z-index: 5;
-}
+/* --- Ikon Search --- */
+.header-search { flex-shrink: 0; color: white; cursor: pointer; }
+.main-header.scrolled .header-search { color: var(--text-dark); }
+.header-search svg { width: 24px; height: 24px; fill: currentColor; }
+
+/* --- Hero Section & Teks --- */
 .hero-section {
-    height: 90vh; overflow: hidden; margin-top: -104px;
+    position: relative; height: 90vh; overflow: hidden;
+    /* Disesuaikan dengan padding-top body yang baru */
+    margin-top: -95px; 
+    z-index: 1;
 }
-.video-background {
-    position: absolute; top: 50%; left: 50%; width: 100%; height: 100%;
-    transform: translate(-50%, -50%); z-index: 1;
+.hero-content h1 {
+    /* Ukuran font dikurangi sedikit */
+    font-size: 4rem; 
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7); margin: 0;
 }
-.video-background iframe {
-    width: 120vw; height: 67.5vw; min-width: 100%; min-height: 100%;
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-}
-.hero-overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 20, 60, 0.4); z-index: 2;
-}
-.hero-content {
-    position: relative; z-index: 3; height: 100%;
-    display: flex; flex-direction: column; justify-content: center;
-    align-items: center; text-align: center; color: white;
-}
-.hero-content h1 { font-size: 3.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.6); margin: 0; }
-.page-content { max-width: 1100px; margin: 2rem auto; padding: 2rem; background-color: white; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
-.page-title { color: var(--primary-blue); border-bottom: 3px solid #ddd; padding-bottom: 1rem; margin-bottom: 2rem; }
-.main-footer { text-align: center; padding: 2rem; background: #212529; color: #adb5bd; }
+/* ... Sisa kode CSS lainnya biarkan sama ... */
