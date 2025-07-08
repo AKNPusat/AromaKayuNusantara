@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // --- 2. Efek Teks Berjalan ---
     const titleElement = document.getElementById('hero-title');
     if (titleElement) {
-        const textToType = "Energi Gaharu untuk Dunia";
+        const textToType = "Energi Gaharu untuk Nusantara";
         let index = 0;
         titleElement.innerHTML = '';
         function type() {
