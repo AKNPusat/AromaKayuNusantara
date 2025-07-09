@@ -99,13 +99,13 @@ main {
 
 .dropdown-menu {
     display: none; position: absolute; top: 100%; left: 0;
-    background-color: white; min-width: 210px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 4px; padding: 0.5rem 0; opacity: 0;
+    background-color: transparent; min-width: 210px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px; padding: 0.4rem 0; opacity: 0;
     transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .nav-item:hover .dropdown-menu { display: block; opacity: 1; transform: translateY(0); }
-.dropdown-menu a { display: block; padding: 0.75rem 1.5rem; text-decoration: none; color: var(--text-dark); font-size: 0.7rem; white-space: nowrap; }
-.dropdown-menu a:hover { background-color: #f1f1f1; }
+.dropdown-menu a { display: block; padding: 0.65rem 1.5rem; text-decoration: none; color: var(--text-dark); font-size: 0.7rem; white-space: nowrap; }
+.dropdown-menu a:hover { background-color: transparent; }
 
 /* --- Hero Section & Konten --- */
 /* (Tidak ada perubahan di sini, sama seperti sebelumnya) */
