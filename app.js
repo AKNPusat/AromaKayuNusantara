@@ -30,6 +30,25 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="nav-item">
                         <a href="#" class="nav-link">Tentang Kami</a>
                         <div class="dropdown-menu">
+                        .dropdown-menu {
+    display: none; /* KUNCI: Sembunyikan secara default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 4px 4px; /* Hanya sudut bawah yang melengkung */
+    padding: 0.5rem 0;
+    z-index: 1010; /* Pastikan di atas elemen lain */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.nav-item:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
                             <div class="dropdown-menu">
                                 <a href="tentang-kami.html#sekilas-akn">Sekilas AKN</a>
                                 <a href="tentang-kami.html#tonggak-sejarah">Tonggak Sejarah</a>
