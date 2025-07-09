@@ -31,24 +31,33 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="dropdown-menu">
                         <a href="tentang-kami.html#sekilas-akn">Sekilas AKN</a>
                         <a href="tentang-kami.html#tonggak-sejarah">Tonggak Sejarah</a>
+                        <a href="tentang-kami.html#visi-misi">Visi, Misi, & Tata Nilai</a>
+                        <a href="tentang-kami.html#makna-logo">Makna Logo</a>
+                        <a href="tentang-kami.html#direksi">Manajemen</a>
                     </div>
                 </div>
                 <div class="nav-item">
                     <a href="#" class="nav-link">Bisnis Kami</a>
                     <div class="dropdown-menu">
-                        <a href="#">Layanan 1</a>
+                        <a href="#">Layanan AKN 1</a>
+                        <a href="#">Layanan AKN 2</a>
+                        <a href="#">Layanan AKN 3</a>
                     </div>
                 </div>
                 <div class="nav-item">
                     <a href="#" class="nav-link">Media & Informasi</a>
-                    <div class="dropdown-menu">
-                        <a href="#">Berita</a>
+                    <div class="dropdown-menu">                        
+                        <a href="newsroom.html">AKN News Room</a>
+                        <a href="publikasi.html">Publikasi</a>
+                        <a href="kegiatan.html">Kegiatan</a>
                     </div>
                 </div>
                 <div class="nav-item">
                     <a href="#" class="nav-link">Mitra AKN</a>
                     <div class="dropdown-menu">
                         <a href="#">Mitra A</a>
+                        <a href="firma.html">Firma AKN</a>
+                        <a href="bmt.html">Bina Multi Transindo</a>
                     </div>
                 </div>
                  <div class="nav-item">
