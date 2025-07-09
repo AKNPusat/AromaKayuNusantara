@@ -22,7 +22,7 @@ body {
     padding: 0 2rem;
 }
 main {
-     /* Tidak perlu padding-top di sini lagi */
+    padding-top: 85px;
 }
 
 /* --- Posisi Header di Atas Halaman (FIXED) --- */
