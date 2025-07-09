@@ -22,7 +22,7 @@ body {
     padding: 0 2rem;
 }
 main {
-    padding-top: 60px; /* Beri ruang di atas untuk header */
+    padding-top: 75px; /* Beri ruang di atas untuk header */
 }
 
 /* --- Posisi Header di Atas Halaman (FIXED) --- */
@@ -71,18 +71,18 @@ main {
 .top-links-right a { color: var(--text-light); text-decoration: none; margin-left: 1rem; transition: color 0.2s; }
 .top-links-right a:hover { color: #ffffff; }
 
-.logo { height: 80px; }
+.logo { height: 85px; }
 .header-search { padding-left: 1rem; color: #555; cursor: pointer; }
 .main-header.scrolled .header-search { color: #555; }
 .header-search svg { width: 24px; height: 24px; fill: currentColor; }
 
 /* --- Navigasi & Dropdown --- */
-.main-nav { display: flex; flex-direction: row; justify-content: flex-start; align-items: center;  gap: 1.2rem;  flex-wrap: nowrap; }
-.main-nav .nav-item { display: inline-block; position: relative; }
+.main-nav { display: flex; align-items: center; }
+.nav-item { position: relative; }
 .nav-link {
-    display: inline-block; padding: 1rem 1rem; text-decoration: none;
+    display: block; padding: 1rem 0.8rem; text-decoration: none;
     color: #050240; /* Teks menu putih saat transparan */
-    font-weight: 600; transition: color 0.3s;
+    font-weight: 600; transition: color 0.2s;
 }
 .main-header.scrolled .nav-link { color: var(--text-dark); /* Teks menu jadi gelap saat di-scroll */ }
 .nav-item:hover .nav-link { color: var(--primary-blue); }
@@ -99,13 +99,13 @@ main {
 
 .dropdown-menu {
     display: none; position: absolute; top: 100%; left: 0;
-    background-color: transparent; min-width: 210px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 4px; padding: 0.4rem 0; opacity: 0;
+    background-color: white; min-width: 210px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px; padding: 0.5rem 0; opacity: 0;
     transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .nav-item:hover .dropdown-menu { display: block; opacity: 1; transform: translateY(0); }
-.dropdown-menu a { display: block; padding: 0.65rem 1.5rem; text-decoration: none; color: var(--text-dark); font-size: 0.7rem; white-space: nowrap; }
-.dropdown-menu a:hover { background-color: transparent; }
+.dropdown-menu a { display: block; padding: 0.75rem 1.5rem; text-decoration: none; color: var(--text-dark); font-size: 0.7rem; white-space: nowrap; }
+.dropdown-menu a:hover { background-color: #f1f1f1; }
 
 /* --- Hero Section & Konten --- */
 /* (Tidak ada perubahan di sini, sama seperti sebelumnya) */
@@ -137,68 +137,3 @@ main {
 .page-content { max-width: 1100px; margin: 2rem auto; padding: 2rem; background-color: white; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
 .page-title { color: var(--primary-blue); border-bottom: 3px solid #ddd; padding-bottom: 1rem; margin-bottom: 2rem; }
 .main-footer { text-align: center; padding: 2rem; background: #212529; color: #adb5bd; }
-
-/* ================================================== */
-/* STYLE UNTUK HALAMAN TENTANG KAMI */
-/* ================================================== */
-
-/* Hero Section Khusus Halaman Dalam */
-.page-hero-section {
-    position: relative;
-    padding: 5rem 0;
-    color: white;
-    text-align: center;
-    background-size: cover;
-    background-position: center;
-    margin-top: -104px; /* Menutupi ruang padding-top body */
-}
-.page-hero-section .breadcrumb {
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-.page-hero-section h1 {
-    font-size: 3rem;
-    margin: 0.5rem 0;
-}
-.page-hero-section p {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Navigasi Internal (Sub-Menu) */
-.sub-nav {
-    background-color: #ffffff;
-    border-bottom: 1px solid #dee2e6;
-    position: sticky;
-    top: 95px; /* Sesuaikan dengan tinggi header Anda */
-    z-index: 999;
-}
-.sub-nav .container {
-    display: flex;
-    justify-content: center;
-    overflow-x: auto;
-}
-.sub-nav a {
-    padding: 1rem 1.5rem;
-    text-decoration: none;
-    color: #6c757d;
-    font-weight: 600;
-    white-space: nowrap;
-    border-bottom: 3px solid transparent;
-    transition: all 0.2s;
-}
-.sub-nav a:hover, .sub-nav a.active {
-    color: var(--primary-blue);
-    border-bottom-color: var(--primary-blue);
-}
-
-/* Konten Section di Halaman Tentang Kami */
-.content-section {
-    padding-top: 4rem; /* Jarak untuk anchor link */
-    margin-top: -4rem; /* Menyeimbangkan padding */
-}
-.section-title {
-    font-size: 1.8rem;
-    color: var(--text-dark);
-    margin-bottom: 1.5rem;
-}
