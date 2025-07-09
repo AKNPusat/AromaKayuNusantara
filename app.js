@@ -3,22 +3,22 @@ document.addEventListener("DOMContentLoaded", function() {
     // --- 1. Memuat Header dan Footer secara Dinamis ---
     const headerHTML = `
         <div class="top-header">
-            <div class="header-container">
-                <div class="top-links-right">
-                    <a href="input_resi.html">Input Resi</a>
-                    <a href="surat_jalan.html">Surat Jalan</a>
-                    <a href="stok.html">Stok</a>    
-                     <div class="nav-item">
-                        <a href="#" class="nav-link-top">Manajemen</a>
-                        <div class="dropdown-menu-top">
-                            <a href="laporan_keuangan.html">Laporan Keuangan</a>
-                            <a href="invoice.html">Invoice</a>
-                        </div>
+        <div class="header-container">
+            <div class="top-links-right">
+                <a href="input_resi.html">Input Resi</a>
+                <a href="surat_jalan.html">Surat Jalan</a>
+                <a href="stok.html">Stok</a>
+                <div class="nav-item">
+                    <a href="#" class="nav-link-top">Manajemen</a>
+                    <div class="dropdown-menu-top">
+                        <a href="laporan_keuangan.html">Laporan Keuangan</a>
+                        <a href="invoice.html">Invoice</a>
                     </div>
-                    <a href="register.html" class="register-button">Registrasi Member</a>
                 </div>
+                <a href="register.html" class="register-button">Registrasi Member</a>
             </div>
         </div>
+    </div>
         <header class="main-header">
             <div class="header-container">
                 <a href="index.html" class="logo-link">
