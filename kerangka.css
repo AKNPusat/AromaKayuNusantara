@@ -22,7 +22,7 @@ body {
     padding: 0 2rem;
 }
 main {
-    padding-top: 75px; /* Beri ruang di atas untuk header */
+    padding-top: 70px; /* Beri ruang di atas untuk header */
 }
 
 /* --- Posisi Header di Atas Halaman (FIXED) --- */
@@ -71,7 +71,7 @@ main {
 .top-links-right a { color: var(--text-light); text-decoration: none; margin-left: 1rem; transition: color 0.2s; }
 .top-links-right a:hover { color: #ffffff; }
 
-.logo { height: 85px; }
+.logo { height: 80px; }
 .header-search { padding-left: 1rem; color: #555; cursor: pointer; }
 .main-header.scrolled .header-search { color: #555; }
 .header-search svg { width: 24px; height: 24px; fill: currentColor; }
