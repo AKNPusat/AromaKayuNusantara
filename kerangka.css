@@ -121,7 +121,7 @@ main {
     transform: translate(-50%, -50%); z-index: 1;
 }
 .video-background iframe {
-    width: 120vw; height: 67.5vw; min-width: 100%; min-height: 100%;
+    width: 130vw; height: 77.5vw; min-width: 100%; min-height: 100%;
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
 }
 .hero-overlay {
