@@ -52,7 +52,7 @@ main {
     border-color: white;
 }
 .main-header {
-    top: 34px;
+    top: 30px;
     background-color: transparent; /* Jadi transparan di awal */
     padding: 0.4rem 0;
     font-size: 0.8rem;
