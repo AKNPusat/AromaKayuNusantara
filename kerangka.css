@@ -4,9 +4,6 @@
 
 /* --- Pengaturan Dasar & Font --- */
 :root {
-dengan kerangka. css seperti ini tampilan vidio lebuh kecil dan tidak sampai ke atas tidak seperti sebelumnya juga tidak bisa scroll, 
-tentang kani tulisan tentang kami kurang kevawah sedikit dan tulisan rata kiri seperti pertamina, diatas di dalam gambar  ada tulisan kecil kode yang keluar berwarna putih itu gmn supaya tidak tampil , di tulisan sekilas AKN, tonggak sejarah, dst, itu dibuat agak ketengah dengan jarak yang sama, jadi terlihat seperi web petamina. itu dulu saupaya saya perbaikinya gak bingung 
-
     --primary-blue: #00529B; /* Biru korporat */
     --text-dark: #212529;
     --text-light: #f8f9fa; /* Warna teks terang untuk latar gelap */
