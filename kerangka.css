@@ -89,16 +89,16 @@ main {
 }
 
 .main-header.scrolled {
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background-color: rgba(255, 255, 255, 0.98); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .main-header.scrolled a {
     color: white;
 }
 .main-header.scrolled .nav-link:hover {
-    color: #ffd700;
+    color: var(--text-dark);
 }
 /* --- Link Header --- */
 .top-links-right {
@@ -125,12 +125,12 @@ main {
 
 .header-search {
     padding-left: 1rem;
-    color: #555;
+    color:  white;
     cursor: pointer;
 }
 
 .main-header.scrolled .header-search {
-    color: #555;
+    color: var(--text-dark);
 }
 
 .header-search svg {
@@ -140,22 +140,12 @@ main {
 }
 
 /* --- Navigasi & Dropdown --- */
-.main-nav {
-    display: flex;
-    align-items: center;
-}
-
-.nav-item {
-    position: relative;
-}
-
+.main-nav { display: flex; align-items: center; }    
+.nav-item { position: relative; }
 .nav-link {
-    display: block;
-    padding: 1rem 0.8rem;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s;
-    color: white;
+    display: block; padding: 1rem 0.8rem; text-decoration: none;
+    color: white; /* UBAH MENJADI PUTIH */
+    font-weight: 600; transition: color 0.2s, background-color 0.3s;
 }
 
 .main-header .nav-link:hover,
@@ -164,7 +154,7 @@ main {
 }
 
 .main-header.scrolled .nav-link {
-    color: var(--text-dark);
+    color: var(--primary-blue);
 }
 
 .nav-item:hover .nav-link {
