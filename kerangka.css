@@ -14,6 +14,13 @@ body {
     color: var(--text-dark);
     background-color: #f5f5f5;
 }
+.header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
 .top-header,
 .main-header {
     position: fixed;
@@ -24,35 +31,30 @@ body {
     color: white;
     transition: all 0.3s ease;
 }
-.top-header {
-    top: 0;
-    font-size: 0.7rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 0.4rem 0;
-    backdrop-filter: blur(4px);
-}
-.main-header {
-    top: 32px;
-    font-size: 0.8rem;
-    background-color: transparent; /* Jadi transparan di awal */
-    backdrop-filter: blur(4px);
-    padding: 0.5rem 0;
+.top-header .main-header { 
+    width: 100%    
 }
 .header-container {
     max-width: 1300px;
     margin: 0 auto;
     display: flex;   
-    justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 1rem;
 }
+.top-header {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 0.4rem 0;
+    font-size: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.top-header .header-container {
+    justify-content: flex-end; /* Mendorong semua item ke kanan */
 main {
     }
 /* Tombol Registrasi Member (BARU) */
 .register-button {
     border: 1px solid rgba(255,255,255,0.7);
     border-radius: 50px;
-    font-weight: 600;
     padding: 4px 12px !important; /* Paksa padding agar tidak sama */
 }
 .register-button:hover {
@@ -66,12 +68,13 @@ main {
     box-shadow: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
+    transition: background-color 0.3s ease;
 }
 
 /* --- Style Link Header --- */
-.top-links-right { margin-left: auto; display: flex; align-items: center; white-space: nowrap; gap: 1rem;}
-.top-links-right a { display: block; padding: 1rem 0.8rem; text-decoration: none; color: white; /* Teks menu putih saat transparan */
-    font-weight: 500; transition: color 0.3s; padding: 0.3rem 0.6rem;}
+.top-links-right { display: flex; align-items: center; }
+.top-links-right a { color: var(--text-light); text-decoration: none; margin-left: 1.2rem; transition: color 0.2s;
+}
 .top-links-right a:hover { color:  #eee; }
 
 .logo { height: 75px; margin-right: 1.5rem; }
@@ -80,12 +83,12 @@ main {
 .header-search svg { width: 24px; height: 24px; fill: currentColor; }
 
 /* --- Navigasi & Dropdown --- */
-.main-nav { display: flex; align-items: center; gap: 1rem; flex-wrap: nowrap;}
+.main-nav { display: flex; align-items: center; flex-wrap: 1;}
 .nav-item { position: relative; }
 .nav-link {
     display: block; padding: 1rem 0.8rem; text-decoration: none;
     color: white; /* Teks menu putih saat transparan */
-    font-weight: 500; transition: color 0.3s; padding: 0.3rem 0.6rem;
+    font-weight: 600; padding: 1rem;
 }
 .main-header.scrolled,
 .top-header.scrolled {
@@ -136,7 +139,7 @@ main {
     z-index: 5;
 }
 .hero-section {
-    height: 40vh; overflow: hidden; margin-top: 0; position: relative; z-index: 5;
+    height: 90vh; overflow: hidden; margin-top: 0; position: relative; 
 }
 .video-background {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -156,7 +159,7 @@ main {
     display: flex; flex-direction: column; justify-content: center;
     align-items: center; text-align: center; color: white;
 }
-.hero-content h1 { font-size: 2.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); margin: 0; }
+.hero-content h1 { font-size: 4rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); margin: 0; }
 .page-content { padding-top: 95px; max-width: 1100px; margin: 2rem auto; padding: 2rem; background-color: white; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
 .page-title { color: var(--primary-blue); border-bottom: 3px solid #ddd; padding-bottom: 1rem; margin-bottom: 2rem; }
 .main-footer { text-align: center; padding: 2rem; background: #212529; color: #adb5bd; }
