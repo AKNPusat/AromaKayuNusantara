@@ -34,10 +34,17 @@ main {
 }
 .top-header {
     top: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: transparent; /* transparan */
     padding: 0.3rem 0;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+.top-header a {
+    color: white;
+}
+.top-header a:hover {
+    color: #f1f1f1;
+}
 }
 /* Tombol Registrasi Member (BARU) */
 .register-button {
@@ -52,11 +59,18 @@ main {
     border-color: white;
 }
 .main-header {
-    top: 30px;
+    top: 28px;
     background-color: transparent; /* Jadi transparan di awal */
     padding: 0.4rem 0;
     font-size: 0.8rem;
     box-shadow: none;
+    color: white;
+}
+.main-header a {
+    color: white;
+}
+.main-header a:hover {
+    color: #f1f1f1;
 }
 /* Style header SAAT di-scroll */
 .main-header.scrolled {
