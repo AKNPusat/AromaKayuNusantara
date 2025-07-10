@@ -1,125 +1,235 @@
 /* =================================================================== */
-/* KODE CSS FINAL (REVISI PERTAMINA) - Aroma Kayu Nusantara */
+/* KODE CSS FINAL - Aroma Kayu Nusantara (Gaya Korporat) */
 /* =================================================================== */
 
+/* --- Pengaturan Dasar & Font --- */
 :root {
-    --primary-blue: #00529B;
-    --text-dark: #212529;
-    --text-light: #f8f9fa;
-    --header-height: 80px; /* Tinggi header utama */
-    --top-header-height: 34px; /* Tinggi header atas */
-}
+dengan kerangka. css seperti ini tampilan vidio lebuh kecil dan tidak sampai ke atas tidak seperti sebelumnya juga tidak bisa scroll, 
+tentang kani tulisan tentang kami kurang kevawah sedikit dan tulisan rata kiri seperti pertamina, diatas di dalam gambar  ada tulisan kecil kode yang keluar berwarna putih itu gmn supaya tidak tampil , di tulisan sekilas AKN, tonggak sejarah, dst, itu dibuat agak ketengah dengan jarak yang sama, jadi terlihat seperi web petamina. itu dulu saupaya saya perbaikinya gak bingung 
 
+    --primary-blue: #00529B; /* Biru korporat */
+    --text-dark: #212529;
+    --text-light: #f8f9fa; /* Warna teks terang untuk latar gelap */
+}
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    padding-top: calc(var(--header-height) + var(--top-header-height));
-    background-color: #f5f5f5;
     color: var(--text-dark);
+    background-color: #f5f5f5;
 }
-
-.container {
-    max-width: 1300px;
+.header-container {
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    display: flex;    
+    align-items: center;
+    padding: 0 2rem;
+}
+main {
+    padding-top: 95px;
 }
 
-/* --- HEADER --- */
+/* --- Posisi Header di Atas Halaman (FIXED) --- */
 .top-header, .main-header {
     position: fixed;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1000;    
 }
-
-/* Header Atas (Internal) */
 .top-header {
     top: 0;
-    height: var(--top-header-height);
-    background-color: #fff;
-    border-bottom: 1px solid #e9ecef;
-    display: flex;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0.3rem 0;
+    font-size: 0.6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-.top-links-right {
-    display: flex;
-    align-items: center;
-    margin-left: auto; /* Mendorong ke kanan */
-}
-.top-links-right a {
-    color: #666;
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-left: 1.5rem;
-    transition: color 0.2s;
-}
-.top-links-right a:hover { color: var(--primary-blue); }
-
+/* Tombol Registrasi Member (BARU) */
 .register-button {
-    border: 1px solid #ccc;
-    padding: 5px 15px;
+    border: 1px solid rgba(255,255,255,0.7);
     border-radius: 50px;
-}
-.register-button:hover { border-color: var(--primary-blue); }
-
-/* Header Utama (Publik) */
-.main-header {
-    top: var(--top-header-height);
-    height: var(--header-height);
-    background-color: transparent; /* Awalnya transparan */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.main-header.scrolled {
-    background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    backdrop-filter: blur(8px);
-}
-.main-header .container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-.logo {
-    height: 55px;
-    flex-shrink: 0; /* Mencegah logo mengecil */
-}
-
-/* Navigasi Utama */
-.main-nav {
-    display: flex;
-    margin-left: 2rem;
-}
-.nav-item { position: relative; }
-.nav-link {
-    display: block;
-    padding: 0 1rem;
-    text-decoration: none;
-    color: white; /* Warna teks saat di atas video */
     font-weight: 600;
-    line-height: var(--header-height); /* Membuat tinggi link sama dengan header */
+    padding: 4px 12px !important; /* Paksa padding agar tidak sama */
 }
-.main-header.scrolled .nav-link {
-    color: var(--text-dark); /* Warna teks saat header jadi putih */
+.register-button:hover {
+    background-color: white !important;
+    color: var(--text-dark) !important;
+    border-color: white;
+}
+.main-header {
+    top: 30px;
+    background-color: transparent; /* Jadi transparan di awal */
+    padding: 0.4rem 0;
+    font-size: 0.8rem;
+    box-shadow: none;
+}
+/* Style header SAAT di-scroll */
+.main-header.scrolled {
+    background-color: transparent; /* Jadi transparan di awal */
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
-/* ... Kode Dropdown Menu (sama seperti sebelumnya, sudah benar) ... */
+/* --- Style Link Header --- */
+.top-links-right { margin-left: auto; display: flex; align-items: center; white-space: nowrap; }
+.top-links-right a { color: var(--text-light); text-decoration: none; margin-left: 1rem; transition: color 0.2s; }
+.top-links-right a:hover { color: #ffffff; }
 
-.header-search {
-    margin-left: auto;
-    color: white;
-}
-.main-header.scrolled .header-search {
-    color: var(--text-dark);
-}
+.logo { height: 85px; }
+.header-search { padding-left: 1rem; color: #555; cursor: pointer; }
+.main-header.scrolled .header-search { color: #555; }
 .header-search svg { width: 24px; height: 24px; fill: currentColor; }
 
-
-/* --- HERO SECTION --- */
-.hero-section {
-    position: relative;
-    height: 80vh;
-    margin-top: calc(-1 * (var(--header-height) + var(--top-header-height)));
-    overflow: hidden;
+/* --- Navigasi & Dropdown --- */
+.main-nav { display: flex; align-items: center; }
+.nav-item { position: relative; }
+.nav-link {
+    display: block; padding: 1rem 0.8rem; text-decoration: none;
+    color: #050240; /* Teks menu putih saat transparan */
+    font-weight: 600; transition: color 0.2s;
 }
-/* ... (sisa kode hero section tidak berubah) ... */
+.main-header.scrolled .nav-link { color: var(--text-dark); /* Teks menu jadi gelap saat di-scroll */ }
+.nav-item:hover .nav-link { color: var(--primary-blue); }
+
+.dropdown-menu-top {
+    display: none; position: absolute; top: 100%; right: 0; /* KUNCI: Dropdown akan rata kanan dengan menu */
+    background-color: white; min-width: 180px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px; padding: 0.5rem 0; opacity: 0;
+    transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.nav-item:hover .dropdown-menu-top { display: block; opacity: 1; transform: translateY(0); }
+.dropdown-menu-top a { display: block; padding: 0.65rem 1rem; text-decoration: none; color: var(--text-dark); font-size: 0.5rem; white-space: nowrap; }
+.dropdown-menu-top a:hover { background-color: #f1f1f1; }
+
+.dropdown-menu {
+    display: none; position: absolute; top: 100%; left: 0;
+    background-color: white; min-width: 210px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px; padding: 0.5rem 0; opacity: 0;
+    transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.nav-item:hover .dropdown-menu { display: block; opacity: 1; transform: translateY(0); }
+.dropdown-menu a { display: block; padding: 0.75rem 1.5rem; text-decoration: none; color: var(--text-dark); font-size: 0.7rem; white-space: nowrap; }
+.dropdown-menu a:hover { background-color: #f1f1f1; }
+
+/* --- Hero Section & Konten --- */
+/* (Tidak ada perubahan di sini, sama seperti sebelumnya) */
+.hero-section, .page-content, .gallery-grid, .contact-grid, .main-footer {
+    position: relative;
+    z-index: 5;
+}
+.hero-section {
+    height: 40vh; overflow: hidden; margin-top: 0; position: relative; z-index: 5;
+}
+.video-background {
+    position: absolute; top: 50%; left: 50%; width: 100%; height: 100%;
+    transform: translate(-50%, -50%); z-index: 1;
+}
+.video-background iframe {
+    width: 130vw; height: 77.5vw; min-width: 100%; min-height: 100%;
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+.hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 20, 60, 0.4); z-index: 2;
+}
+.hero-content {
+    position: relative; z-index: 3; height: 100%;
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: center; text-align: center; color: white;
+}
+.hero-content h1 { font-size: 2.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.6); margin: 0; }
+.page-content { padding-top: 95px; max-width: 1100px; margin: 2rem auto; padding: 2rem; background-color: white; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+.page-title { color: var(--primary-blue); border-bottom: 3px solid #ddd; padding-bottom: 1rem; margin-bottom: 2rem; }
+.main-footer { text-align: center; padding: 2rem; background: #212529; color: #adb5bd; }
+.page-hero-section {
+    position: relative;
+    padding: 3rem 0; /* Padding atas dan bawah */
+    color: white;
+    background-size: cover;
+    background-position: center;
+    height: 30vh; /* Tinggi hero section halaman dalam */
+    display: flex;
+    align-items: flex-end; /* Mendorong konten ke bawah */
+}
+.page-hero-section .hero-content-page {
+    position: relative;
+    z-index: 3;
+    text-align: left; /* Teks rata kiri */
+}
+
+.page-hero-section .breadcrumb {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.page-hero-section h1 {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.page-hero-section p {
+    max-width: 600px;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Navigasi Internal (Sub-Menu) */
+.sub-nav {
+    background-color: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+    position: sticky;
+    top: 95px; /* KUNCI: Harus sama dengan padding-top .page-container */
+    z-index: 999;
+}
+
+.sub-nav .container {
+    display: flex;
+    justify-content: flex-start; /* Mulai dari kiri */
+    overflow-x: auto;
+}
+
+.sub-nav a {
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: #6c757d;
+    font-weight: 600;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.sub-nav a:hover, .sub-nav a.active {
+    color: var(--primary-blue);
+    border-bottom-color: var(--primary-blue);
+}
+
+/* Konten Section di Halaman Tentang Kami */
+.page-content {
+    background-color: white;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+.content-section {
+    padding-top: 110px; /* Jarak untuk anchor link agar tidak tertutup sub-nav */
+    margin-top: -110px;
+    padding-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.content-section h3 {
+    color: var(--primary-blue);
+}
+
+.content-section ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
