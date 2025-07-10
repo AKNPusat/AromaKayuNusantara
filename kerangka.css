@@ -38,11 +38,11 @@ main {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: transparent;
     color: white;
     padding: 0.3rem 0;
-    font-size: 0.7rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem;
+    border-bottom: none;
 }
 
 .top-header a {
@@ -76,7 +76,8 @@ main {
     padding: 0.6rem 0;
     font-size: 0.8rem;
     color: white;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: none;
 }
 
 .main-header a {
@@ -89,11 +90,16 @@ main {
 
 .main-header.scrolled {
     background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
+.main-header.scrolled a {
+    color: white;
+}
+.main-header.scrolled .nav-link:hover {
+    color: #ffd700;
+}
 /* --- Link Header --- */
 .top-links-right {
     margin-left: auto;
@@ -222,31 +228,32 @@ main {
 }
 
 .hero-section {
-    height: 40vh;
-    overflow: hidden;
-    margin-top: 0;
     position: relative;
+    width: 100vw;
+    height: 100vh; /* Full layar */
+    overflow: hidden;
+    margin: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .video-background {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    transform: translate(-50%, -50%);
+    overflow: hidden;
     z-index: 1;
 }
 
 .video-background iframe {
-    width: 130vw;
-    height: 77.5vw;
-    min-width: 100%;
-    min-height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    border: none;
 }
 
 .hero-overlay {
@@ -262,19 +269,18 @@ main {
 .hero-content {
     position: relative;
     z-index: 3;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
 }
 
 .hero-content h1 {
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    font-size: 3rem;
+    font-weight: bold;
     margin: 0;
+}
+.hero-content p {
+    font-size: 1.2rem;
 }
 
 /* --- Konten Umum & Halaman Dalam --- */
