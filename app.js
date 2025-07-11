@@ -124,3 +124,47 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 0);
     
 });
+// --- 5. Logika untuk Slider Tonggak Sejarah ---
+document.addEventListener('DOMContentLoaded', function() {
+    const historySlider = document.querySelector('.history-slider');
+    if (!historySlider) return;
+
+    const navItems = historySlider.querySelectorAll('.history-nav-item');
+    const slides = historySlider.querySelectorAll('.history-slide');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function goToSlide(n) {
+        // Hapus kelas 'active' dari semua
+        navItems[currentSlide].classList.remove('active');
+        slides[currentSlide].classList.remove('active');
+        
+        // Update slide saat ini
+        currentSlide = (n + slides.length) % slides.length;
+        
+        // Tambahkan kelas 'active' ke yang baru
+        navItems[currentSlide].classList.add('active');
+        slides[currentSlide].classList.add('active');
+    }
+
+    function startSlideShow() {
+        slideInterval = setInterval(() => {
+            goToSlide(currentSlide + 1);
+        }, 5000); // Ganti slide setiap 5 detik (5000 ms)
+    }
+
+    function stopSlideShow() {
+        clearInterval(slideInterval);
+    }
+
+    // Event listener untuk tombol navigasi
+    navItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            goToSlide(index);
+            stopSlideShow(); // Hentikan autoplay jika pengguna klik manual
+        });
+    });
+
+    // Mulai autoplay
+    startSlideShow();
+});
