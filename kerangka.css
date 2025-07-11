@@ -249,6 +249,7 @@ main {
     border: none;
     z-index: 1;
     pointer-events: none;
+    object-position: center center;
 }
 
 .hero-overlay {
