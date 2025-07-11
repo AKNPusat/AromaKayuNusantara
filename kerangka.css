@@ -25,11 +25,11 @@ body {
 .d-flex { display: flex; align-items: center; }
 
 .header-container {
-    max-width: 1650px;
+    max-width: 1800px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    padding: 0 2.5rem;
+    padding: 0 2rem;
 }
 
 main {
