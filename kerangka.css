@@ -25,7 +25,7 @@ body {
 .d-flex { display: flex; align-items: center; }
 
 .header-container {
-    max-width: 1400px;
+    max-width: 1500px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -45,7 +45,7 @@ main {
     background-color: transparent;
     color: transparent;
     padding: 0.3rem 0;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     border-bottom: none;
 }
 
@@ -81,7 +81,7 @@ main {
     z-index: 999;
     background-color: transparent;
     padding: 0.6rem 0;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #e9e9e6;
     transition: all 0.3s ease;
     box-shadow: none;
@@ -151,7 +151,7 @@ main {
 .nav-item { position: relative; }
 .nav-link {
     display: block; padding: 1rem 0.8rem; text-decoration: none;
-    color: white; /* UBAH MENJADI PUTIH */
+    color: #218fb7; /* UBAH MENJADI PUTIH */
     font-weight: 600; transition: color 0.2s, background-color 0.3s;
 }
 
@@ -382,12 +382,12 @@ main {
 
 /* --- Section Konten Halaman --- */
 .content-section {
-    padding-top: 120px;
-    margin-top: -120px;
+    padding-top: 130px;
+    margin-top: -130px;
     padding-bottom: 2rem;
 }
 .content-section p {
-    line-height: 1.8; /* Perlebar jarak antar baris */
+    line-height: 1.9; /* Perlebar jarak antar baris */
 }
 .page-content-box {
     background-color: white; padding: 2.5rem; margin: 2rem 0;
