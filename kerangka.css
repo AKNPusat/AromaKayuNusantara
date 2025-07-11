@@ -429,3 +429,98 @@ main {
         font-size: 2rem;
     }
 }
+.history-slider {
+    position: relative;
+    margin-top: 2rem;
+}
+
+/* Navigasi Tahun (di atas) */
+.history-nav {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1rem;
+}
+.history-nav-item {
+    background: none;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #888;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+}
+.history-nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-blue);
+    transition: width 0.3s;
+}
+.history-nav-item.active, .history-nav-item:hover {
+    color: var(--primary-blue);
+}
+.history-nav-item.active::after {
+    width: 100%;
+}
+
+/* Kontainer untuk semua slide */
+.history-slides-container {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Tinggi area slider */
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Setiap slide individu */
+.history-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    display: flex;
+    align-items: flex-end; /* Konten di bawah */
+    padding: 2rem;
+    box-sizing: border-box;
+}
+.history-slide.active {
+    opacity: 1;
+}
+
+/* Overlay gelap agar teks terbaca */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+}
+
+/* Konten teks di dalam slide */
+.slide-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 80%;
+}
+.slide-content h3 {
+    font-size: 2rem;
+    margin: 0 0 0.5rem 0;
+}
+.slide-content p {
+    font-size: 1rem;
+    margin: 0;
+}
