@@ -248,8 +248,7 @@ main {
     transform: translate(-50%, -50%);
     border: none;
     z-index: 1;
-    pointer-events: none;
-    object-position: center center 50%;
+    pointer-events: none;    
 }
 
 .hero-overlay {
