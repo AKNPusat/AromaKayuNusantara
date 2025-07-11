@@ -29,7 +29,7 @@ body {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 2.5rem;
 }
 
 main {
@@ -382,9 +382,12 @@ main {
 
 /* --- Section Konten Halaman --- */
 .content-section {
-    padding-top: 110px;
-    margin-top: -110px;
+    padding-top: 120px;
+    margin-top: -120px;
     padding-bottom: 2rem;
+}
+.content-section p {
+    line-height: 1.8; /* Perlebar jarak antar baris */
 }
 .page-content-box {
     background-color: white; padding: 2.5rem; margin: 2rem 0;
