@@ -524,3 +524,90 @@ main {
     font-size: 1rem;
     margin: 0;
 }
+/* ========================================================== */
+/* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) */
+/* ========================================================== */
+
+@media (max-width: 768px) {
+    
+    /* --- Penyesuaian Umum untuk Mobile --- */
+    body {
+        padding-top: 60px; /* Tinggi header di mobile lebih pendek */
+    }
+    .header-container {
+        padding: 0 1rem;
+    }
+    main {
+        padding: 0;
+    }
+
+    /* --- Penyesuaian Header Mobile --- */
+    .top-header {
+        display: none; /* Sembunyikan menu internal di HP agar tidak sempit */
+    }
+    .main-header {
+        top: 0; /* Header utama menempel di paling atas */
+    }
+    .logo {
+        height: 40px; /* Ukuran logo lebih kecil */
+    }
+    .main-nav, .header-search {
+        display: none; /* Sembunyikan menu utama dan search */
+    }
+    
+    /* --- Hero Section Mobile --- */
+    .hero-section, .page-hero-section {
+        height: 50vh; /* Tinggi hero section dibuat lebih pendek */
+        margin-top: 0;
+    }
+    .hero-content h1 {
+        font-size: 2.2rem; /* Ukuran font judul hero dikecilkan */
+    }
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    /* Hero halaman dalam (Tentang Kami) */
+    .page-hero-section h1 {
+        font-size: 2rem;
+    }
+
+    /* --- Sub-Nav Mobile (Sekilas AKN, dll) --- */
+    .sub-nav {
+        top: 60px; /* Sesuaikan dengan tinggi header mobile */
+    }
+    .sub-nav a {
+        padding: 0.8rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    /* --- Konten Halaman Mobile --- */
+    .page-content-box {
+        margin: 0;
+        border-radius: 0;
+        padding: 1.5rem;
+    }
+    .section-title, .content-section h3 {
+        font-size: 1.5rem;
+    }
+
+    /* --- Slider Tonggak Sejarah Mobile --- */
+    .history-slides-container {
+        height: 60vh; /* Dibuat lebih tinggi agar muat di layar vertikal */
+    }
+    .slide-content {
+        max-width: 90%; /* Konten teks lebih lebar */
+        padding-bottom: 1rem;
+    }
+    .slide-content h3 {
+        font-size: 1.5rem;
+    }
+    .slide-content p {
+        font-size: 0.9rem;
+    }
+    .history-nav {
+        justify-content: flex-start; /* Navigasi tahun mulai dari kiri */
+        overflow-x: auto; /* Bisa di-scroll horizontal */
+    }
+}
