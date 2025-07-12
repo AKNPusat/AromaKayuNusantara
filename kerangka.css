@@ -145,7 +145,6 @@ main {
     height: 24px;
     fill: currentColor;
 }
-.hamburger-button { display: none;
 /* --- Navigasi & Dropdown --- */
 .main-nav { display: flex; align-items: center; }    
 .nav-item { position: relative; }
@@ -528,7 +527,7 @@ main {
 /* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) */
 /* ========================================================== */
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     
     /* --- Penyesuaian Umum untuk Mobile --- */
     body {
