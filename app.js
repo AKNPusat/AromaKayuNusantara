@@ -169,3 +169,65 @@ document.addEventListener('DOMContentLoaded', function() {
     startSlideShow();
 });
 
+// --- Fungsi untuk Slider Tonggak Sejarah ---
+function initHistorySlider() {
+    const historySlider = document.querySelector('.history-slider');
+    if (!historySlider) return; // Jika tidak ada slider di halaman ini, hentikan
+
+    const navItems = historySlider.querySelectorAll('.history-nav-item');
+    const slides = historySlider.querySelectorAll('.history-slide');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function activateSlide(n) {
+        // Hapus kelas 'active' dari semua item
+        navItems.forEach(item => item.classList.remove('active'));
+        slides.forEach(slide => slide.classList.remove('active'));
+
+        // Tambahkan kelas 'active' ke item yang benar
+        navItems[n].classList.add('active');
+        slides[n].classList.add('active');
+        currentSlide = n;
+    }
+
+    function nextSlide() {
+        let next = currentSlide + 1;
+        if (next >= slides.length) {
+            next = 0; // Kembali ke slide pertama
+        }
+        activateSlide(next);
+    }
+
+    // Event listener untuk setiap tombol navigasi
+    navItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            activateSlide(index);
+            // Reset autoplay saat pengguna klik manual
+            clearInterval(slideInterval);
+            startSlideShow();
+        });
+    });
+
+    // Fungsi untuk memulai autoplay
+    function startSlideShow() {
+        // Hentikan dulu autoplay yang mungkin sudah berjalan
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 7000); // Ganti slide setiap 7 detik
+    }
+
+    // Mulai semuanya
+    activateSlide(0); // Tampilkan slide pertama
+    startSlideShow(); // Mulai autoplay
+}
+
+
+// --- Jalankan semua fungsi setelah halaman dimuat ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Di sini kita panggil semua fungsi yang kita butuhkan
+    // (Load header, efek scroll, dll. akan ada di sini juga)
+    
+    // Panggil fungsi slider
+    initHistorySlider();
+    
+    // (Tambahkan fungsi lain seperti load header dan efek scroll di sini)
+});
