@@ -102,7 +102,7 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .main-header.scrolled a {
-    color: white;
+    color: transparent;
 }
 .main-header.scrolled .nav-link:hover {
     color: var(--text-dark);
@@ -145,13 +145,13 @@ main {
     height: 24px;
     fill: currentColor;
 }
-
+.hamburger-button { display: none;
 /* --- Navigasi & Dropdown --- */
 .main-nav { display: flex; align-items: center; }    
 .nav-item { position: relative; }
 .nav-link {
     display: block; padding: 1rem 0.8rem; text-decoration: none;
-    color: #218fb7; /* UBAH MENJADI PUTIH */
+    color: #218fb7; 
     font-weight: 600; transition: color 0.2s, background-color 0.3s;
 }
 
@@ -528,7 +528,7 @@ main {
 /* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) */
 /* ========================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     
     /* --- Penyesuaian Umum untuk Mobile --- */
     body {
@@ -553,8 +553,54 @@ main {
     }
     .main-nav, .header-search {
         display: none; /* Sembunyikan menu utama dan search */
+        position: absolute;
+        top: 100%; /* Muncul di bawah header */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column; /* Menu jadi vertikal */
+        align-items: flex-start;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .main-nav.active {
+        display: flex; /* Tampilkan menu saat hamburger diklik */
+    }
+    .nav-link {
+        color: var(--text-dark); /* Selalu gelap di menu mobile */
+        width: 100%;
+        padding: 1rem 1.5rem;
+        box-sizing: border-box;
+        border-bottom: 1px solid #f0f0f0;
     }
     
+    .header-search { display: none; } /* Sembunyikan search di mobile */
+
+    /* Style untuk Tombol Hamburger */
+    .hamburger-button {
+        display: flex; flex-direction: column; justify-content: space-around;
+        width: 30px; height: 24px; background: transparent; border: none;
+        cursor: pointer; padding: 0; z-index: 10;
+    }
+    .hamburger-button span {
+        width: 30px; height: 3px; background: white;
+        border-radius: 10px; transition: all 0.3s linear;
+        position: relative; transform-origin: 1px;
+    }
+    .main-header.scrolled .hamburger-button span {
+        background: var(--text-dark);
+    }
+    
+    /* Animasi hamburger menjadi 'X' */
+    .hamburger-button.active span:nth-child(1) {
+        transform: rotate(45deg);
+    }
+    .hamburger-button.active span:nth-child(2) {
+        opacity: 0; transform: translateX(20px);
+    }
+    .hamburger-button.active span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+}
     /* --- Hero Section Mobile --- */
     .hero-section, .page-hero-section {
         height: 50vh; /* Tinggi hero section dibuat lebih pendek */
@@ -594,7 +640,7 @@ main {
 
     /* --- Slider Tonggak Sejarah Mobile --- */
     .history-slides-container {
-        height: 60vh; /* Dibuat lebih tinggi agar muat di layar vertikal */
+        height: 70vh; /* Dibuat lebih tinggi agar muat di layar vertikal */
     }
     .slide-content {
         max-width: 90%; /* Konten teks lebih lebar */
