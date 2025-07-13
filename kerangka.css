@@ -92,7 +92,7 @@ main {
 }
 .top-header.scrolled .register-button:hover {
     background-color: var(--text-dark) !important;
-    color: white !important;
+    color: var(--text-dark); !important;
 }
 .main-header {
     position: fixed;
@@ -171,7 +171,7 @@ main {
 .nav-item { position: relative; }
 .nav-link {
     display: block; padding: 1rem 0.8rem; text-decoration: none;
-    color: #218fb7; 
+    color: white;; 
     font-weight: 600; transition: color 0.2s, background-color 0.3s;
 }
 
