@@ -80,7 +80,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                     <div class="nav-item">
                         <a href="#" class="nav-link">Bisnis Kami</a>
-                        <div class="dropdown-menu"><a href="#">Layanan AKN 1</a></div>
+                        <div class="dropdown-menu"><a href="#">Hulu (Bahan Baku)</a></div>
+                        <div class="dropdown-menu"><a href="#">Peredaran</a></div>
+                        <div class="dropdown-menu"><a href="#">Industri Olahan</a></div>
                     </div>
                     <div class="nav-item">
                         <a href="#" class="nav-link">Media & Informasi</a>
@@ -88,7 +90,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                     <div class="nav-item">
                         <a href="#" class="nav-link">Mitra AKN</a>
-                        <div class="dropdown-menu"><a href="firma.html">Firma AKN</a></div>
+                        <div class="dropdown-menu"><a href="firma.html">Firma Astajati Kian Nusantara</a></div>
+                        <div class="dropdown-menu"><a href="firma.html">Bina Multi Tansindo</a></div>
                     </div>
                     <div class="nav-item"><a href="keberlanjutan.html" class="nav-link">Keberlanjutan</a></div>
                     <div class="nav-item"><a href="lacak.html" class="nav-link">Lacak Resi</a></div>
