@@ -25,10 +25,10 @@ body {
 .d-flex { display: flex; align-items: center; }
 
 .header-container {
-    max-width: 1700px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
-    align-items: center;
+    align-items: space-between;
     padding: 0 2rem;
 }
 
@@ -37,33 +37,32 @@ main {
 }
 
 /* --- Header Tetap (Fixed) --- */
-.top-header {
+.top-header, .main-header {
     position: fixed;
-    top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
     background-color: transparent;
-    color: transparent;
+    transition: background-color 0.3s ease; /* TAMBAHKAN INI */
+    box-shadow: none;
+    color: #e9e9e6;
+}
+.top-header { 
+    top: 0;    
     padding: 0.3rem 0;
     font-size: 0.6rem;
     border-bottom: none;
-    transition: background-color 0.3s ease; /* TAMBAHKAN INI */
-}
-
+    z-index: 1000;
 .top-header a {
     color: white;
 }
 
 .top-header a:hover {
-    color: #f1f1f1;
+    color: transparent;
 }
 .top-header.scrolled {
-    background-color: rgba(255, 255, 255, 0.98); 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.98);    
     box-shadow: none;
-   border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
 }
 .top-header.scrolled a {
     color: var(--text-dark); /* Tulisan jadi gelap */
@@ -74,6 +73,9 @@ main {
 .top-header .header-container { justify-content: flex-end; }
 .top-links-right a {
     color: var(--text-light); text-decoration: none; margin-left: 1rem;
+}
+    .top-header.scrolled .top-links-right a {
+    color: var(--text-dark); /* Warna teks atas jadi gelap */
 }
 .register-button {
     border: 1px solid rgba(255, 255, 255, 0.7);
@@ -95,19 +97,12 @@ main {
     color: var(--text-dark); !important;
 }
 .main-header {
-    position: fixed;
     top: 28px;
-    left: 0;
-    width: 100%;
     z-index: 999;
-    background-color: transparent;
     padding: 0.6rem 0;
     font-size: 0.9rem;
-    color: #e9e9e6;
-    transition: all 0.3s ease;
-    box-shadow: none;
+        
 }
-
 .main-header a {
     color: white;
 }
@@ -117,9 +112,7 @@ main {
 }
 .main-header .header-container { justify-content: space-between; }
 .main-header.scrolled {
-    background-color: rgba(255, 255, 255, 0.98); 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.98);     
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .main-header.scrolled a {
@@ -140,7 +133,7 @@ main {
     color: var(--text-light);
     text-decoration: none;
     margin-left: 1rem;
-    transition: color 0.2s;
+    transition: color 0.3s;
 }
 
 .top-links-right a:hover {
@@ -167,12 +160,12 @@ main {
     fill: currentColor;
 }
 /* --- Navigasi & Dropdown --- */
-.main-nav { display: flex; align-items: center; }    
+.main-nav { display: flex; align-items: center; flex-grow: 1; justify-content: center; }    
 .nav-item { position: relative; }
 .nav-link {
     display: block; padding: 1rem 0.8rem; text-decoration: none;
-    color: white;; 
-    font-weight: 600; transition: color 0.2s, background-color 0.3s;
+    color: white; 
+    font-weight: 600; transition: color 0.3s, background-color 0.3s;
 }
 
 .main-header .nav-link:hover,
