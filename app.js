@@ -107,16 +107,18 @@ document.addEventListener("DOMContentLoaded", function() {
         type();
     }
     
-
     // --- 3. Efek Header Transparan saat Scroll ---
     // Pastikan DOM sudah ter-render sebelum memilih .main-header
-    setTimeout(() => {          
+    setTimeout(() => {    
+        const topHeader = document.querySelector('.top-header');
         const mainHeader = document.querySelector('.main-header');
-        if (mainHeader) {
+        if (mainHeader && topHeader) {
           window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
+                    topHeader.classList.add('scrolled');
                     mainHeader.classList.add('scrolled');
                 } else {
+                     topHeader.classList.remove('scrolled');
                     mainHeader.classList.remove('scrolled');
                 }
             });
