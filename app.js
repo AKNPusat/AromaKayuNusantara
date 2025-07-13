@@ -124,47 +124,65 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 0);
     
 });
-// --- 5. Logika untuk Slider Tonggak Sejarah ---
-document.addEventListener('DOMContentLoaded', function() {
+// --- Fungsi untuk Slider Tonggak Sejarah ---
+function initHistorySlider() {
     const historySlider = document.querySelector('.history-slider');
-    if (!historySlider) return;
+    if (!historySlider) return; // Jika tidak ada slider di halaman ini, hentikan
 
     const navItems = historySlider.querySelectorAll('.history-nav-item');
     const slides = historySlider.querySelectorAll('.history-slide');
     let currentSlide = 0;
     let slideInterval;
 
-    function goToSlide(n) {
-        // Hapus kelas 'active' dari semua
-        navItems[currentSlide].classList.remove('active');
-        slides[currentSlide].classList.remove('active');
-        
-        // Update slide saat ini
-        currentSlide = (n + slides.length) % slides.length;
-        
-        // Tambahkan kelas 'active' ke yang baru
-        navItems[currentSlide].classList.add('active');
-        slides[currentSlide].classList.add('active');
+    function activateSlide(n) {
+        // Hapus kelas 'active' dari semua item
+        navItems.forEach(item => item.classList.remove('active'));
+        slides.forEach(slide => slide.classList.remove('active'));
+
+        // Tambahkan kelas 'active' ke item yang benar
+        navItems[n].classList.add('active');
+        slides[n].classList.add('active');
+        currentSlide = n;
     }
 
-    function startSlideShow() {
-        slideInterval = setInterval(() => {
-            goToSlide(currentSlide + 1);
-        }, 5000); // Ganti slide setiap 5 detik (5000 ms)
+    function nextSlide() {
+        let next = currentSlide + 1;
+        if (next >= slides.length) {
+            next = 0; // Kembali ke slide pertama
+        }
+        activateSlide(next);
     }
 
-    function stopSlideShow() {
-        clearInterval(slideInterval);
-    }
-
-    // Event listener untuk tombol navigasi
+    // Event listener untuk setiap tombol navigasi
     navItems.forEach((item, index) => {
         item.addEventListener('click', () => {
-            goToSlide(index);
-            stopSlideShow(); // Hentikan autoplay jika pengguna klik manual
+            activateSlide(index);
+            // Reset autoplay saat pengguna klik manual
+            clearInterval(slideInterval);
+            startSlideShow();
         });
     });
 
-    // Mulai autoplay
-    startSlideShow();
+    // Fungsi untuk memulai autoplay
+    function startSlideShow() {
+        // Hentikan dulu autoplay yang mungkin sudah berjalan
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 7000); // Ganti slide setiap 7 detik
+    }
+
+    // Mulai semuanya
+    activateSlide(0); // Tampilkan slide pertama
+    startSlideShow(); // Mulai autoplay
+}
+
+
+// --- Jalankan semua fungsi setelah halaman dimuat ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Di sini kita panggil semua fungsi yang kita butuhkan
+    // (Load header, efek scroll, dll. akan ada di sini juga)
+    
+    // Panggil fungsi slider
+    initHistorySlider();
+    
+    // (Tambahkan fungsi lain seperti load header dan efek scroll di sini)
 });
