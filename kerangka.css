@@ -171,7 +171,7 @@ main {
 .nav-item { position: relative; }
 .nav-link {
     display: block; padding: 1rem 0.8rem; text-decoration: none;
-    color: white;; 
+    color:  #09103f; 
     font-weight: 600; transition: color 0.2s, background-color 0.3s;
 }
 
@@ -308,7 +308,7 @@ main {
 .page-content {
     background-color: white;
     padding: 2rem;
-    margin: 2rem auto;
+    margin: 2.5rem auto;
     padding-top: 95px;
     max-width: 1000px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
