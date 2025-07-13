@@ -39,6 +39,7 @@ main {
 /* --- Header Tetap (Fixed) --- */
 .top-header {
     position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -47,6 +48,7 @@ main {
     padding: 0.3rem 0;
     font-size: 0.6rem;
     border-bottom: none;
+    transition: background-color 0.3s ease; /* TAMBAHKAN INI */
 }
 
 .top-header a {
@@ -60,10 +62,11 @@ main {
     background-color: rgba(255, 255, 255, 0.98); 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+   border-bottom: 1px solid #e0e0e0;
 }
 .top-header.scrolled a {
-    color: white;
+    color: var(--text-dark); /* Tulisan jadi gelap */
 }
 .top-header.scrolled .nav-link:hover {
     color: var(--text-dark);
@@ -84,7 +87,13 @@ main {
     color: var(--text-dark) !important;
     border-color: white;
 }
-
+.top-header.scrolled .register-button {
+    border-color: var(--text-dark); /* Border tombol jadi gelap */
+}
+.top-header.scrolled .register-button:hover {
+    background-color: var(--text-dark) !important;
+    color: white !important;
+}
 .main-header {
     position: fixed;
     top: 28px;
