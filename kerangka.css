@@ -63,7 +63,6 @@ main {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: none;
-   border-bottom: 1px solid #e0e0e0;
 }
 .top-header.scrolled a {
     color: white; /* Tulisan jadi gelap */
@@ -101,7 +100,7 @@ main {
     width: 100%;
     z-index: 999;
     background-color: transparent;
-    padding: 0.6rem 0;
+    padding: 0.5rem 0;
     font-size: 0.9rem;
     color: #e9e9e6;
     transition: all 0.3s ease;
@@ -296,19 +295,19 @@ main {
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     margin: 0;
 }
 .hero-content p {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 /* --- Konten Umum & Halaman Dalam --- */
 .page-content {
     background-color: white;
     padding: 2rem;
-    margin: 2.5rem auto;
+    margin: 3rem auto;
     padding-top: 95px;
     max-width: 1000px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
