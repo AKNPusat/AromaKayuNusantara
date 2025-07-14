@@ -81,9 +81,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="nav-item">
                         <a href="bisnis-kami.html" class="nav-link">Bisnis Kami</a>
                         <div class="dropdown-menu">
-                            <a href="bisnis-hulu.html">1. Hulu (Bahan Baku)</a>
-                            <a href="bisnis-peredaran.html">2. Peredaran</a>
-                            <a href="bisnis-olahan.html">3. Industri Olahan</a>
+                            <a href="bisnis-hulu.html#Hulu (Bahan Baku)"</a>
+                            <a href="bisnis-peredaran.html#Peredaran"</a>
+                            <a href="bisnis-olahan.html#Industri Olahan"</a>
                             </div>
                         </div>
                     <div class="nav-item">
