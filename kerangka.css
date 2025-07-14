@@ -643,5 +643,5 @@ main p, .content-section p {
     max-width: 300px; /* KUNCI: Batasi ukuran maksimal GIF */
     width: 100%;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Efek bayangan halus */
+    box-shadow: none;
 }
