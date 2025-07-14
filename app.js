@@ -36,7 +36,7 @@ function initHistorySlider() {
         });
     });
 
-    activateSlide(0);
+   
     startSlideShow();
 }
 
