@@ -79,12 +79,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         </div>
                     </div>
                     <div class="nav-item">
-                        <a href="#" class="nav-link">Bisnis Kami</a>
+                        <a href="bisnis-kami.html" class="nav-link">Bisnis Kami</a>
                         <div class="dropdown-menu">
-                            <a href="#">Hulu (Bahan Baku)</a></div>
-                            <a href="#">Peredaran</a></div>
-                            <a href="#">Industri Olahan</a></div>
-                    </div>
+                            <a href="bisnis-hulu.html">1. Hulu (Bahan Baku)</a>
+                            <a href="bisnis-peredaran.html">2. Peredaran</a>
+                            <a href="bisnis-olahan.html">3. Industri Olahan</a>
+                            </div>
+                        </div>
                     <div class="nav-item">
                         <a href="#" class="nav-link">Media & Informasi</a>
                         <div class="dropdown-menu"><a href="kegiatan.html">Kegiatan</a></div>
