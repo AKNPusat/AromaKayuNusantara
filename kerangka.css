@@ -532,7 +532,7 @@ main p, .content-section p {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 2rem;
+    padding: 2rem 1rem;
     box-sizing: border-box;
 }
 
@@ -551,7 +551,7 @@ main p, .content-section p {
     position: relative;
     z-index: 2;
     color: white;
-    max-width: 650px;
+    max-width: 700px;
 }
 
 .slide-content h3 {
