@@ -487,6 +487,9 @@ main p, .content-section p {
 .history-slider {
     position: relative;
     margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .history-nav {
     display: flex;
@@ -529,7 +532,7 @@ main p, .content-section p {
     background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
 }
 .slide-content {
-    position: relative; z-index: 2; color: white; max-width: 80%;
+    position: relative; z-index: 2; color: white; max-width: 650px;
 }
-.slide-content h3 { font-size: 2rem; margin: 0 0 0.5rem 0; }
+.slide-content h3 { font-size: 1.8rem; margin: 0 0 1rem 0; }
 .slide-content p { font-size: 1rem; margin: 0; text-align: left; }
