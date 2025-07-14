@@ -519,9 +519,10 @@ main p, .content-section p {
     background-size: cover; background-position: center;
     opacity: 0; visibility: hidden;
     transition: opacity 0.6s ease-in-out, visibility 0.6s;
-    display: flex; align-items: flex-end; padding: 2rem;
+    display: flex; align-items: center; padding: 2rem;
     box-sizing: border-box;
     text-align: center;       /* DITAMBAHKAN: Teks rata tengah */
+    justify-content: center;
 }
 .history-slide.active {
     opacity: 1; visibility: visible;
@@ -531,7 +532,7 @@ main p, .content-section p {
     background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
 }
 .slide-content {
-    position: relative; z-index: 2; color: white; max-width: 80%; padding: 2rem;
+    position: relative; z-index: 2; color: white; max-width: 700px; padding: 1rem;
 }
 .slide-content h3 { font-size: 1.8rem; margin: 0 0 1rem 0; }
 .slide-content p { font-size: 1rem; margin: 0; text-align: left; }
