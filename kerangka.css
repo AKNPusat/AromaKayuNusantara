@@ -622,3 +622,26 @@ main p, .content-section p {
     color: var(--primary-blue);
     margin-top: 0;
 }
+/* ================================================== */
+/* STYLE UNTUK MAKNA LOGO (REVISI FINAL) */
+/* ================================================== */
+
+/* Container untuk teks deskripsi logo */
+#makna-logo .logo-text-container {
+    max-width: 800px; /* Batasi lebar teks agar rapi */
+    margin: 0 auto 2rem auto; /* Tengahkan teks & beri jarak bawah ke GIF */
+    text-align: center; /* Teks deskripsi rata tengah */
+}
+
+/* Container untuk gambar GIF */
+#makna-logo .logo-gif-container {
+    text-align: center; /* Membuat GIF berada di tengah */
+}
+
+/* Gambar GIF itu sendiri */
+#makna-logo .logo-gif-container img {
+    max-width: 300px; /* KUNCI: Batasi ukuran maksimal GIF */
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Efek bayangan halus */
+}
