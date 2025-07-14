@@ -79,13 +79,14 @@ document.addEventListener("DOMContentLoaded", function() {
                         </div>
                     </div>
                     <div class="nav-item">
-                        <a href="bisnis-kami.html" class="nav-link">Bisnis Kami</a>
-                        <div class="dropdown-menu">
-                            <a href="bisnis-hulu.html#Hulu (Bahan Baku)"</a>
-                            <a href="bisnis-peredaran.html#Peredaran"</a>
-                            <a href="bisnis-olahan.html#Industri Olahan"</a>
-                            </div>
-                        </div>
+    <a href="bisnis-kami.html" class="nav-link">Bisnis Kami</a>
+    <div class="dropdown-menu">
+        <!-- LINK SUDAH DIPERBAIKI -->
+        <a href="bisnis-kami.html#hulu">Hulu (Bahan Baku)</a>
+        <a href="bisnis-kami.html#peredaran">Peredaran</a>
+        <a href="bisnis-kami.html#olahan">Industri Olahan</a>
+    </div>
+</div>
                     <div class="nav-item">
                         <a href="#" class="nav-link">Media & Informasi</a>
                         <div class="dropdown-menu"><a href="kegiatan.html">Kegiatan</a></div>
