@@ -551,7 +551,7 @@ main p, .content-section p {
     position: relative;
     z-index: 2;
     color: white;
-    max-width: 700px;
+    max-width: 750px;
 }
 
 .slide-content h3 {
