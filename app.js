@@ -87,7 +87,8 @@ document.addEventListener("DOMContentLoaded", function() {
         <a href="bisnis-kami.html#olahan">Industri Olahan</a>
     </div>
 </div>
-                    <div class="nav-item">
+                    <!-- Menu "Media & Informasi" -->
+<div class="nav-item">
     <a href="media-informasi.html" class="nav-link">Media & Informasi</a>
     <div class="dropdown-menu">
         <a href="media-informasi.html#news-room">AKN News Room</a>
