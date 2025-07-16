@@ -645,3 +645,45 @@ main p, .content-section p {
     border-radius: 8px;
     box-shadow: none;
 }
+/* ================================================== */
+/* STYLE UNTUK HALAMAN MEDIA & INFORMASI */
+/* ================================================== */
+
+.info-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    display: block;
+    padding: 2rem;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+.info-card p {
+    opacity: 0.9;
+    text-align: left; /* Teks paragraf rata kiri */
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-weight: 700;
+}
