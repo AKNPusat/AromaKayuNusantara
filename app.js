@@ -88,9 +88,13 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
 </div>
                     <div class="nav-item">
-                        <a href="#" class="nav-link">Media & Informasi</a>
-                        <div class="dropdown-menu"><a href="kegiatan.html">Kegiatan</a></div>
-                    </div>
+    <a href="media-informasi.html" class="nav-link">Media & Informasi</a>
+    <div class="dropdown-menu">
+        <a href="media-informasi.html#news-room">AKN News Room</a>
+        <a href="ruang-media.html">Ruang Media</a>
+        <a href="kegiatan.html">Kegiatan AKN</a>
+    </div>
+</div>
                     <div class="nav-item">
                         <a href="#" class="nav-link">Mitra AKN</a>
                         <div class="dropdown-menu">
