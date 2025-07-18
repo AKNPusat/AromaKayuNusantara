@@ -28,15 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <nav class="main-nav">
                     <div class="nav-item">
                         <a href="tentang-kami.html" class="nav-link">Tentang Kami</a>
-                        <div class="dropdown-menu">
-                            <a href="tentang-kami.html#sekilas-akn">Sekilas AKN</a>
-                            <a href="tentang-kami.html#tonggak-sejarah">Tonggak Sejarah</a>
-                            <a href="tentang-kami.html#visi-misi">Visi, Misi, Tata Nilai</a>
-                            <a href="tentang-kami.html#makna-logo">Visi,Makna Logo</a>
-                            <a href="tentang-kami.html#direksi"Manajemen</a>
-                        </div>
                     </div>
-                    <div class="nav-item">
                     <!-- Menu Bisnis Kami (BENAR) -->
                     <div class="nav-item">
                         <a href="bisnis-kami.html" class="nav-link">Bisnis Kami</a>
@@ -55,14 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             <a href="kegiatan.html">Kegiatan AKN</a>
                         </div>
                     </div>
-                    <div class="nav-item">
-                    <a href="#" class="nav-link">Mitra AKN</a>
-                    <div class="dropdown-menu">
-                    <a href="#">Firma Astajati</a>
-                            <a href="#">Bina Multi <a href="#">Firma Astajati</a>
-                            <a href="#">Bina Multi Transindo</a>
-                        </div>
-                    </div>
+                    <div class="nav-item"><a href="#" class="nav-link">Mitra AKN</a></div>
                     <div class="nav-item"><a href="lacak.html" class="nav-link">Lacak Resi</a></div>
                 </nav>
                 <div class="header-search">
