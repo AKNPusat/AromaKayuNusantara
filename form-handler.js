@@ -1,11 +1,10 @@
 // ===================================================================
-// KODE UNTUK MENANGANI SEMUA FORM - Aroma Kayu Nusantara
+// KODE LENGKAP UNTUK form-handler.js (TERMASUK MEREK)
 // ===================================================================
 
 document.addEventListener("DOMContentLoaded", function() {
     
     // --- Inisialisasi Firebase (Hanya sekali) ---
-    // KONFIGURASI FIREBASE ANDA SUDAH SAYA MASUKKAN DI SINI
     const firebaseConfig = {
         apiKey: "AIzaSyDDJpU3mzKY2s-pihTz0XmL1BcrfTS_vRQ",
         authDomain: "aroma-kayu-nusantara.firebaseapp.com",
@@ -15,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function() {
         appId: "1:519933206110:web:1620a50af9f88c56f2decf"
     };
     
-    // Cek apakah Firebase sudah diinisialisasi untuk mencegah error
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
     }
@@ -28,17 +26,53 @@ document.addEventListener("DOMContentLoaded", function() {
     if (formResi) {
         formResi.addEventListener('submit', function(e) {
             e.preventDefault();
+
+            // Mengambil semua nilai dari form
             const nomorResi = document.getElementById('nomor-resi').value;
+            const tanggalKirim = document.getElementById('tanggal-kirim').value;
+            const namaPengirim = document.getElementById('nama-pengirim').value;
+            const telpPengirim = document.getElementById('telp-pengirim').value;
+            const namaPenerima = document.getElementById('nama-penerima').value;
+            const telpPenerima = document.getElementById('telp-penerima').value;
+            const isiBarang = document.getElementById('isi-barang').value;
+            const jumlahKoli = parseInt(document.getElementById('jumlah-koli').value);
+            const beratBarang = parseFloat(document.getElementById('berat-barang').value) || 0;
             
+            // =============================================
+            // PENAMBAHAN KODE UNTUK MENGAMBIL NILAI "MEREK"
+            // =============================================
+            const merekBarang = document.getElementById('merek-barang').value;
+
+            // Menyimpan data ke Firestore
             db.collection("shipments").doc(nomorResi).set({
                 nomorResi: nomorResi,
-                tanggalKirim: document.getElementById('tanggal-kirim').value,
-                pengirim: { nama: document.getElementById('nama-pengirim').value, telepon: document.getElementById('telp-pengirim').value },
-                penerima: { nama: document.getElementById('nama-penerima').value, telepon: document.getElementById('telp-penerima').value },
-                detailBarang: { deskripsi: document.getElementById('isi-barang').value, jumlahKoli: parseInt(document.getElementById('jumlah-koli').value), beratKg: parseFloat(document.getElementById('berat-barang').value) || 0 },
+                tanggalKirim: tanggalKirim,
+                pengirim: { 
+                    nama: namaPengirim, 
+                    telepon: telpPengirim 
+                },
+                penerima: { 
+                    nama: namaPenerima, 
+                    telepon: telpPenerima 
+                },
+                detailBarang: { 
+                    deskripsi: isiBarang, 
+                    jumlahKoli: jumlahKoli, 
+                    beratKg: beratBarang,
+                    // =============================================
+                    // PENAMBAHAN DATA "MEREK" DISIMPAN DI SINI
+                    // =============================================
+                    merek: merekBarang 
+                },
                 status: "Data Dibuat",
                 lokasiTerkini: "Kantor Papua",
-                riwayatStatus: [{ status: "Data Dibuat", lokasi: "Kantor Papua", timestamp: firebase.firestore.FieldValue.serverTimestamp() }]
+                riwayatStatus: [
+                    { 
+                        status: "Data Dibuat", 
+                        lokasi: "Kantor Papua", 
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp() 
+                    }
+                ]
             }).then(() => {
                 alert(`Data untuk resi ${nomorResi} berhasil disimpan!`);
                 formResi.reset();
@@ -50,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ========================================================
-    // --- HANDLER UNTUK FORM LACAK KIRIMAN ---
+    // --- HANDLER UNTUK FORM LACAK KIRIMAN (TIDAK DIUBAH) ---
     // ========================================================
     const formLacak = document.getElementById('form-lacak');
     if (formLacak) {
