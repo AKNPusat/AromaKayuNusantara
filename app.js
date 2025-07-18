@@ -54,7 +54,14 @@ document.addEventListener("DOMContentLoaded", function() {
                             <a href="kegiatan.html">Kegiatan AKN</a>
                         </div>
                     </div>
-                    <div class="nav-item"><a href="#" class="nav-link">Mitra AKN</a></div>
+                    <div class="nav-item">
+    <a href="#" class="nav-link">Mitra AKN</a>
+    <div class="dropdown-menu">
+        <a href="firma.html">Firma Astajati Kian Nusantara</a>
+        <a href="bmt.html">Bina Multi Transindo</a>
+        <!-- Tambahkan mitra lain di sini jika perlu -->
+    </div>
+</div>
                     <div class="nav-item"><a href="lacak.html" class="nav-link">Lacak Resi</a></div>
                 </nav>
                 <div class="header-search">
