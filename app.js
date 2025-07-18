@@ -72,25 +72,71 @@ document.addEventListener("DOMContentLoaded", function() {
     `;
     const footerHTML = `<footer class="main-footer"><p>© 2024 PT. Aroma Kayu Nusantara. All Rights Reserved.</p></footer>`;
 
-    const headerPlaceholder = document.getElementById('header-placeholder');
-    if (headerPlaceholder) { headerPlaceholder.innerHTML = headerHTML; }
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    if (footerPlaceholder) { footerPlaceholder.innerHTML = footerHTML; }
+   document.getElementById('header-placeholder').innerHTML = headerHTML;
+    document.getElementById('footer-placeholder').innerHTML = footerHTML;
+}
 
-    // Efek Header Scroll
-    setTimeout(() => {
-        const topHeaderElem = document.querySelector('.top-header');
-        const mainHeaderElem = document.querySelector('.main-header');
-        if (mainHeaderElem && topHeaderElem) {
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    topHeaderElem.classList.add('scrolled');
-                    mainHeaderElem.classList.add('scrolled');
-                } else {
-                    topHeaderElem.classList.remove('scrolled');
-                    mainHeaderElem.classList.remove('scrolled');
-                }
-            });
+function initHeaderScroll() {
+    const topHeader = document.querySelector('.top-header');
+    const mainHeader = document.querySelector('.main-header');
+    if (!topHeader || !mainHeader) return;
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            topHeader.classList.add('scrolled');
+            mainHeader.classList.add('scrolled');
+        } else {
+            topHeader.classList.remove('scrolled');
+            mainHeader.classList.remove('scrolled');
         }
+    });
+}
+
+function initHistorySlider() {
+    const historySlider = document.querySelector('.history-slider');
+    if (!historySlider) return;
+
+    const navItems = historySlider.querySelectorAll('.history-nav-item');
+    const slides = historySlider.querySelectorAll('.history-slide');
+    if (navItems.length === 0) return;
+
+    let currentSlide = 0;
+    let slideInterval;
+
+    function activateSlide(n) {
+        navItems.forEach(item => item.classList.remove('active'));
+        slides.forEach(slide => slide.classList.remove('active'));
+        currentSlide = (n + slides.length) % slides.length;
+        navItems[currentSlide].classList.add('active');
+        slides[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() { activateSlide(currentSlide + 1); }
+
+    function startSlideShow() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 7000);
+    }
+
+    navItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            activateSlide(index);
+            clearInterval(slideInterval);
+        });
+    });
+
+    activateSlide(0);
+    startSlideShow();
+}
+
+
+// --- BAGIAN 2: MENJALANKAN SEMUA FUNGSI ---
+document.addEventListener("DOMContentLoaded", function() {
+    loadHeaderFooter(); // 1. Muat header dan footer
+
+    // Beri jeda sedikit sebelum menjalankan script lain
+    setTimeout(() => {
+        initHeaderScroll(); // 2. Jalankan efek scroll
+        initHistorySlider(); // 3. Jalankan slider
     }, 100);
 });
