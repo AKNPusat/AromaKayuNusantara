@@ -413,7 +413,7 @@ main p, .content-section p {
     line-height: 1.9; /* Perlebar jarak antar baris */
 }
 .page-content-box {
-    background-color: #c4ddf0; padding: 2.5rem; margin: 4rem 0;
+    background-color: #dff0f9; padding: 2.5rem; margin: 4rem 0;
     border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.07);
 }
 .section-title {
@@ -421,7 +421,7 @@ main p, .content-section p {
     color: var(--text-dark);
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #033883;
+    border-bottom: 1px solid #032e6a;
 }
 
 .content-section h3 {
@@ -612,7 +612,7 @@ main p, .content-section p {
     margin-bottom: 1.5rem;
 }
 .main-content .content-section .content-image img {
-    max-width: 200px; /* Ukuran gambar kecil di atas teks */
+    max-width: 100px; /* Ukuran gambar kecil di atas teks */
     border-radius: 8px;
     float: right; /* Membuat gambar di kanan dan teks di kiri */
     margin-left: 1.5rem;
