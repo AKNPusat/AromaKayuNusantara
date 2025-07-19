@@ -800,20 +800,14 @@ main p, .content-section p {
     border: 1px solid #ccc;
     padding: 0.6rem;
     border-radius: 4px;
-    width: 180px;
+    width: 160px;
     
     
 }
 .edit-input-group label {
     margin-right: 1rem;
     font-weight: 600;
-    
-}
-.edit-input-group input {
-    border: 1px solid #ccc;
-    padding: 0.6rem;
-    border-radius: 4px;
-    width: 200px; /* Lebar input search */
+
 }
 .edit-input-group button {
     background-color: #0d244f; /* Warna biru tua */
