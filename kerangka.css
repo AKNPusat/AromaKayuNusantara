@@ -18,7 +18,7 @@ body {
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     margin: 0;
     color: var(--text-dark);
-    background-color: : #c4ddf0;
+    background-color: : #ddecf5;
 }
 .container {
     max-width: 1000px; margin: 0 auto; padding: 0 1rem;
@@ -65,17 +65,17 @@ main {
     box-shadow: none;
 }
 .top-header.scrolled a {
-    color: #0149ad; /* Tulisan jadi gelap */
+    color: #b78729; /* Tulisan jadi gelap */
 }
 .top-header.scrolled .nav-link:hover {
     color: var(--text-dark);
 }
 .top-header .header-container { justify-content: flex-end; }
 .top-links-right a {
-    color: var(--text-light); text-decoration: none; margin-left: 1rem;
+    color: #dfb45e; text-decoration: none; margin-left: 1rem;
 }
 .register-button {
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    border: 1px solid #dfb45e;
     border-radius: 50px;
     font-weight: 600;
     padding: 4px 12px !important;
@@ -87,7 +87,7 @@ main {
     border-color: #dfb45e;
 }
 .top-header.scrolled .register-button {
-    border-color: #0149ad; /* Border tombol jadi gelap */
+    border-color: #b78729; /* Border tombol jadi gelap */
 }
 .top-header.scrolled .register-button:hover {
     background-color: var(--text-dark) !important;
@@ -136,7 +136,7 @@ main {
 }
 
 .top-links-right a {
-    color: var(--text-light);
+    color: #b78729;
     text-decoration: none;
     margin-left: 1rem;
     transition: color 0.2s;
@@ -157,7 +157,7 @@ main {
 }
 
 .main-header.scrolled .header-search {
-    color:  #0149ad;
+    color:   #b78729;
 }
 
 .header-search svg {
@@ -180,7 +180,7 @@ main {
 }
 
 .main-header.scrolled .nav-link {
-    color: #0149ad;
+    color: #b78729;
 }
 
 .nav-item:hover .nav-link {
