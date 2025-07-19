@@ -18,7 +18,7 @@ body {
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     margin: 0;
     color: var(--text-dark);
-    background-color: : #eef2f5;
+    background-color: : #c4ddf0;
 }
 .container {
     max-width: 1000px; margin: 0 auto; padding: 0 1rem;
@@ -52,7 +52,7 @@ main {
 }
 
 .top-header a {
-    color: white;
+    color: #dfb45e;
 }
 
 .top-header a:hover {
@@ -65,7 +65,7 @@ main {
     box-shadow: none;
 }
 .top-header.scrolled a {
-    color: white; /* Tulisan jadi gelap */
+    color: #0149ad; /* Tulisan jadi gelap */
 }
 .top-header.scrolled .nav-link:hover {
     color: var(--text-dark);
@@ -84,10 +84,10 @@ main {
 .register-button:hover {
     background-color: white !important;
     color: var(--text-dark) !important;
-    border-color: white;
+    border-color: #dfb45e;
 }
 .top-header.scrolled .register-button {
-    border-color: white; /* Border tombol jadi gelap */
+    border-color: #0149ad; /* Border tombol jadi gelap */
 }
 .top-header.scrolled .register-button:hover {
     background-color: var(--text-dark) !important;
@@ -152,12 +152,12 @@ main {
 
 .header-search {
     padding-left: 1rem;
-    color:  white;
+    color:  #dfb45e;
     cursor: pointer;
 }
 
 .main-header.scrolled .header-search {
-    color:  white;
+    color:  #0149ad;
 }
 
 .header-search svg {
@@ -170,7 +170,7 @@ main {
 .nav-item { position: relative; }
 .nav-link {
     display: block; padding: 1rem 0.8rem; text-decoration: none;
-    color:  white; 
+    color:  #dfb45e; 
     font-weight: 600; transition: color 0.2s, background-color 0.3s;
 }
 
@@ -180,7 +180,7 @@ main {
 }
 
 .main-header.scrolled .nav-link {
-    color: white;
+    color: #0149ad;
 }
 
 .nav-item:hover .nav-link {
@@ -421,7 +421,7 @@ main p, .content-section p {
     color: var(--text-dark);
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #0149ad;
 }
 
 .content-section h3 {
