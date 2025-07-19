@@ -93,6 +93,62 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
     }, 100);
-    // --- 4. Panggil Fungsi Slider setelah semua dimuat ---
-initHistorySlider();
+    
+    // --- 3. LOGIKA SLIDER TONGGAK SEJARAH (VERSI BARU) ---
+    const historySlider = document.querySelector('.history-slider');
+    if (historySlider) {
+        const navItems = historySlider.querySelectorAll('.history-nav-item');
+        const slides = historySlider.querySelectorAll('.history-slide');
+        let currentSlide = 0;
+        let slideInterval;
+        const DURATION = 7000; // Durasi per slide dalam milidetik (7 detik)
+
+        function activateSlide(n) {
+            // Hentikan animasi progress bar yang sedang berjalan
+            navItems.forEach(item => {
+                const progressBar = item.querySelector('.progress-bar');
+                if (progressBar) {
+                    progressBar.style.transition = 'none';
+                    progressBar.style.width = '0%';
+                }
+                item.classList.remove('active');
+            });
+            slides.forEach(slide => slide.classList.remove('active'));
+
+            currentSlide = (n + slides.length) % slides.length;
+
+            navItems[currentSlide].classList.add('active');
+            slides[currentSlide].classList.add('active');
+
+            // Mulai animasi progress bar untuk slide yang aktif
+            setTimeout(() => {
+                const activeProgressBar = navItems[currentSlide].querySelector('.progress-bar');
+                if (activeProgressBar) {
+                    activeProgressBar.style.transition = `width ${DURATION / 1000}s linear`;
+                    activeProgressBar.style.width = '100%';
+                }
+            }, 50); // Jeda kecil untuk memastikan transisi berjalan
+        }
+
+        function nextSlide() {
+            activateSlide(currentSlide + 1);
+        }
+
+        function startSlideShow() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, DURATION);
+            activateSlide(currentSlide); // Panggil sekali untuk memulai progress bar
+        }
+
+        navItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                activateSlide(index);
+                // Reset autoplay
+                clearInterval(slideInterval);
+                startSlideShow();
+            });
+        });
+
+        startSlideShow(); // Mulai semuanya
+    }
 });
