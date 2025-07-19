@@ -824,3 +824,14 @@ main p, .content-section p {
 .edit-input-group button:hover {
     background-color: #434190;
 }
+.detail-barang-grid {
+    display: grid;
+    /* Bagi menjadi 2 kolom dengan lebar yang sama */
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; /* Jarak antar kolom */
+}
+
+/* Atur field Merek dan Ongkos Kirim agar memenuhi 2 kolom */
+#group-merek, #group-ongkos-kirim {
+    grid-column: 1 / -1; /* Membentang dari kolom 1 sampai kolom terakhir */
+}
