@@ -819,9 +819,7 @@ main p, .content-section p {
     cursor: pointer;
     font-weight: 600;   
 }
-.page-content-box .page-title {
-    display: none;
-}
+
 .edit-input-group button:hover {
     background-color: #434190;
 }
