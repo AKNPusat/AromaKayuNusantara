@@ -112,7 +112,7 @@ main {
 }
 
 .main-header a:hover {
-    color: #084278;
+    color: #b78729;
 }
 .main-header .header-container { justify-content: space-between; }
 .main-header.scrolled {
