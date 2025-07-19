@@ -759,3 +759,51 @@ main p, .content-section p {
     margin-top: 1.5rem;
     font-weight: 700;
 }
+/* ================================================== */
+/* STYLE BARU UNTUK KEPALA HALAMAN (JUDUL & FORM EDIT) */
+/* ================================================== */
+
+.page-header {
+    display: flex;
+    justify-content: space-between; /* Mendorong judul ke kiri, form ke kanan */
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 1rem;
+}
+
+.page-header .page-title {
+    margin: 0; /* Hapus margin default dari h1 */
+    border-bottom: none; /* Garis bawah sekarang di .page-header */
+    padding-bottom: 0;
+}
+
+.edit-form-container {
+    /* Hapus style lama seperti background dan padding */
+}
+
+.edit-input-group {
+    display: flex;
+    align-items: center;
+}
+
+.edit-input-group input {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.edit-input-group button {
+    background-color: #5a67d8; /* Warna biru-ungu yang bagus */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.edit-input-group button:hover {
+    background-color: #434190;
+}
