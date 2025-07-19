@@ -764,8 +764,8 @@ main p, .content-section p {
 /* ================================================== */
 
 .page-header {
- display: flex;
-justify-content: space-between; /* Mendorong judul ke kiri, form ke kanan */
+    display: flex;     
+    justify-content: space-between; /* Mendorong judul ke kiri, form ke kanan */
     align-items: center;
     margin-bottom: 2rem;
     border-bottom: 2px solid #ddd;
@@ -774,7 +774,7 @@ justify-content: space-between; /* Mendorong judul ke kiri, form ke kanan */
    
     .page-header .page-title {
     margin: 0; /* Hapus margin default dari h1 */
-   border-bottom: none; /* Garis bawah sekarang di .page-header */
+    border-bottom: none; /* Garis bawah sekarang di .page-header */
     padding-bottom: 0;
 }
 
@@ -786,22 +786,23 @@ justify-content: space-between; /* Mendorong judul ke kiri, form ke kanan */
     border: 1px solid #d1d5db;
     display: flex;
     justify-content: space-between; /* Mendorong ke ujung */
-    align-items: center;
-    flex-wrap: wrap; /* Izinkan turun di layar kecil */
+    align-items: center;    
     gap: 1rem;
 }
 
 .edit-input-group {
     display: flex;
-    align-items: center;    
+    align-items: center; 
+    gap: 0.5rem;
 }
 
 .edit-input-group input {
     border: 1px solid #ccc;
-    padding: 0.5rem;
+    padding: 0.6rem;
     border-radius: 4px;
-    width: 150px;
-    margin-right: 0.5rem;
+    width: 180px;
+    
+    
 }
 .edit-input-group label {
     margin-right: 1rem;
