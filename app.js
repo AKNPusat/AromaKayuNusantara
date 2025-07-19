@@ -93,4 +93,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
     }, 100);
+    // --- 4. Panggil Fungsi Slider setelah semua dimuat ---
+initHistorySlider();
 });
