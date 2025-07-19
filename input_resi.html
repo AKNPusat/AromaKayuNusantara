@@ -74,28 +74,30 @@
                             <label for="isi-barang">Isi Sesuai Pengakuan</label>
                             <textarea id="isi-barang" rows="3" placeholder="Contoh u/ Kapal: Dekor(4), KBC(3)"></textarea>
                         </div>
-                        <div class="detail-barang-grid">
+                        
+                        <div class="form-row">
                             <div class="form-group" id="group-merek">
                             <label for="merek-barang">Merek (Opsional)</label>
                             <input type="text" id="merek-barang" placeholder="Contoh: Super King, AB, dll">
                         </div>
-                            
-                        <div class="form-row">
+                                                    
                             <div class="form-group" id="group-jumlah-koli">
                                 <label for="jumlah-koli">Jumlah Koli (otomatis)</label>
                                 <input type="number" id="jumlah-koli" readonly>
                             </div>
+                        </div>
+
+                        <div class="form-row">
                             <div class="form-group" id="group-total-berat">
                                 <label for="berat-barang">Total Berat (kg)</label>
                                 <input type="number" id="berat-barang">
+                            </div>   
+                            <div class="form-group">
+                                <label for="ongkos-kirim">Ongkos Kirim (Rp) (otomatis)</label>
+                                <input type="text" id="ongkos-kirim" readonly>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="ongkos-kirim">Ongkos Kirim (Rp) (otomatis)</label>
-                            <input type="text" id="ongkos-kirim" readonly>
-                        </div>
-
+                    </div>
                         <button type="submit" class="submit-button">Simpan Data Resi</button>
                     </form>
                 </div>
