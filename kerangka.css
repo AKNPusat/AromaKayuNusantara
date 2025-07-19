@@ -763,37 +763,32 @@ main p, .content-section p {
 /* STYLE BARU UNTUK KEPALA HALAMAN (JUDUL & FORM EDIT) */
 /* ================================================== */
 
-.page-header {
-    display: flex;
-    justify-content: space-between; /* Mendorong judul ke kiri, form ke kanan */
-    align-items: center;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 1rem;
+/* Judul halaman utama di luar box */
+.page-title {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 1rem; /* Jarak ke box di bawahnya */
 }
 
-.page-header .page-title {
-    margin: 0; /* Hapus margin default dari h1 */
-    border-bottom: none; /* Garis bawah sekarang di .page-header */
-    padding-bottom: 0;
+.page-content-box {
+    background-color: #c4ddf0;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+    position: relative; /* KUNCI: Menjadi acuan posisi untuk form edit */
 }
 
 .edit-form-container {
    background-color: #eef2f5; /* Warna abu-abu muda */
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 2rem; /* Jarak ke judul utama */
-    border: 1px solid #d1d5db;
-    display: flex;
-    justify-content: space-between; /* Mendorong ke ujung */
-    align-items: center;
-    flex-wrap: wrap; /* Izinkan turun di layar kecil */
-    gap: 1rem;
+    position: absolute; /* Mengambang di dalam .page-content-box */
+    top: 2.5rem; /* Jarak dari atas, sama dengan padding box */
+    right: 2.5rem; /* Jarak dari kanan, sama dengan padding box */}
 }
 
 .edit-input-group {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
 }
 
 .edit-input-group input {
@@ -804,15 +799,15 @@ main p, .content-section p {
     margin-right: 0.5rem;
 }
 .edit-input-group label {
-    margin-right: 1rem;
     font-weight: 600;
-    margin-right: 1rem;
+    font-size: 0.9rem;
+    color: #555;
 }
 .edit-input-group input {
-    border: 1px solid #ccc;
+     border: 1px solid #aaa;
     padding: 0.6rem;
     border-radius: 4px;
-    width: 200px; /* Lebar input search */
+    width: 180px;
 }
 .edit-input-group button {
     background-color: #0d244f; /* Warna biru tua */
@@ -824,7 +819,9 @@ main p, .content-section p {
     cursor: pointer;
     font-weight: 600;   
 }
-
+.page-content-box .page-title {
+    display: none;
+}
 .edit-input-group button:hover {
     background-color: #434190;
 }
