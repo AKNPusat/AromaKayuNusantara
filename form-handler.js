@@ -3,7 +3,14 @@
 // ===================================================================
 document.addEventListener("DOMContentLoaded", function() {
     // PASTE KONFIGURASI FIREBASE ANDA DI SINI
-    const firebaseConfig = { /* ... */ };
+    const firebaseConfig = {
+        apiKey: "AIzaSyDDJpU3mzKY2s-pihTz0XmL1BcrfTS_vRQ",
+        authDomain: "aroma-kayu-nusantara.firebaseapp.com",
+        projectId: "aroma-kayu-nusantara",
+        storageBucket: "aroma-kayu-nusantara.firebasestorage.app",
+        messagingSenderId: "519933206110",
+        appId: "1:519933206110:web:1620a50af9f88c56f2decf"
+    };
     
     if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
     const db = firebase.firestore();
@@ -17,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const beratBarangInput = document.getElementById('berat-barang');
         const ongkosKirimInput = document.getElementById('ongkos-kirim');
         const groupKoli = document.getElementById('group-jumlah-koli');
+        const merekInput = document.getElementById('merek-barang');
+        const groupMerek = merekInput.parentElement;
         
         // --- FUNGSI KALKULASI ---
         function kalkulasiOtomatis() {
@@ -27,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
             let ongkosKirim = 0;
 
             if (armada === 'kapal') {
-                // Kalkulasi untuk Kapal
                 const matches = isiBarang.match(/\((\d+)\)/g) || [];
                 matches.forEach(match => {
                     totalKoli += parseInt(match.replace('(', '').replace(')', ''));
@@ -40,20 +48,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 jumlahKoliInput.readOnly = true;
                 beratBarangInput.readOnly = true;
-                groupKoli.style.display = 'block';
 
             } else if (armada === 'pesawat') {
-                // Kalkulasi untuk Pesawat
                 totalBerat = parseFloat(beratBarangInput.value) || 0;
                 ongkosKirim = totalBerat * 150000;
-
-                jumlahKoliInput.value = ''; // Kosongkan koli
-                jumlahKoliInput.readOnly = true;
-                beratBarangInput.readOnly = false; // Berat bisa diisi manual
-                groupKoli.style.display = 'none'; // Sembunyikan field koli
             }
             
-            // Format ongkos kirim dengan titik (Rp)
             ongkosKirimInput.value = `Rp ${ongkosKirim.toLocaleString('id-ID')}`;
         }
 
@@ -64,18 +64,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 isiBarangText.placeholder = "Contoh: Dekor(4), KBC(3), Ampas(5)";
                 groupKoli.style.display = 'block';
                 beratBarangInput.readOnly = true;
+                groupMerek.style.display = 'block';
             } else if (armada === 'pesawat') {
                 isiBarangText.placeholder = "Contoh: Gaharu Super A";
                 groupKoli.style.display = 'none';
                 beratBarangInput.readOnly = false;
+                groupMerek.style.display = 'none';
             }
             kalkulasiOtomatis();
         }
 
-        // Panggil saat halaman pertama kali dimuat
         updateFormTampilan();
-
-        // Tambahkan event listener untuk setiap perubahan
         armadaSelect.addEventListener('change', updateFormTampilan);
         isiBarangText.addEventListener('input', kalkulasiOtomatis);
         beratBarangInput.addEventListener('input', kalkulasiOtomatis);
@@ -86,7 +85,14 @@ document.addEventListener("DOMContentLoaded", function() {
             
             const nomorResi = document.getElementById('nomor-resi').value;
             
-            // Mengambil nilai akhir sebelum submit
+            // ==========================================================
+            // MENGAMBIL NILAI PENGIRIM & PENERIMA YANG HILANG
+            // ==========================================================
+            const namaPengirim = document.getElementById('nama-pengirim').value;
+            const telpPengirim = document.getElementById('telp-pengirim').value;
+            const namaPenerima = document.getElementById('nama-penerima').value;
+            const telpPenerima = document.getElementById('telp-penerima').value;
+
             kalkulasiOtomatis();
             const ongkosKirimValue = parseInt(ongkosKirimInput.value.replace(/[^0-9]/g, '')) || 0;
 
@@ -94,8 +100,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 nomorResi: nomorResi,
                 tanggalKirim: document.getElementById('tanggal-kirim').value,
                 armada: armadaSelect.value,
-                pengirim: { /* ... */ },
-                penerima: { /* ... */ },
+                
+                // ==========================================================
+                // MENYIMPAN DATA PENGIRIM & PENERIMA KE DATABASE
+                // ==========================================================
+                pengirim: {
+                    nama: namaPengirim,
+                    telepon: telpPengirim
+                },
+                penerima: {
+                    nama: namaPenerima,
+                    telepon: telpPenerima
+                },
+                
                 detailBarang: {
                     merek: document.getElementById('merek-barang').value,
                     deskripsi: isiBarangText.value,
@@ -105,7 +122,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 ongkosKirim: ongkosKirimValue,
                 status: "Data Dibuat",
                 lokasiTerkini: "Kantor Papua"
-                // ... (riwayat status bisa ditambahkan di sini)
             }).then(() => {
                 alert(`Data untuk resi ${nomorResi} berhasil disimpan!`);
                 formResi.reset();
@@ -117,4 +133,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-
