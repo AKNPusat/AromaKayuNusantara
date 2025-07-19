@@ -779,9 +779,10 @@ main p, .content-section p {
 }
 
 .edit-form-container {
-   background-color: #eef2f5; /* Warna abu-abu muda */
-   padding: 1rem 1.5rem;
-   border-radius: 8px;
+    background-color: #eef2f5; /* Warna abu-abu muda */
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
     margin-bottom: 2rem; /* Jarak ke judul utama */
     border: 1px solid #d1d5db;
     display: flex;
