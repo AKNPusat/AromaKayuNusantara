@@ -1,89 +1,65 @@
-// ===================================================================
-// KODE FINAL SURAT JALAN (LEBIH TAHAN BANTING)
-// ===================================================================
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Buat Surat Jalan - PT. Aroma Kayu Nusantara</title>
+    <link rel="stylesheet" href="kerangka.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+<body class="form-page">
+    <div id="app-wrapper">
+        <div id="header-placeholder"></div>
+        <main>
+            <div class="container page-content-box">
+                <h1 class="page-title">Buat Surat Jalan</h1>
+                
+                <!-- Tahap 1: Cari Resi -->
+                <div id="tahap-1-cari-resi">
+                    <form id="form-cari-surat-jalan">
+                        <div class="form-group">
+                            <label for="nomor-resi-sj">Masukkan Nomor Resi</label>
+                            <input type="text" id="nomor-resi-sj" placeholder="Ketik nomor resi..." required>
+                        </div>
+                        <button type="submit" class="submit-button">Cari Resi</button>
+                    </form>
+                </div>
 
-document.addEventListener("DOMContentLoaded", function() {
+                <hr style="margin: 2rem 0; border: 0; border-top: 1px solid #ccc;">
+
+                <!-- Tahap 2: Detail Barang & Form Pengambilan (Awalnya tersembunyi) -->
+                <div id="tahap-2-detail-barang" style="display: none;">
+                    <h3>Detail Barang dari Resi <span id="nomor-resi-display"></span></h3>
+                    <p><strong>Deskripsi Asli:</strong> <span id="deskripsi-asli"></span></p>
+                    
+                    <h4>Stok Saat Ini di Gudang:</h4>
+                    <div id="stok-barang-container">
+                        <!-- Stok akan ditampilkan di sini -->
+                    </div>
+
+                    <form id="form-pengambilan-barang">
+                        <h4>Form Pengambilan Barang</h4>
+                        <p>Masukkan jumlah barang yang akan diambil. Biarkan 0 jika tidak diambil.</p>
+                        <div id="input-pengambilan-container">
+                            <!-- Input untuk setiap item akan dibuat di sini -->
+                        </div>
+                        <div class="form-group">
+                            <label for="nama-pengambil">Nama Pengambil</label>
+                            <input type="text" id="nama-pengambil" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="kendaraan-pengambil">No. Kendaraan</label>
+                            <input type="text" id="kendaraan-pengambil" required>
+                        </div>
+                        <button type="submit" class="submit-button">Buat & Print Surat Jalan</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+        
+        <div id="footer-placeholder"></div>
+    </div>
     
-    // ... (Inisialisasi Firebase tidak berubah) ...
-    const firebaseConfig = { /* ... PASTE KONFIGURASI ANDA DI SINI ... */ };
-    if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
-    const db = firebase.firestore();
-
-    let dataPengirimanSaatIni = null;
-
-    const formCari = document.getElementById('form-cari-surat-jalan');
-    if (formCari) {
-        formCari.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const nomorResi = document.getElementById('nomor-resi-sj').value.trim();
-            if (!nomorResi) return;
-            
-            db.collection("shipments").doc(nomorResi).get().then(doc => {
-                if (doc.exists) {
-                    dataPengirimanSaatIni = doc.data();
-                    const data = dataPengirimanSaatIni;
-                    
-                    document.getElementById('nomor-resi-display').textContent = data.nomorResi;
-                    document.getElementById('deskripsi-asli').textContent = data.detailBarang.deskripsi;
-                    
-                    const stokContainer = document.getElementById('stok-barang-container');
-                    const inputContainer = document.getElementById('input-pengambilan-container');
-                    stokContainer.innerHTML = '<ul>';
-                    inputContainer.innerHTML = '';
-
-                    let itemsToDisplay = {};
-
-                    // --- LOGIKA BARU YANG LEBIH FLEKSIBEL ---
-                    // Prioritaskan field 'stok' jika ada
-                    if (data.stok && Object.keys(data.stok).length > 0) {
-                        itemsToDisplay = data.stok;
-                    } 
-                    // Jika tidak ada field 'stok', coba parse dari 'deskripsi' (untuk data lama)
-                    else if (data.detailBarang.deskripsi) {
-                        const deskripsiItems = data.detailBarang.deskripsi.split(',').map(item => item.trim());
-                        deskripsiItems.forEach(item => {
-                            const match = item.match(/(.+)\((\d+)\)/);
-                            if (match) {
-                                const namaBarang = match[1].trim();
-                                const jumlah = parseInt(match[2]);
-                                itemsToDisplay[namaBarang] = jumlah;
-                            }
-                        });
-                    }
-
-                    // Tampilkan item yang ditemukan
-                    if (Object.keys(itemsToDisplay).length > 0) {
-                        for (const namaBarang in itemsToDisplay) {
-                            const stokSaatIni = itemsToDisplay[namaBarang];
-                            if (stokSaatIni > 0) {
-                                stokContainer.innerHTML += `<li><strong>${namaBarang}:</strong> ${stokSaatIni} karung</li>`;
-                                inputContainer.innerHTML += `
-                                    <div class="form-group">
-                                        <label for="ambil_${namaBarang}">Jumlah ${namaBarang} yang diambil:</label>
-                                        <input type="number" id="ambil_${namaBarang}" name="${namaBarang}" min="0" max="${stokSaatIni}" value="0" class="input-ambil">
-                                    </div>
-                                `;
-                            } else {
-                                stokContainer.innerHTML += `<li><strong style="text-decoration: line-through;">${namaBarang}:</strong> Habis</li>`;
-                            }
-                        }
-                        document.getElementById('tahap-2-detail-barang').style.display = 'block';
-                    } else {
-                        stokContainer.innerHTML = '<p>Tidak ada detail item barang yang bisa diproses.</p>';
-                        document.getElementById('tahap-2-detail-barang').style.display = 'block';
-                    }
-                    
-                    stokContainer.innerHTML += '</ul>';
-
-                } else {
-                    alert('Resi tidak ditemukan!');
-                }
-            }).catch(error => {
-                console.error("Error saat mencari resi: ", error);
-                alert("Terjadi kesalahan. Cek console untuk detail.");
-            });
-        });
-    }
-
-    // --- (Sisa kode untuk formPengambilan dan generateSuratJalan tidak berubah) ---
-});
+    <script src="https://www.gstatic.com/..."></script>
+    <script src="app.js"></script>
+    <script src="surat-jalan-handler.js"></script>
+</body>
+</html>
