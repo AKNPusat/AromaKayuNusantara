@@ -851,3 +851,9 @@ main p, .content-section p {
 .submit-button:hover {
     background-color: #12027a; /* Sedikit lebih gelap saat hover */
 }
+/* Style untuk pemisah di halaman surat jalan */
+.divider {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
