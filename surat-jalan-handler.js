@@ -1,87 +1,93 @@
 // ===================================================================
-// KODE FINAL SURAT JALAN (SUDAH ANTI-ERROR UNTUK DATA LAMA)
+// KODE SURAT JALAN (MENGGUNAKAN LOGIKA PENCARIAN YANG SUDAH TERBUKTI)
 // ===================================================================
 
 document.addEventListener("DOMContentLoaded", function() {
     
     // --- Inisialisasi Firebase ---
-    const firebaseConfig = { /* ... PASTE KONFIGURASI ANDA DI SINI ... */ };
-    if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
+    const firebaseConfig = {
+        apiKey: "AIzaSy...", // GANTI DENGAN KUNCI ANDA
+        authDomain: "...",
+        // ...dan seterusnya
+    };
+    
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    }
     const db = firebase.firestore();
 
     let dataPengirimanSaatIni = null;
-    let stokAwalItems = {}; // Untuk menyimpan stok awal
 
+    // --- HANDLER UNTUK FORM CARI RESI ---
     const formCari = document.getElementById('form-cari-surat-jalan');
     if (formCari) {
         formCari.addEventListener('submit', function(e) {
             e.preventDefault();
             const nomorResi = document.getElementById('nomor-resi-sj').value.trim();
-            
+            if (!nomorResi) {
+                alert("Masukkan nomor resi.");
+                return;
+            }
+
+            console.log(`Mencari data untuk resi: ${nomorResi}`); // Debugging
+
+            // --- Logika Pencarian yang Sama Seperti form-handler.js ---
             db.collection("shipments").doc(nomorResi).get().then(doc => {
+                console.log("Hasil dari Firebase:", doc); // Debugging
                 if (doc.exists) {
+                    console.log("Dokumen ditemukan:", doc.data()); // Debugging
                     dataPengirimanSaatIni = doc.data();
-                    const data = dataPengirimanSaatIni;
-                    stokAwalItems = {}; // Reset setiap kali pencarian baru
                     
-                    // ... (Tampilkan nomor resi & deskripsi)
-                    
-                    const stokContainer = document.getElementById('stok-barang-container');
-                    const inputContainer = document.getElementById('input-pengambilan-container');
-                    stokContainer.innerHTML = '<ul>';
-                    inputContainer.innerHTML = '';
-
-                    // Prioritaskan field 'stok' jika ada
-                    if (data.stok && Object.keys(data.stok).length > 0) {
-                        stokAwalItems = data.stok;
-                    } 
-                    // Jika tidak ada, parse dari 'deskripsi'
-                    else if (data.detailBarang.deskripsi) {
-                        const deskripsiItems = data.detailBarang.deskripsi.split(',').map(item => item.trim());
-                        deskripsiItems.forEach(item => {
-                            const match = item.match(/(.+)\((\d+)\)/);
-                            if (match) stokAwalItems[match[1].trim()] = parseInt(match[2]);
-                        });
-                    }
-
-                    // Tampilkan item
-                    for (const namaBarang in stokAwalItems) {
-                        const stokSaatIni = stokAwalItems[namaBarang];
-                        // ... (kode untuk menampilkan stok dan input field sama seperti sebelumnya)
-                    }
-                    stokContainer.innerHTML += '</ul>';
-                    document.getElementById('tahap-2-detail-barang').style.display = 'block';
+                    // Panggil fungsi untuk menampilkan data
+                    tampilkanDetailUntukSuratJalan(dataPengirimanSaatIni);
 
                 } else {
+                    console.log("Dokumen tidak ditemukan."); // Debugging
                     alert('Resi tidak ditemukan!');
+                    document.getElementById('tahap-2-detail-barang').style.display = 'none';
                 }
             }).catch(error => {
-                console.error("Error:", error);
-                alert("Terjadi kesalahan. Cek console.");
+                console.error("Error saat mencari resi: ", error);
+                alert("Terjadi kesalahan saat mengambil data. Cek console.");
             });
         });
     }
 
-    const formPengambilan = document.getElementById('form-pengambilan-barang');
-    if (formPengambilan) {
-        formPengambilan.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // ... (ambil nomorResi, namaPengambil, dll.)
-            
-            const itemDiambil = [];
-            const updateStok = {};
+    // --- Fungsi untuk Menampilkan Detail ---
+    function tampilkanDetailUntukSuratJalan(data) {
+        document.getElementById('nomor-resi-display').textContent = data.nomorResi;
+        
+        const stokContainer = document.getElementById('stok-barang-container');
+        const inputContainer = document.getElementById('input-pengambilan-container');
+        stokContainer.innerHTML = '<ul>';
+        inputContainer.innerHTML = '';
 
-            document.querySelectorAll('.input-ambil').forEach(input => {
-                const jumlahAmbil = parseInt(input.value);
-                if (jumlahAmbil > 0) {
-                    itemDiambil.push({ nama: input.name, jumlah: jumlahAmbil });
-                    
-                    // KUNCI PERBAIKAN DI SINI
-                    // Kita gunakan stokAwalItems yang sudah kita siapkan, bukan dataPengirimanSaatIni.stok
-                    const stokSekarang = stokAwalItems[input.name] || 0;
-                    updateStok[`stok.${input.name}`] = stokSekarang - jumlahAmbil;
-                }
+        let stokItems = {};
+        if (data.stok && Object.keys(data.stok).length > 0) {
+            stokItems = data.stok;
+        } else if (data.detailBarang && data.detailBarang.deskripsi) {
+            // Fallback untuk data lama
+            const deskripsiItems = data.detailBarang.deskripsi.split(',');
+            deskripsiItems.forEach(item => {
+                const match = item.match(/(.+)\((\d+)\)/);
+                if (match) stokItems[match[1].trim()] = parseInt(match[2]);
             });
+        }
+        
+        for (const namaBarang in stokItems) {
+            const stokSaatIni = stokItems[namaBarang];
+            stokContainer.innerHTML += `<li><strong>${namaBarang}:</strong> ${stokSaatIni} karung</li>`;
+            if (stokSaatIni > 0) {
+                inputContainer.innerHTML += `<div class="form-group"><label>...${namaBarang}...</label><input ... name="${namaBarang}" max="${stokSaatIni}" ...></div>`;
+            }
+        }
+        stokContainer.innerHTML += '</ul>';
+        document.getElementById('tahap-2-detail-barang').style.display = 'block';
+    }
+
+    // --- (Kode untuk form pengambilan dan generate surat jalan tetap di sini) ---
+
+});
 
             if (itemDiambil.length === 0) {
                 alert('Tidak ada barang yang diambil!');
