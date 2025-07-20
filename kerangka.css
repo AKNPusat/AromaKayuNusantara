@@ -612,7 +612,7 @@ main p, .content-section p {
     margin-bottom: 1.5rem;
 }
 .main-content .content-section .content-image img {
-    max-width: 100px; /* Ukuran gambar kecil di atas teks */
+    max-width: 70px; /* Ukuran gambar kecil di atas teks */
     border-radius: 8px;
     float: right; /* Membuat gambar di kanan dan teks di kiri */
     margin-left: 1.5rem;
