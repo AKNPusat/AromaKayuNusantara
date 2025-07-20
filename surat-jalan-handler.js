@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <div><p>Hormat Kami,</p><br><br><p>(___________)</p><p>Kepala Gudang</p></div>
                         <div><p>Penerima,</p><br><br><p>(___________)</p><p>${data.pengambil.nama}</p></div>
                     </div>
+                    <script src="surat-jalan-handler.js"></script>
                 </div></body></html>
         `);
         printWindow.document.close();
