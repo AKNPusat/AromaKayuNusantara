@@ -4,53 +4,57 @@
     <title>Buat Surat Jalan - PT. Aroma Kayu Nusantara</title>
     <link rel="stylesheet" href="kerangka.css">
     <link rel="stylesheet" href="form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="form-page">
+<body>
     <div id="app-wrapper">
         <div id="header-placeholder"></div>
-        <main>
-            <div class="container page-content-box">
-                <h1 class="page-title">Buat Surat Jalan</h1>
-                
-                <!-- Tahap 1: Cari Resi -->
-                <div id="tahap-1-cari-resi">
-                    <form id="form-cari-surat-jalan">
-                        <div class="form-group">
-                            <label for="nomor-resi-sj">Masukkan Nomor Resi</label>
-                            <input type="text" id="nomor-resi-sj" placeholder="Ketik nomor resi..." required>
-                        </div>
-                        <button type="submit" class="submit-button">Cari Resi</button>
-                    </form>
-                </div>
-
-                <hr style="margin: 2rem 0; border: 0; border-top: 1px solid #ccc;">
-
-                <!-- Tahap 2: Detail Barang & Form Pengambilan (Awalnya tersembunyi) -->
-                <div id="tahap-2-detail-barang" style="display: none;">
-                    <h3>Detail Barang dari Resi <span id="nomor-resi-display"></span></h3>
-                    <p><strong>Deskripsi Asli:</strong> <span id="deskripsi-asli"></span></p>
+        <main class="page-container">
+            <div class="container">
+                <div class="page-content-box">
+                    <h1 class="page-title">Buat Surat Jalan</h1>
                     
-                    <h4>Stok Saat Ini di Gudang:</h4>
-                    <div id="stok-barang-container">
-                        <!-- Stok akan ditampilkan di sini -->
+                    <!-- Tahap 1: Cari Resi -->
+                    <div id="tahap-1-cari-resi">
+                        <form id="form-cari-surat-jalan">
+                            <div class="form-group">
+                                <label for="nomor-resi-sj">Masukkan Nomor Resi</label>
+                                <input type="text" id="nomor-resi-sj" placeholder="Ketik nomor resi..." required>
+                            </div>
+                            <button type="submit" class="submit-button">Cari Resi</button>
+                        </form>
                     </div>
 
-                    <form id="form-pengambilan-barang">
-                        <h4>Form Pengambilan Barang</h4>
-                        <p>Masukkan jumlah barang yang akan diambil. Biarkan 0 jika tidak diambil.</p>
-                        <div id="input-pengambilan-container">
-                            <!-- Input untuk setiap item akan dibuat di sini -->
+                    <hr class="divider">
+
+                    <!-- Tahap 2: Detail & Form Pengambilan (Awalnya tersembunyi) -->
+                    <div id="tahap-2-detail-barang" style="display: none;">
+                        <h3>Detail Barang dari Resi <span id="nomor-resi-display"></span></h3>
+                        
+                        <h4>Stok Saat Ini di Gudang:</h4>
+                        <div id="stok-barang-container">
+                            <!-- Stok barang akan ditampilkan di sini -->
                         </div>
-                        <div class="form-group">
-                            <label for="nama-pengambil">Nama Pengambil</label>
-                            <input type="text" id="nama-pengambil" required>
-                        </div>
-                         <div class="form-group">
-                            <label for="kendaraan-pengambil">No. Kendaraan</label>
-                            <input type="text" id="kendaraan-pengambil" required>
-                        </div>
-                        <button type="submit" class="submit-button">Buat & Print Surat Jalan</button>
-                    </form>
+
+                        <form id="form-pengambilan-barang">
+                            <h4>Form Pengambilan Barang</h4>
+                            <p>Masukkan jumlah barang yang akan diambil. Biarkan 0 jika tidak diambil.</p>
+                            <div id="input-pengambilan-container">
+                                <!-- Input untuk setiap item akan dibuat di sini -->
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="nama-pengambil">Nama Pengambil</label>
+                                    <input type="text" id="nama-pengambil" required>
+                                </div>
+                                 <div class="form-group">
+                                    <label for="kendaraan-pengambil">No. Kendaraan</label>
+                                    <input type="text" id="kendaraan-pengambil" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="submit-button">Buat & Print Surat Jalan</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </main>
@@ -58,8 +62,9 @@
         <div id="footer-placeholder"></div>
     </div>
     
-    <script src="https://www.gstatic.com/..."></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
     <script src="app.js"></script>
-    <script src="surat-jalan-handler.js"></script>
+    <script src="surat-jalan-handler.js"></script> <!-- Script BARU khusus untuk halaman ini -->
 </body>
 </html>
