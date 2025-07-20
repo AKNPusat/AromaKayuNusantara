@@ -6,10 +6,12 @@
 document.addEventListener("DOMContentLoaded", function() {
     // PASTE KONFIGURASI FIREBASE ANDA DI SINI
     const firebaseConfig = {
-        apiKey: "AIzaSy...",
-        authDomain: "...",
-        projectId: "...",
-        // ...dan seterusnya
+        apiKey: "AIzaSyDDJpU3mzKY2s-pihTz0XmL1BcrfTS_vRQ",
+        authDomain: "aroma-kayu-nusantara.firebaseapp.com",
+        projectId: "aroma-kayu-nusantara",
+        storageBucket: "aroma-kayu-nusantara.firebasestorage.app",
+        messagingSenderId: "519933206110",
+        appId: "1:519933206110:web:1620a50af9f88c56f2decf"
     };
     
     if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
@@ -89,14 +91,12 @@ document.addEventListener("DOMContentLoaded", function() {
                     document.getElementById('telp-penerima').value = data.penerima.telepon;
                     isiBarangText.value = data.detailBarang.deskripsi;
                     merekInput.value = data.detailBarang.merek;
-                    jumlahKoliInput.value = data.detailBarang.jumlahKoli;
-                    beratBarangInput.value = data.detailBarang.beratKg;
                     
                     formTitle.textContent = `Mengedit Data Resi: ${resi}`;
                     submitButton.textContent = 'Update Data';
                     nomorResiInput.readOnly = true;
                     isEditMode = true;
-                    updateFormTampilan(); // Update tampilan form sesuai data armada yang dimuat
+                    updateFormTampilan();
                 } else {
                     alert("Resi tidak ditemukan!");
                 }
@@ -108,8 +108,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (formCariEdit) {
             formCariEdit.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const resiToEdit = document.getElementById('resi-untuk-edit').value;
-                if (resiToEdit) loadDataForEdit(resiToEdit);
+                const resiToEdit = document.getElementById('resi-untuk-edit').value.trim();
+                if (resiToEdit) {
+                    loadDataForEdit(resiToEdit);
+                } else {
+                    alert("Masukkan nomor resi yang ingin diedit.");
+                }
             });
         }
 
@@ -123,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
         formResi.addEventListener('submit', function(e) {
             e.preventDefault();
             const nomorResi = nomorResiInput.value;
-            kalkulasiOtomatis(); // Kalkulasi ulang sebelum simpan
+            kalkulasiOtomatis();
             const ongkosKirimValue = parseInt(ongkosKirimInput.value.replace(/[^0-9]/g, '')) || 0;
 
             const dataToSave = {
@@ -150,18 +154,14 @@ document.addEventListener("DOMContentLoaded", function() {
             if (!isEditMode) {
                 dataToSave.status = "Data Dibuat";
                 dataToSave.lokasiTerkini = "Kantor Papua";
-                dataToSave.riwayatStatus = [{
-                    status: "Data Dibuat",
-                    lokasi: "Kantor Papua",
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                }];
+                // ... (riwayat status bisa ditambahkan di sini)
             }
             
             db.collection("shipments").doc(nomorResi).set(dataToSave, { merge: true })
             .then(() => {
                 alert(`Data untuk resi ${nomorResi} berhasil di-${isEditMode ? 'update' : 'simpan'}!`);
                 if (isEditMode) {
-                    window.location.reload(); // Reload halaman setelah update
+                    window.location.reload();
                 } else {
                     formResi.reset();
                     updateFormTampilan();
