@@ -111,3 +111,52 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function generateSuratJalan(data) { /* ... (fungsi ini tidak berubah) ... */ }
 });
+
+    function generateSuratJalan(data) {
+        let itemRows = '';
+        data.items.forEach((item, index) => {
+            itemRows += `<tr><td>${index + 1}</td><td>${item.nama}</td><td>${item.jumlah} Karung</td></tr>`;
+        });
+
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(`
+            <html>
+                <head>
+                    <title>Surat Jalan - ${data.nomorResi}</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; }
+                        .container { width: 80%; margin: 0 auto; }
+                        h1 { text-align: center; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+                        .signatures { margin-top: 50px; display: flex; justify-content: space-around; }
+                    </style>
+                </head>
+                <body onload="window.print()">
+                    <div class="container">
+                        <h1>SURAT JALAN</h1>
+                        <p><strong>No. Dokumen:</strong> ${data.id}</p>
+                        <p><strong>No. Resi Induk:</strong> ${data.nomorResi}</p>
+                        <p><strong>Diterima Oleh (sesuai resi):</strong> ${data.penerimaAsli}</p>
+                        <hr>
+                        <p><strong>Nama Pengambil:</strong> ${data.pengambil.nama}</p>
+                        <p><strong>No. Kendaraan:</strong> ${data.pengambil.kendaraan}</p>
+                        <table>
+                            <thead>
+                                <tr><th>No</th><th>Nama Barang</th><th>Jumlah</th></tr>
+                            </thead>
+                            <tbody>
+                                ${itemRows}
+                            </tbody>
+                        </table>
+                        <div class="signatures">
+                            <div><p>Hormat Kami,</p><br><br><p>(___________________)</p><p>Gudang</p></div>
+                            <div><p>Penerima,</p><br><br><p>(___________________)</p><p>${data.pengambil.nama}</p></div>
+                        </div>
+                    </div>
+                </body>
+            </html>
+        `);
+        printWindow.document.close();
+    }
+});
