@@ -1,10 +1,10 @@
 // ===================================================================
-// KODE SURAT JALAN - DENGAN LOGIKA PENCARIAN DARI form-handler.js
+// KODE FINAL & LENGKAP UNTUK form-handler.js
+// (MENGGABUNGKAN INPUT, EDIT, DAN KALKULASI OTOMATIS)
 // ===================================================================
 
 document.addEventListener("DOMContentLoaded", function() {
-    
-    // --- Inisialisasi Firebase ---
+    // PASTE KONFIGURASI FIREBASE ANDA DI SINI
     const firebaseConfig = {
         apiKey: "AIzaSyDDJpU3mzKY2s-pihTz0XmL1BcrfTS_vRQ",
         authDomain: "aroma-kayu-nusantara.firebaseapp.com",
@@ -14,82 +14,108 @@ document.addEventListener("DOMContentLoaded", function() {
         appId: "1:519933206110:web:1620a50af9f88c56f2decf"
     };
     
-    if (!firebase.apps.length) {
-        firebase.initializeApp(firebaseConfig);
-    }
+    if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
     const db = firebase.firestore();
 
-    let dataPengirimanSaatIni = null;
+    const formResi = document.getElementById('form-resi');
+    if (formResi) {
+        // --- Ambil semua elemen form ---
+        const nomorResiInput = document.getElementById('nomor-resi');
+        const tanggalKirimInput = document.getElementById('tanggal-kirim');
+        const armadaSelect = document.getElementById('jenis-armada');
+        const isiBarangText = document.getElementById('isi-barang');
+        const merekInput = document.getElementById('merek-barang');
+        const jumlahKoliInput = document.getElementById('jumlah-koli');
+        const beratBarangInput = document.getElementById('berat-barang');
+        const ongkosKirimInput = document.getElementById('ongkos-kirim');
+        const groupKoli = document.getElementById('group-jumlah-koli');
+        const groupMerek = document.getElementById('group-merek');
+        const submitButton = formResi.querySelector('.submit-button');
+        const formTitle = document.getElementById('form-title');
 
-    // --- FUNGSI UNTUK MENCARI & MENAMPILKAN DATA RESI ---
-    function cariDanTampilkanResi(nomorResi) {
-        db.collection("shipments").doc(nomorResi).get().then(doc => {
-            if (doc.exists) {
-                dataPengirimanSaatIni = doc.data();
-                const data = dataPengirimanSaatIni;
+        let isEditMode = false;
 
-                // Tampilkan detail dasar
-                document.getElementById('nomor-resi-display').textContent = data.nomorResi;
-                document.getElementById('deskripsi-asli').textContent = data.detailBarang.deskripsi;
-                
-                // Siapkan container
-                const stokContainer = document.getElementById('stok-barang-container');
-                const inputContainer = document.getElementById('input-pengambilan-container');
-                stokContainer.innerHTML = '<ul>';
-                inputContainer.innerHTML = '';
+        // --- FUNGSI KALKULASI OTOMATIS ---
+        function kalkulasiOtomatis() {
+            const armada = armadaSelect.value;
+            const isiBarang = isiBarangText.value;
+            let totalKoli = 0;
+            let totalBerat = 0;
+            let ongkosKirim = 0;
 
-                // Ambil data stok
-                let stokItems = {};
-                if (data.stok && Object.keys(data.stok).length > 0) {
-                    stokItems = data.stok;
-                } else if (data.detailBarang.deskripsi) {
-                    const deskripsiItems = data.detailBarang.deskripsi.split(',');
-                    deskripsiItems.forEach(item => {
-                        const match = item.match(/(.+)\((\d+)\)/);
-                        if (match) stokItems[match[1].trim()] = parseInt(match[2]);
-                    });
-                }
-                
-                // Tampilkan stok dan buat input field
-                for (const namaBarang in stokItems) {
-                    const stokSaatIni = stokItems[namaBarang];
-                    if (stokSaatIni > 0) {
-                        stokContainer.innerHTML += `<li><strong>${namaBarang}:</strong> ${stokSaatIni} karung</li>`;
-                        inputContainer.innerHTML += `<div class="form-group"><label>Jumlah ${namaBarang} diambil:</label><input type="number" name="${namaBarang}" class="input-ambil" min="0" max="${stokSaatIni}" value="0"></div>`;
-                    } else {
-                        stokContainer.innerHTML += `<li><strong style="text-decoration: line-through;">${namaBarang}:</strong> Habis</li>`;
-                    }
-                }
-                stokContainer.innerHTML += '</ul>';
-                document.getElementById('tahap-2-detail-barang').style.display = 'block';
-
-            } else {
-                alert('Resi tidak ditemukan!');
-                document.getElementById('tahap-2-detail-barang').style.display = 'none';
+            if (armada === 'kapal') {
+                const matches = isiBarang.match(/\(\s*\d+/g) || [];
+                matches.forEach(match => {
+                    totalKoli += parseInt(match.replace('(', '').trim());
+                });
+                jumlahKoliInput.value = totalKoli;
+                totalBerat = totalKoli * 25;
+                beratBarangInput.value = totalBerat;
+                ongkosKirim = totalKoli * 1150000;
+            } else if (armada === 'pesawat') {
+                totalBerat = parseFloat(beratBarangInput.value) || 0;
+                ongkosKirim = totalBerat * 150000;
             }
-        }).catch(error => {
-            console.error("Error saat mencari resi:", error);
-            alert("Terjadi kesalahan. Cek console.");
-        });
-    }
+            ongkosKirimInput.value = `Rp ${ongkosKirim.toLocaleString('id-ID')}`;
+        }
 
-    // --- Event Listener untuk Form Pencarian ---
-    const formCari = document.getElementById('form-cari-surat-jalan');
-    if (formCari) {
-        formCari.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const nomorResi = document.getElementById('nomor-resi-sj').value.trim();
-            if (nomorResi) {
-                cariDanTampilkanResi(nomorResi);
-            } else {
-                alert("Masukkan nomor resi terlebih dahulu.");
+        // --- FUNGSI TAMPILAN FORM DINAMIS ---
+        function updateFormTampilan() {
+            const armada = armadaSelect.value;
+            if (armada === 'kapal') {
+                isiBarangText.placeholder = "Contoh: Dekor(4), KBC(3), Ampas(5)";
+                groupKoli.style.display = 'block';
+                groupMerek.style.display = 'block';
+                beratBarangInput.readOnly = true;
+            } else if (armada === 'pesawat') {
+                isiBarangText.placeholder = "Contoh: Gaharu Super A";
+                groupKoli.style.display = 'none';
+                groupMerek.style.display = 'none';
+                beratBarangInput.readOnly = false;
+                if (!isEditMode) beratBarangInput.value = '';
             }
-        });
-    }
+            kalkulasiOtomatis();
+        }
 
-    // --- (Kode untuk form pengambilan dan generate surat jalan tetap di sini, tidak berubah) ---
+        // --- FUNGSI UNTUK MODE EDIT ---
+        function loadDataForEdit(resi) {
+            db.collection("shipments").doc(resi).get().then((doc) => {
+                if (doc.exists) {
+                    const data = doc.data();
+                    nomorResiInput.value = data.nomorResi;
+                    tanggalKirimInput.value = data.tanggalKirim;
+                    armadaSelect.value = data.armada || 'kapal';
+                    document.getElementById('nama-pengirim').value = data.pengirim.nama;
+                    document.getElementById('telp-pengirim').value = data.pengirim.telepon;
+                    document.getElementById('nama-penerima').value = data.penerima.nama;
+                    document.getElementById('telp-penerima').value = data.penerima.telepon;
+                    isiBarangText.value = data.detailBarang.deskripsi;
+                    merekInput.value = data.detailBarang.merek;
+                    
+                    formTitle.textContent = `Mengedit Data Resi: ${resi}`;
+                    submitButton.textContent = 'Update Data';
+                    nomorResiInput.readOnly = true;
+                    isEditMode = true;
+                    updateFormTampilan();
+                } else {
+                    alert("Resi tidak ditemukan!");
+                }
+            });
+        }
 
-});
+        // --- Event Listener untuk Pencarian Edit ---
+        const formCariEdit = document.getElementById('form-cari-edit');
+        if (formCariEdit) {
+            formCariEdit.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const resiToEdit = document.getElementById('resi-untuk-edit').value.trim();
+                if (resiToEdit) {
+                    loadDataForEdit(resiToEdit);
+                } else {
+                    alert("Masukkan nomor resi yang ingin diedit.");
+                }
+            });
+        }
 
         // --- Menjalankan fungsi awal dan event listener ---
         updateFormTampilan();
