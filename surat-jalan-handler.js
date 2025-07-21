@@ -85,3 +85,4 @@ document.addEventListener("DOMContentLoaded", function() {
     // --- (Kode untuk form pengambilan dan generate surat jalan tetap di sini, tidak berubah) ---
     // Pastikan kode ini juga ada di dalam file Anda.
 });
+
