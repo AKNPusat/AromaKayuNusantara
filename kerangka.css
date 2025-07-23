@@ -615,6 +615,7 @@ main p, .content-section p {
     width: 100%;
     border-radius: 8px;
     height: auto;
+    display: block;
    
 }
 .main-content .content-section h3 {
