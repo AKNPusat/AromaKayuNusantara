@@ -875,35 +875,46 @@ main p, .content-section p {
     border-top: 1px solid #eee;
 }
 /* ========================================================== */
-/* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) - DIPERBAIKI */
+/* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) */
 /* ========================================================== */
 
-/* Sembunyikan hamburger di desktop secara default */
-.hamburger-button {
-    display: none;
-}
+@media (max-width: 992px) {
+    /* Aturan untuk layar tablet dan di bawahnya */
+    
+    .header-container {
+        padding: 0 1rem; /* Kurangi padding header */
+    }
 
-@media (max-width: 1024px) { /* Batas diubah agar lebih standar */
-    /* Sembunyikan menu desktop HANYA di layar kecil */
-    .main-nav,
+    .main-nav {
+        display: none; /* Sembunyikan menu utama di tablet & HP */
+    }
+
     .header-search {
         display: none;
     }
-    /* Tampilkan tombol hamburger HANYA di layar kecil */
+    
+    /* Tampilkan ikon hamburger (yang akan kita buat di app.js) */
     .hamburger-button {
-        display: block;
-        background: none;
-        border: none;
-        font-size: 2.5rem;
-        color: #dfb45e; /* Warna emas */
-        cursor: pointer;
-        padding: 0;
-        line-height: 1;
+        display: block;       
     }
-    .main-header.scrolled .hamburger-button {
-        color: #b78729; /* Warna emas lebih gelap saat scroll */
+     .main-nav.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Muncul tepat di bawah header */
+    left: 0;
+    width: 100%;
+    background-color: white;   
     }
 }
+    
+@media (max-width: 768px) {
+    /* Aturan spesifik untuk layar HP */
+
+    /* Kurangi jarak atas konten */
+    main {
+        padding-top: 80px;
+    }
     
     /* Buat layout 2 kolom menjadi 1 kolom */
     .two-column-layout {
@@ -932,58 +943,4 @@ main p, .content-section p {
         display: block;
         margin: 0 auto 1.5rem auto; /* Tengahkan gambar */
     }
-}
-/* ========================================================== */
-/* KODE BARU UNTUK STYLE MENU MOBILE */
-/* ========================================================== */
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    left: -100%; /* Mulai dari luar layar */
-    width: 100%;
-    height: 100%;
-    background-color: #0d244f; /* Warna latar gelap */
-    z-index: 2000;
-    transition: left 0.3s ease;
-    padding: 1.5rem;
-    box-sizing: border-box;
-    overflow-y: auto;
-}
-.mobile-menu.active {
-    left: 0; /* Geser ke dalam layar saat aktif */
-}
-.mobile-menu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-.mobile-menu-header .logo { height: 50px; }
-.close-button {
-    background: none;
-    border: none;
-    font-size: 2.5rem;
-    color: white;
-    cursor: pointer;
-}
-.mobile-menu .main-nav-mobile a,
-.mobile-menu .top-links-mobile a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 600;
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.mobile-menu .top-links-mobile {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.2);
-}
-.mobile-menu .register-button {
-    display: inline-block;
-    margin-top: 1.5rem;
-    border-color: white;
-    font-size: 1rem; /* Sesuaikan ukuran font */
 }
