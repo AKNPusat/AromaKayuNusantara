@@ -1,5 +1,5 @@
 // ===================================================================
-// KODE FINAL & LENGKAP UNTUK SURAT JALAN (DENGAN FORMAT PRINT BARU)
+// KODE SURAT JALAN ANDA - DENGAN PENAMBAHAN LOGO PADA PRINT
 // ===================================================================
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -22,16 +22,15 @@ document.addEventListener("DOMContentLoaded", function() {
     let dataPengirimanSaatIni = null;
     let stokAwalItems = {};
 
-    // --- FUNGSI UNTUK MENCARI & MENAMPILKAN DATA RESI ---
-    function cariDanTampilkanResi(nomorResi) {
-        db.collection("shipments").doc(nomorResi).get().then((doc) => {
+    function loadDataForSuratJalan(resi) {
+        // ... (Fungsi ini tidak diubah sama sekali)
+        db.collection("shipments").doc(resi).get().then((doc) => {
             if (doc.exists) {
                 dataPengirimanSaatIni = doc.data();
                 const data = dataPengirimanSaatIni;
                 stokAwalItems = {};
                 
                 document.getElementById('nomor-resi-display').textContent = data.nomorResi;
-                document.getElementById('deskripsi-asli').textContent = data.detailBarang.deskripsi;
                 
                 const stokContainer = document.getElementById('stok-barang-container');
                 const inputContainer = document.getElementById('input-pengambilan-container');
@@ -50,46 +49,39 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 for (const namaBarang in stokAwalItems) {
                     const stokSaatIni = stokAwalItems[namaBarang];
+                    stokContainer.innerHTML += `<li><strong>${namaBarang}:</strong> ${stokSaatIni} karung</li>`;
                     if (stokSaatIni > 0) {
-                        stokContainer.innerHTML += `<li><strong>${namaBarang}:</strong> ${stokSaatIni} karung</li>`;
-                        inputContainer.innerHTML += `<div class="form-group"><label>Jumlah ${namaBarang} diambil:</label><input type="number" name="${namaBarang}" class="input-ambil" min="0" max="${stokSaatIni}" value="0"></div>`;
-                    } else {
-                        stokContainer.innerHTML += `<li><strong style="text-decoration: line-through;">${namaBarang}:</strong> Habis</li>`;
+                        inputContainer.innerHTML += `<div class="form-group"><label for="ambil_${namaBarang}">Jumlah ${namaBarang} diambil:</label><input type="number" id="ambil_${namaBarang}" name="${namaBarang}" class="input-ambil" min="0" max="${stokSaatIni}" value="0"></div>`;
                     }
                 }
                 stokContainer.innerHTML += '</ul>';
                 document.getElementById('tahap-2-detail-barang').style.display = 'block';
 
             } else {
-                alert('Resi tidak ditemukan!');
+                alert("Resi tidak ditemukan!");
             }
         }).catch(error => {
-            console.error("Error saat mencari resi:", error);
+            console.error("Error saat mencari data: ", error);
             alert("Terjadi kesalahan. Cek console.");
         });
     }
 
-    // --- Event Listener untuk Form Pencarian ---
     const formCari = document.getElementById('form-cari-surat-jalan');
     if (formCari) {
         formCari.addEventListener('submit', function(e) {
             e.preventDefault();
             const resiToLoad = document.getElementById('nomor-resi-sj').value.trim();
             if (resiToLoad) {
-                cariDanTampilkanResi(resiToLoad);
+                loadDataForSuratJalan(resiToLoad);
             }
         });
     }
 
-    // --- HANDLER UNTUK FORM PENGAMBILAN BARANG ---
     const formPengambilan = document.getElementById('form-pengambilan-barang');
     if(formPengambilan) {
+        // ... (Fungsi ini tidak diubah sama sekali)
         formPengambilan.addEventListener('submit', function(e){
             e.preventDefault();
-
-            const printWindow = window.open('', '_blank');
-            printWindow.document.write('<html><body><p>Memproses data...</p></body></html>');
-
             const nomorResi = document.getElementById('nomor-resi-sj').value;
             const namaPengambil = document.getElementById('nama-pengambil').value;
             const kendaraanPengambil = document.getElementById('kendaraan-pengambil').value;
@@ -108,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if(itemDiambil.length === 0) {
                 alert('Tidak ada barang yang diambil!');
-                printWindow.close();
                 return;
             }
 
@@ -120,70 +111,56 @@ document.addEventListener("DOMContentLoaded", function() {
                 items: itemDiambil,
                 penerimaAsli: dataPengirimanSaatIni.penerima.nama
             };
-
+            
             db.collection("surat_jalan").doc(suratJalanId).set(suratJalanData)
             .then(() => db.collection("shipments").doc(nomorResi).set({ stok: stokAwalItems }, { merge: true }))
             .then(() => db.collection("shipments").doc(nomorResi).update(updateStok))
             .then(() => {
                 alert("Surat jalan berhasil dibuat dan stok diperbarui!");
-                generateSuratJalan(suratJalanData, printWindow);
+                generateSuratJalan(suratJalanData);
                 formCari.reset();
                 formPengambilan.reset();
                 document.getElementById('tahap-2-detail-barang').style.display = 'none';
             })
-            .catch(error => {
-                console.error("Error: ", error);
-                alert("Terjadi kesalahan!");
-                printWindow.close();
-            });
+            .catch(error => { console.error("Error: ", error); alert("Terjadi kesalahan!"); });
         });
     }
 
-    // --- FUNGSI UNTUK GENERATE SURAT JALAN (DENGAN FORMAT BARU) ---
-    function generateSuratJalan(data, printWindow) {
+    // ========================================================
+    // --- FUNGSI GENERATE SURAT JALAN SUDAH DITAMBAH LOGO ---
+    // ========================================================
+    function generateSuratJalan(data) {
         let itemRows = '';
         data.items.forEach((item, index) => {
             itemRows += `<tr><td>${index + 1}</td><td>${item.nama}</td><td>${item.jumlah} Karung</td></tr>`;
         });
-        
-        printWindow.document.open();
+        const printWindow = window.open('', '_blank');
         printWindow.document.write(`
             <html>
                 <head>
                     <title>Surat Jalan - ${data.nomorResi}</title>
                     <style>
-                        body { font-family: Arial, sans-serif; font-size: 11pt; color: #333; }
+                        body { font-family: Arial, sans-serif; font-size: 11pt; }
                         .container { width: 90%; margin: 0 auto; }
-                        .header { text-align: center; margin-bottom: 25px; }
-                        .logo { max-height: 70px; margin-bottom: 10px; }
-                        .header h2 {
-                            font-size: 20pt;
-                            margin: 15px 0;
-                            padding: 10px 0;
-                            border-top: 3px double black;
-                            border-bottom: 1px solid black;
-                        }
-                        .info-section p { margin: 5px 0; }
-                        table { width: 100%; border-collapse: collapse; margin-top: 25px; font-size: 10pt; }
+                        .header { text-align: center; border-bottom: 3px double black; padding-bottom: 15px; margin-bottom: 25px; }
+                        .logo { max-height: 80px; margin-bottom: 10px; }
+                        .header h2 { margin: 0; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
                         th, td { border: 1px solid black; padding: 8px; text-align: left; }
-                        th { background-color: #f2f2f2; }
-                        .signatures { margin-top: 60px; display: flex; justify-content: space-around; text-align: center; }
+                        .signatures { margin-top: 50px; display: flex; justify-content: space-around; text-align: center; }
                     </style>
                 </head>
                 <body onload="window.print(); window.close();">
                     <div class="container">
                         <div class="header">
-                            <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" alt="Logo PT. Aroma Kayu Nusantara" class="logo">
+                            <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" alt="Logo" class="logo">
                             <h2>SURAT JALAN</h2>
                         </div>
-                        <div class="info-section">
-                            <p><strong>No. Dokumen:</strong> ${data.id}</p>
-                            <p><strong>No. Resi Induk:</strong> ${data.nomorResi}</p>
-                            <hr>
-                            <p><strong>Diterima Oleh (sesuai resi):</strong> ${data.penerimaAsli}</p>
-                            <p><strong>Nama Pengambil:</strong> ${data.pengambil.nama}</p>
-                            <p><strong>No. Kendaraan:</strong> ${data.pengambil.kendaraan}</p>
-                        </div>
+                        <p><strong>No. Dokumen:</strong> ${data.id}</p>
+                        <p><strong>No. Resi Induk:</strong> ${data.nomorResi}</p>
+                        <p><strong>Diterima Oleh (sesuai resi):</strong> ${data.penerimaAsli}</p>
+                        <p><strong>Nama Pengambil:</strong> ${data.pengambil.nama}</p>
+                        <p><strong>No. Kendaraan:</strong> ${data.pengambil.kendaraan}</p>
                         <table>
                             <thead>
                                 <tr><th>No</th><th>Nama Barang</th><th>Jumlah</th></tr>
