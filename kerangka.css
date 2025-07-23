@@ -607,14 +607,14 @@ main p, .content-section p {
     padding-top: 0; /* Reset padding dari aturan umum */
     margin-top: 0;
 }
-.main-content .content-section .content-image {
-    text-align: center;
+.main-content .content-section .content-image {    
     margin-bottom: 1.5rem;
+    margin-top: 1rem;
 }
-.main-content .content-section .content-image img {
-    max-width: 220px; /* Ukuran gambar kecil di atas teks */
+.main-content .content-section .content-image img {    
     width: 100%;
     border-radius: 8px;
+    height: auto;
    
 }
 .main-content .content-section h3 {
