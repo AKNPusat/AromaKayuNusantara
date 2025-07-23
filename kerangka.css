@@ -933,3 +933,57 @@ main p, .content-section p {
         margin: 0 auto 1.5rem auto; /* Tengahkan gambar */
     }
 }
+/* ========================================================== */
+/* KODE BARU UNTUK STYLE MENU MOBILE */
+/* ========================================================== */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Mulai dari luar layar */
+    width: 100%;
+    height: 100%;
+    background-color: #0d244f; /* Warna latar gelap */
+    z-index: 2000;
+    transition: left 0.3s ease;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+.mobile-menu.active {
+    left: 0; /* Geser ke dalam layar saat aktif */
+}
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.mobile-menu-header .logo { height: 50px; }
+.close-button {
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+}
+.mobile-menu .main-nav-mobile a,
+.mobile-menu .top-links-mobile a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.mobile-menu .top-links-mobile {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+.mobile-menu .register-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    border-color: white;
+    font-size: 1rem; /* Sesuaikan ukuran font */
+}
