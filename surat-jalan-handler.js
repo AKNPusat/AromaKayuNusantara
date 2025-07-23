@@ -1,5 +1,5 @@
 // ===================================================================
-// KODE SURAT JALAN - MENGGABUNGKAN KODE ANDA DENGAN BAGIAN YANG HILANG
+// KODE SURAT JALAN ANDA - DENGAN PENAMBAHAN LOGO PADA PRINT
 // ===================================================================
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let stokAwalItems = {};
 
     function loadDataForSuratJalan(resi) {
+        // ... (Fungsi ini tidak diubah sama sekali)
         db.collection("shipments").doc(resi).get().then((doc) => {
             if (doc.exists) {
                 dataPengirimanSaatIni = doc.data();
@@ -76,11 +77,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // ========================================================
-    // --- BAGIAN YANG DITAMBAHKAN KEMBALI ---
-    // ========================================================
     const formPengambilan = document.getElementById('form-pengambilan-barang');
     if(formPengambilan) {
+        // ... (Fungsi ini tidak diubah sama sekali)
         formPengambilan.addEventListener('submit', function(e){
             e.preventDefault();
             const nomorResi = document.getElementById('nomor-resi-sj').value;
@@ -127,6 +126,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // ========================================================
+    // --- FUNGSI GENERATE SURAT JALAN SUDAH DITAMBAH LOGO ---
+    // ========================================================
     function generateSuratJalan(data) {
         let itemRows = '';
         data.items.forEach((item, index) => {
@@ -134,30 +136,45 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         const printWindow = window.open('', '_blank');
         printWindow.document.write(`
-            <html><head><title>Surat Jalan - ${data.nomorResi}</title>
-            <style>
-                body { font-family: Arial, sans-serif; }
-                .container { width: 80%; margin: 0 auto; }
-                h1 { text-align: center; }
-                table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-                th, td { border: 1px solid black; padding: 8px; text-align: left; }
-                .signatures { margin-top: 50px; display: flex; justify-content: space-around; }
-            </style>
-            </head><body onload="window.print()">
-                <div class="container">
-                    <h1>SURAT JALAN</h1>
-                    <p><strong>No. Dokumen:</strong> ${data.id}</p>
-                    <p><strong>No. Resi Induk:</strong> ${data.nomorResi}</p>
-                    <p><strong>Diterima Oleh (sesuai resi):</strong> ${data.penerimaAsli}</p>
-                    <p><strong>Nama Pengambil:</strong> ${data.pengambil.nama}</p>
-                    <p><strong>No. Kendaraan:</strong> ${data.pengambil.kendaraan}</p>
-                    <table><thead><tr><th>No</th><th>Nama Barang</th><th>Jumlah</th></tr></thead><tbody>${itemRows}</tbody></table>
-                    <div class="signatures">
-                        <div><p>Hormat Kami,</p><br><br><p>(___________)</p><p>Kepala Gudang</p></div>
-                        <div><p>Penerima,</p><br><br><p>(___________)</p><p>${data.pengambil.nama}</p></div>
+            <html>
+                <head>
+                    <title>Surat Jalan - ${data.nomorResi}</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; font-size: 11pt; }
+                        .container { width: 90%; margin: 0 auto; }
+                        .header { text-align: center; border-bottom: 3px double black; padding-bottom: 15px; margin-bottom: 25px; }
+                        .logo { max-height: 80px; margin-bottom: 10px; }
+                        .header h2 { margin: 0; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+                        .signatures { margin-top: 50px; display: flex; justify-content: space-around; text-align: center; }
+                    </style>
+                </head>
+                <body onload="window.print(); window.close();">
+                    <div class="container">
+                        <div class="header">
+                            <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" alt="Logo" class="logo">
+                            <h2>SURAT JALAN</h2>
+                        </div>
+                        <p><strong>No. Dokumen:</strong> ${data.id}</p>
+                        <p><strong>No. Resi Induk:</strong> ${data.nomorResi}</p>
+                        <p><strong>Diterima Oleh (sesuai resi):</strong> ${data.penerimaAsli}</p>
+                        <p><strong>Nama Pengambil:</strong> ${data.pengambil.nama}</p>
+                        <p><strong>No. Kendaraan:</strong> ${data.pengambil.kendaraan}</p>
+                        <table>
+                            <thead>
+                                <tr><th>No</th><th>Nama Barang</th><th>Jumlah</th></tr>
+                            </thead>
+                            <tbody>
+                                ${itemRows}
+                            </tbody>
+                        </table>
+                        <div class="signatures">
+                            <div><p>Hormat Kami,</p><br><br><br><p>(___________________)</p><p><strong>Kepala Gudang</strong></p></div>
+                            <div><p>Penerima,</p><br><br><br><p>(___________________)</p><p><strong>${data.pengambil.nama}</strong></p></div>
+                        </div>
                     </div>
-                </div>
-            </body>
+                </body>
             </html>
         `);
         printWindow.document.close();
