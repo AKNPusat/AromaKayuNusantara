@@ -875,46 +875,35 @@ main p, .content-section p {
     border-top: 1px solid #eee;
 }
 /* ========================================================== */
-/* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) */
+/* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) - DIPERBAIKI */
 /* ========================================================== */
 
-@media (max-width: 992px) {
-    /* Aturan untuk layar tablet dan di bawahnya */
-    
-    .header-container {
-        padding: 0 1rem; /* Kurangi padding header */
-    }
-
-    .main-nav {
-        display: none; /* Sembunyikan menu utama di tablet & HP */
-    }
-
-    .header-search {
-        display: none; /* Sembunyikan ikon search juga */
-    }
-
-    /* Tampilkan ikon hamburger (yang akan kita buat di app.js) */
-    .hamburger-button {
-        display: block;
-    }
-    .main-nav.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%; /* Muncul tepat di bawah header */
-    left: 0;
-    width: 100%;
-    background-color: white;
-    }
+/* Sembunyikan hamburger di desktop secara default */
+.hamburger-button {
+    display: none;
 }
 
-@media (max-width: 768px) {
-    /* Aturan spesifik untuk layar HP */
-
-    /* Kurangi jarak atas konten */
-    main {
-        padding-top: 80px;
+@media (max-width: 1024px) { /* Batas diubah agar lebih standar */
+    /* Sembunyikan menu desktop HANYA di layar kecil */
+    .main-nav,
+    .header-search {
+        display: none;
     }
+    /* Tampilkan tombol hamburger HANYA di layar kecil */
+    .hamburger-button {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 2.5rem;
+        color: #dfb45e; /* Warna emas */
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+    }
+    .main-header.scrolled .hamburger-button {
+        color: #b78729; /* Warna emas lebih gelap saat scroll */
+    }
+}
     
     /* Buat layout 2 kolom menjadi 1 kolom */
     .two-column-layout {
