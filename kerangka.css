@@ -166,6 +166,22 @@ main {
     fill: currentColor;
 }
 /* --- Navigasi & Dropdown --- */
+.header-right-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.hamburger-button {
+    display: none; /* Sembunyikan di desktop */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.main-header.scrolled .hamburger-button {
+    color: var(--text-dark);
+}
 .main-nav { display: flex; align-items: center; }    
 .nav-item { position: relative; }
 .nav-link {
@@ -880,6 +896,15 @@ main p, .content-section p {
     /* Tampilkan ikon hamburger (yang akan kita buat di app.js) */
     .hamburger-button {
         display: block;
+    }
+    .main-nav.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Muncul tepat di bawah header */
+    left: 0;
+    width: 100%;
+    background-color: white;
     }
 }
 
