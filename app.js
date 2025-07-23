@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="header-search">
                      <svg fill="currentColor" viewBox="0 0 24 24" style="width:24px;height:24px;"><path d="M9.5...Z" /></svg>
                 </div>
+                <button class="hamburger-button">☰</button>
             </div>
         </header>
     `;
@@ -152,3 +153,11 @@ document.addEventListener("DOMContentLoaded", function() {
         startSlideShow(); // Mulai semuanya
     }
 });
+// --- Logika untuk Hamburger Menu ---
+const hamburger = document.querySelector('.hamburger-button');
+const mainNav = document.querySelector('.main-nav');
+if (hamburger && mainNav) {
+    hamburger.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+    });
+}
