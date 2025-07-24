@@ -878,51 +878,40 @@ main p, .content-section p {
 /* ============================== */
 /* RESPONSIF: Hamburger Menu     */
 /* ============================== */
+.hamburger-button {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* --- Responsive Mobile --- */
 @media (max-width: 768px) {
-    .main-nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        background-color: #0d244f;
-        display: none;
-        padding: 1rem 0;
-    }
+  .hamburger-button {
+    display: block;
+    z-index: 1001;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white; /* ubah sesuai background kamu */
+  }
 
-    .main-nav.nav-open {
-        display: flex;
-    }
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(0, 82, 155, 0.9); /* atau warna lain */
+    position: absolute;
+    top: 60px; /* sesuaikan tinggi header */
+    right: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+  }
 
-    .main-nav .nav-item {
-        width: 100%;
-        text-align: center;
-    }
-
-    .main-nav .nav-link {
-        padding: 1rem;
-        width: 100%;
-        display: block;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .dropdown-menu,
-    .dropdown-menu-top {
-        position: static;
-        background-color: #123;
-        box-shadow: none;
-        transform: none;
-        opacity: 1;
-        display: none;
-    }
-
-    .nav-item:hover .dropdown-menu,
-    .nav-item:hover .dropdown-menu-top {
-        display: block;
-    }
-
-    .hamburger-button {
-        display: block;
-    }
+  .main-nav.nav-open {
+    display: flex;
+  }
 }
 
