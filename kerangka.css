@@ -171,17 +171,7 @@ main {
     align-items: center;
     gap: 1rem;
 }
-.hamburger-button {
-    display: none; /* Sembunyikan di desktop */
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-}
-.main-header.scrolled .hamburger-button {
-    color: var(--text-dark);
-}
+
 .main-nav { display: flex; align-items: center; }    
 .nav-item { position: relative; }
 .nav-link {
@@ -892,11 +882,22 @@ main p, .content-section p {
     .header-search {
         display: none;
     }
-    
+
+       
+}
     /* Tampilkan ikon hamburger (yang akan kita buat di app.js) */
     .hamburger-button {
-        display: block;       
+        display: block;  
+        background: none;
+        border: none;
+        color:#dfb45e;
+        font-size: 2rem;
+        cursor: pointer;
     }
+
+.main-header.scrolled .hamburger-button {
+    color: var(--text-dark);
+}
      .main-nav.active {
     display: flex;
     flex-direction: column;
@@ -904,11 +905,10 @@ main p, .content-section p {
     top: 100%; /* Muncul tepat di bawah header */
     left: 0;
     width: 100%;
-    background-color: white;   
-    }
+    background-color: white;       
 }
-    
-@media (max-width: 768px) {
+   
+@media (max-width: 1024px) {
     /* Aturan spesifik untuk layar HP */
 
     /* Kurangi jarak atas konten */
