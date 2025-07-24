@@ -90,13 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 } else {
                     topHeaderElem.classList.remove('scrolled');
                     mainHeaderElem.classList.remove('scrolled');
-                }
-                // --- Logika untuk Hamburger Menu ---
-const hamburger = document.querySelector('.hamburger-button');
-const mainNav = document.querySelector('.main-nav');
-if (hamburger && mainNav) {
-    hamburger.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
+                }             
     });
 }          
     }, 100);
@@ -158,5 +152,13 @@ if (hamburger && mainNav) {
 
         startSlideShow(); // Mulai semuanya
     }
+    / --- Logika untuk Hamburger Menu ---
+const hamburger = document.querySelector('.hamburger-button');
+const mainNav = document.querySelector('.main-nav');
+if (hamburger && mainNav) {
+    hamburger.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+    });
+}
 });
 
