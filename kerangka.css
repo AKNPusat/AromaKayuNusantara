@@ -923,28 +923,5 @@ main p, .content-section p {
         transform: none;
         background-color: #f9f9f9;
         padding-left: 2rem; /* Beri indentasi untuk sub-menu */
-    }
-              
-    .sidebar-nav {
-        display: flex; /* Buat menu samping jadi horizontal */
-        overflow-x: auto; /* Agar bisa di-scroll ke samping */
-        border-bottom: 1px solid #ddd;
-        margin-bottom: 1.5rem;
-    }
-
-    .sidebar-link {
-        border-left: none; /* Hapus garis kiri */
-        border-bottom: 3px solid transparent; /* Ganti dengan garis bawah */
-        white-space: nowrap; /* Pastikan teks tidak turun */
-    }
-    .sidebar-link.active, .sidebar-link:hover {
-        border-left-color: transparent;
-        border-bottom-color: var(--primary-blue);
-    }
-    
-    .main-content .content-section .content-image img {
-        float: none; /* Hapus float agar gambar di tengah */
-        display: block;
-        margin: 0 auto 1.5rem auto; /* Tengahkan gambar */
-    }
-}
+        }
+      }    
