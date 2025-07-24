@@ -878,7 +878,7 @@ main p, .content-section p {
 /* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) */
 /* ========================================================== */
 
-@media (max-width:  1024px) {
+@media (max-width:  992px) {
     /* Aturan untuk layar tablet dan di bawahnya */
     
     .header-container {
@@ -910,7 +910,7 @@ main p, .content-section p {
     
     /* Kurangi jarak atas konten */
     main {
-        padding-top: 0;
+        padding-top: 80;
     }
     
     /* Buat layout 2 kolom menjadi 1 kolom */
