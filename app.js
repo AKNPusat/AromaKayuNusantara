@@ -74,7 +74,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const footerHTML = `<footer class="main-footer"><p>© 2024 PT. Aroma Kayu Nusantara. All Rights Reserved.</p></footer>`;
 
      const headerPlaceholder = document.getElementById('header-placeholder');
-    if (headerPlaceholder) { headerPlaceholder.innerHTML = headerHTML; }
+    if (headerPlaceholder) { headerPlaceholder.innerHTML = headerHTML; 
+    }
+    
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    if (footerPlaceholder) { footerPlaceholder.innerHTML = footerHTML; }
+
+    
     const hamburgerBtn = document.querySelector('.hamburger-button');
         const mainNav = document.querySelector('.main-nav');
 
@@ -84,8 +90,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
     }
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    if (footerPlaceholder) { footerPlaceholder.innerHTML = footerHTML; }
 
     // Efek Header Scroll
     setTimeout(() => {
