@@ -924,16 +924,7 @@ main p, .content-section p {
         background-color: #f9f9f9;
         padding-left: 2rem; /* Beri indentasi untuk sub-menu */
     }
-        
-       main {
-        padding-top: 80px;
-    }
-    
-    /* Buat layout 2 kolom menjadi 1 kolom */
-    .two-column-layout {
-        flex-direction: column; /* Ubah dari baris menjadi kolom */
-    }
-    
+              
     .sidebar-nav {
         display: flex; /* Buat menu samping jadi horizontal */
         overflow-x: auto; /* Agar bisa di-scroll ke samping */
@@ -956,5 +947,4 @@ main p, .content-section p {
         display: block;
         margin: 0 auto 1.5rem auto; /* Tengahkan gambar */
     }
-
 }
