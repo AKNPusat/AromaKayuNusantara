@@ -875,3 +875,53 @@ main p, .content-section p {
     border-top: 1px solid #eee;
 }
 
+/* ============================== */
+/* RESPONSIF: Hamburger Menu     */
+/* ============================== */
+@media (max-width: 768px) {
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: #0d244f;
+        display: none;
+        padding: 1rem 0;
+    }
+
+    .main-nav.nav-open {
+        display: flex;
+    }
+
+    .main-nav .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-nav .nav-link {
+        padding: 1rem;
+        width: 100%;
+        display: block;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown-menu,
+    .dropdown-menu-top {
+        position: static;
+        background-color: #123;
+        box-shadow: none;
+        transform: none;
+        opacity: 1;
+        display: none;
+    }
+
+    .nav-item:hover .dropdown-menu,
+    .nav-item:hover .dropdown-menu-top {
+        display: block;
+    }
+
+    .hamburger-button {
+        display: block;
+    }
+}
