@@ -75,6 +75,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
      const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) { headerPlaceholder.innerHTML = headerHTML; }
+    const hamburgerBtn = document.querySelector('.hamburger-button');
+        const mainNav = document.querySelector('.main-nav');
+
+        if (hamburgerBtn && mainNav) {
+            hamburgerBtn.addEventListener('click', () => {
+                mainNav.classList.toggle('nav-open');
+            });
+        }
+    }
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) { footerPlaceholder.innerHTML = footerHTML; }
 
