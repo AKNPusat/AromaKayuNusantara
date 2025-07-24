@@ -171,6 +171,17 @@ main {
     align-items: center;
     gap: 1rem;
 }
+.hamburger-button {
+    display: none; /* Sembunyikan di desktop */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.main-header.scrolled .hamburger-button {
+    color: var(--text-dark);
+}
 .main-nav { display: flex; align-items: center; }    
 .nav-item { position: relative; }
 .nav-link {
@@ -866,8 +877,8 @@ main p, .content-section p {
 /* ========================================================== */
 /* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) */
 /* ========================================================== */
-  
-   @media (max-width: 992px) {
+
+@media (max-width: 992px) {
     /* Aturan untuk layar tablet dan di bawahnya */
     
     .header-container {
