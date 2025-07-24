@@ -868,65 +868,63 @@ main p, .content-section p {
 /* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) */
 /* ========================================================== */
  
-.main-header.scrolled .hamburger-button {
-    color: var(--text-dark);
-}      
+/* Sembunyikan elemen mobile di desktop secara default */
+.hamburger-button, .mobile-menu-container {
+    display: none;
+}
+
+/* Aturan ini hanya aktif di layar kecil (HP & Tablet) */
 @media (max-width: 1024px) {
-    /* Aturan spesifik untuk layar HP */
-     .header-container {
-        padding: 0 1rem; /* Kurangi padding header */
+    /* 1. Sembunyikan menu desktop */
+    .main-header .main-nav, 
+    .main-header .header-search,
+    .top-header {
+        display: none;
     }
 
-    /* Kurangi jarak atas konten */
-    main {
-        padding-top: 80px;
+    /* 2. Tampilkan tombol hamburger */
+    .main-header {
+        top: 0; /* Header utama naik ke paling atas */
     }
-   
-    /* Buat layout 2 kolom menjadi 1 kolom */
-    .two-column-layout {
-        flex-direction: column; /* Ubah dari baris menjadi kolom */
-    }
-       /* Tampilkan ikon hamburger (yang akan kita buat di app.js) */
     .hamburger-button {
-        display: none;  
+        display: block; /* Tampilkan tombol ini */
         background: none;
         border: none;
-        color:#dfb45e;
-        font-size: 2rem;
+        font-size: 2.5rem;
+        color: #dfb45e; /* Warna emas */
         cursor: pointer;
     }
-     .main-nav.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%; /* Muncul tepat di bawah header */
-    left: 0;
-    width: 100%;
-    background-color: white;       
-}
-     .header-search {
-        display: block;
+
+    /* 3. Style untuk menu mobile yang akan muncul */
+    .mobile-menu-container {
+        display: block; /* Tampilkan elemen ini di mobile */
+        position: fixed;
+        top: 0;
+        left: -100%; /* Mulai dari luar layar */
+        width: 100%;
+        height: 100%;
+        background-color: #0d244f;
+        z-index: 2000;
+        transition: left 0.3s ease;
+        padding: 1.5rem;
+        box-sizing: border-box;
+        overflow-y: auto;
     }
-    .sidebar-nav {
-        display: flex; /* Buat menu samping jadi horizontal */
-        overflow-x: auto; /* Agar bisa di-scroll ke samping */
-        border-bottom: 1px solid #ddd;
-        margin-bottom: 1.5rem;
+    .mobile-menu-container.active {
+        left: 0; /* Geser ke dalam saat aktif */
     }
 
-    .sidebar-link {
-        border-left: none; /* Hapus garis kiri */
-        border-bottom: 3px solid transparent; /* Ganti dengan garis bawah */
-        white-space: nowrap; /* Pastikan teks tidak turun */
+    /* ... Sisa style untuk isi menu mobile (header, close button, link) ... */
+    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    .mobile-menu-header .logo { height: 50px; }
+    .close-button { background: none; border: none; font-size: 2.5rem; color: white; cursor: pointer; }
+    .mobile-menu-container .main-nav-mobile a,
+    .mobile-menu-container .top-links-mobile a {
+        display: block; color: white; text-decoration: none; font-size: 1.5rem;
+        font-weight: 600; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-    .sidebar-link.active, .sidebar-link:hover {
-        border-left-color: transparent;
-        border-bottom-color: var(--primary-blue);
-    }
-    
-    .main-content .content-section .content-image img {
-        float: none; /* Hapus float agar gambar di tengah */
-        display: block;
-        margin: 0 auto 1.5rem auto; /* Tengahkan gambar */
+    .mobile-menu-container .top-links-mobile { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.2); }
+    .mobile-menu-container .top-links-mobile .register-button {
+        display: inline-block; margin-top: 1rem; border-color: white; color: white; font-size: 1rem;
     }
 }
