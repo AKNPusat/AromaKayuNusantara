@@ -154,10 +154,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 // --- Logika untuk Hamburger Menu ---
-const hamburger = document.querySelector('.hamburger-button');
-const mainNav = document.querySelector('.main-nav');
-if (hamburger && mainNav) {
-    hamburger.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
-    });
-}
+const hamburger = document.getElementById("hamburger");
+const mainNav = document.querySelector(".main-nav");
+
+hamburger.addEventListener("click", function () {
+  mainNav.classList.toggle("active");
+});
