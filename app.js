@@ -153,11 +153,38 @@ document.addEventListener("DOMContentLoaded", function() {
         startSlideShow(); // Mulai semuanya
     }
 });
-// --- Logika untuk Hamburger Menu ---
-const hamburger = document.querySelector('.hamburger-button');
-const mainNav = document.querySelector('.main-nav');
-if (hamburger && mainNav) {
-    hamburger.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
-    });
-}
+// ... (kode untuk slider, biarkan sama) ...
+        startSlideShow(); // Baris terakhir dari kode slider
+    }
+
+    // --- KODE BARU: LOGIKA UNTUK MEMBUAT DAN MENGONTROL MENU MOBILE ---
+    setTimeout(() => {
+        // Ambil konten menu dari header desktop yang sudah dimuat oleh innerHTML
+        const mainNavContent = document.querySelector('.main-nav');
+        const topLinksContent = document.querySelector('.top-links-right');
+
+        // Ambil wadah menu mobile yang sudah ada di HTML
+        const mobileMenuContainer = document.querySelector('.mobile-menu-container');
+
+        if (mobileMenuContainer && mainNavContent && topLinksContent) {
+            // Isi wadah mobile dengan konten menu
+            mobileMenuContainer.innerHTML = `
+                <div class="mobile-menu-header">
+                    <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" class="logo">
+                    <button class="close-button">×</button>
+                </div>
+                <nav class="main-nav-mobile">${mainNavContent.innerHTML}</nav>
+                <div class="top-links-mobile">${topLinksContent.innerHTML}</div>
+            `;
+
+            // Fungsikan tombol hamburger dan close
+            const hamburger = document.querySelector('.hamburger-button');
+            const closeBtn = mobileMenuContainer.querySelector('.close-button');
+            if (hamburger && closeBtn) {
+                hamburger.addEventListener('click', () => { mobileMenuContainer.classList.add('active'); });
+                closeBtn.addEventListener('click', () => { mobileMenuContainer.classList.remove('active'); });
+            }
+        }
+    }, 300); // Jeda sedikit untuk memastikan header desktop sudah dimuat
+
+}); // Ini adalah penutup dari DOMContentLoaded
