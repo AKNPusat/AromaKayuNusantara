@@ -874,3 +874,28 @@ main p, .content-section p {
     border: 0;
     border-top: 1px solid #eee;
 }
+
+@media (max-width: 992px) {
+    /* Aturan untuk layar tablet dan di bawahnya */
+    
+    .header-container {
+        padding: 0 1rem;
+    }
+
+    .main-nav {
+        display: none; /* INI BENAR - Menyembunyikan menu desktop */
+    }
+
+    .header-search {
+        display: none; /* INI BENAR - Menyembunyikan ikon search */
+    }
+    
+    /* Tampilkan ikon hamburger (yang akan kita buat di app.js) */
+    .hamburger-button {
+        /* KESALAHAN 1: TIDAK ADA "display: block;" */
+        /* Tanpa ini, tombol hamburger akan tetap tersembunyi (karena di style desktop-nya display: none) */
+    }
+
+    /* KESALAHAN 2: TIDAK ADA ATURAN UNTUK ".main-nav.active" */
+    /* Tanpa ini, tidak ada cara bagi CSS untuk menampilkan kembali menu saat hamburger di-klik */
+}
