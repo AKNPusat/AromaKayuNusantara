@@ -908,9 +908,6 @@ main p, .content-section p {
     }
 }
     
-@media (max-width: 768px) {
-    /* Aturan spesifik untuk layar HP */
-
     /* Kurangi jarak atas konten */
     main {
         padding-top: 80px;
