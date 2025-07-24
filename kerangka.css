@@ -867,25 +867,26 @@ main p, .content-section p {
 /* ========================================================== */
 /* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) */
 /* ========================================================== */
-
-@media (max-width: 992px) {
-    /* Aturan untuk layar tablet dan di bawahnya */
-    
-    .header-container {
+ 
+.main-header.scrolled .hamburger-button {
+    color: var(--text-dark);
+}      
+@media (max-width: 1024px) {
+    /* Aturan spesifik untuk layar HP */
+     .header-container {
         padding: 0 1rem; /* Kurangi padding header */
     }
 
-    .main-nav {
-        display: none; /* Sembunyikan menu utama di tablet & HP */
+    /* Kurangi jarak atas konten */
+    main {
+        padding-top: 80px;
     }
-
-    .header-search {
-        display: none;
+   
+    /* Buat layout 2 kolom menjadi 1 kolom */
+    .two-column-layout {
+        flex-direction: column; /* Ubah dari baris menjadi kolom */
     }
-
-       
-}
-    /* Tampilkan ikon hamburger (yang akan kita buat di app.js) */
+       /* Tampilkan ikon hamburger (yang akan kita buat di app.js) */
     .hamburger-button {
         display: block;  
         background: none;
@@ -894,10 +895,6 @@ main p, .content-section p {
         font-size: 2rem;
         cursor: pointer;
     }
-
-.main-header.scrolled .hamburger-button {
-    color: var(--text-dark);
-}
      .main-nav.active {
     display: flex;
     flex-direction: column;
@@ -907,20 +904,9 @@ main p, .content-section p {
     width: 100%;
     background-color: white;       
 }
-   
-@media (max-width: 1024px) {
-    /* Aturan spesifik untuk layar HP */
-
-    /* Kurangi jarak atas konten */
-    main {
-        padding-top: 80px;
+     .header-search {
+        display: block;
     }
-    
-    /* Buat layout 2 kolom menjadi 1 kolom */
-    .two-column-layout {
-        flex-direction: column; /* Ubah dari baris menjadi kolom */
-    }
-    
     .sidebar-nav {
         display: flex; /* Buat menu samping jadi horizontal */
         overflow-x: auto; /* Agar bisa di-scroll ke samping */
