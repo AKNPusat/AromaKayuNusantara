@@ -154,30 +154,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-
-    // --- KODE BARU: LOGIKA UNTUK MENU MOBILE ---
-    setTimeout(() => {
-        const mobileMenuContainer = document.querySelector('.mobile-menu-container');
-        const mainNavContent = document.querySelector('.main-nav');
-        const topLinksContent = document.querySelector('.top-links-right');
-        
-        if (mobileMenuContainer && mainNavContent && topLinksContent) {
-            mobileMenuContainer.innerHTML = `
-                <div class="mobile-menu-header">
-                    <img src="https-link-logo-anda.png" class="logo">
-                    <button class="close-button">×</button>
-                </div>
-                <nav class="main-nav-mobile">${mainNavContent.innerHTML}</nav>
-                <div class="top-links-mobile">${topLinksContent.innerHTML}</div>
-            `;
-
-            const hamburger = document.querySelector('.hamburger-button');
-            const closeBtn = mobileMenuContainer.querySelector('.close-button');
-            if (hamburger && closeBtn) {
-                hamburger.addEventListener('click', () => { mobileMenuContainer.classList.add('active'); });
-                closeBtn.addEventListener('click', () => { mobileMenuContainer.classList.remove('active'); });
-            }
-        }
-    }, 300);
-
-}); // Penutup DOMContentLoaded
