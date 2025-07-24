@@ -171,7 +171,17 @@ main {
     align-items: center;
     gap: 1rem;
 }
-
+.hamburger-button {
+    display: none; /* Sembunyikan di desktop */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.main-header.scrolled .hamburger-button {
+    color: var(--text-dark);
+}
 .main-nav { display: flex; align-items: center; }    
 .nav-item { position: relative; }
 .nav-link {
@@ -874,17 +884,7 @@ main p, .content-section p {
     .header-container {
         padding: 0 1rem; /* Kurangi padding header */
     }
-.hamburger-button {
-    display: none; /* Sembunyikan di desktop */
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-}
-.main-header.scrolled .hamburger-button {
-    color: var(--text-dark);
-}
+
     .main-nav {
         display: none; /* Sembunyikan menu utama di tablet & HP */
     }
@@ -908,6 +908,9 @@ main p, .content-section p {
     }
 }
     
+@media (max-width: 768px) {
+    /* Aturan spesifik untuk layar HP */
+
     /* Kurangi jarak atas konten */
     main {
         padding-top: 80px;
