@@ -878,7 +878,7 @@ main p, .content-section p {
 /* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) */
 /* ========================================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     /* Aturan untuk layar tablet dan di bawahnya */
     
     .header-container {
@@ -908,9 +908,6 @@ main p, .content-section p {
     }
 }
     
-@media (max-width: 768px) {
-    /* Aturan spesifik untuk layar HP */
-
     /* Kurangi jarak atas konten */
     main {
         padding-top: 80px;
