@@ -160,4 +160,19 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+// --- KODE BARU: LOGIKA UNTUK MENU HAMBURGER ---
+setTimeout(() => { // Jeda sedikit untuk memastikan header sudah dimuat
+    const hamburger = document.querySelector('.hamburger-button');
+    const mainNav = document.querySelector('.main-nav');
+    
+    if (hamburger && mainNav) {
+        hamburger.addEventListener('click', () => {
+            // Toggle class 'active' pada menu dan tombol itu sendiri
+            mainNav.classList.toggle('active');
 
+            hamburger.classList.toggle('active');
+        });
+    }
+}, 300);
+
+});
