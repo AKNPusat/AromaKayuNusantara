@@ -72,24 +72,33 @@ document.addEventListener("DOMContentLoaded", function() {
         </header>
     `;
     const footerHTML = `<footer class="main-footer"><p>© 2024 PT. Aroma Kayu Nusantara. All Rights Reserved.</p></footer>`;
-
      const headerPlaceholder = document.getElementById('header-placeholder');
+    
     if (headerPlaceholder) { headerPlaceholder.innerHTML = headerHTML; 
-    
-        const hamburgerBtn = document.querySelector('.hamburger-button');
-        const mainNav = document.querySelector('.main-nav');
-        if (hamburgerBtn && mainNav) {
-            hamburgerBtn.addEventListener('click', () => {
-                mainNav.classList.toggle('nav-open');
-            });
-        }   
+    setTimeout(() => {
+            const hamburgerBtn = document.querySelector('.hamburger-button');
+            const navMenu = document.querySelector('.main-nav');
+
+            if (hamburgerBtn && navMenu) {
+                hamburgerBtn.addEventListener('click', () => {
+                    navMenu.classList.toggle('nav-open');
+                });
+            }
+        }, 100);
     }
-    
+          
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) { footerPlaceholder.innerHTML = footerHTML; }
-
-    
-    
+     window.addEventListener('scroll', function () {
+        const header = document.querySelector('.main-header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+});
+        
            
 
     // Efek Header Scroll
