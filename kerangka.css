@@ -874,3 +874,32 @@ main p, .content-section p {
     border: 0;
     border-top: 1px solid #eee;
 }
+/* ==========================
+   Tampilan Versi HP (Max 768px)
+   ========================== */
+@media (max-width: 768px) {
+  .hamburger-button {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #222;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  .nav-item {
+    padding: 10px 20px;
+    border-top: 1px solid #444;
+  }
+}
