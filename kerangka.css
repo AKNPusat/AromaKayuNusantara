@@ -928,3 +928,33 @@ main p, .content-section p {
     display: block;
   }
 }
+/* Tambahan untuk Hamburger Menu */
+.hamburger-button {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  .hamburger-button {
+    display: block;
+  }
+}
