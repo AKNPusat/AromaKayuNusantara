@@ -904,7 +904,7 @@ main p, .content-section p {
     top: 100%; /* Muncul tepat di bawah header */
     left: 0;
     width: 100%;
-    background-color: none;   
+    background-color: transparent;   
     }
 }
     
