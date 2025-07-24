@@ -878,12 +878,14 @@ main p, .content-section p {
 /* KODE TAMBAHAN KHUSUS UNTUK TAMPILAN MOBILE */
 /* ========================================================== */
 
+/* Sembunyikan wadah menu mobile di desktop */
 .mobile-menu-container {
-    display: none; /* Sembunyikan wadah ini di desktop */
+    display: none;
 }
 
-/* Aturan ini hanya aktif di layar kecil (HP & Tablet) */
-@media (max-width: 768px) {
+/* Aturan ini hanya aktif di layar kecil */
+@media (max-width: 1024px) {
+
     /* 1. Sembunyikan menu desktop */
     .main-header .main-nav, 
     .main-header .header-search,
@@ -891,12 +893,12 @@ main p, .content-section p {
         display: none;
     }
     
-    /* 2. Tampilkan tombol hamburger */
+    /* 2. Atur ulang header utama untuk mobile */
     .main-header {
-        top: 0; /* Header utama naik ke paling atas */
+        top: 0;
     }
     .hamburger-button {
-        display: block; /* Tampilkan tombol ini */
+        display: block; /* Tampilkan tombol hamburger */
     }
 
     /* 3. Style untuk Menu Mobile yang Muncul */
@@ -904,18 +906,17 @@ main p, .content-section p {
         display: block;
         position: fixed;
         top: 0;
-        left: -100%; /* Mulai dari luar layar */
+        left: -100%;
         width: 100%;
         height: 100%;
-        background-color: #0d244f; /* Latar gelap */
+        background-color: #0d244f;
         z-index: 2000;
-        transition: left 0.3s ease-in-out;
+        transition: left 0.3s ease;
         padding: 1.5rem;
         box-sizing: border-box;
-        overflow-y: auto;
     }
     .mobile-menu-container.active {
-        left: 0; /* Geser ke dalam layar saat aktif */
+        left: 0;
     }
     .mobile-menu-header {
         display: flex;
@@ -938,8 +939,6 @@ main p, .content-section p {
         margin-top: 2rem; padding-top: 1.5rem;
         border-top: 1px solid rgba(255,255,255,0.2);
     }
-    .mobile-menu-container .register-button {
-        display: inline-block; margin-top: 1.5rem;
-        border-color: white; color: white;
-    }
+}
+    /* ... (sisa style menu mobile sama) ... */
 }
