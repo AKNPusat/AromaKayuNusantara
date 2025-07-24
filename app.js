@@ -64,11 +64,17 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
                     <div class="nav-item"><a href="lacak.html" class="nav-link">Lacak Resi</a></div>
                 </nav>
-                <div class="header-search">
-                     <svg fill="currentColor" viewBox="0 0 24 24" style="width:24px;height:24px;"><path d="M9.5...Z" /></svg>
-                </div>
-                <button class="hamburger-button">☰</button>
-            </div>
+                <div class="header-right-controls">
+    <div class="header-search">
+         <svg fill="currentColor" viewBox="0 0 24 24" style="width:24px;height:24px;"><path d="M9.5...Z" /></svg>
+    </div>
+    <!-- TOMBOL HAMBURGER BARU -->
+    <button class="hamburger-button" aria-label="Buka Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</div>
         </header>
     `;
     const footerHTML = `<footer class="main-footer"><p>© 2024 PT. Aroma Kayu Nusantara. All Rights Reserved.</p></footer>`;
