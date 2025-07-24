@@ -175,8 +175,8 @@ main {
     display: none; /* Sembunyikan di desktop */
     background: none;
     border: none;
-    color: white;
-    font-size: 2rem;
+    color: #dfb45e;
+    font-size: 1rem;
     cursor: pointer;
 }
 .main-header.scrolled .hamburger-button {
@@ -904,7 +904,7 @@ main p, .content-section p {
     top: 100%; /* Muncul tepat di bawah header */
     left: 0;
     width: 100%;
-    background-color: white;   
+    background-color: none;   
     }
 }
     
