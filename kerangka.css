@@ -888,7 +888,7 @@ main p, .content-section p {
     }
        /* Tampilkan ikon hamburger (yang akan kita buat di app.js) */
     .hamburger-button {
-        display: block;  
+        display: none;  
         background: none;
         border: none;
         color:#dfb45e;
