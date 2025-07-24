@@ -883,7 +883,7 @@ main p, .content-section p {
 }
 
 /* Aturan ini hanya aktif di layar kecil (HP & Tablet) */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     /* 1. Sembunyikan menu desktop */
     .main-header .main-nav, 
     .main-header .header-search,
