@@ -166,13 +166,3 @@ document.addEventListener("DOMContentLoaded", function() {
         startSlideShow(); // Mulai semuanya
     }
 });
-
-// --- 4. Hamburger Menu Toggle ---
-const hamburgerBtn = document.querySelector('.hamburger-button');
-const mainNav = document.querySelector('.main-nav');
-
-if (hamburgerBtn && mainNav) {
-    hamburgerBtn.addEventListener('click', () => {
-        mainNav.classList.toggle('nav-open');
-    });
-}
