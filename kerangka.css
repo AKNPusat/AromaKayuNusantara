@@ -874,59 +874,73 @@ main p, .content-section p {
     border: 0;
     border-top: 1px solid #eee;
 }
+/* ========================================================== */
+/* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) */
+/* ========================================================== */
+
+@media (max-width: 992px) {
+    /* Aturan untuk layar tablet dan di bawahnya */
+    
+    .header-container {
+        padding: 0 1rem; /* Kurangi padding header */
+    }
+
+    .main-nav {
+        display: none; /* Sembunyikan menu utama di tablet & HP */
+    }
+
+    .header-search {
+        display: none;
+    }
+    
+    /* Tampilkan ikon hamburger (yang akan kita buat di app.js) */
+    .hamburger-button {
+        display: block;       
+    }
+     .main-nav.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Muncul tepat di bawah header */
+    left: 0;
+    width: 100%;
+    background-color: white;   
+    }
+}
+    
 @media (max-width: 768px) {
+    /* Aturan spesifik untuk layar HP */
 
-  .header-container {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
+    /* Kurangi jarak atas konten */
+    main {
+        padding-top: 80px;
+    }
+    
+    /* Buat layout 2 kolom menjadi 1 kolom */
+    .two-column-layout {
+        flex-direction: column; /* Ubah dari baris menjadi kolom */
+    }
+    
+    .sidebar-nav {
+        display: flex; /* Buat menu samping jadi horizontal */
+        overflow-x: auto; /* Agar bisa di-scroll ke samping */
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 1.5rem;
+    }
 
-  .main-nav {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: #fff;
-    padding: 10px;
-  }
-
-  .main-nav.active {
-    display: flex;
-  }
-
-  .nav-item {
-    width: 100%;
-    margin: 5px 0;
-  }
-
-  .dropdown-menu {
-    position: static;
-    display: none;
-    padding-left: 10px;
-  }
-
-  .nav-item:hover .dropdown-menu,
-  .nav-item.active .dropdown-menu {
-    display: block;
-  }
-
-  .hamburger-button {
-    display: block;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .top-links-right {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-
-  .logo {
-    max-width: 150px;
-    height: auto;
-  }
-
+    .sidebar-link {
+        border-left: none; /* Hapus garis kiri */
+        border-bottom: 3px solid transparent; /* Ganti dengan garis bawah */
+        white-space: nowrap; /* Pastikan teks tidak turun */
+    }
+    .sidebar-link.active, .sidebar-link:hover {
+        border-left-color: transparent;
+        border-bottom-color: var(--primary-blue);
+    }
+    
+    .main-content .content-section .content-image img {
+        float: none; /* Hapus float agar gambar di tengah */
+        display: block;
+        margin: 0 auto 1.5rem auto; /* Tengahkan gambar */
+    }
 }
