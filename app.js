@@ -157,17 +157,18 @@ document.addEventListener("DOMContentLoaded", function() {
         startSlideShow(); // Baris terakhir dari kode slider
     }
 
+
+// ... (kode Anda untuk slider)
+        startSlideShow(); // Baris terakhir dari kode slider
+    }
+
     // --- KODE BARU: LOGIKA UNTUK MEMBUAT DAN MENGONTROL MENU MOBILE ---
     setTimeout(() => {
-        // Ambil konten menu dari header desktop yang sudah dimuat oleh innerHTML
+        const mobileMenuContainer = document.querySelector('.mobile-menu-container');
         const mainNavContent = document.querySelector('.main-nav');
         const topLinksContent = document.querySelector('.top-links-right');
-
-        // Ambil wadah menu mobile yang sudah ada di HTML
-        const mobileMenuContainer = document.querySelector('.mobile-menu-container');
-
+        
         if (mobileMenuContainer && mainNavContent && topLinksContent) {
-            // Isi wadah mobile dengan konten menu
             mobileMenuContainer.innerHTML = `
                 <div class="mobile-menu-header">
                     <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" class="logo">
@@ -177,7 +178,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="top-links-mobile">${topLinksContent.innerHTML}</div>
             `;
 
-            // Fungsikan tombol hamburger dan close
             const hamburger = document.querySelector('.hamburger-button');
             const closeBtn = mobileMenuContainer.querySelector('.close-button');
             if (hamburger && closeBtn) {
@@ -185,6 +185,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 closeBtn.addEventListener('click', () => { mobileMenuContainer.classList.remove('active'); });
             }
         }
-    }, 300); // Jeda sedikit untuk memastikan header desktop sudah dimuat
+    }, 300);
 
 }); // Ini adalah penutup dari DOMContentLoaded
