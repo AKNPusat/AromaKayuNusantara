@@ -874,4 +874,121 @@ main p, .content-section p {
     border: 0;
     border-top: 1px solid #eee;
 }
+/* ========================================================== */
+/* KODE TAMBAHAN KHUSUS UNTUK TAMPILAN MOBILE */
+/* ========================================================== */
 
+/* Wadah untuk menu mobile, tersembunyi di desktop secara default */
+.mobile-menu-container {
+    display: none;
+}
+
+/* Aturan ini hanya akan aktif di layar kecil (tablet dan HP) */
+@media (max-width: 1024px) {
+
+    /* --- Sembunyikan elemen desktop --- */
+    .main-header .main-nav,
+    .main-header .header-search,
+    .top-header {
+        display: none;
+    }
+    
+    /* --- Atur ulang header utama untuk mobile --- */
+    .main-header {
+        top: 0; /* Header utama naik ke paling atas */
+    }
+    .main-header .header-container {
+        padding: 0 1rem; /* Kurangi padding agar tidak mepet */
+    }
+    .logo {
+        height: 50px; /* Logo lebih kecil di mobile */
+    }
+
+    /* --- Tampilkan dan style tombol hamburger --- */
+    .hamburger-button {
+        display: block; /* Tampilkan tombol ini */
+        background: none;
+        border: none;
+        font-size: 2.5rem;
+        color: #dfb45e; /* Warna emas */
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+    }
+    .main-header.scrolled .hamburger-button {
+        color: #b78729; /* Warna emas lebih gelap saat scroll */
+    }
+
+    /* --- Style untuk Menu Mobile yang Muncul dari Samping --- */
+    .mobile-menu-container {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: -100%; /* Mulai dari luar layar sebelah kiri */
+        width: 100%;
+        height: 100%;
+        background-color: #0d244f; /* Latar gelap solid */
+        z-index: 2000;
+        transition: left 0.3s ease-in-out;
+        padding: 1.5rem;
+        box-sizing: border-box;
+        overflow-y: auto;
+    }
+    .mobile-menu-container.active {
+        left: 0; /* Geser ke dalam layar saat aktif */
+    }
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .mobile-menu-header .logo {
+        height: 45px;
+    }
+    .close-button {
+        background: none;
+        border: none;
+        font-size: 2.5rem;
+        color: white;
+        cursor: pointer;
+    }
+    
+    /* Style untuk link menu utama di mobile */
+    .mobile-menu-container .main-nav-mobile a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding: 1rem 0;
+    }
+    
+    /* Style untuk link top menu di mobile */
+    .mobile-menu-container .top-links-mobile {
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .mobile-menu-container .top-links-mobile a {
+        display: block;
+        color: #ccc;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 0.75rem 0;
+    }
+    .mobile-menu-container .register-button {
+        display: inline-block;
+        margin-top: 1.5rem;
+        border-color: #ccc;
+        color: #ccc;
+        font-size: 1rem;
+    }
+
+    /* Perbaikan tinggi hero section di mobile */
+    .hero-section {
+        height: 80vh;
+    }
+}
