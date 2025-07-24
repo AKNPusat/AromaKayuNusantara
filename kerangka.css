@@ -879,23 +879,49 @@ main p, .content-section p {
     /* Aturan untuk layar tablet dan di bawahnya */
     
     .header-container {
-        padding: 0 1rem;
+        padding: 0 1.5rem; /* Sedikit lebih lebar dari 1rem */
     }
 
-    .main-nav {
-        display: none; /* INI BENAR - Menyembunyikan menu desktop */
-    }
-
+    /* Sembunyikan menu utama dan search di desktop */
+    .main-nav,
     .header-search {
-        display: none; /* INI BENAR - Menyembunyikan ikon search */
+        display: none;
     }
     
-    /* Tampilkan ikon hamburger (yang akan kita buat di app.js) */
+    /* Tampilkan dan beri style pada tombol hamburger */
     .hamburger-button {
-        /* KESALAHAN 1: TIDAK ADA "display: block;" */
-        /* Tanpa ini, tombol hamburger akan tetap tersembunyi (karena di style desktop-nya display: none) */
+        display: block; /* PENTING: Tampilkan tombol ini */
     }
 
-    /* KESALAHAN 2: TIDAK ADA ATURAN UNTUK ".main-nav.active" */
-    /* Tanpa ini, tidak ada cara bagi CSS untuk menampilkan kembali menu saat hamburger di-klik */
+    /* Ini adalah ATURAN KUNCI untuk menampilkan menu saat hamburger diklik */
+    .main-nav.active {
+        display: flex;
+        flex-direction: column; /* Tumpuk menu secara vertikal */
+        position: absolute;
+        top: 100%; /* Muncul tepat di bawah header */
+        left: 0;
+        width: 100%;
+        background-color: white; /* Beri latar belakang agar tidak transparan */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 0.5rem 0;
+    }
+    
+    /* Sesuaikan tampilan link di dalam menu mobile */
+    .main-nav.active .nav-link {
+        color: var(--text-dark); /* Selalu warna gelap */
+        padding: 1rem 1.5rem; /* Jarak yang konsisten */
+        text-align: left; /* Teks rata kiri */
+    }
+    
+    .main-nav.active .dropdown-menu {
+        /* Buat dropdown menjadi bagian dari menu, bukan mengambang */
+        position: static;
+        display: block;
+        box-shadow: none;
+        border-radius: 0;
+        opacity: 1;
+        transform: none;
+        background-color: #f9f9f9;
+        padding-left: 2rem; /* Beri indentasi untuk sub-menu */
+    }
 }
