@@ -874,3 +874,59 @@ main p, .content-section p {
     border: 0;
     border-top: 1px solid #eee;
 }
+@media (max-width: 768px) {
+
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    padding-left: 10px;
+  }
+
+  .nav-item:hover .dropdown-menu,
+  .nav-item.active .dropdown-menu {
+    display: block;
+  }
+
+  .hamburger-button {
+    display: block;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .top-links-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .logo {
+    max-width: 150px;
+    height: auto;
+  }
+
+}
