@@ -154,3 +154,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+// --- 4. Hamburger Menu Toggle ---
+const hamburgerBtn = document.querySelector('.hamburger-button');
+const mainNav = document.querySelector('.main-nav');
+
+if (hamburgerBtn && mainNav) {
+    hamburgerBtn.addEventListener('click', () => {
+        mainNav.classList.toggle('nav-open');
+    });
+}
