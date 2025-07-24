@@ -874,3 +874,92 @@ main p, .content-section p {
     border: 0;
     border-top: 1px solid #eee;
 }
+/* ========================================================== */
+/* KODE BARU UNTUK MENU HAMBURGER & TAMPILAN MOBILE */
+/* ========================================================== */
+
+/* Pembungkus elemen kanan header */
+.header-right-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Jarak antara search dan hamburger */
+}
+
+/* Tombol Hamburger (tersembunyi di desktop) */
+.hamburger-button {
+    display: none;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101; /* Pastikan di atas menu */
+    position: relative;
+}
+
+.hamburger-button span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white; /* Warna garis awal */
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-button span:nth-child(2) {
+    margin: 6px 0;
+}
+
+.main-header.scrolled .hamburger-button span {
+    background-color: #dfb45e; /* Warna garis saat scroll */
+}
+
+/* Aturan untuk layar kecil */
+@media (max-width: 1024px) {
+    /* Sembunyikan menu desktop */
+    .main-nav, .header-search {
+        display: none;
+    }
+
+    /* Tampilkan tombol hamburger */
+    .hamburger-button {
+        display: block;
+    }
+
+    /* Style untuk menu saat aktif (dibuka) */
+    .main-nav.active {
+        display: flex;
+        flex-direction: column; /* Menu jadi vertikal */
+        position: fixed; /* Memenuhi layar */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(13, 36, 79, 0.98); /* Warna biru tua semi-transparan */
+        backdrop-filter: blur(5px);
+        padding-top: 100px; /* Jarak dari atas */
+        align-items: center;
+        z-index: 100;
+    }
+
+    .main-nav.active .nav-link {
+        color: white; /* Teks selalu putih di menu mobile */
+        font-size: 1.5rem;
+        padding: 1rem 0;
+        width: 80%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Animasi tombol hamburger menjadi 'X' */
+    .hamburger-button.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .hamburger-button.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-button.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
