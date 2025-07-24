@@ -90,9 +90,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 } else {
                     topHeaderElem.classList.remove('scrolled');
                     mainHeaderElem.classList.remove('scrolled');
-                }             
-    });
-}          
+                }
+            });
+        }
     }, 100);
     
     // --- 3. LOGIKA SLIDER TONGGAK SEJARAH (VERSI BARU) ---
@@ -152,7 +152,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         startSlideShow(); // Mulai semuanya
     }
-    / --- Logika untuk Hamburger Menu ---
+});
+// --- Logika untuk Hamburger Menu ---
 const hamburger = document.querySelector('.hamburger-button');
 const mainNav = document.querySelector('.main-nav');
 if (hamburger && mainNav) {
@@ -160,5 +161,3 @@ if (hamburger && mainNav) {
         mainNav.classList.toggle('active');
     });
 }
-});
-
