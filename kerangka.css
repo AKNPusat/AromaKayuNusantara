@@ -910,7 +910,7 @@ main p, .content-section p {
     
     /* Kurangi jarak atas konten */
     main {
-        padding-top: 60px;
+        padding-top: 0;
     }
     
     /* Buat layout 2 kolom menjadi 1 kolom */
