@@ -176,7 +176,7 @@ main {
     background: none;
     border: none;
     color: #dfb45e;
-    font-size: 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
 }
 .main-header.scrolled .hamburger-button {
@@ -878,7 +878,7 @@ main p, .content-section p {
 /* KODE BARU: ATURAN UNTUK TAMPILAN MOBILE (RESPONSIVE) */
 /* ========================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     /* Aturan untuk layar tablet dan di bawahnya */
     
     .header-container {
