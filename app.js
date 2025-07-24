@@ -153,43 +153,11 @@ document.addEventListener("DOMContentLoaded", function() {
         startSlideShow(); // Mulai semuanya
     }
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Toggle hamburger menu untuk HP
-    const hamburger = document.querySelector(".hamburger-button");
-    const nav = document.querySelector(".main-nav");
-
-    if (hamburger && nav) {
-        hamburger.addEventListener("click", function () {
-            nav.classList.toggle("active");
-        });
-    }
-
-    // Dropdown untuk mobile (klik, bukan hover)
-    const dropdownItems = document.querySelectorAll(".nav-item.dropdown");
-
-    dropdownItems.forEach((item) => {
-        const link = item.querySelector("a");
-        link.addEventListener("click", function (e) {
-            // Cegah link default jika ada dropdown
-            e.preventDefault();
-            item.classList.toggle("active");
-
-            // Tutup dropdown lain (opsional)
-            dropdownItems.forEach((otherItem) => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove("active");
-                }
-            });
-        });
+// --- Logika untuk Hamburger Menu ---
+const hamburger = document.querySelector('.hamburger-button');
+const mainNav = document.querySelector('.main-nav');
+if (hamburger && mainNav) {
+    hamburger.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
     });
-
-    // Tutup menu setelah klik salah satu link (opsional)
-    const navLinks = document.querySelectorAll(".main-nav a");
-
-    navLinks.forEach((link) => {
-        link.addEventListener("click", function () {
-            nav.classList.remove("active");
-        });
-    });
-});
+}
