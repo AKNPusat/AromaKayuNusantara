@@ -896,14 +896,14 @@ main p, .content-section p {
         top: 0;
     }
     .logo {
-        height: 45px;
+        height: 65px;
     }
     /* Tampilkan tombol hamburger */
     .hamburger-button {
         display: block;
         background: none;
         border: none;
-        font-size: 2.5rem;
+        font-size: 1.5rem;
         color: white; /* Warna awal saat transparan */
         cursor: pointer;
     }
