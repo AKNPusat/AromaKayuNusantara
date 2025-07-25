@@ -878,76 +878,42 @@ main p, .content-section p {
 /* ========================================================== */
 /* KODE BARU HANYA UNTUK TAMPILAN MOBILE */
 /* ========================================================== */
-@media (max-width: 1024px) {
-    /* Sembunyikan menu desktop di layar kecil */
-    .main-header .main-nav,
-    .main-header .header-search,
-    .top-header {
-        display: none;
-    }
-    
-    /* Atur ulang header utama */
-    .main-header {
-        top: 0;
-    }
-    /* Tampilkan tombol hamburger */
+.hamburger-button {
+    display: none;
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    z-index: 2000; /* di atas elemen lain */
+}
+
+@media screen and (max-width: 768px) {
     .hamburger-button {
         display: block;
     }
 
-    /* Style untuk Menu Mobile yang Muncul */
-    .mobile-menu-container {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: -100%; /* Mulai dari luar layar */
-        width: 100%;
-        height: 100%;
-        background-color: #0d244f;
-        z-index: 2000;
-        transition: left 0.3s ease;
-        padding: 1.5rem;
-        box-sizing: border-box;
-        overflow-y: auto;
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        z-index: 1500;
     }
-    .mobile-menu-container.active {
-        left: 0; /* Geser ke dalam saat aktif */
-    }
-    .mobile-menu-header {
+
+    .main-nav.show-nav {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 2rem;
     }
-    .mobile-menu-header .logo {
-        height: 50px;
-    }
-    .close-button {
-        background: none;
-        border: none;
-        font-size: 2.5rem;
+
+    .main-nav a {
         color: white;
-        cursor: pointer;
-    }
-    .mobile-menu-container .main-nav-mobile a,
-    .mobile-menu-container .top-links-mobile a {
-        display: block;
-        color: white;
-        text-decoration: none;
-        font-size: 1.5rem;
-        font-weight: 600;
-        padding: 1rem 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .mobile-menu-container .top-links-mobile {
-        margin-top: 2rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid rgba(255,255,255,0.2);
-    }
-    .mobile-menu-container .register-button {
-        display: inline-block;
-        margin-top: 1.5rem;
-        border-color: white;
-        color: white;
+        padding: 0.5rem 0;
     }
 }
