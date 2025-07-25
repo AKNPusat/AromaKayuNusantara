@@ -85,3 +85,36 @@ document.addEventListener("DOMContentLoaded", function() {
     // Pastikan Anda menggunakan kode yang sudah saya berikan sebelumnya yang sudah mencakup
     // pembuatan menu mobile dan logika hamburger di dalam setTimeout.
 });
+
+    // ==========================================================
+    // --- 2. Efek Teks Berjalan (DIKEMBALIKAN) ---
+    // ==========================================================
+    const titleElement = document.getElementById('hero-title');
+    if (titleElement) {
+        const textToType = "Investasi Gaharu untuk Nusantara";
+        let index = 0;
+        titleElement.innerHTML = ''; // Pastikan kosong di awal
+        function type() {
+            if (index < textToType.length) {
+                titleElement.innerHTML += textToType.charAt(index);
+                index++;
+                setTimeout(type, 120); // Kecepatan mengetik
+            }
+        }
+        type(); // Mulai efeknya
+    }
+    
+    // --- Efek dan fungsi lain ---
+    setTimeout(() => {
+        // Efek Header Scroll
+        // ... (kode efek scroll Anda) ...
+
+        // Logika untuk Hamburger Menu
+        // ... (kode logika hamburger Anda) ...
+    }, 200);
+    
+    // Panggil fungsi slider jika ada
+    if (typeof initHistorySlider === 'function') {
+        initHistorySlider();
+    }
+});
