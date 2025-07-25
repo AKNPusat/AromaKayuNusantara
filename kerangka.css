@@ -878,11 +878,6 @@ main p, .content-section p {
 /* ========================================================== */
 /* KODE BARU HANYA UNTUK TAMPILAN MOBILE */
 /* ========================================================== */
-
-/* Sembunyikan elemen mobile di desktop secara default */
-.mobile-menu { display: none; }
-.hamburger-button { display: none; }
-
 @media (max-width: 1024px) {
     /* Sembunyikan menu desktop di layar kecil */
     .main-header .main-nav,
@@ -895,25 +890,14 @@ main p, .content-section p {
     .main-header {
         top: 0;
     }
-    .logo {
-        height: 65px;
-    }
     /* Tampilkan tombol hamburger */
     .hamburger-button {
         display: block;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: white; /* Warna awal saat transparan */
-        cursor: pointer;
-    }
-    .main-header.scrolled .hamburger-button {
-        color: #dfb45e; /* Warna saat header digulir */
     }
 
     /* Style untuk Menu Mobile yang Muncul */
-    .mobile-menu {
-        display: block; /* Tampilkan elemen ini */
+    .mobile-menu-container {
+        display: block;
         position: fixed;
         top: 0;
         left: -100%; /* Mulai dari luar layar */
@@ -926,7 +910,7 @@ main p, .content-section p {
         box-sizing: border-box;
         overflow-y: auto;
     }
-    .mobile-menu.active {
+    .mobile-menu-container.active {
         left: 0; /* Geser ke dalam saat aktif */
     }
     .mobile-menu-header {
@@ -945,8 +929,8 @@ main p, .content-section p {
         color: white;
         cursor: pointer;
     }
-    .mobile-menu .main-nav-mobile a,
-    .mobile-menu .top-links-mobile a {
+    .mobile-menu-container .main-nav-mobile a,
+    .mobile-menu-container .top-links-mobile a {
         display: block;
         color: white;
         text-decoration: none;
@@ -955,12 +939,12 @@ main p, .content-section p {
         padding: 1rem 0;
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-    .mobile-menu .top-links-mobile {
+    .mobile-menu-container .top-links-mobile {
         margin-top: 2rem;
         padding-top: 1.5rem;
         border-top: 1px solid rgba(255,255,255,0.2);
     }
-    .mobile-menu .top-links-mobile .register-button {
+    .mobile-menu-container .register-button {
         display: inline-block;
         margin-top: 1.5rem;
         border-color: white;
