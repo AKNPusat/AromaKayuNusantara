@@ -1,70 +1,7 @@
-// ===================================================================
-// KODE app.js FINAL & LENGKAP DENGAN SEMUA MENU DROPDOWN
-// ===================================================================
-
-// --- Fungsi untuk Slider Tonggak Sejarah (Tidak Diubah) ---
-function initHistorySlider() {
-    const historySlider = document.querySelector('.history-slider');
-    if (!historySlider) return;
-
-    const navItems = historySlider.querySelectorAll('.history-nav-item');
-    const slides = historySlider.querySelectorAll('.history-slide');
-    if (navItems.length === 0 || slides.length === 0) return;
-
-    let currentSlide = 0;
-    let slideInterval;
-    const DURATION = 7000;
-
-    function activateSlide(n) {
-        navItems.forEach(item => {
-            const progressBar = item.querySelector('.progress-bar');
-            if (progressBar) {
-                progressBar.style.transition = 'none';
-                progressBar.style.width = '0%';
-            }
-            item.classList.remove('active');
-        });
-        slides.forEach(slide => slide.classList.remove('active'));
-
-        currentSlide = (n + slides.length) % slides.length;
-
-        navItems[currentSlide].classList.add('active');
-        slides[currentSlide].classList.add('active');
-
-        setTimeout(() => {
-            const activeProgressBar = navItems[currentSlide].querySelector('.progress-bar');
-            if (activeProgressBar) {
-                activeProgressBar.style.transition = `width ${DURATION / 1000}s linear`;
-                activeProgressBar.style.width = '100%';
-            }
-        }, 50);
-    }
-
-    function nextSlide() {
-        activateSlide(currentSlide + 1);
-    }
-
-    function startSlideShow() {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, DURATION);
-        activateSlide(currentSlide);
-    }
-
-    navItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            activateSlide(index);
-            clearInterval(slideInterval);
-            startSlideShow();
-        });
-    });
-
-    startSlideShow();
-}
-
-// --- FUNGSI UTAMA YANG BERJALAN SAAT HALAMAN DIMUAT ---
+// Kode ini HANYA untuk app.js
 document.addEventListener("DOMContentLoaded", function() {
 
-    // --- 1. Memuat Header dan Footer (DENGAN SEMUA DROPDOWN LENGKAP) ---
+    // --- 1. Memuat Header dan Footer secara Dinamis ---
     const headerHTML = `
         <div class="top-header">
             <div class="header-container">
@@ -90,15 +27,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 </a>
                 <nav class="main-nav">
                    <div class="nav-item">
-                        <a href="tentang-kami.html" class="nav-link">Tentang Kami</a>
-                        <div class="dropdown-menu">
-                            <a href="tentang-kami.html#sekilas-akn">Sekilas AKN</a>
-                            <a href="tentang-kami.html#tonggak-sejarah">Tonggak Sejarah</a>
-                            <a href="tentang-kami.html#visi-misi">Visi, Misi, & Tata Nilai</a>
-                            <a href="tentang-kami.html#makna-logo">Makna Logo</a>
-                            <a href="tentang-kami.html#manajemen">Manajemen</a>
-                        </div>
-                    </div>
+    <a href="tentang-kami.html" class="nav-link">Tentang Kami</a>
+    <div class="dropdown-menu">
+        <a href="tentang-kami.html#sekilas-akn">Sekilas AKN</a>
+        <a href="tentang-kami.html#tonggak-sejarah">Tonggak Sejarah</a>
+        <a href="tentang-kami.html#visi-misi">Visi, Misi, & Tata Nilai</a>
+        <a href="tentang-kami.html#makna-logo">Makna Logo</a>
+        <a href="tentang-kami.html#manajemen">Manajemen</a>
+    </div>
+</div>
+                    <!-- Menu Bisnis Kami (BENAR) -->
                     <div class="nav-item">
                         <a href="bisnis-kami.html" class="nav-link">Bisnis Kami</a>
                         <div class="dropdown-menu">
@@ -107,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             <a href="bisnis-kami.html#olahan">Industri Olahan</a>
                         </div>
                     </div>
+                    <!-- Menu Media & Informasi (BENAR) -->
                     <div class="nav-item">
                         <a href="media-informasi.html" class="nav-link">Media & Informasi</a>
                         <div class="dropdown-menu">
@@ -116,12 +55,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         </div>
                     </div>
                     <div class="nav-item">
-                        <a href="#" class="nav-link">Mitra AKN</a>
-                        <div class="dropdown-menu">
-                            <a href="firma.html">Firma Astajati Kian Nusantara</a>
-                            <a href="bmt.html">Bina Multi Transindo</a>
-                        </div>
-                    </div>
+    <a href="#" class="nav-link">Mitra AKN</a>
+    <div class="dropdown-menu">
+        <a href="firma.html">Firma Astajati Kian Nusantara</a>
+        <a href="bmt.html">Bina Multi Transindo</a>
+        <!-- Tambahkan mitra lain di sini jika perlu -->
+    </div>
+</div>
                     <div class="nav-item"><a href="lacak.html" class="nav-link">Lacak Resi</a></div>
                 </nav>
                 <div class="header-search">
@@ -138,45 +78,86 @@ document.addEventListener("DOMContentLoaded", function() {
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) { footerPlaceholder.innerHTML = footerHTML; }
 
-    // Efek dan fungsi lain dijalankan setelah jeda singkat
+    // Efek Header Scroll
     setTimeout(() => {
-        // Efek Header Scroll
-        const topHeader = document.querySelector('.top-header');
-        const mainHeader = document.querySelector('.main-header');
-        if (mainHeader && topHeader) {
+        const topHeaderElem = document.querySelector('.top-header');
+        const mainHeaderElem = document.querySelector('.main-header');
+        if (mainHeaderElem && topHeaderElem) {
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
-                    topHeader.classList.add('scrolled');
-                    mainHeader.classList.add('scrolled');
+                    topHeaderElem.classList.add('scrolled');
+                    mainHeaderElem.classList.add('scrolled');
                 } else {
-                    topHeader.classList.remove('scrolled');
-                    mainHeader.classList.remove('scrolled');
+                    topHeaderElem.classList.remove('scrolled');
+                    mainHeaderElem.classList.remove('scrolled');
                 }
             });
         }
+    }, 100);
+    
+    // --- 3. LOGIKA SLIDER TONGGAK SEJARAH (VERSI BARU) ---
+    const historySlider = document.querySelector('.history-slider');
+    if (historySlider) {
+        const navItems = historySlider.querySelectorAll('.history-nav-item');
+        const slides = historySlider.querySelectorAll('.history-slide');
+        let currentSlide = 0;
+        let slideInterval;
+        const DURATION = 7000; // Durasi per slide dalam milidetik (7 detik)
 
-        // Logika untuk Hamburger Menu
-        const hamburger = document.querySelector('.hamburger-button');
-        const mobileMenuContainer = document.querySelector('.mobile-menu-container');
-        if (hamburger && mobileMenuContainer) {
-            const mainNavContent = document.querySelector('.main-nav').innerHTML;
-            const topLinksContent = document.querySelector('.top-links-right').innerHTML;
-            
-            mobileMenuContainer.innerHTML = `
-                <div class="mobile-menu-header">
-                    <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" class="logo">
-                    <button class="close-button">×</button>
-                </div>
-                <nav class="main-nav-mobile">${mainNavContent}</nav>
-                <div class="top-links-mobile">${topLinksContent}</div>
-            `;
-            
-            const closeBtn = mobileMenuContainer.querySelector('.close-button');
-            hamburger.addEventListener('click', () => { mobileMenuContainer.classList.add('active'); });
-            closeBtn.addEventListener('click', () => { mobileMenuContainer.classList.remove('active'); });
+        function activateSlide(n) {
+            // Hentikan animasi progress bar yang sedang berjalan
+            navItems.forEach(item => {
+                const progressBar = item.querySelector('.progress-bar');
+                if (progressBar) {
+                    progressBar.style.transition = 'none';
+                    progressBar.style.width = '0%';
+                }
+                item.classList.remove('active');
+            });
+            slides.forEach(slide => slide.classList.remove('active'));
+
+            currentSlide = (n + slides.length) % slides.length;
+
+            navItems[currentSlide].classList.add('active');
+            slides[currentSlide].classList.add('active');
+
+            // Mulai animasi progress bar untuk slide yang aktif
+            setTimeout(() => {
+                const activeProgressBar = navItems[currentSlide].querySelector('.progress-bar');
+                if (activeProgressBar) {
+                    activeProgressBar.style.transition = `width ${DURATION / 1000}s linear`;
+                    activeProgressBar.style.width = '100%';
+                }
+            }, 50); // Jeda kecil untuk memastikan transisi berjalan
         }
-    }, 200);
 
-    // Panggil fungsi slider
-    initHistorySlider();
+        function nextSlide() {
+            activateSlide(currentSlide + 1);
+        }
+
+        function startSlideShow() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, DURATION);
+            activateSlide(currentSlide); // Panggil sekali untuk memulai progress bar
+        }
+
+        navItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                activateSlide(index);
+                // Reset autoplay
+                clearInterval(slideInterval);
+                startSlideShow();
+            });
+        });
+
+        startSlideShow(); // Mulai semuanya
+    }
 });
+// --- Logika untuk Hamburger Menu ---
+const hamburger = document.querySelector('.hamburger-button');
+const mainNav = document.querySelector('.main-nav');
+if (hamburger && mainNav) {
+    hamburger.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+    });
+}
