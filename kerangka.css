@@ -878,14 +878,6 @@ main p, .content-section p {
 /* ========================================================== */
 /* KODE BARU HANYA UNTUK TAMPILAN MOBILE */
 /* ========================================================== */
-.hamburger-button {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
 @media (max-width: 768px) {
     .hamburger-button {
         display: block;
@@ -904,4 +896,25 @@ main p, .content-section p {
         display: flex;
     }
 }
+.mobile-menu.active {
+    display: flex;
+}
 
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.mobile-menu .logo {
+    height: 40px;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
