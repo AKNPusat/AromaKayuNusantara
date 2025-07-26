@@ -882,6 +882,8 @@ main p, .content-section p {
     .hamburger-button {
         display: block;
     }
+    .top-links-right {
+        display: none;
     .main-nav {
         display: none;
         flex-direction: column;
