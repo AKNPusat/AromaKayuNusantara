@@ -79,6 +79,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) { headerPlaceholder.innerHTML = headerHTML; }
+    // --- Logika untuk Hamburger Menu ---
+const hamburger = document.querySelector('.hamburger-button');
+const mainNav = document.querySelector('.main-nav');
+if (hamburger && mainNav) {
+    hamburger.addEventListener('click', () => {
+        mainNav.classList.toggle('active');    
+   });
+ }
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) { footerPlaceholder.innerHTML = footerHTML; }
 
@@ -134,12 +142,4 @@ navItems.forEach((item, index) => {
                 clearInterval(slideInterval);
                 startSlideShow();
             });
-        });
-// --- Logika untuk Hamburger Menu ---
-const hamburger = document.querySelector('.hamburger-button');
-const mainNav = document.querySelector('.main-nav');
-if (hamburger && mainNav) {
-    hamburger.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
-    });
-}
+      
