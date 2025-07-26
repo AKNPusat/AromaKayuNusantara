@@ -1,4 +1,3 @@
-// Kode ini HANYA untuk app.js
 document.addEventListener("DOMContentLoaded", function () {
     // --- 1. Memuat Header dan Footer secara Dinamis ---
     const headerHTML = `
@@ -70,18 +69,20 @@ document.addEventListener("DOMContentLoaded", function () {
         </header>
     `;
 
-    const footerHTML = `...`; // Tetap seperti aslinya
+    const footerHTML = `...`; // Tetap seperti sebelumnya
 
     document.getElementById("header-placeholder").innerHTML = headerHTML;
     document.getElementById("footer-placeholder").innerHTML = footerHTML;
 
-    // --- 2. Membuat dan Mengisi Menu Mobile ---
     const mobileMenuContainer = document.querySelector(".mobile-menu");
 
-    // Tunggu sebentar agar elemen header terisi
     setTimeout(() => {
-        const mainNavContent = document.querySelector(".main-nav")?.innerHTML || "";
-        const topLinksContent = document.querySelector(".top-links-right")?.innerHTML || "";
+        // Ambil ulang setelah header terisi
+        const mainNavEl = document.querySelector(".main-nav");
+        const topLinksEl = document.querySelector(".top-links-right");
+
+        const mainNavContent = mainNavEl ? mainNavEl.innerHTML : "";
+        const topLinksContent = topLinksEl ? topLinksEl.outerHTML : ""; // pakai outerHTML agar struktur tetap
 
         if (mobileMenuContainer) {
             mobileMenuContainer.innerHTML = `
@@ -89,12 +90,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" class="logo">
                     <button class="close-button">×</button>
                 </div>
-                <div class="top-links-mobile">${topLinksContent}</div>
+                ${topLinksContent}
                 <nav class="main-nav-mobile">${mainNavContent}</nav>
             `;
         }
 
-        // --- 3. Efek Scroll Header ---
+        // Scroll efek
         const topHeader = document.querySelector(".top-header");
         const mainHeader = document.querySelector(".main-header");
         if (mainHeader && topHeader) {
@@ -109,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // --- 4. Hamburger dan Close ---
+        // Hamburger menu
         const hamburger = document.querySelector(".hamburger-button");
         const closeBtn = document.querySelector(".close-button");
         if (hamburger && closeBtn && mobileMenuContainer) {
@@ -121,10 +122,10 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // --- 5. Slider Riwayat (jika ada) ---
+        // Slider Riwayat
         if (typeof initHistorySlider === "function") {
             initHistorySlider();
         }
 
-    }, 200); // Delay sedikit untuk pastikan elemen sudah terisi
+    }, 300);
 });
