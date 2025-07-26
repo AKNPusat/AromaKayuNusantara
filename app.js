@@ -1,8 +1,4 @@
 // Kode ini HANYA untuk app.js
-// ===================================================================
-// KODE app.js FINAL DENGAN STRUKTUR YANG BENAR
-// ===================================================================
-
 document.addEventListener("DOMContentLoaded", function() {
 
     // --- 1. Memuat Header dan Footer secara Dinamis ---
@@ -74,58 +70,77 @@ document.addEventListener("DOMContentLoaded", function() {
                 <button class="hamburger-button">☰</button>
             </div>
         </header>
-     `;
-    const footerHTML = `<footer class="main-footer"><p>© 2024 PT. Aroma Kayu Nusantara</p></footer>`;
-    const mobileMenuHTML = `
-        <div class="mobile-menu-header">
-            <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" class="logo">
-            <button class="close-button">×</button>
-        </div>
-        <nav class="main-nav-mobile"></nav>
-        <div class="top-links-mobile"></div>
-    `;
+    ;
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    if (headerPlaceholder) { headerPlaceholder.innerHTML = headerHTML; }
 
-    // --- BAGIAN 2: MEMUAT ELEMEN KE HALAMAN ---
-    document.getElementById('header-placeholder').innerHTML = headerHTML;
-    document.getElementById('footer-placeholder').innerHTML = footerHTML;
-    document.querySelector('.mobile-menu-container').innerHTML = mobileMenuHTML;
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    if (footerPlaceholder) { footerPlaceholder.innerHTML = footerHTML; }
 
+    // 👇 PENTING! Pindahkan logika hamburger KE SINI agar elemen bisa dikenali
+    const hamburger = document.querySelector('.hamburger-button');
+    const mainNav = document.querySelector('.main-nav');
+    if (hamburger && mainNav) {
+        hamburger.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+    }
+    
+    // --- 3. LOGIKA SLIDER TONGGAK SEJARAH (VERSI BARU) ---
+    const historySlider = document.querySelector('.history-slider');
+    if (historySlider) {
+        const navItems = historySlider.querySelectorAll('.history-nav-item');
+        const slides = historySlider.querySelectorAll('.history-slide');
+        let currentSlide = 0;
+        let slideInterval;
+        const DURATION = 7000; // Durasi per slide dalam milidetik (7 detik)
 
-    // --- BAGIAN 3: MENJALANKAN SEMUA FUNGSI INTERAKTIF ---
-    // Dijalankan setelah jeda singkat untuk memastikan semua HTML sudah dimuat
-    setTimeout(() => {
-        // Efek Scroll Header
-        const topHeader = document.querySelector('.top-header');
-        const mainHeader = document.querySelector('.main-header');
-        if (topHeader && mainHeader) {
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    topHeader.classList.add('scrolled');
-                    mainHeader.classList.add('scrolled');
-                } else {
-                    topHeader.classList.remove('scrolled');
-                    mainHeader.classList.remove('scrolled');
+        function activateSlide(n) {
+            // Hentikan animasi progress bar yang sedang berjalan
+            navItems.forEach(item => {
+                const progressBar = item.querySelector('.progress-bar');
+                if (progressBar) {
+                    progressBar.style.transition = 'none';
+                    progressBar.style.width = '0%';
                 }
+                item.classList.remove('active');
             });
+            slides.forEach(slide => slide.classList.remove('active'));
+
+            currentSlide = (n + slides.length) % slides.length;
+
+            navItems[currentSlide].classList.add('active');
+            slides[currentSlide].classList.add('active');
+
+            // Mulai animasi progress bar untuk slide yang aktif
+            setTimeout(() => {
+                const activeProgressBar = navItems[currentSlide].querySelector('.progress-bar');
+                if (activeProgressBar) {
+                    activeProgressBar.style.transition = width ${DURATION / 1000}s linear;
+                    activeProgressBar.style.width = '100%';
+                }
+            }, 50); // Jeda kecil untuk memastikan transisi berjalan
         }
 
-        // Logika Hamburger Menu
-        const hamburgerBtn = document.querySelector('.hamburger-button');
-        const mobileMenu = document.querySelector('.mobile-menu-container');
-        const closeBtn = document.querySelector('.close-button');
-        
-        // Salin menu dari desktop ke mobile
-        const mainNavContent = document.querySelector('.main-nav').innerHTML;
-        const topLinksContent = document.querySelector('.top-links-right').innerHTML;
-        document.querySelector('.main-nav-mobile').innerHTML = mainNavContent;
-        document.querySelector('.top-links-mobile').innerHTML = topLinksContent;
-
-        if (hamburgerBtn && mobileMenu && closeBtn) {
-            hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.add('active'); });
-            closeBtn.addEventListener('click', () => { mobileMenu.classList.remove('active'); });
+        function nextSlide() {
+            activateSlide(currentSlide + 1);
         }
 
-    }, 200); // Jeda 200ms
+        function startSlideShow() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, DURATION);
+            activateSlide(currentSlide); // Panggil sekali untuk memulai progress bar
+        }
 
-    // (Panggil fungsi slider atau fungsi lain di sini jika diperlukan)
+        navItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                activateSlide(index);
+                // Reset autoplay
+                clearInterval(slideInterval);
+                startSlideShow();
+            });
+        });
+
+        startSlideShow(); // Mulai semuanya
+    }
 });
