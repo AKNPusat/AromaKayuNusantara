@@ -202,6 +202,14 @@ main {
 .nav-item:hover .nav-link {
     color: var(--primary-blue);
 }
+/* Dropdown mobile toggle */
+.main-nav-mobile .dropdown-menu {
+  display: none;
+}
+
+.main-nav-mobile .dropdown-menu.open {
+  display: block;
+}
 
 .dropdown-menu-top,
 .dropdown-menu {
