@@ -897,21 +897,19 @@ main p, .content-section p {
     }
 }
 .mobile-menu-container {
-    osition: fixed;
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 45, 91, 0.9); /* 💙 Biru navy transparan */
-    z-index: 9999;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    overflow-y: auto;
-    padding: 1rem;
+    height: 100%;
+    background-color: white;
+    z-index: 9999;    
+    overflow-y: auto;   
 }
 
 .mobile-menu-container.active {
-    transform: translateX(0);
+    display: block;
 }
 
 .close-button {
@@ -922,25 +920,4 @@ main p, .content-section p {
     background: none;
     border: none;
     cursor: pointer;
-}
-/* Dropdown Mobile */
-.main-nav-mobile ul {
-    display: none;
-    padding-left: 1rem;
-    margin-top: 0.5rem;
-}
-
-.main-nav-mobile li.open > ul {
-    display: block;
-}
-
-.main-nav-mobile .submenu-toggle {
-    float: right;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.main-nav-mobile li.open > .submenu-toggle {
-    transform: rotate(180deg); /* Panah menghadap atas saat terbuka */
 }
