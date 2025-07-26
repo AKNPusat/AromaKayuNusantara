@@ -881,9 +881,7 @@ main p, .content-section p {
 @media (max-width: 768px) {
     .hamburger-button {
         display: block;
-    }
-    .top-links-right {
-        display: none;
+    }    
     .main-nav {
         display: none;
         flex-direction: column;
@@ -922,4 +920,9 @@ main p, .content-section p {
     background: none;
     border: none;
     cursor: pointer;
+}
+@media (max-width: 768px) {
+  .top-header {
+    display: none !important;
+  }
 }
