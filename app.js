@@ -129,3 +129,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }, 300);
 });
+document.addEventListener("DOMContentLoaded", function() {
+  // ... kode lain untuk header, footer, slider, hamburger menu, dll ...
+
+  // Tambahkan di akhir:
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault(); // Mencegah link default agar tidak redirect saat diklik
+      const targetId = this.getAttribute('data-target'); // Ambil ID target dropdown
+      const dropdown = document.getElementById(targetId);
+
+      // Tutup semua dropdown lain
+      document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        if (menu.id !== targetId) {
+          menu.classList.remove('open');
+        }
+      });
+
+      // Buka atau tutup dropdown ini
+      dropdown.classList.toggle('open');
+    });
+  });
+});
