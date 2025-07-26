@@ -1,3 +1,4 @@
+// Kode ini HANYA untuk app.js
 // ===================================================================
 // KODE app.js FINAL DENGAN STRUKTUR YANG BENAR
 // ===================================================================
@@ -81,38 +82,64 @@ document.addEventListener("DOMContentLoaded", function() {
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) { footerPlaceholder.innerHTML = footerHTML; }
 
-    // --- 2. Efek dan Fungsi yang Dijalankan SETELAH HTML Dimuat ---
-    
-    // Beri jeda singkat untuk memastikan browser selesai me-render HTML dari innerHTML
+    // Efek Header Scroll
     setTimeout(() => {
         // Efek Header Scroll
-        const topHeader = document.querySelector('.top-header');
-        const mainHeader = document.querySelector('.main-header');
-        if (topHeader && mainHeader) {
+       const topHeaderElem = document.querySelector('.top-header');
+        const mainHeaderElem = document.querySelector('.main-header');
+        if (mainHeaderElem && topHeaderElem) {
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
-                    topHeader.classList.add('scrolled');
-                    mainHeader.classList.add('scrolled');
+                    topHeaderElem.classList.remove('scrolled');
+                    mainHeaderElem.classList.remove('scrolled');
                 } else {
                     topHeader.classList.remove('scrolled');
                     mainHeader.classList.remove('scrolled');
                 }
             });
         }
-
-        // LOGIKA HAMBURGER MENU (SEKARANG DI DALAM)
-        const hamburger = document.querySelector('.hamburger-button');
-        const mainNav = document.querySelector('.main-nav');
-        if (hamburger && mainNav) {
-            hamburger.addEventListener('click', () => {
-                mainNav.classList.toggle('active');
+topHeaderElem.classList.remove('scrolled');
+                    mainHeaderElem.classList.remove('scrolled');       
             });
-        }
-    }, 100); // Jeda 100 milidetik
+   slides.forEach(slide => slide.classList.remove('active'));
 
-    // --- 3. Logika Spesifik Halaman (seperti slider) ---
-    const historySlider = document.querySelector('.history-slider');
-    if (historySlider) {
-        // ... (seluruh logika slider Anda yang sudah benar)
-    }
-});
+            currentSlide = (n + slides.length) % slides.length;
+
+            navItems[currentSlide].classList.add('active');
+            slides[currentSlide].classList.add('active');
+
+            // Mulai animasi progress bar untuk slide yang aktif
+            setTimeout(() => {
+                const activeProgressBar = navItems[currentSlide].querySelector('.progress-bar');
+                if (activeProgressBar) {
+                    activeProgressBar.style.transition = `width ${DURATION / 1000}s linear`;
+                    activeProgressBar.style.width = '100%';
+                }
+            }, 50); // Jeda kecil untuk memastikan transisi berjalan
+        }
+
+        function nextSlide() {
+            activateSlide(currentSlide + 1);
+        }
+
+        function startSlideShow() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, DURATION);
+            activateSlide(currentSlide); // Panggil sekali untuk memulai progress bar
+        }
+navItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                activateSlide(index);
+                // Reset autoplay
+                clearInterval(slideInterval);
+                startSlideShow();
+            });
+        });
+// --- Logika untuk Hamburger Menu ---
+const hamburger = document.querySelector('.hamburger-button');
+const mainNav = document.querySelector('.main-nav');
+if (hamburger && mainNav) {
+    hamburger.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+    });
+}
