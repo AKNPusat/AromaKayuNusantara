@@ -1,5 +1,5 @@
 // ==========================================================
-// KODE header.js FINAL DENGAN LOGIKA HAMBURGER & DROPDOWN MOBILE
+// KODE header.js FINAL DENGAN LOGIKA HAMBURGER YANG STABIL
 // ==========================================================
 
 setTimeout(function () {
@@ -7,37 +7,22 @@ setTimeout(function () {
     const mobileMenuContainer = document.querySelector('.mobile-menu-container');
 
     if (hamburger && mobileMenuContainer) {
-        // Ambil semua elemen yang dibutuhkan
-        const topHeader = document.querySelector('.top-header');
+        // Periksa apakah konten utama ada
         const mainNav = document.querySelector('.main-nav');
         const topLinks = document.querySelector('.top-links-right');
 
-        if (topHeader && mainNav && topLinks) {
-            // --- Clone mainNav untuk modifikasi tanpa merusak elemen asli
-            const clonedMainNav = mainNav.cloneNode(true);
-            clonedMainNav.querySelectorAll('li').forEach(li => {
-                const submenu = li.querySelector('ul');
-                if (submenu) {
-                    li.classList.add('has-submenu');
-                    const toggleBtn = document.createElement('span');
-                    toggleBtn.classList.add('submenu-toggle');
-                    toggleBtn.textContent = '▼';
-                    li.insertBefore(toggleBtn, submenu);
-                }
-            });
-
-            // --- Masukkan ke dalam mobile menu
-            mobileMenuContainer.innerHTML = `
+        if (mainNav && topLinks) {
+            // Masukkan isi ke dalam mobile menu
+            mobileMenuContainer.innerHTML = 
                 <div class="mobile-menu-header">
                     <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" class="logo">
                     <button class="close-button">×</button>
                 </div>
-                <div class="top-header-mobile">${topHeader.innerHTML}</div>
-                <nav class="main-nav-mobile">${clonedMainNav.innerHTML}</nav>
+                <nav class="main-nav-mobile">${mainNav.innerHTML}</nav>
                 <div class="top-links-mobile">${topLinks.innerHTML}</div>
-            `;
+            ;
 
-            // Tombol close menu mobile
+            // Tambahkan event listener ke tombol baru (yang sudah muncul)
             const newCloseBtn = mobileMenuContainer.querySelector('.close-button');
             if (newCloseBtn) {
                 newCloseBtn.addEventListener('click', () => {
@@ -45,18 +30,10 @@ setTimeout(function () {
                 });
             }
 
-            // Tombol hamburger buka menu
+            // ✅ Aktifkan tombol hamburger setelah isi dimasukkan
             hamburger.addEventListener('click', () => {
                 mobileMenuContainer.classList.add('active');
             });
-
-            // --- Interaksi Dropdown Mobile: buka/tutup submenu
-            mobileMenuContainer.querySelectorAll('.submenu-toggle').forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    const parent = toggle.parentElement;
-                    parent.classList.toggle('open');
-                });
-            });
         }
     }
-}, 500); // beri waktu agar header termuat penuh
+}, 500); // beri waktu 500ms agar header sudah termuat penuh
