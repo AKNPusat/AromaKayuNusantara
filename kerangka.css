@@ -929,3 +929,24 @@ main p, .content-section p {
     display: none !important;
   }
 }
+/* === Tambahan untuk dropdown agar tidak tumpang tindih === */
+.nav-item.has-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  content: ' ▼'; /* Tanda panah kecil di samping */
+  font-size: 0.7em;
+}
+
+.dropdown-menu {
+  display: none;
+  position: static; /* Supaya tidak absolute (tidak melayang) */
+  margin-top: 0.5rem;
+  background: #f9f9f9;
+  padding-left: 1rem;
+}
+
+.dropdown-menu.open {
+  display: block;
+}
