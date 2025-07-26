@@ -880,40 +880,27 @@ main p, .content-section p {
 /* ========================================================== */
 .hamburger-button {
     display: none;
-    font-size: 2.5rem;
     background: none;
     border: none;
-    color: white;
+    font-size: 24px;
     cursor: pointer;
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    z-index: 2000; /* di atas elemen lain */
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     .hamburger-button {
         display: block;
     }
-
     .main-nav {
         display: none;
         flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.9);
+        background: white;
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        padding: 1rem;
-        z-index: 1500;
+        z-index: 99;
     }
-
-    .main-nav.show-nav {
+    .main-nav.active {
         display: flex;
-    }
-
-    .main-nav a {
-        color: white;
-        padding: 0.5rem 0;
     }
 }
