@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     <a href="input_resi.html">Input Resi</a>
                     <a href="surat_jalan.html">Surat Jalan</a>
                     <a href="stok.html">Stok</a>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link-top">Manajemen</a>
-                        <div class="dropdown-menu-top">
+                    <div class="nav-item has-dropdown">
+                        <a href="#" class="nav-link-top dropdown-toggle" data-target="manajemen-dropdown">Manajemen</a>
+                        <div class="dropdown-menu openable" id="manajemen-dropdown">
                             <a href="laporan_keuangan.html">Laporan Keuangan</a>
                             <a href="invoice.html">Invoice</a>
                         </div>
@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" class="logo">
                 </a>
                 <nav class="main-nav">
-                    <div class="nav-item">
-                        <a href="tentang-kami.html" class="nav-link">Tentang Kami</a>
-                        <div class="dropdown-menu">
+                    <div class="nav-item has-dropdown">
+                        <a href="tentang-kami.html" class="nav-link dropdown-toggle" data-target="tentang-dropdown">Tentang Kami</a>
+                        <div class="dropdown-menu openable" id="tentang-dropdown">
                             <a href="tentang-kami.html#sekilas-akn">Sekilas AKN</a>
                             <a href="tentang-kami.html#tonggak-sejarah">Tonggak Sejarah</a>
                             <a href="tentang-kami.html#visi-misi">Visi, Misi, & Tata Nilai</a>
@@ -34,25 +34,25 @@ document.addEventListener("DOMContentLoaded", function () {
                             <a href="tentang-kami.html#manajemen">Manajemen</a>
                         </div>
                     </div>
-                    <div class="nav-item">
-                        <a href="bisnis-kami.html" class="nav-link">Bisnis Kami</a>
-                        <div class="dropdown-menu">
+                    <div class="nav-item has-dropdown">
+                        <a href="bisnis-kami.html" class="nav-link dropdown-toggle" data-target="bisnis-dropdown">Bisnis Kami</a>
+                        <div class="dropdown-menu openable" id="bisnis-dropdown">
                             <a href="bisnis-kami.html#hulu">Hulu (Bahan Baku)</a>
                             <a href="bisnis-kami.html#peredaran">Peredaran</a>
                             <a href="bisnis-kami.html#olahan">Industri Olahan</a>
                         </div>
                     </div>
-                    <div class="nav-item">
-                        <a href="media-informasi.html" class="nav-link">Media & Informasi</a>
-                        <div class="dropdown-menu">
+                    <div class="nav-item has-dropdown">
+                        <a href="media-informasi.html" class="nav-link dropdown-toggle" data-target="media-dropdown">Media & Informasi</a>
+                        <div class="dropdown-menu openable" id="media-dropdown">
                             <a href="media-informasi.html#news-room">AKN News Room</a>
                             <a href="ruang-media.html">Ruang Media</a>
                             <a href="kegiatan.html">Kegiatan AKN</a>
                         </div>
                     </div>
-                    <div class="nav-item">
-                        <a href="#" class="nav-link">Mitra AKN</a>
-                        <div class="dropdown-menu">
+                    <div class="nav-item has-dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-target="mitra-dropdown">Mitra AKN</a>
+                        <div class="dropdown-menu openable" id="mitra-dropdown">
                             <a href="firma.html">Firma Astajati Kian Nusantara</a>
                             <a href="bmt.html">Bina Multi Transindo</a>
                         </div>
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const topLinksEl = document.querySelector(".top-links-right");
 
         const mainNavContent = mainNavEl ? mainNavEl.innerHTML : "";
-        const topLinksContent = topLinksEl ? topLinksEl.outerHTML : ""; // pakai outerHTML agar struktur tetap
+        const topLinksContent = topLinksEl ? topLinksEl.outerHTML : "";
 
         if (mobileMenuContainer) {
             mobileMenuContainer.innerHTML = `
@@ -122,32 +122,31 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
+        // Dropdown Toggle Function
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                const targetMenu = document.getElementById(targetId);
+
+                // Tutup semua menu lain
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    if (menu !== targetMenu) {
+                        menu.classList.remove('open');
+                    }
+                });
+
+                // Toggle menu target
+                if (targetMenu) {
+                    targetMenu.classList.toggle('open');
+                }
+            });
+        });
+
         // Slider Riwayat
         if (typeof initHistorySlider === "function") {
             initHistorySlider();
         }
 
     }, 300);
-});
-document.addEventListener("DOMContentLoaded", function() {
-  // ... kode lain untuk header, footer, slider, hamburger menu, dll ...
-
-  // Tambahkan di akhir:
-  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-    toggle.addEventListener('click', function(e) {
-      e.preventDefault(); // Mencegah link default agar tidak redirect saat diklik
-      const targetId = this.getAttribute('data-target'); // Ambil ID target dropdown
-      const dropdown = document.getElementById(targetId);
-
-      // Tutup semua dropdown lain
-      document.querySelectorAll('.dropdown-menu').forEach(menu => {
-        if (menu.id !== targetId) {
-          menu.classList.remove('open');
-        }
-      });
-
-      // Buka atau tutup dropdown ini
-      dropdown.classList.toggle('open');
-    });
-  });
 });
