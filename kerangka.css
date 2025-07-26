@@ -921,4 +921,8 @@ main p, .content-section p {
     border: none;
     cursor: pointer;
 }
-
+@media (max-width: 768px) {
+  .top-header {
+    display: none !important;
+  }
+}
