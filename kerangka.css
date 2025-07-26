@@ -923,3 +923,24 @@ main p, .content-section p {
     border: none;
     cursor: pointer;
 }
+/* Dropdown Mobile */
+.main-nav-mobile ul {
+    display: none;
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+.main-nav-mobile li.open > ul {
+    display: block;
+}
+
+.main-nav-mobile .submenu-toggle {
+    float: right;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.main-nav-mobile li.open > .submenu-toggle {
+    transform: rotate(180deg); /* Panah menghadap atas saat terbuka */
+}
