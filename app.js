@@ -121,3 +121,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // Panggil fungsi slider
     initHistorySlider();
 });
+// --- Fungsi Toggle Hamburger Menu ---
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerButton = document.querySelector(".hamburger-button");
+    const navMenu = document.querySelector(".main-nav");
+
+    if (hamburgerButton && navMenu) {
+        hamburgerButton.addEventListener("click", function () {
+            navMenu.classList.toggle("active");
+        });
+    }
+});
