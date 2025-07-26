@@ -70,77 +70,54 @@ document.addEventListener("DOMContentLoaded", function() {
                 <button class="hamburger-button">☰</button>
             </div>
         </header>
-    ;
-    const headerPlaceholder = document.getElementById('header-placeholder');
-    if (headerPlaceholder) { headerPlaceholder.innerHTML = headerHTML; }
+  const footerHTML = `...`;
 
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    if (footerPlaceholder) { footerPlaceholder.innerHTML = footerHTML; }
+    document.getElementById('header-placeholder').innerHTML = headerHTML;
+    document.getElementById('footer-placeholder').innerHTML = footerHTML;
 
-    // 👇 PENTING! Pindahkan logika hamburger KE SINI agar elemen bisa dikenali
-    const hamburger = document.querySelector('.hamburger-button');
-    const mainNav = document.querySelector('.main-nav');
-    if (hamburger && mainNav) {
-        hamburger.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-        });
-    }
+    // --- 2. Membuat dan Mengisi Menu Mobile ---
+    const mobileMenuContainer = document.querySelector('.mobile-menu');
+    const mainNavContent = document.querySelector('.main-nav').innerHTML;
+    const topLinksContent = document.querySelector('.top-links-right').innerHTML;
     
-    // --- 3. LOGIKA SLIDER TONGGAK SEJARAH (VERSI BARU) ---
-    const historySlider = document.querySelector('.history-slider');
-    if (historySlider) {
-        const navItems = historySlider.querySelectorAll('.history-nav-item');
-        const slides = historySlider.querySelectorAll('.history-slide');
-        let currentSlide = 0;
-        let slideInterval;
-        const DURATION = 7000; // Durasi per slide dalam milidetik (7 detik)
-
-        function activateSlide(n) {
-            // Hentikan animasi progress bar yang sedang berjalan
-            navItems.forEach(item => {
-                const progressBar = item.querySelector('.progress-bar');
-                if (progressBar) {
-                    progressBar.style.transition = 'none';
-                    progressBar.style.width = '0%';
-                }
-                item.classList.remove('active');
-            });
-            slides.forEach(slide => slide.classList.remove('active'));
-
-            currentSlide = (n + slides.length) % slides.length;
-
-            navItems[currentSlide].classList.add('active');
-            slides[currentSlide].classList.add('active');
-
-            // Mulai animasi progress bar untuk slide yang aktif
-            setTimeout(() => {
-                const activeProgressBar = navItems[currentSlide].querySelector('.progress-bar');
-                if (activeProgressBar) {
-                    activeProgressBar.style.transition = width ${DURATION / 1000}s linear;
-                    activeProgressBar.style.width = '100%';
-                }
-            }, 50); // Jeda kecil untuk memastikan transisi berjalan
-        }
-
-        function nextSlide() {
-            activateSlide(currentSlide + 1);
-        }
-
-        function startSlideShow() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, DURATION);
-            activateSlide(currentSlide); // Panggil sekali untuk memulai progress bar
-        }
-
-        navItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                activateSlide(index);
-                // Reset autoplay
-                clearInterval(slideInterval);
-                startSlideShow();
-            });
-        });
-
-        startSlideShow(); // Mulai semuanya
+    if (mobileMenuContainer) {
+        mobileMenuContainer.innerHTML = `
+            <div class="mobile-menu-header">
+                <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" class="logo">
+                <button class="close-button">×</button>
+            </div>
+            <nav class="main-nav-mobile">${mainNavContent}</nav>
+            <div class="top-links-mobile">${topLinksContent}</div>
+        `;
     }
+
+    // --- 3. Efek dan Fungsi setelah semua dimuat ---
+    setTimeout(() => {
+        // Efek Scroll
+        const topHeader = document.querySelector('.top-header');
+        const mainHeader = document.querySelector('.main-header');
+        if (mainHeader && topHeader) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    topHeader.classList.add('scrolled');
+                    mainHeader.classList.add('scrolled');
+                } else {
+                    topHeader.classList.remove('scrolled');
+                    mainHeader.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // Logika Tombol Hamburger
+        const hamburger = document.querySelector('.hamburger-button');
+        const closeBtn = document.querySelector('.close-button');
+        if (hamburger && mobileMenuContainer && closeBtn) {
+            hamburger.addEventListener('click', () => { mobileMenuContainer.classList.add('active'); });
+            closeBtn.addEventListener('click', () => { mobileMenuContainer.classList.remove('active'); });
+        }
+        
+    }, 200); // Jeda untuk memastikan header sudah dimuat
+    
+    // Panggil fungsi slider
+    initHistorySlider();
 });
