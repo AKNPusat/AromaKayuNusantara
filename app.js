@@ -74,72 +74,58 @@ document.addEventListener("DOMContentLoaded", function() {
                 <button class="hamburger-button">☰</button>
             </div>
         </header>
+     `;
+    const footerHTML = `<footer class="main-footer"><p>© 2024 PT. Aroma Kayu Nusantara</p></footer>`;
+    const mobileMenuHTML = `
+        <div class="mobile-menu-header">
+            <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" class="logo">
+            <button class="close-button">×</button>
+        </div>
+        <nav class="main-nav-mobile"></nav>
+        <div class="top-links-mobile"></div>
     `;
-    const footerHTML = `<footer class="main-footer"><p>© 2024 PT. Aroma Kayu Nusantara. All Rights Reserved.</p></footer>`;
 
-    const headerPlaceholder = document.getElementById('header-placeholder');
-    if (headerPlaceholder) { headerPlaceholder.innerHTML = headerHTML; }
-    // --- Logika untuk Hamburger Menu ---
-const hamburger = document.querySelector('.hamburger-button');
-const mainNav = document.querySelector('.main-nav');
-if (hamburger && mainNav) {
-    hamburger.addEventListener('click', () => {
-        mainNav.classList.toggle('active');    
-   });
- }
-    const footerPlaceholder = document.getElementById('footer-placeholder');
-    if (footerPlaceholder) { footerPlaceholder.innerHTML = footerHTML; }
+    // --- BAGIAN 2: MEMUAT ELEMEN KE HALAMAN ---
+    document.getElementById('header-placeholder').innerHTML = headerHTML;
+    document.getElementById('footer-placeholder').innerHTML = footerHTML;
+    document.querySelector('.mobile-menu-container').innerHTML = mobileMenuHTML;
 
-    // Efek Header Scroll
+
+    // --- BAGIAN 3: MENJALANKAN SEMUA FUNGSI INTERAKTIF ---
+    // Dijalankan setelah jeda singkat untuk memastikan semua HTML sudah dimuat
     setTimeout(() => {
-        // Efek Header Scroll
-       const topHeaderElem = document.querySelector('.top-header');
-        const mainHeaderElem = document.querySelector('.main-header');
-        if (mainHeaderElem && topHeaderElem) {
+        // Efek Scroll Header
+        const topHeader = document.querySelector('.top-header');
+        const mainHeader = document.querySelector('.main-header');
+        if (topHeader && mainHeader) {
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
-                    topHeaderElem.classList.remove('scrolled');
-                    mainHeaderElem.classList.remove('scrolled');
+                    topHeader.classList.add('scrolled');
+                    mainHeader.classList.add('scrolled');
                 } else {
                     topHeader.classList.remove('scrolled');
                     mainHeader.classList.remove('scrolled');
                 }
             });
         }
-topHeaderElem.classList.remove('scrolled');
-                    mainHeaderElem.classList.remove('scrolled');       
-            });
-   slides.forEach(slide => slide.classList.remove('active'));
 
-            currentSlide = (n + slides.length) % slides.length;
+        // Logika Hamburger Menu
+        const hamburgerBtn = document.querySelector('.hamburger-button');
+        const mobileMenu = document.querySelector('.mobile-menu-container');
+        const closeBtn = document.querySelector('.close-button');
+        
+        // Salin menu dari desktop ke mobile
+        const mainNavContent = document.querySelector('.main-nav').innerHTML;
+        const topLinksContent = document.querySelector('.top-links-right').innerHTML;
+        document.querySelector('.main-nav-mobile').innerHTML = mainNavContent;
+        document.querySelector('.top-links-mobile').innerHTML = topLinksContent;
 
-            navItems[currentSlide].classList.add('active');
-            slides[currentSlide].classList.add('active');
-
-            // Mulai animasi progress bar untuk slide yang aktif
-            setTimeout(() => {
-                const activeProgressBar = navItems[currentSlide].querySelector('.progress-bar');
-                if (activeProgressBar) {
-                    activeProgressBar.style.transition = `width ${DURATION / 1000}s linear`;
-                    activeProgressBar.style.width = '100%';
-                }
-            }, 50); // Jeda kecil untuk memastikan transisi berjalan
+        if (hamburgerBtn && mobileMenu && closeBtn) {
+            hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.add('active'); });
+            closeBtn.addEventListener('click', () => { mobileMenu.classList.remove('active'); });
         }
 
-        function nextSlide() {
-            activateSlide(currentSlide + 1);
-        }
+    }, 200); // Jeda 200ms
 
-        function startSlideShow() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, DURATION);
-            activateSlide(currentSlide); // Panggil sekali untuk memulai progress bar
-        }
-navItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                activateSlide(index);
-                // Reset autoplay
-                clearInterval(slideInterval);
-                startSlideShow();
-            });
-      
+    // (Panggil fungsi slider atau fungsi lain di sini jika diperlukan)
+});
