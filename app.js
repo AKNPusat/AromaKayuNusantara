@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     // --- 1. Memuat Header dan Footer secara Dinamis ---
-    const headerHTML = `
+    const headerHTML = 
         <div class="top-header">
             <div class="header-container">
                 <div class="top-links-right">
@@ -26,16 +26,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     <img src="https://raw.githubusercontent.com/AKNPusat/AromaKayuNusantara/main/logo%20AROMA%20kayu.png" class="logo">
                 </a>
                 <nav class="main-nav">
-                    <div class="nav-item">
-                        <a href="tentang-kami.html" class="nav-link">Tentang Kami</a>
-                        <div class="dropdown-menu">
-                            <a href="tentang-kami.html#sekilas-akn">Sekilas AKN</a>
-                            <a href="tentang-kami.html#tonggak-sejarah">Tonggak Sejarah</a>
-                            <a href="tentang-kami.html#visi-misi">Visi, Misi, & Tata Nilai</a>
-                            <a href="tentang-kami.html#makna-logo">Makna Logo</a>
-                            <a href="tentang-kami.html#manajemen">Manajemen</a>
-                        </div>
-                    </div>
+                   <div class="nav-item">
+    <a href="tentang-kami.html" class="nav-link">Tentang Kami</a>
+    <div class="dropdown-menu">
+        <a href="tentang-kami.html#sekilas-akn">Sekilas AKN</a>
+        <a href="tentang-kami.html#tonggak-sejarah">Tonggak Sejarah</a>
+        <a href="tentang-kami.html#visi-misi">Visi, Misi, & Tata Nilai</a>
+        <a href="tentang-kami.html#makna-logo">Makna Logo</a>
+        <a href="tentang-kami.html#manajemen">Manajemen</a>
+    </div>
+</div>
+                    <!-- Menu Bisnis Kami (BENAR) -->
                     <div class="nav-item">
                         <a href="bisnis-kami.html" class="nav-link">Bisnis Kami</a>
                         <div class="dropdown-menu">
@@ -44,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             <a href="bisnis-kami.html#olahan">Industri Olahan</a>
                         </div>
                     </div>
+                    <!-- Menu Media & Informasi (BENAR) -->
                     <div class="nav-item">
                         <a href="media-informasi.html" class="nav-link">Media & Informasi</a>
                         <div class="dropdown-menu">
@@ -53,29 +55,22 @@ document.addEventListener("DOMContentLoaded", function() {
                         </div>
                     </div>
                     <div class="nav-item">
-                        <a href="#" class="nav-link">Mitra AKN</a>
-                        <div class="dropdown-menu">
-                            <a href="firma.html">Firma Astajati Kian Nusantara</a>
-                            <a href="bmt.html">Bina Multi Transindo</a>
-                        </div>
-                    </div>
+    <a href="#" class="nav-link">Mitra AKN</a>
+    <div class="dropdown-menu">
+        <a href="firma.html">Firma Astajati Kian Nusantara</a>
+        <a href="bmt.html">Bina Multi Transindo</a>
+        <!-- Tambahkan mitra lain di sini jika perlu -->
+    </div>
+</div>
                     <div class="nav-item"><a href="lacak.html" class="nav-link">Lacak Resi</a></div>
                 </nav>
                 <div class="header-search">
-                    <svg fill="currentColor" viewBox="0 0 24 24" style="width:24px;height:24px;"><path d="M9.5...Z" /></svg>
+                     <svg fill="currentColor" viewBox="0 0 24 24" style="width:24px;height:24px;"><path d="M9.5...Z" /></svg>
                 </div>
                 <button class="hamburger-button">☰</button>
             </div>
         </header>
-    `;
-
-    const footerHTML = `
-        <footer class="main-footer">
-            <div class="footer-container">
-                <p>© 2025 Aroma Kayu Nusantara. All rights reserved.</p>
-            </div>
-        </footer>
-    `;
+  const footerHTML = `...`;
 
     document.getElementById('header-placeholder').innerHTML = headerHTML;
     document.getElementById('footer-placeholder').innerHTML = footerHTML;
@@ -84,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const mobileMenuContainer = document.querySelector('.mobile-menu');
     const mainNavContent = document.querySelector('.main-nav').innerHTML;
     const topLinksContent = document.querySelector('.top-links-right').innerHTML;
-
+    
     if (mobileMenuContainer) {
         mobileMenuContainer.innerHTML = `
             <div class="mobile-menu-header">
@@ -117,18 +112,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const hamburger = document.querySelector('.hamburger-button');
         const closeBtn = document.querySelector('.close-button');
         if (hamburger && mobileMenuContainer && closeBtn) {
-            hamburger.addEventListener('click', () => {
-                mobileMenuContainer.classList.add('active');
-            });
-            closeBtn.addEventListener('click', () => {
-                mobileMenuContainer.classList.remove('active');
-            });
+            hamburger.addEventListener('click', () => { mobileMenuContainer.classList.add('active'); });
+            closeBtn.addEventListener('click', () => { mobileMenuContainer.classList.remove('active'); });
         }
-
-    }, 200);
-
-    // Panggil fungsi slider jika ada
-    if (typeof initHistorySlider === 'function') {
-        initHistorySlider();
-    }
+        
+    }, 200); // Jeda untuk memastikan header sudah dimuat
+    
+    // Panggil fungsi slider
+    initHistorySlider();
 });
