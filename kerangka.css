@@ -46,7 +46,7 @@ main {
     background-color: transparent;
     color: white;
     padding: 0.2rem 0;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     border-bottom: none;
     transition: background-color 0.3s ease; /* TAMBAHKAN INI */
 }
@@ -147,7 +147,7 @@ main {
 }
 
 .logo {
-    height: 85px;
+    height: 75px;
 }
 
 .header-search {
@@ -176,7 +176,7 @@ main {
     background: none;
     border: none;
     color: #dfb45e;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     cursor: pointer;
 }
 .main-header.scrolled .hamburger-button {
