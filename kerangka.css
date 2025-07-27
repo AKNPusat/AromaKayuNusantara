@@ -884,62 +884,78 @@ main p, .content-section p {
     border: 0;
     border-top: 1px solid #eee;
 }
-
-* ======================== */
-/* DROPDOWN UNTUK DESKTOP   */
-/* ======================== */
-@media (min-width: 768px) {
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 0.5rem 1rem;
+/* ========================================================== */
+/* KODE BARU HANYA UNTUK TAMPILAN MOBILE */
+/* ========================================================== */
+@media (max-width: 768px) {
+    .hamburger-button {
+        display: block;
+    }    
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 99;
+    }
+    .main-nav.active {
+        display: flex;
+    }
+}
+.mobile-menu-container {
     display: none;
-    z-index: 1000;
-    min-width: 200px;
-  }
-
-  .nav-item:hover .dropdown-menu {
-    display: block;
-  }
-
-  .dropdown-menu a {
-    color: black;
-    padding: 0.5rem 0;
-    display: block;
-    text-decoration: none;
-  }
-
-  .dropdown-menu a:hover {
-    background-color: #f2f2f2;
-  }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 38, 77, 0.95);
+    z-index: 9999;    
+    overflow-y: auto;   
+    flex-direction: column;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
-/* ======================== */
-/* DROPDOWN UNTUK MOBILE    */
-/* ======================== */
-@media (max-width: 767px) {
-  .dropdown-menu {
-    display: none;
-    position: static;
-    background: #f9f9f9;
-    padding-left: 1rem;
-    margin-top: 0.5rem;
-  }
+.mobile-menu-container.active {
+    display: flex;
+}
 
-  .dropdown-menu.open {
-    display: block;
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+  .top-header {
+    display: none !important;
   }
+}
+/* === Tambahan untuk dropdown agar tidak tumpang tindih === */
+.nav-item.has-dropdown {
+  position: relative;
+}
 
-  .dropdown-toggle::after {
-    content: ' ▼';
-    font-size: 0.7em;
-  }
+.dropdown-toggle::after {
+  content: ' ▼'; /* Tanda panah kecil di samping */
+  font-size: 0.7em;
+}
 
-  .dropdown-menu a {
-    color: #333;
-  }
+.dropdown-menu {
+  display: none;
+  position: static; /* Supaya tidak absolute (tidak melayang) */
+  margin-top: 0.5rem;
+  background: #f9f9f9;
+  padding-left: 1rem;
+}
+
+.dropdown-menu.open {
+  display: block;
 }
