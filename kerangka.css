@@ -929,26 +929,31 @@ main p, .content-section p {
     display: none !important;
   }
 }
-.mobile-dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: white;
-  z-index: 9999;
-  top: 100%;
-  left: 0;
-  min-width: 200px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/* === Tambahan untuk dropdown agar tidak tumpang tindih === */
+.nav-item.has-dropdown {
+  position: relative;
 }
 
-.mobile-dropdown-menu.open {
-  display: block;
-  position: relative; /* untuk mobile agar tidak tumpang tindih */
-}
-/* Dropdown mobile toggle */
-.mobile-main-nav .dropdown-menu {
-  display: none;
+.dropdown-toggle::after {
+  content: ' ▼'; /* Tanda panah kecil di samping */
+  font-size: 0.7em;
 }
 
-.mobile-main-nav .dropdown-menu.open {
+.dropdown-menu {
+  display: none;
+  position: static; /* Supaya tidak absolute (tidak melayang) */
+  margin-top: 0.5rem;
+  background: #f9f9f9;
+  padding-left: 1rem;
+}
+
+.dropdown-menu.open {
   display: block;
+}
+/* Dropdown Panah */
+.nav-item > .nav-link::after {
+  content: ' ▼';
+  font-size: 0.7em;
+  margin-left: 4px;
+  vertical-align: middle;
 }
