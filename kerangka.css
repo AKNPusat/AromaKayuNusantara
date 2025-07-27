@@ -72,7 +72,7 @@ main {
 }
 .top-header .header-container { justify-content: flex-end; }
 .top-links-right a {
-    color: #050240; text-decoration: none; margin-left: 1rem;
+    color: #dfb35a; text-decoration: none; margin-left: 1rem;
 }
 .register-button {
     border: 1px solid #dfb45e;
