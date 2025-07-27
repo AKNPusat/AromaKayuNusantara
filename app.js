@@ -150,25 +150,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }, 300);
 });
-document.addEventListener("DOMContentLoaded", function () {
-  if (window.innerWidth <= 767) {
-    document.querySelectorAll('.nav-item > .nav-link').forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
 
-        const parent = this.parentElement;
-        const dropdown = parent.querySelector('.dropdown-menu');
-
-        document.querySelectorAll('.dropdown-menu').forEach(menu => {
-          if (menu !== dropdown) {
-            menu.classList.remove('open');
-          }
-        });
-
-        if (dropdown) {
-          dropdown.classList.toggle('open');
-        }
-      });
-    });
-  }
-});
