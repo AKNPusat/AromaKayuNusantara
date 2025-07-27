@@ -948,20 +948,27 @@ main p, .content-section p {
   content: ' ▼'; /* Tanda panah kecil di samping */
   font-size: 0.7em;
 }
-
-.dropdown-menu {
-  display: none;
-  position: static; /* Supaya tidak absolute (tidak melayang) */
-  margin-top: 0.5rem;
-  background: #f9f9f9;
-  padding-left: 1rem;
+@media (min-width: 768px) {
+  .dropdown-menu {
+    position: static; /* Supaya tidak absolute (tidak melayang) */
+    top: 100%;
+    left: 0;    
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 0.5rem 1rem;
+    display: none;
+    z-index: 1000;
+    min-width: 200px;    
+    margin-top: 0.5rem;
+    background: #f9f9f9;
+    padding-left: 1rem;
 }
 
 .dropdown-menu.open {
   display: block;
 }
 /* Dropdown Panah */
-.nav-item > .nav-link::after {
+@media (min-width: 768px) {.nav-item > .nav-link::after {
   content: ' ▼';
   font-size: 0.7em;
   margin-left: 4px;
