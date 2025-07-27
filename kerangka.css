@@ -928,7 +928,6 @@ main p, .content-section p {
   .top-header {
     display: none !important;
   }
-}
 /* === Tambahan untuk dropdown agar tidak tumpang tindih === */
 .nav-item.has-dropdown {
   position: relative;
@@ -956,4 +955,5 @@ main p, .content-section p {
   font-size: 0.7em;
   margin-left: 4px;
   vertical-align: middle;
+    }
 }
