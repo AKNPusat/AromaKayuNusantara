@@ -56,7 +56,7 @@ main {
 }
 
 .top-header a:hover {
-    color: #084278;
+    color: #dfb35a;
 }
 .top-header.scrolled {
     background-color:#004aad; 
@@ -112,7 +112,7 @@ main {
 }
 
 .main-header a:hover {
-    color: #084278;
+    color: #dfb35a;
 }
 .main-header .header-container { justify-content: space-between; }
 .main-header.scrolled {
