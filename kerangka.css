@@ -46,7 +46,7 @@ main {
     background-color: transparent;
     color: #dfb45e;
     padding: 0.2rem 0;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     border-bottom: none;
     transition: background-color 0.3s ease; /* TAMBAHKAN INI */
 }
@@ -59,7 +59,7 @@ main {
     color: #084278;
 }
 .top-header.scrolled {
-    background-color: #0d244f; 
+    background-color:#004aad; 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: none;
@@ -72,7 +72,7 @@ main {
 }
 .top-header .header-container { justify-content: flex-end; }
 .top-links-right a {
-    color: #dfb45e; text-decoration: none; margin-left: 1rem;
+    color: #050240; text-decoration: none; margin-left: 1rem;
 }
 .register-button {
     border: 1px solid #dfb45e;
@@ -112,11 +112,11 @@ main {
 }
 
 .main-header a:hover {
-    color: #f5cc7a;
+    color: #084278;
 }
 .main-header .header-container { justify-content: space-between; }
 .main-header.scrolled {
-    background-color: #0d244f; 
+    background-color: #004aad; 
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     box-shadow: none;
@@ -147,7 +147,7 @@ main {
 }
 
 .logo {
-    height: 75px;
+    height: 65px;
 }
 
 .header-search {
@@ -207,7 +207,7 @@ main {
     display: none;
     position: absolute;
     top: 100%;
-    background-color: #0d244f;
+    background-color: #004aad;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     padding: 0.5rem 0;
@@ -942,8 +942,9 @@ main p, .content-section p {
   display: none;
   position: static; /* Supaya tidak absolute (tidak melayang) */
   margin-top: 0.5rem;
-  background: #f9f9f9;
+  background: rgba(0, 38, 77, 0.95);
   padding-left: 1rem;
+  color: #dfb45e;
 }
 
 .dropdown-menu.open {
