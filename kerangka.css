@@ -938,25 +938,3 @@ main p, .content-section p {
     display: none !important;
   }
 }
-/* === Tambahan untuk dropdown agar tidak tumpang tindih === */
-@media (max-width: 768px) {
-.nav-item.has-dropdown {
-  position: relative;
-}
-@media (max-width: 768px) {
-.dropdown-toggle::after {
-  content: ' ▼'; /* Tanda panah kecil di samping */
-  font-size: 0.7em;
-}
-@media (max-width: 768px) {
-.dropdown-menu {
-  display: none;
-  position: static; /* Supaya tidak absolute (tidak melayang) */
-  margin-top: 0.5rem;
-  background: #f9f9f9;
-  padding-left: 1rem;
-}
-@media (max-width: 768px) {
-.dropdown-menu.open {
-  display: block;
-}
