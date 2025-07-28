@@ -58,13 +58,6 @@ main {
 .top-header a:hover {
     color: #dfb35a;
 }
-.top-header.scrolled {
-    background-color:#004aad; 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: none;
-    color: #dfb35a;
-}
 .top-header.scrolled, .main-header.scrolled {
     background-color: #0d244f; /* Latar Biru Tua Solid */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -122,13 +115,6 @@ main {
     color: #dfb35a;
 }
 .main-header .header-container { justify-content: space-between; }
-.main-header.scrolled {
-    background-color: #004aad; 
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    box-shadow: none;
-    color: #dfb35a;
-}
 
 /* --- Link Header --- */
 .top-links-right {
@@ -241,7 +227,7 @@ main {
     display: block;
     padding: 0.75rem 1.2rem;
     text-decoration: none;
-    color: #333;
+    color: #dfb45e;
     font-size: 0.75rem;
     white-space: nowrap;
 }
