@@ -65,11 +65,17 @@ main {
     box-shadow: none;
     color: #dfb35a;
 }
-.top-header.scrolled a {
-    color: #b78729; /* Tulisan jadi gelap */
+.top-header.scrolled, .main-header.scrolled {
+    background-color: #0d244f; /* Latar Biru Tua Solid */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-.top-header.scrolled .nav-link:hover {
-    color: var(--text-dark);
+.top-header.scrolled a,
+.main-header.scrolled .nav-link,
+.main-header.scrolled .header-search svg {
+    color: #dfb45e; /* Teks jadi warna emas saat scroll */
+}
+.top-header.scrolled .register-button {
+    border-color: #dfb45e;
 }
 .top-header .header-container { justify-content: flex-end; }
 .top-links-right a {
@@ -123,12 +129,7 @@ main {
     box-shadow: none;
     color: #dfb35a;
 }
-.main-header.scrolled a {
-    color:  var(--text-dark);
-}
-.main-header.scrolled .nav-link:hover {
-    color: var(--primary-blue);
-}
+
 /* --- Link Header --- */
 .top-links-right {
     margin-left: auto;
