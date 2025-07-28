@@ -182,10 +182,6 @@ main {
     color: #e1b660;
 }
 
-.main-header.scrolled .nav-link {
-    color:#050240;
-}
-
 .nav-item:hover .nav-link {
     color: var(--primary-blue);
 }
