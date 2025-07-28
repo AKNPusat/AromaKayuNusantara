@@ -25,7 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 </a>
                 <nav class="main-nav">
                     <div class="nav-item has-dropdown">
-                        <a href="tentang-kami.html" class="nav-link dropdown-toggle" data-target="tentang-dropdown">Tentang Kami</a>
+                        <a href="tentang-kami.html" class="nav-link dropdown-toggle" data-target="tentang-dropdown">Tentang Kami                             
+                            <span class="arrow">▼</span> <!-- PANAH DITAMBAHKAN DI SINI -->
+                            </a>
                         <div class="dropdown-menu openable" id="tentang-dropdown">
                             <a href="tentang-kami.html#sekilas-akn">Sekilas AKN</a>
                             <a href="tentang-kami.html#tonggak-sejarah">Tonggak Sejarah</a>
@@ -35,7 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     </div>
                     <div class="nav-item has-dropdown">
-                        <a href="bisnis-kami.html" class="nav-link dropdown-toggle" data-target="bisnis-dropdown">Bisnis Kami</a>
+                        <a href="bisnis-kami.html" class="nav-link dropdown-toggle" data-target="bisnis-dropdown">Bisnis Kami
+                        <span class="arrow">▼</span> <!-- PANAH DITAMBAHKAN DI SINI -->
+                            </a>
                         <div class="dropdown-menu openable" id="bisnis-dropdown">
                             <a href="bisnis-kami.html#hulu">Hulu (Bahan Baku)</a>
                             <a href="bisnis-kami.html#peredaran">Peredaran</a>
@@ -43,7 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     </div>
                     <div class="nav-item has-dropdown">
-                        <a href="media-informasi.html" class="nav-link dropdown-toggle" data-target="media-dropdown">Media & Informasi</a>
+                        <a href="media-informasi.html" class="nav-link dropdown-toggle" data-target="media-dropdown">Media & Informasi
+                        <span class="arrow">▼</span> <!-- PANAH DITAMBAHKAN DI SINI -->
+                            </a>
                         <div class="dropdown-menu openable" id="media-dropdown">
                             <a href="media-informasi.html#news-room">AKN News Room</a>
                             <a href="ruang-media.html">Ruang Media</a>
@@ -51,7 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     </div>
                     <div class="nav-item has-dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-target="mitra-dropdown">Mitra AKN</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-target="mitra-dropdown">Mitra AKN
+                        <span class="arrow">▼</span> <!-- PANAH DITAMBAHKAN DI SINI -->
+                            </a>
                         <div class="dropdown-menu openable" id="mitra-dropdown">
                             <a href="firma.html">Firma Astajati Kian Nusantara</a>
                             <a href="bmt.html">Bina Multi Transindo</a>
