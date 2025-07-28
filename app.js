@@ -104,19 +104,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Scroll efek
-        const topHeader = document.querySelector(".top-header");
-        const mainHeader = document.querySelector(".main-header");
-        if (mainHeader && topHeader) {
-            window.addEventListener("scroll", function () {
+           setTimeout(() => {
+        const topHeaderElem = document.querySelector('.top-header');
+        const mainHeaderElem = document.querySelector('.main-header');
+        if (mainHeaderElem && topHeaderElem) {
+            window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
-                    topHeader.classList.add("scrolled");
-                    mainHeader.classList.add("scrolled");
+                    topHeaderElem.classList.add('scrolled');
+                    mainHeaderElem.classList.add('scrolled');
                 } else {
-                    topHeader.classList.remove("scrolled");
-                    mainHeader.classList.remove("scrolled");
+                    topHeaderElem.classList.remove('scrolled');
+                    mainHeaderElem.classList.remove('scrolled');
                 }
             });
         }
+    }, 100);
+
 
         // Hamburger menu
         const hamburger = document.querySelector(".hamburger-button");
