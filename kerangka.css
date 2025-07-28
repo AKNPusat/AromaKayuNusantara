@@ -86,9 +86,7 @@ main {
     color: var(--text-dark) !important;
     border-color: #dfb45e;
 }
-.top-header.scrolled .register-button {
-    border-color: #b78729; /* Border tombol jadi gelap */
-}
+
 .top-header.scrolled .register-button:hover {
     background-color: var(--text-dark) !important;
     color: var(--text-dark); !important;
