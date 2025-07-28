@@ -158,4 +158,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }, 300);
 });
+/* ========================================================== */
+/* KODE TAMBAHAN UNTUK DROPDOWN MOBILE */
+/* ========================================================== */
+@media (max-width: 1024px) {
 
+    /* Style untuk menu yang memiliki submenu di mobile */
+    .mobile-menu-container .nav-item.has-dropdown > .nav-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .mobile-menu-container .nav-link .arrow {
+        font-size: 1rem; /* Ukuran panah */
+        transition: transform 0.3s ease;
+    }
+    
+    /* Saat menu terbuka, putar panahnya */
+    .mobile-menu-container .nav-item.open > .nav-link .arrow {
+        transform: rotate(180deg);
+    }
+
+    /* Sembunyikan submenu secara default */
+    .mobile-menu-container .dropdown-menu {
+        display: none;
+        padding-left: 1.5rem; /* Beri indentasi agar terlihat seperti submenu */
+        border-bottom: none;
+        margin-top: 0.5rem;
+    }
+
+    /* Tampilkan submenu saat induknya (.nav-item) memiliki class 'open' */
+    .mobile-menu-container .nav-item.open .dropdown-menu {
+        display: block;
+    }
+
+    /* Style untuk link di dalam submenu */
+    .mobile-menu-container .dropdown-menu a {
+        font-size: 1.2rem;
+        font-weight: 400; /* Dibuat lebih tipis dari menu utama */
+        padding: 0.8rem 0;
+        color: #d0d0d0; /* Warna sedikit redup */
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+}
