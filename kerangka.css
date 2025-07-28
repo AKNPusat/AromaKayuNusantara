@@ -960,3 +960,31 @@ main p, .content-section p {
   vertical-align: middle;
     }
 }
+ .mobile-menu .nav-item.has-dropdown .nav-link {
+        display: flex; /* Sejajarkan teks dan panah */
+        justify-content: space-between;
+        align-items: center;
+    }
+    .mobile-menu .nav-link .arrow {
+        transition: transform 0.3s ease;
+    }
+    .mobile-menu .nav-item.open .nav-link .arrow {
+        transform: rotate(180deg); /* Panah berputar saat menu terbuka */
+    }
+
+    /* Sembunyikan submenu secara default di mobile */
+    .mobile-menu .dropdown-menu {
+        display: none;
+        padding-left: 1rem; /* Beri indentasi */
+        border-bottom: none;
+    }
+    /* Tampilkan submenu saat itemnya punya class 'open' */
+    .mobile-menu .nav-item.open .dropdown-menu {
+        display: block;
+    }
+    .mobile-menu .dropdown-menu a {
+        font-size: 1.2rem; /* Ukuran font submenu */
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+}
