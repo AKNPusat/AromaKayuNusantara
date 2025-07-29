@@ -969,3 +969,13 @@ main p, .content-section p {
         border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 }
+body.scrolled .top-header,
+body.scrolled .main-header {
+  background-color: #00529B; /* Biru korporat */
+  transition: background-color 0.3s ease-in-out;
+}
+
+body.scrolled .top-header a,
+body.scrolled .main-header a {
+  color: white !important;
+}
