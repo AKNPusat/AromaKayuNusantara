@@ -104,21 +104,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Scroll efek
-           setTimeout(() => {
-        const topHeaderElem = document.querySelector('.top-header');
-        const mainHeaderElem = document.querySelector('.main-header');
-        if (mainHeaderElem && topHeaderElem) {
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    topHeaderElem.classList.add('scrolled');
-                    mainHeaderElem.classList.add('scrolled');
-                } else {
-                    topHeaderElem.classList.remove('scrolled');
-                    mainHeaderElem.classList.remove('scrolled');
-                }
-            });
-        }
-    }, 100);
+    const topHeader = document.querySelector('.top-header');
+    const mainHeader = document.querySelector('.main-header');
+
+    // Cek dulu apakah elemennya ada sebelum memasang fungsi
+    if (topHeader && mainHeader) {
+        window.addEventListener('scroll', function() {
+            // Jika pengguna scroll lebih dari 50 pixel ke bawah
+            if (window.scrollY > 50) {
+                topHeader.classList.add('scrolled');
+                mainHeader.classList.add('scrolled');
+            } else {
+                topHeader.classList.remove('scrolled');
+                mainHeader.classList.remove('scrolled');
+            }
+        });
+    }
 
 
         // Hamburger menu
