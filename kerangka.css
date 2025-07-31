@@ -1047,7 +1047,7 @@ main p, .content-section p {
 
 .publication-info h4 {
     margin: 0 0 0.5rem 0;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .publication-info p {
@@ -1055,4 +1055,17 @@ main p, .content-section p {
     font-size: 0.85rem;
     color: #6c757d;
     text-align: left;
+}
+.publication-content > h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Hapus class ini dari tag h3 di HTML jika masih ada */
+.content-title-hidden {
+   display: none;
 }
