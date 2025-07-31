@@ -57,7 +57,7 @@ main { padding-top: 100px;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: transparent;
+    background-color: #0d244f;
     color: #dfb45e;
     padding: 0.2rem 0;
     font-size: 0.8rem;
@@ -88,7 +88,7 @@ main { padding-top: 100px;
 
 .top-header.scrolled .register-button:hover {
     background-color: var(--text-dark) !important;
-    color: var(--text-dark); !important;
+    color: #dfb45e; !important;
 }
 .main-header {
     position: fixed;
@@ -96,7 +96,7 @@ main { padding-top: 100px;
     left: 0;
     width: 100%;
     z-index: 999;
-    background-color: transparent;
+    background-color: #0d244f;
     padding: 0.5rem 0;
     font-size: 0.9rem;
     color: #dfb45e;
