@@ -18,7 +18,7 @@ body {
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     margin: 0;
     color: var(--text-dark);
-    background-color: : #d1e6f2;
+    background-color: #d1e6f2;
 }
 .container {
     max-width: 1000px; margin: 0 auto; padding: 0 1rem;
@@ -968,14 +968,3 @@ main p, .content-section p {
         padding: 0.8rem 0;
         border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-}
-body.scrolled .top-header,
-body.scrolled .main-header {
-  background-color: #00529B; /* Biru korporat */
-  transition: background-color 0.3s ease-in-out;
-}
-
-body.scrolled .top-header a,
-body.scrolled .main-header a {
-  color: white !important;
-}
