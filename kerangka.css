@@ -59,7 +59,7 @@ main {
     color: #dfb35a;
 }
 .top-header.scrolled, .main-header.scrolled {
-    background-color: #0d244f; /* Latar Biru Tua Solid */
+    background-color: #0d244f !important; /* Latar Biru Tua Solid (DIPAKSA JADI PRIORITAS) *
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 .top-header.scrolled a,
