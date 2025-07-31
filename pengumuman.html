@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengumuman - PT. Aroma Kayu Nusantara</title>
+    <!-- Kita hanya butuh satu file CSS utama -->
     <link rel="stylesheet" href="kerangka.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Wadah untuk menu mobile (tetap sama) -->
     <div class="mobile-menu-container"></div>
-
-    <!-- Wrapper Utama (tetap sama) -->
     <div id="app-wrapper">
 
-        <!-- Header Anda akan otomatis dimuat di sini oleh app.js -->
-        <!-- Kita salin struktur header agar JavaScript Anda tetap berfungsi -->
+        <!-- Header Anda (tetap sama) -->
         <div class="top-header"></div>
         <header class="main-header"></header>
 
@@ -33,23 +30,23 @@
             </section>
             
             <!-- ========================================================== -->
-            <!-- KONTEN BARU: LAYOUT DUA KOLOM SEPERTI PERTAMINA -->
+            <!-- KONTEN BARU: MENGGUNAKAN STRUKTUR YANG SUDAH ADA -->
             <!-- ========================================================== -->
-            <div class="container page-layout-container">
-                <div class="two-column-page-layout">
+            <div class="container page-content-box"> <!-- Menggunakan .page-content-box agar ada background putih/biru muda -->
+                <div class="two-column-layout"> <!-- Layout utama yang sudah Anda miliki -->
                     
                     <!-- === KOLOM KIRI (SIDEBAR NAVIGASI) === -->
-                    <aside class="page-sidebar">
-                        <nav class="sidebar-nav-list">
-                            <a href="#">Produk Aroma Kayu Nusantara</a>
-                            <a href="#" class="active">Informasi Terbaru Terkait AKN</a>
-                        </nav>
+                    <!-- Kita tetap menggunakan class 'sidebar-nav' -->
+                    <aside class="sidebar-nav">
+                        <a href="#produk" class="sidebar-link">Produk Aroma Kayu Nusantara</a>
+                        <a href="#informasi" class="sidebar-link active">Informasi Terbaru Terkait AKN</a>
                     </aside>
 
                     <!-- === KOLOM KANAN (KONTEN UTAMA) === -->
-                    <div class="page-main-content">
+                    <!-- Kita tetap menggunakan class 'main-content' -->
+                    <div class="main-content">
                         
-                        <!-- Filter Bar -->
+                        <!-- Filter Bar BARU -->
                         <div class="filter-bar">
                             <h4 class="filter-title">Filter</h4>
                             <div class="filter-controls">
@@ -57,63 +54,35 @@
                                     <input type="text" placeholder="Cari berdasarkan judul...">
                                     <svg viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
                                 </div>
-                                <select aria-label="Bulan">
-                                    <option>Bulan</option>
-                                    <option>Januari</option>
-                                    <option>Februari</option>
-                                    <!-- ... tambahkan bulan lain ... -->
-                                </select>
-                                <select aria-label="Tahun">
-                                    <option>Tahun</option>
-                                    <option>2024</option>
-                                    <option>2023</option>
-                                </select>
+                                <select aria-label="Bulan"><option>Bulan</option></select>
+                                <select aria-label="Tahun"><option>Tahun</option></select>
                             </div>
                         </div>
 
-                        <!-- Grid untuk Katalog / Publikasi -->
+                        <!-- Grid untuk Katalog / Publikasi BARU -->
                         <div class="publication-grid">
                             
                             <!-- Contoh Katalog 1 -->
-                            <a href="#" class="publication-card">
-                                <img src="https://via.placeholder.com/300x400.png?text=Cover+Katalog" alt="Cover Katalog Produk 2024">
-                                <div class="publication-info">
-                                    <h4>Katalog Produk AKN 2024</h4>
-                                    <p>Edisi Q3 2024</p>
-                                </div>
+                            <a href="#" class="publication-card" id="produk">
+                                <img src="https://via.placeholder.com/300x400.png?text=Cover+Katalog" alt="Cover Katalog">
+                                <div class="publication-info"><h4>Katalog Produk AKN 2024</h4><p>Edisi Q3 2024</p></div>
                             </a>
 
-                            <!-- Contoh Katalog 2 -->
-                            <a href="#" class="publication-card">
-                                <img src="https://via.placeholder.com/300x400.png?text=Cover+Laporan" alt="Cover Laporan Keberlanjutan">
-                                <div class="publication-info">
-                                    <h4>Laporan Keberlanjutan Tahunan</h4>
-                                    <p>Publikasi Juni 2024</p>
-                                </div>
-                            </a>
-
-                            <!-- Contoh Katalog 3 -->
-                            <a href="#" class="publication-card">
-                               <img src="https://via.placeholder.com/300x400.png?text=Cover+Buletin" alt="Cover Buletin Inovasi">
-                                <div class="publication-info">
-                                    <h4>Buletin Inovasi Gaharu</h4>
-                                    <p>Vol. 02, Mei 2024</p>
-                                </div>
+                            <!-- Contoh Publikasi 1 -->
+                             <a href="#" class="publication-card" id="informasi">
+                                <img src="https://via.placeholder.com/300x400.png?text=Cover+Laporan" alt="Cover Laporan">
+                                <div class="publication-info"><h4>Laporan Keberlanjutan</h4><p>Publikasi Juni 2024</p></div>
                             </a>
                             
-                            <!-- Tambahkan kartu lain di sini sesuai kebutuhan -->
-
+                            <!-- Tambahkan kartu lain di sini -->
                         </div>
                     </div>
                 </div>
             </div>
         </main>
         
-        <!-- Footer Anda (tetap sama) -->
         <div id="footer-placeholder"></div>
     </div>
-
-    <!-- Script Anda (tetap sama) -->
     <script src="app.js"></script>
 </body>
 </html>
