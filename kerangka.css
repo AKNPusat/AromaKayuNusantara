@@ -1069,3 +1069,10 @@ main p, .content-section p {
 .content-title-hidden {
    display: none;
 }
+.sidebar-nav-list a {
+    display: block;
+    padding: 0.8rem 1.2rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.9rem;
