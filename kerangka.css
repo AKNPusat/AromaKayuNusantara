@@ -955,57 +955,8 @@ main p, .content-section p {
 }
 
 /* ========================================================== */
-/* === STYLE BARU: HALAMAN PENGUMUMAN (LAYOUT 2 KOLOM) === */
+/* === STYLE TAMBAHAN UNTUK HALAMAN PENGUMUMAN (ADAPTASI) === */
 /* ========================================================== */
-
-.page-layout-container {
-    padding-top: 3rem;
-    padding-bottom: 4rem;
-}
-
-.two-column-page-layout {
-    display: flex;
-    gap: 2.5rem; /* Jarak antara sidebar dan konten utama */
-    align-items: flex-start;
-}
-
-/* --- Kolom Kiri (Sidebar Navigasi) --- */
-.page-sidebar {
-    flex-basis: 280px; /* Lebar tetap untuk sidebar */
-    flex-shrink: 0;
-    position: sticky; /* Membuat sidebar "menempel" saat scroll */
-    top: 120px; /* Jarak dari atas (sesuaikan dengan tinggi header Anda) */
-}
-
-.sidebar-nav-list a {
-    display: block;
-    padding: 0.8rem 1.2rem;
-    text-decoration: none;
-    color: var(--text-dark);
-    font-weight: 500;
-    border-left: 3px solid transparent;
-    transition: all 0.2s ease;
-    margin-bottom: 0.5rem;
-    border-radius: 0 5px 5px 0;
-}
-
-.sidebar-nav-list a:hover {
-    background-color: #eef5fa;
-    color: var(--primary-blue);
-}
-
-.sidebar-nav-list a.active {
-    background-color: #eef5fa;
-    color: var(--primary-blue);
-    font-weight: 700;
-    border-left-color: var(--primary-blue);
-}
-
-/* --- Kolom Kanan (Konten Utama) --- */
-.page-main-content {
-    flex-grow: 1; /* Mengambil sisa ruang yang tersedia */
-    min-width: 0; /* Mencegah overflow pada flexbox */
-}
 
 /* --- Filter Bar --- */
 .filter-bar {
@@ -1036,7 +987,7 @@ main p, .content-section p {
 }
 
 .search-input-group input {
-    padding: 0.6rem 1rem 0.6rem 2.5rem; /* Beri ruang untuk ikon */
+    padding: 0.6rem 1rem 0.6rem 2.5rem; /* Ruang untuk ikon */
     border: 1px solid #ccc;
     border-radius: 20px;
     width: 200px;
@@ -1062,7 +1013,6 @@ main p, .content-section p {
 /* --- Grid Katalog/Publikasi --- */
 .publication-grid {
     display: grid;
-    /* Membuat kolom yang responsif */
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5rem;
 }
@@ -1086,7 +1036,7 @@ main p, .content-section p {
 .publication-card img {
     width: 100%;
     display: block;
-    aspect-ratio: 3 / 4; /* Menjaga rasio gambar tetap konsisten */
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     background-color: #f0f0f0;
 }
