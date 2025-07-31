@@ -134,25 +134,53 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-    // ==========================================================
-    // === LOGIKA BARU UNTUK SIDEBAR AKTIF & TAMPILKAN KONTEN ===
+       // ==========================================================
+    // === LOGIKA BARU YANG SUDAH DIPERBAIKI TOTAL ===
     // ==========================================================
     const sidebarLinks = document.querySelectorAll('.sidebar-nav .sidebar-link');
     const contentSections = document.querySelectorAll('.publication-content');
 
-    // Cek apakah elemen-elemen ini ada di halaman
+    // Cek dulu apakah elemen-elemen ini ada di halaman ini
     if (sidebarLinks.length > 0 && contentSections.length > 0) {
 
-        // Fungsi untuk menampilkan konten yang benar
-        function showContent(targetId) {
+        // Fungsi utama untuk mengupdate tampilan
+        const updateActiveView = (activeLink) => {
+            const targetId = activeLink.getAttribute('data-target');
+
+            // 1. Sembunyikan SEMUA section konten terlebih dahulu
             contentSections.forEach(section => {
-                if (section.id === targetId) {
-                    section.style.display = 'block';
-                } else {
-                    section.style.display = 'none';
-                }
+                section.style.display = 'none';
             });
+
+            // 2. Hapus class 'active' dari SEMUA link sidebar
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // 3. Tampilkan HANYA section konten yang ditargetkan
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+
+            // 4. Tambahkan class 'active' HANYA ke link yang diklik/aktif
+            activeLink.classList.add('active');
+        };
+
+        // Atur tampilan awal saat halaman pertama kali dimuat
+        const initialActiveLink = document.querySelector('.sidebar-nav .sidebar-link.active');
+        if (initialActiveLink) {
+            updateActiveView(initialActiveLink);
         }
+
+        // Tambahkan fungsi klik ke setiap link di sidebar
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Mencegah halaman melompat
+                updateActiveView(this); // Panggil fungsi utama dengan link yang diklik
+            });
+        });
+    }
         
         // Atur tampilan awal saat halaman dimuat
         const activeLink = document.querySelector('.sidebar-nav .sidebar-link.active');
