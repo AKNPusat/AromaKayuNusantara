@@ -25,14 +25,28 @@ body {
 }
 .d-flex { display: flex; align-items: center; }
 
+/* --- HEADER WRAPPER & CONTAINER --- */
+.header-wrapper { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; }
 .header-container {
-    margin: 0 ;
-    display: flex;
-    align-items: center;
-    padding: 0 4rem;
+    max-width: 1400px; margin: 0 auto; display: flex;
+    align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+/* --- EFEK SAAT SCROLL (LOGIKA DIPERBAIKI) --- */
+.top-header.scrolled, .main-header.scrolled {
+    background-color: #0d244f; /* Latar Biru Tua Solid */
+}
+.top-header.scrolled .top-links-right a {
+    color: #b78729; /* Warna emas lebih gelap */
+}
+.top-header.scrolled .register-button {
+    border-color: #b78729;
+}
+.main-header.scrolled .nav-link, 
+.main-header.scrolled .header-search {
+    color: #b78729; /* Warna emas lebih gelap */
 }
 
-main {
+main { padding-top: 100px;
 
 }
 
@@ -58,22 +72,7 @@ main {
 .top-header a:hover {
     color: #dfb35a;
 }
-.top-header.scrolled, .main-header.scrolled {
-    background-color: #0d244f !important; /* Latar Biru Tua Solid (DIPAKSA JADI PRIORITAS) *
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-.top-header.scrolled a,
-.main-header.scrolled .nav-link,
-.main-header.scrolled .header-search svg {
-    color: #dfb45e; /* Teks jadi warna emas saat scroll */
-}
-.top-header.scrolled .register-button {
-    border-color: #dfb45e;
-}
-.top-header .header-container { justify-content: flex-end; }
-.top-links-right a {
-    color: #dfb35a; text-decoration: none; margin-left: 1rem;
-}
+
 .register-button {
     border: 1px solid #dfb45e;
     border-radius: 50px;
