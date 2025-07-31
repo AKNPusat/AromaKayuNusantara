@@ -1013,7 +1013,7 @@ main p, .content-section p {
 /* --- Grid Katalog/Publikasi --- */
 .publication-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
 }
 
@@ -1047,7 +1047,7 @@ main p, .content-section p {
 
 .publication-info h4 {
     margin: 0 0 0.5rem 0;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 .publication-info p {
