@@ -100,8 +100,8 @@
                     <!-- === KOLOM KIRI (SIDEBAR NAVIGASI) === -->
                     <!-- Kita tetap menggunakan class 'sidebar-nav' -->
                     <aside class="sidebar-nav">
-                        <a href="#produk" class="sidebar-link">Produk Aroma Kayu Nusantara</a>
-                        <a href="#informasi" class="sidebar-link active">Informasi Terbaru Terkait AKN</a>
+                        <a href="#produk-section" class="sidebar-link" data-target="produk-section">Produk Aroma Kayu Nusantara</a>
+                        <a href="#informasi-section" class="sidebar-link active" data-target="informasi-section">Informasi Terbaru Terkait AKN</a>
                     </aside>
 
                     <!-- === KOLOM KANAN (KONTEN UTAMA) === -->
@@ -110,6 +110,7 @@
                         
                         <!-- Filter Bar BARU -->
                         <div class="filter-bar">
+                        </div>
                             <h4 class="filter-title">Filter</h4>
                             <div class="filter-controls">
                                 <div class="search-input-group">
@@ -121,29 +122,39 @@
                             </div>
                         </div>
 
-                        <!-- Grid untuk Katalog / Publikasi BARU -->
-                        <div class="publication-grid">
+                         <section id="produk-section" class="publication-content">
+                        <h3 class="content-title-hidden">Produk Aroma Kayu Nusantara</h3>
+                            <div class="publication-grid">
                             
                             <!-- Contoh Katalog 1 -->
-                            <a href="#" class="publication-card" id="produk 1">
-                                <img src="https://via.placeholder.com/300x400.png?text=Cover+Katalog" alt="Cover Katalog">
-                                <div class="publication-info"><h4>Katalog Produk AKN</h4><p>Edisi  2025</p></div>
+                            <a href="#" class="publication-card">
+                                <img src="https://via.placeholder.com/300x400.png?text=Produk+1" alt="Produk 1">
+                                <div class="publication-info"><h4>Produk Gaharu Super</h4><p>Koleksi 2025</p></div>
                             </a>
 
                             <!-- Contoh Katalog 2 -->
-                             <a href="#" class="publication-card" id="produk 2">
-                                <img src="https://via.placeholder.com/300x400.png?text=Cover+Laporan" alt="Cover Katalog">
-                                <div class="publication-info"><h4>Katalog Produk AKN</h4><p>Edisi  2025</p></div>
+                             <a href="#" class="publication-card">
+                                <img src="https://via.placeholder.com/300x400.png?text=Produk+1" alt="Produk 2">
+                                <div class="publication-info"><h4>Produk Gaharu Super</h4><p>Koleksi 2025</p></div>
                             </a>
 
                             <!-- Contoh Katalog 3 -->
-                             <a href="#" class="publication-card" id="produk 3">
-                                <img src="https://via.placeholder.com/300x400.png?text=Cover+Laporan" alt="Cover Katalog">
-                                <div class="publication-info"><h4>Katalog Produk AKN</h4><p>Edisi  2025</p></div>
+                             <a href="#" class="publication-card">
+                                <img src="https://via.placeholder.com/300x400.png?text=Produk+1" alt="Produk 3">
+                                <div class="publication-info"><h4>Produk Gaharu Super</h4><p>Koleksi 2025</p></div>
                             </a>
-                            
-                            <!-- Tambahkan kartu lain di sini -->
+                            </div>
+                    </section>
+                            <section id="informasi-section" class="publication-content">
+                            <h3 class="content-title-hidden">Informasi Terbaru Terkait AKN</h3>
+                            <div class="publication-grid">
+                            <!-- Contoh Informasi 1 -->
+                            <a href="#" class="publication-card">
+                            <img src="https://via.placeholder.com/300x400.png?text=Info+1" alt="Info 1">
+                            <div class="publication-info"><h4>Laporan Keberlanjutan</h4><p>Publikasi Juni 2024</p></div>
+                            </a>
                         </div>
+                    </section>
                     </div>
                 </div>
             </div>
