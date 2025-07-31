@@ -43,7 +43,7 @@ main {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: transparent;
+    background-color:  #0d244f;
     color: #dfb45e;
     padding: 0.2rem 0;
     font-size: 0.8rem;
@@ -78,7 +78,7 @@ main {
     left: 0;
     width: 100%;
     z-index: 999;
-    background-color: transparent;
+    background-color:  #0d244f;
     padding: 0.5rem 0;
     font-size: 0.9rem;
     color: #dfb45e;
