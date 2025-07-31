@@ -134,6 +134,50 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
+    // ==========================================================
+    // === LOGIKA BARU UNTUK SIDEBAR AKTIF & TAMPILKAN KONTEN ===
+    // ==========================================================
+    const sidebarLinks = document.querySelectorAll('.sidebar-nav .sidebar-link');
+    const contentSections = document.querySelectorAll('.publication-content');
+
+    // Cek apakah elemen-elemen ini ada di halaman
+    if (sidebarLinks.length > 0 && contentSections.length > 0) {
+
+        // Fungsi untuk menampilkan konten yang benar
+        function showContent(targetId) {
+            contentSections.forEach(section => {
+                if (section.id === targetId) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+        
+        // Atur tampilan awal saat halaman dimuat
+        const activeLink = document.querySelector('.sidebar-nav .sidebar-link.active');
+        if (activeLink) {
+            showContent(activeLink.getAttribute('data-target'));
+        } else {
+             // Jika tidak ada yang aktif, tampilkan yang pertama
+            contentSections[0].style.display = 'block';
+            sidebarLinks[0].classList.add('active');
+        }
+
+        // Tambahkan fungsi klik ke setiap link di sidebar
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Mencegah lompatan halaman
+
+                // Hapus class 'active' dari semua link
+                sidebarLinks.forEach(item => item.classList.remove('active'));
+                
+                // Tambahkan class 'active' ke link yang diklik
+                this.classList.add('active');
+
+                // Tampilkan konten yang sesuai
+                const targetId = this.getAttribute('data-targe
+        
         // Dropdown Toggle Function
         document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
             toggle.addEventListener('click', function (e) {
