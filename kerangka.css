@@ -31,20 +31,6 @@ body {
     max-width: 1400px; margin: 0 auto; display: flex;
     align-items: center; justify-content: space-between; padding: 0 2rem;
 }
-/* --- EFEK SAAT SCROLL (LOGIKA DIPERBAIKI) --- */
-.top-header.scrolled, .main-header.scrolled {
-    background-color: #0d244f; /* Latar Biru Tua Solid */
-}
-.top-header.scrolled .top-links-right a {
-    color: #b78729; /* Warna emas lebih gelap */
-}
-.top-header.scrolled .register-button {
-    border-color: #b78729;
-}
-.main-header.scrolled .nav-link, 
-.main-header.scrolled .header-search {
-    color: #b78729; /* Warna emas lebih gelap */
-}
 
 main { 
 
@@ -86,10 +72,6 @@ main {
     border-color: #dfb45e;
 }
 
-.top-header.scrolled .register-button:hover {
-    background-color: var(--text-dark) !important;
-    color: #dfb45e; !important;
-}
 .main-header {
     position: fixed;
     top: 28px;
@@ -967,3 +949,7 @@ main p, .content-section p {
         padding: 0.8rem 0;
         border-bottom: 1px solid rgba(255,255,255,0.05);
     }
+.top-header.scrolled, .main-header.scrolled {
+    background-color: #0d244f !important; /* Latar Biru Tua Solid DIPAKSA JADI PRIORITAS */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
