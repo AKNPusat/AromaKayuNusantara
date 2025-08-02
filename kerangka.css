@@ -1176,7 +1176,7 @@ main p, .content-section p {
     color: var(--text-dark);
     padding-bottom: 1.25rem;
     margin-bottom: 1.25rem;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--primary-blue);
 }
 
 .news-list-item:last-child {
