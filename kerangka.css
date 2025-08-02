@@ -1126,12 +1126,13 @@ main p, .content-section p {
 }
 
 .news-category {
-    font-size: 0.75rem;
+    font-size: 0.70rem;
     font-weight: 700;
     color: var(--primary-blue);
     text-transform: uppercase;
     margin: 0 0 0.75rem 0;
     text-align: left;
+    color: #004aad;
 }
 
 .featured-news-details h2 {
@@ -1149,8 +1150,8 @@ main p, .content-section p {
 }
 
 .news-date {
-    font-size: 0.8rem;
-    color: #888;
+    font-size: 0.7rem;
+    color: #ebcf97;
 }
 
 /* --- Kolom Kanan (Sidebar Berita) --- */
@@ -1183,7 +1184,7 @@ main p, .content-section p {
 }
 
 .news-list-item img {
-    width: 140px;
+    width: 150px;
     flex-shrink: 0;
     aspect-ratio: 4 / 3;
     object-fit: cover;
@@ -1199,6 +1200,7 @@ main p, .content-section p {
     font-weight: 600;
     line-height: 1.4;
     margin: 0;
+    color: #050240
 }
 .news-list-item:hover .news-item-title {
     color: var(--primary-blue);
